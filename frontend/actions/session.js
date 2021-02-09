@@ -1,7 +1,7 @@
 import {
   postSession,
   deleteSession
-} from '../utils/session_api'
+} from '../util/session'
 
 
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
@@ -22,3 +22,4 @@ export const login = formUser => dispatch => postSession(formUser)
 
 export const logout = () => dispatch => deleteSession()
   .then(() => dispatch(logoutCurrentUser()));
+

@@ -13,6 +13,7 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save!
       login(@user)
+      render json: {messages: "created a new user, logged in"}
       #render show page for user
     else
       render json: {messages: @user.errors.full_messages}

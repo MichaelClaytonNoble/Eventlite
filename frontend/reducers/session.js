@@ -9,7 +9,7 @@ const _nullSession = {
 };
 
 //the previous state 
-export default (state = _nullSession, action) => {
+const sessionReducer = (state = _nullSession, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
@@ -27,3 +27,5 @@ export default (state = _nullSession, action) => {
 //we need to go into the root reducer and add
 // in the session reducer at the root level 
 //then add the reducer to the 
+
+export default sessionReducer;
