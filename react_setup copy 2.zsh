@@ -9,6 +9,7 @@ npm install babel-loader
 npm install react
 npm install react-dom
 npm install react redux
+npm install react-redux
 npm install webpack@4.46.0
 npm install redux-logger
 npm install react-router-dom

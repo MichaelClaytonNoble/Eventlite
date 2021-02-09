@@ -11,7 +11,7 @@ class Api::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save!
+    if @user.save
       login(@user)
       render json: {messages: "created a new user, logged in"}
       #render show page for user
@@ -31,6 +31,6 @@ class Api::UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:id, :email, :first_name, :last_name)
+    params.require(:user).permit(:id, :email, :first_name, :last_name, :password)
   end
 end

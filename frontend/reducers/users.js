@@ -1,7 +1,7 @@
 import {RECEIVE_NEW_USER} from '../actions/users';
 
 
-const usersReducer = (state={}, action){
+const usersReducer = (state={}, action) =>{
 
   Object.freeze(state);
   const nextState = Object.assign({}, state);
