@@ -7,3 +7,6 @@ const createUser = user => {
     data: { user: user }
   });
 }
+
+export const createNewUser = formUser => dispatch => postUser(formUser)
+  .then(user => dispatch(receiveCurrentUser(user)));
