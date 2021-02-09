@@ -1,6 +1,6 @@
 import {
-  logout,
-  login
+  postSession,
+  deleteSession
 } from '../utils/session_api'
 
 
@@ -16,7 +16,7 @@ const logoutCurrentUser = () => ({
   type: LOGOUT_CURRENT_USER,
 });
 
-
+//thunk actions to be used in container  
 export const login = formUser => dispatch => postSession(formUser)
   .then(user => dispatch(receiveCurrentUser(user)));
 

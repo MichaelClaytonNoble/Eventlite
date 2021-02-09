@@ -1,7 +1,7 @@
 
 
 // for sessions logging in, and out, 
-const login = (user) =>{
+export const postSession = (user) =>{
   return $.ajax({
     method: "POST",
     url: '/api/sessions',
@@ -9,10 +9,11 @@ const login = (user) =>{
   });
 }
 
-const logout = () =>{
+export const deleteSession = () =>{
   return $.ajax({
     method: "DELETE",
     url: '/api/sessions'
   });
 }
+
 
