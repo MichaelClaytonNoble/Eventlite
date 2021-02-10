@@ -8,6 +8,7 @@
     "lib": "lib",
     "test": "test"
   },
+  "stack": "heroku-18",
   "engines": {
     "node": "15.5.1",
     "npm": "7.3.0"
