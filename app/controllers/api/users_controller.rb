@@ -1,5 +1,6 @@
 class Api::UsersController < ApplicationController
 
+  before_action :require_logged_out, only:[:create]
 
   def index
     @users = User.all
@@ -13,7 +14,7 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       login(@user)
-      render json: @user
+      render :create
       #render show page for user
     else
       render json: @user.errors.full_messages, status: 422

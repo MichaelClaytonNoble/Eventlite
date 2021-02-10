@@ -5,7 +5,10 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find_by(session_token: session[:session_token])
   end
 
-  def require_logged_in
+  def require_logged_out
+    if logged_in?
+      render json: {messages: "cannot perform action"}
+    end
   end
 
   def login(user)
