@@ -10,18 +10,18 @@ class Api::SessionsController < ApplicationController
     if @user
       login(@user)
       #render some message 
-      render json: {user: @user, messages: "logged in as #{@user.email}"}
+      render json: {id: @user.id}
     else
-      render json: {messages: "INVALID USERNAME OR PASSWORD"}
+      render json: {messages: "INVALID USERNAME OR PASSWORD"}, status: 422
     end
   end
 
   def destroy
     if(logged_in?)
       logout
-      render json: {messages: "logged out"}
+      render json: {}
     else
-      render json: {messages: "No user logged in"}
+      render json: {messages: "No user logged in"}, status: 404
     end
   end 
 end
