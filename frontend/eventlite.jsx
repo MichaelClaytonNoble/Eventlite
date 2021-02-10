@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
   window.dispatch = store.dispatch;
   window.getState = store.getState;
   
+  
   const root = document.getElementById('root');
   ReactDOM.render(<div>React DOM </div>, root);
 })
