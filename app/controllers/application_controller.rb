@@ -7,7 +7,13 @@ class ApplicationController < ActionController::Base
 
   def require_logged_out
     if logged_in?
-      render json: {messages: "cannot perform action"}
+      render json: ["Already Logged into an account"], status: 422
+    end
+  end
+
+  def require_logged_in
+    if !logged_in?
+      render json: ["User must be logged in "], status: 422
     end
   end
 

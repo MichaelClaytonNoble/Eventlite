@@ -1,4 +1,6 @@
 class Api::SessionsController < ApplicationController
+  before_action :require_logged_out, only:[:create]
+  before_action :require_logged_in, only:[:destroy]
 
   def new
     render :new
@@ -8,21 +10,16 @@ class Api::SessionsController < ApplicationController
     @user = User.find_by_credentials(params[:user][:email], params[:user][:password])
 
     if @user
-      login(@user)
-      #render some message 
-      render :create
+        login(@user)
+        #render some message 
+        render :create
     else
-
-      render json: {status: "error", code: 422, messages: "INVALID USERNAME OR PASSWORD"}, status: 422
+      render json: ["INVALID USERNAME OR PASSWORD"], status: 422
     end
   end
 
   def destroy
-    if(logged_in?)
-      logout
-      render json: {}
-    else
-      render json: {messages: "No user logged in"}, status: 404
-    end
+    logout
+    render json: {}
   end 
 end

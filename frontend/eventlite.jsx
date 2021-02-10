@@ -2,13 +2,30 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {postUser} from './util/users';
 import {logout, login} from './actions/session'
-import {createNewUser} from './actions/users';
+import {signup} from './actions/users';
 import configureStore from './store/store';
 
 document.addEventListener('DOMContentLoaded', ()=>{
-  const store = configureStore();
+  let store;
+  if (window.currentUser) {
+    const { currentUser } = window;
+    const { id } = currentUser;
+    const preloadedState = {
+      entities: {
+        users: { [id]: currentUser }
+      },
+      session: { 
+        currentUser: {id}
+      }
+    };
+    store = configureStore(preloadedState);
+    delete window.currentUser;
+  }
+  else{
+    store = configureStore();
+  }
 
-  window.createNewUser = createNewUser;
+  window.signup = signup;
   window.logout = logout;
   window.login = login;
   window.dispatch = store.dispatch;
