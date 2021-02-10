@@ -12,7 +12,8 @@ class Api::SessionsController < ApplicationController
       #render some message 
       render :create
     else
-      render json: {messages: "INVALID USERNAME OR PASSWORD"}, status: 422
+
+      render json: {status: "error", code: 422, messages: "INVALID USERNAME OR PASSWORD"}, status: 422
     end
   end
 
