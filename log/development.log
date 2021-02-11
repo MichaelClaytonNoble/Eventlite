@@ -4790,3 +4790,21 @@ Sass::SyntaxError - Undefined variable: "$eventbrite-orange".:
   app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb__2728434333694388284_70313651162780'
 
 Started POST "/__better_errors/a0ca0c04006c6d54/variables" for ::1 at 2021-02-10 17:45:56 -0800
+Started GET "/" for ::1 at 2021-02-10 17:57:44 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "tXuurOje2Fiacz5jsMycRQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 588ms (Views: 585.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for ::1 at 2021-02-10 17:59:08 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "tXuurOje2Fiacz5jsMycRQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 79ms (Views: 76.0ms | ActiveRecord: 0.5ms)
+
+
