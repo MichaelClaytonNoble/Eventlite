@@ -43,6 +43,6 @@ export const login = formUser => dispatch => postSession(formUser)
 export const logout = () => dispatch => deleteSession()
   .then(() => dispatch(logoutCurrentUser()),(err)=> dispatch(receiveSessionErrors(err.responseJSON)));
 
-export const findUserByEmailForSession = email => findByEmailForSession(email)
-  .then(result => dispatch(receiveEmailForSession(result)), err => dispatch(receiveSessionErrors(err.responseJSON)));
+export const findUserByEmailForSession = email => dispatch => findByEmailForSession(email)
+  .then(result => dispatch(receiveEmailForSession(result)));
 

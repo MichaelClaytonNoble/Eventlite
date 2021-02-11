@@ -11,29 +11,34 @@ class SessionEmailForm extends React.Component{
   }
 
   handleSubmit(e){
-    // search for the users email in the database
-    //if this exists in the database 
+
     //then push
-    this.props.findIfEmailExists(this.state.email);
-
-    this.props.history.push('/signin/login');
+    alert(this.props.emailExists); 
+    
+    if(this.props.emailExists){
+      this.props.history.push('/signin/login');
+    }
+    else{
+      this.props.history.push('/signin/signup');
+    }
   }
-
+  
   handleChange(e){
     localStorage.setItem('email', e.target.value);
+    this.props.findIfEmailExists(e.target.value);
     this.setState({email: e.target.value});
   }
   render(){
 
-    let button, message, header, disabled = ''
+    let button, message, header, disabled = 'disabled'
     if (this.props.location.pathname === "/signin" ){
+      disabled = '';
       button = <button id="session-form-submit">Get Started</button>;
-      header = <h1 id="header"> Sign up or log in</h1>
+      header = <h1 id="header"> Sign up or log in</h1>;
     }
     if(this.props.location.pathname ==='/signin/login'){
-      disabled = 'disabled'
-      header = <h1 id="header">Welcome back</h1>
-      message = <p id="session-login-message">Please enter your password to log in</p>
+      header = <h1 id="header">Welcome back</h1>;
+      message = <p id="session-login-message">Please enter your password to log in</p>;
     }
     return (
       <div id="session-email-form">
@@ -48,8 +53,7 @@ class SessionEmailForm extends React.Component{
           {button}
         </form>
       </div>
-    )
+    );
   }
-
 }
 export default withRouter(SessionEmailForm)
