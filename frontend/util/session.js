@@ -16,4 +16,12 @@ export const deleteSession = () =>{
   });
 }
 
+export const findByEmail = email =>{
+  return $.ajax({
+    method: "POST",
+    url: '/api/session/find',
+    data: {email}
+  });
+}
+
 

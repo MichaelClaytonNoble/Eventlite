@@ -37,4 +37,3 @@ export const logout = () => dispatch => deleteSession()
   .then(() => dispatch(logoutCurrentUser()),(err)=> dispatch(receiveSessionErrors(err.responseJSON)));
 
 
-

@@ -7,3 +7,4 @@ export const postUser = user => {
     data: { user }
   });
 }
+

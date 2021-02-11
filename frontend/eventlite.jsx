@@ -5,6 +5,7 @@ import {logout, login} from './actions/session'
 import {signup} from './actions/users';
 import configureStore from './store/store';
 import Root from './components/root';
+import {findByEmail} from './util/session';
 
 
 document.addEventListener('DOMContentLoaded', ()=>{
@@ -30,6 +31,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
   window.signup = signup;
   window.logout = logout;
   window.login = login;
+
+  window.findByEmail = findByEmail; 
   window.dispatch = store.dispatch;
   window.getState = store.getState;
   

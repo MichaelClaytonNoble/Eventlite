@@ -1,5 +1,5 @@
 class Api::SessionsController < ApplicationController
-  before_action :require_logged_out, only:[:create]
+  before_action :require_logged_out, only:[:create, :find]
   before_action :require_logged_in, only:[:destroy]
 
   def new
@@ -15,6 +15,16 @@ class Api::SessionsController < ApplicationController
         render :create
     else
       render json: ["INVALID USERNAME OR PASSWORD"], status: 422
+    end
+  end
+
+  def find 
+    debugger
+    @user = User.find_by(email: params[:email])
+    if @user
+      render json: true
+    else
+      render json: false
     end
   end
 
