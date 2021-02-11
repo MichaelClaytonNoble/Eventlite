@@ -13,7 +13,7 @@ class HeaderNavBar extends React.Component {
       <div id="header-nav-bar">
         <span id="header-nav-bar-left">
           <Link to="/" id="logo-link">Eventlite</Link>
-          <input id="search-bar-input" />
+          <i class="fas fa-search"></i><input id="search-bar-input" />
         </span>
         <span id="header-nav-bar-right">
           <span id="host-event-dropdown">Host an event</span>

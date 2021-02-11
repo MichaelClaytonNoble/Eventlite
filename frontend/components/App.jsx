@@ -5,7 +5,7 @@ import SessionLoginForm from './session/session_login_form';
 
 const App = () => {
   return (
-    <div id="App"> App is being rendered
+    <div id="App">
       <HeaderNavBar/>
     </div>
   )
