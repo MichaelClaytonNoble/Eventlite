@@ -30,11 +30,11 @@ class SessionEmailForm extends React.Component{
     return (
       <div id="session-email-form">
         <span id="session-email-form-header">
-          <h1 id="header-logo"></h1>
+          <h1 id="header-logo">e</h1>
         </span>
         <form id="session-form" onSubmit={this.handleSubmit}>
           <h1 id="header"> Sign up or log in</h1>
-          <input type="text" required placeholder="Email address" onChange={this.handleChange} value={this.state.email}/>
+          <input id="session-email-form-input" type="text" required placeholder="Email address" onChange={this.handleChange} value={this.state.email}/>
           {button}
         </form>
       </div>

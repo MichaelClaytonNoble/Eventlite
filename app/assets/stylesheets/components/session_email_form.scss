@@ -1,0 +1,45 @@
+
+
+
+#session-email-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  border: 1px solid black; 
+}
+
+#session-form{
+  display: flex;
+  flex-direction: column;
+}
+#session-email-form-header #header-logo{
+  font-size: 100px;
+  color: $eventbrite-orange;
+  font-weight: 650;
+}
+#session-form #header{
+  font-size: 28px;
+  font-family: $main-font-family;
+  margin-bottom: 40px;
+  text-align: center;
+  font-weight: 870;
+}
+#session-email-form-input{
+  height: 44px;
+  width: 350px; 
+  border: 1px solid $border-color;
+  margin-bottom: 40px; 
+}
+#session-email-form-submit{
+  height: 44px;
+  width: 350px; 
+  border: 1px solid black; 
+  text-align: center;
+  background-color: $submit-button-color; 
+  color: #fff;
+  font-family: $main-font-family; 
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: 450; 
+}
