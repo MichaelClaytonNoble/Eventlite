@@ -1,12 +1,15 @@
 #header-nav-bar{
   // width: 1213.6px;
-  width: 100%;
-  border: 1px solid black; 
+  width: 99%;
+  border-right: 1px solid black; 
+  border-left: 1px solid black; 
   display: flex;
   justify-content: space-between;
   margin: 10px;
   height: 72px;
   align-items: center; 
+  border-top: .5px solid $border-color;
+  border-bottom: .5px solid $border-color;
 }
 
 #logo-link{
@@ -20,14 +23,17 @@
 
 #header-nav-bar-left{
   display: flex;
+  align-items: center;
 }
 
 #header-nav-bar-right{
   display: flex;
-  font-size: 17px; 
+  font-size: 14px; 
+  margin-right: 5px;
 }
 #header-nav-bar-right span{
-  padding: 20px 10px 20px 10px;
+  height: 100%;
+  padding: 29px 10px 29px 10px;
 }  
 #header-nav-bar-right span:hover{
     cursor: pointer;
@@ -39,6 +45,13 @@
 }
 
 // search bar 
+#search-bar-input-span {
+  font-size: 14px;
+  margin-left: 24px;
+}
 #search-bar-input {
-  
+  margin-left: 10px;
+}
+#search-bar-clicked {
+  border: 1px solid 
 }
