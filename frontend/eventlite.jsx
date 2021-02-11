@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {postUser} from './util/users';
-import {logout, login} from './actions/session'
+
+import {logout, login, findUserByEmailForSession} from './actions/session'
 import {signup} from './actions/users';
 import configureStore from './store/store';
 import Root from './components/root';
-import {findByEmail} from './util/session';
+
 
 
 document.addEventListener('DOMContentLoaded', ()=>{
@@ -28,15 +28,18 @@ document.addEventListener('DOMContentLoaded', ()=>{
     store = configureStore();
   }
 
-  window.signup = signup;
-  window.logout = logout;
-  window.login = login;
-
-  window.findByEmail = findByEmail; 
-  window.dispatch = store.dispatch;
-  window.getState = store.getState;
-  
-  
+  windowStuff(store);
+ 
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store}/>, root);
 })
+
+const windowStuff = (store)=>{
+  window.signup = signup;
+  window.logout = logout;
+  window.login = login;
+  window.findUserByEmailForSession = findUserByEmailForSession;
+
+  window.dispatch = store.dispatch;
+  window.getState = store.getState;
+}

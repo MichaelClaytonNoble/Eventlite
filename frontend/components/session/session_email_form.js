@@ -14,7 +14,8 @@ class SessionEmailForm extends React.Component{
     // search for the users email in the database
     //if this exists in the database 
     //then push
-    
+    this.props.findIfEmailExists(this.state.email);
+
     this.props.history.push('/signin/login');
   }
 

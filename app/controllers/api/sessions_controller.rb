@@ -19,7 +19,6 @@ class Api::SessionsController < ApplicationController
   end
 
   def find 
-    debugger
     @user = User.find_by(email: params[:email])
     if @user
       render json: true
