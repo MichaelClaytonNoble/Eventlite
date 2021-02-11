@@ -24,6 +24,7 @@
 #header-nav-bar-left{
   display: flex;
   align-items: center;
+  width: 50%;
 }
 
 #header-nav-bar-right{
@@ -48,10 +49,21 @@
 #search-bar-input-span {
   font-size: 14px;
   margin-left: 24px;
+  background-color: $search-bar-color;
+  padding-left: 10px;
+  width: 60%;
+  height: 48px;
 }
+
 #search-bar-input {
-  margin-left: 10px;
+  width: 90%;
+  height: 48px;
 }
 #search-bar-clicked {
   border: 1px solid 
+}
+#search-bar-input-span i{
+  width: 7%;
+  margin: 5px; 
+  height: 100%;
 }
