@@ -23,9 +23,16 @@ class SessionEmailForm extends React.Component{
     this.setState({email: e.target.value});
   }
   render(){
-    let button = ''; 
+
+    let button, message, header, disabled = ''
     if (this.props.location.pathname === "/signin" ){
-      button = <button id="session-email-form-submit">Get Started</button>;
+      button = <button id="session-form-submit">Get Started</button>;
+      header = <h1 id="header"> Sign up or log in</h1>
+    }
+    if(this.props.location.pathname ==='/signin/login'){
+      disabled = 'disabled'
+      header = <h1 id="header">Welcome back</h1>
+      message = <p id="session-login-message">Please enter your password to log in</p>
     }
     return (
       <div id="session-email-form">
@@ -33,8 +40,10 @@ class SessionEmailForm extends React.Component{
           <h1 id="header-logo">e</h1>
         </span>
         <form id="session-form" onSubmit={this.handleSubmit}>
-          <h1 id="header"> Sign up or log in</h1>
-          <input id="session-email-form-input" type="text" required placeholder="Email address" onChange={this.handleChange} value={this.state.email}/>
+          {header}
+          {message}
+          <input id="session-form-input" type="text" required placeholder="Email address" 
+              onChange={this.handleChange} value={this.state.email} disabled={disabled}/>
           {button}
         </form>
       </div>

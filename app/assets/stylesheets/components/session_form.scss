@@ -1,0 +1,27 @@
+
+#session-form #header{
+  font-size: 28px;
+  font-family: $main-font-family;
+  margin-bottom: 40px;
+  text-align: center;
+  font-weight: 870;
+}
+
+#session-form-input{
+  height: 44px;
+  width: 350px; 
+  border: 1px solid $border-color;
+  margin-bottom: 20px; 
+}
+#session-form-submit{
+  height: 44px;
+  width: 350px; 
+  border: 1px solid black; 
+  text-align: center;
+  background-color: $submit-button-color; 
+  color: #fff;
+  font-family: $main-font-family; 
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: 450; 
+}

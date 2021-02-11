@@ -20,9 +20,10 @@ class SessionLoginForm extends React.Component {
   render(){
     return(
       <div id="session-login-form">
-        <form onSubmit={this.handleSubmit}>
-            <input id="password-input" type="password" placeholder="password" onChange={this.handleChange}/>
-          <button id="session-login-form-submit">Log in</button>
+        <form id="session-form" onSubmit={this.handleSubmit}>
+        
+          <input id="session-form-input" type="password" placeholder="password" onChange={this.handleChange}/>
+          <button id="session-form-submit">Log in</button>
         </form>
       </div>
     )
