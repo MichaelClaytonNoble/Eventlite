@@ -1,0 +1,12 @@
+#header-nav-bar{
+  width: 1213.6px;
+  border: 1px solid black; 
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  height: 72px;
+}
+
+#header-nav-bar > #logo-link{
+  color: $eventbrite-orange;
+}

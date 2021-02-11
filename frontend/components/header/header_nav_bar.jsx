@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 
-class HeaderBarMenu extends React.Component {
+class HeaderNavBar extends React.Component {
   constructor(props){
     super(props);
   }
@@ -10,12 +10,12 @@ class HeaderBarMenu extends React.Component {
   render(){
 
     return(
-      <div id="header-bar-menu">
-        <span id="header-bar-menu-left">
-          <Link to="/">Eventlite</Link>
+      <div id="header-nav-bar">
+        <span id="header-nav-bar-left">
+          <Link to="/" id="logo-link">Eventlite</Link>
           <input id="search-bar-input" />
         </span>
-        <span id="header-bar-menu-right">
+        <span id="header-nav-bar-right">
           <span id="host-event-dropdown">Host an event</span>
           <span id="help-dropdown">Help</span>
           <span id="signin-link">
@@ -27,4 +27,4 @@ class HeaderBarMenu extends React.Component {
   }
 }
 
-export default HeaderBarMenu;
+export default HeaderNavBar;

@@ -1,12 +1,12 @@
 import React from 'react';
-import HeaderBarMenu from './header/header_bar_menu';
+import HeaderNavBar from './header/header_nav_bar';
 import SessionLoginForm from './session/session_login_form';
 
 
 const App = () => {
   return (
-    <div> App is being rendered
-      <HeaderBarMenu/>
+    <div id="App"> App is being rendered
+      <HeaderNavBar/>
     </div>
   )
 }
