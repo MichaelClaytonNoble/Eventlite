@@ -53,17 +53,19 @@
   padding-left: 10px;
   width: 60%;
   height: 48px;
+  align-items: center; 
+  display: flex;
+  flex-direction: row;
 }
 
 #search-bar-input {
   width: 90%;
   height: 48px;
 }
-#search-bar-clicked {
-  border: 1px solid 
-}
+
 #search-bar-input-span i{
   width: 7%;
   margin: 5px; 
-  height: 100%;
+  font-size: 13px;
+  color: rgb(185, 185, 185); 
 }
