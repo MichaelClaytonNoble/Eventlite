@@ -5,8 +5,18 @@
   justify-content: space-between;
   margin: 10px;
   height: 72px;
+  align-items: center; 
 }
 
 #logo-link{
   color: $eventbrite-orange;
+  font-family: "roboto", helvetica, arial, sans-serif;
+}
+#logo-link:hover{
+  cursor: pointer;
+}
+
+#header-nav-bar-left{
+  display: flex;
+
 }
