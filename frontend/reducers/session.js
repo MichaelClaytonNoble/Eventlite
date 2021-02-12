@@ -6,7 +6,7 @@ import {
 } from '../actions/session';
 
 
-let banana = {
+let _nullSession = {
   currentUser: {
     id: null
   },
@@ -16,12 +16,11 @@ let banana = {
 };
 
 //the previous state 
-const sessionReducer = (state = banana, action) => {
+const sessionReducer = (state = _nullSession, action) => {
   Object.freeze(state);
   const nextState = merge({}, state);
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
-      debugger
       //return  a slice of state where the current user's id is nested under id
       nextState.currentUser.id = action.user.id;
       nextState.newSession = {emailExists: false};
@@ -32,14 +31,7 @@ const sessionReducer = (state = banana, action) => {
     case LOGOUT_CURRENT_USER:
 
       //return the nullsession 
-      return banana;
-      // return {
-      //   currentUser: {
-      //     id: null},  
-      //     newSession: {
-      //       emailExists: 
-      //       false } 
-      //   }
+      return _nullSession;
     default:
       return state;
   }

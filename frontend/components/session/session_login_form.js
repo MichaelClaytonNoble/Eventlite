@@ -17,13 +17,13 @@ class SessionLoginForm extends React.Component {
   handleSubmit(e){
 
     this.props.login(this.state);
-    console.log(this.props.errors); 
     this.setState();
   }
    
   handleChange(e){
     this.setState({password: e.target.value})
   }
+
   render(){
     return(
       <div id="session-login-form">

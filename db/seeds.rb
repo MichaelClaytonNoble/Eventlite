@@ -9,7 +9,7 @@
 
 User.destroy_all
 
-User.create!({email: "Example Account", password: "123456", first_name: "Demo", last_name: "Login"}); 
-User.create!({email: "000", password: "123456", first_name: "000", last_name: "000"}); 
-User.create!({email: "111", password: "123456", first_name: "111", last_name: "111"}); 
-User.create!({email: "222", password: "123456", first_name: "222", last_name: "222"}); 
+User.create!({email: "Example.Account@demo.com", password: "123456", first_name: "Demo", last_name: "Login"}); 
+User.create!({email: "000@000.000", password: "123456", first_name: "000", last_name: "000"}); 
+User.create!({email: "111@111.111", password: "123456", first_name: "111", last_name: "111"}); 
+User.create!({email: "222@222.222", password: "123456", first_name: "222", last_name: "222"}); 

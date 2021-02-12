@@ -19,3 +19,23 @@
   font-weight: 650;
 }
 
+#session-form-demo-login-button{
+  height: 44px;
+  width: 350px; 
+  font-size: 20px;
+  border: 1px solid black; 
+  text-align: center;
+  background-color: $facebook-blue; 
+  color: #fff;
+  font-family: $main-font-family; 
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: 450; 
+  margin-top: 20px; 
+}
+
+#session-email-form-or{
+  margin-top: 20px;
+  font-size: 13px; 
+  align-self: center;
+}

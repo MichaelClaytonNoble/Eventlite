@@ -1,7 +1,7 @@
 import React from 'react';
 import {Redirect} from 'react-router-dom';
 
-import HeaderNavBar from './header/header_nav_bar';
+import HeaderNavBarContainer from './header/header_nav_bar';
 import SessionLoginFormContainer from './session/session_login_form_container';
 
 import SessionEmailFormContainer from './session/session_email_form_container'; 
@@ -14,7 +14,7 @@ import {AuthRoute} from '../util/route_util.jsx';
 const App = () => {
     return (
       <div id="App">
-        <HeaderNavBar /> 
+        <HeaderNavBarContainer /> 
         <AuthRoute path="/signin" component={SessionEmailFormContainer} />
         <AuthRoute exact path="/signin/login" component={SessionLoginFormContainer} />
       </div>
