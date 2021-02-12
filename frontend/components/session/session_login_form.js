@@ -7,6 +7,7 @@ class SessionLoginForm extends React.Component {
     this.state = { email: '', password: ''};
     this.handleSubmit = this.handleSubmit.bind(this); 
     this.handleChange = this.handleChange.bind(this); 
+    this.clearErrors=false;
   }
 
   componentDidMount(){
@@ -14,19 +15,19 @@ class SessionLoginForm extends React.Component {
     localStorage.clear(); 
   }
   componentDidUpdate(){
-    console.log(this.props.errors);
-    if(this.props.errors.length > 0){
+    if(this.clearErrors){
       this.props.clearErrors();
     }
+    this.clearErrors = false; 
   }
 
   handleSubmit(e){
-
     this.props.login(this.state);
     this.setState();
   }
    
   handleChange(e){
+    this.clearErrors = true;
     this.setState({password: e.target.value})
   }
 
