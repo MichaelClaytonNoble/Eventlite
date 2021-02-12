@@ -13,6 +13,12 @@ class SessionLoginForm extends React.Component {
     this.state.email = localStorage.email;
     localStorage.clear(); 
   }
+  componentDidUpdate(){
+    console.log(this.props.errors);
+    if(this.props.errors.length > 0){
+      this.props.clearErrors();
+    }
+  }
 
   handleSubmit(e){
 

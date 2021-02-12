@@ -33,12 +33,13 @@ class SessionEmailForm extends React.Component{
     this.setState();
   }
   render(){
-    let submitButton, message, header, demoLoginButton = '';
+    let submitButton, message, header, demoLoginButton, or = '';
     let disabled = 'disabled'; 
     if (this.props.location.pathname === "/signin" ){
       disabled = '';
       submitButton = <button id="session-form-submit">Get Started</button>;
       demoLoginButton = <button id="session-form-demo-login-button" onClick={this.loginDemoUser}>Demo User</button>;
+      or = <p id="session-email-form-or">or</p>;
       header = <h1 id="header"> Sign up or log in</h1>;
     }
     if(this.props.location.pathname ==='/signin/login'){
@@ -56,7 +57,7 @@ class SessionEmailForm extends React.Component{
           <input id="session-form-input" type="text" required placeholder="Email address" 
               onChange={this.handleChange} value={this.state.email} disabled={disabled}/>
           {submitButton}
-          <p id="session-email-form-or">or</p>
+          {or}
           {demoLoginButton}
           
         </form>

@@ -1,6 +1,6 @@
 
 import {connect} from 'react-redux'
-import { login } from '../../actions/session';
+import { login, clearSessionErrors } from '../../actions/session';
 import {selectSessionErrors} from '../../reducers/selectors/session_selectors';
 import SessionLoginForm from './session_login_form';
 
@@ -13,7 +13,8 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = (dispatch) => {
   return({
-    login: (formUser)=>dispatch(login(formUser))
+    login: (formUser)=>dispatch(login(formUser)),
+    clearErrors: ()=>dispatch(clearSessionErrors())
   })
 }
 
