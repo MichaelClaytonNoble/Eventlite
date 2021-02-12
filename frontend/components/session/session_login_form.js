@@ -3,15 +3,20 @@ import React from 'react';
 class SessionLoginForm extends React.Component {
   constructor(props){
     super(props);
+    this.state = { email: '', password: ''};
     this.handleSubmit = this.handleSubmit.bind(this); 
     this.handleChange = this.handleChange.bind(this); 
   }
 
   componentDidMount(){
+    this.state.email = localStorage.email;
+    localStorage.clear(); 
   }
 
   handleSubmit(e){
 
+    this.props.login(this.state); 
+    this.props.history.push('/')
   }
    
   handleChange(e){

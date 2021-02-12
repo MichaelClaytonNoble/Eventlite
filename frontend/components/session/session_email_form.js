@@ -11,9 +11,6 @@ class SessionEmailForm extends React.Component{
   }
 
   handleSubmit(e){
-
-    //then push
-    alert(this.props.emailExists); 
     
     if(this.props.emailExists){
       this.props.history.push('/signin/login');
@@ -29,7 +26,6 @@ class SessionEmailForm extends React.Component{
     this.setState({email: e.target.value});
   }
   render(){
-
     let button, message, header, disabled = 'disabled'
     if (this.props.location.pathname === "/signin" ){
       disabled = '';
