@@ -19,21 +19,17 @@ class SessionLoginForm extends React.Component {
     this.props.login(this.state);
     console.log(this.props.errors); 
     this.setState();
-    // this.props.history.push('/')
   }
    
   handleChange(e){
     this.setState({password: e.target.value})
   }
   render(){
-    console.log(this.props.errors); 
     return(
       <div id="session-login-form">
         <form id="session-form" onSubmit={this.handleSubmit}>
         
           <input id="session-form-input" type="password" placeholder="password" onChange={this.handleChange}/>
-          <button id="session-form-submit">Log in</button>
-        </form>
         <ul id="session-login-form-errors">
           {
             this.props.errors.map( (error, i) => {
@@ -41,6 +37,8 @@ class SessionLoginForm extends React.Component {
             })
           }
         </ul>
+          <button id="session-form-submit">Log in</button>
+        </form>
       </div>
     )
   }

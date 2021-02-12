@@ -1,4 +1,4 @@
-
+import {merge} from 'lodash'
 import {
   RECEIVE_CURRENT_USER,
   LOGOUT_CURRENT_USER,
@@ -6,32 +6,40 @@ import {
 } from '../actions/session';
 
 
-const _nullSession = {
+let banana = {
   currentUser: {
     id: null
   },
   newSession: {
-    emailExists: null
+    emailExists: false
   }
 };
 
 //the previous state 
-const sessionReducer = (state = _nullSession, action) => {
+const sessionReducer = (state = banana, action) => {
   Object.freeze(state);
-  const nextState = Object.assign({}, state);
+  const nextState = merge({}, state);
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
+      debugger
       //return  a slice of state where the current user's id is nested under id
       nextState.currentUser.id = action.user.id;
-      nextState.newSession.emailExists = null;
+      nextState.newSession = {emailExists: false};
       return nextState;
     case RECEIVE_EMAIL_FOR_SESSION:
       nextState.newSession.emailExists = action.newSession.emailExists;
       return nextState;
     case LOGOUT_CURRENT_USER:
+
       //return the nullsession 
-      // return _nullSession;
-      return {currentUser: {id: null} }
+      return banana;
+      // return {
+      //   currentUser: {
+      //     id: null},  
+      //     newSession: {
+      //       emailExists: 
+      //       false } 
+      //   }
     default:
       return state;
   }

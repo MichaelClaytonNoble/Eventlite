@@ -8,7 +8,8 @@ class HeaderNavBar extends React.Component {
   }
 
   render(){
-
+    console.log(this.state);
+    console.log(this.props); 
     return(
       <div id="header-nav-bar">
         <span id="header-nav-bar-left">
