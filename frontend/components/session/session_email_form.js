@@ -39,7 +39,7 @@ class SessionEmailForm extends React.Component{
   }
   render(){
     let submitButton, message, header, demoLoginButton, or = '';
-    let disabled = 'disabled'; 
+    let disabled = ''; 
     if (this.props.location.pathname === "/signin" ){
       disabled = '';
       submitButton = <button id="session-form-submit">Get Started</button>;
