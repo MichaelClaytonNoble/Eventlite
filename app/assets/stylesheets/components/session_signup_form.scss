@@ -1,0 +1,38 @@
+
+#session-signup-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+#session-signup-info-form{
+  display: flex;
+  flex-direction: column;
+  align-content: center; 
+  width: 353px;
+}
+
+#session-signup-info-form-name{
+  width: 350px;
+  display: flex;
+  justify-content: space-between;
+}
+#session-form-half-input{
+  width: 165px; 
+  height: 44px;
+  border: 1px solid $input-border-color;
+  margin-bottom: 20px; 
+  border-radius: 2px;
+  font-size: 16px; 
+}
+#session-form-half-input:hover{
+  border:1.25px solid $input-border-hover-color;
+}
+#session-signup-info-form-name{ 
+}
+
+#password-message{
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+

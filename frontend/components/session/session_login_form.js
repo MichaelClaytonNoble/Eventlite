@@ -46,6 +46,8 @@ class SessionLoginForm extends React.Component {
         </ul>
           <button id="session-form-submit">Log in</button>
         </form>
+        <Link to="/signin/signup" id="link-to-signup-login">Sign Up</Link>
+
       </div>
     )
   }

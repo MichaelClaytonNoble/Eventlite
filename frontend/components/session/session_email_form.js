@@ -9,10 +9,15 @@ class SessionEmailForm extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this); 
     this.handleChange = this.handleChange.bind(this); 
     this.loginDemoUser = this.loginDemoUser.bind(this);
+    localStorage.clear();
   }
 
+  componentDidMount(){
+  }
+  componentWillUnmount(){
+
+  }
   handleSubmit(e){
-    
     if(this.props.emailExists){
       this.props.history.push('/signin/login');
     }
@@ -44,7 +49,11 @@ class SessionEmailForm extends React.Component{
     }
     if(this.props.location.pathname ==='/signin/login'){
       header = <h1 id="header">Welcome back</h1>;
-      message = <p id="session-login-message">Please enter your password to log in</p>;
+      message = <p id="session-login-message">Please enter your password to log in.</p>;
+    }
+    if(this.props.location.pathname === '/signin/signup'){
+      header = <h1 id="header">Welcome</h1>
+      message = <p id="session-login-message">Create an account.</p>;
     }
     return (
       <div id="session-email-form">
@@ -61,6 +70,7 @@ class SessionEmailForm extends React.Component{
           {demoLoginButton}
           
         </form>
+        
       </div>
     );
   }

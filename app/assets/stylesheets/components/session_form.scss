@@ -10,8 +10,13 @@
 #session-form-input{
   height: 44px;
   width: 350px; 
-  border: 1px solid $border-color;
+  border: 1px solid $input-border-color;
   margin-bottom: 20px; 
+  border-radius: 2px;
+  font-size: 16px;
+}
+#session-form-input:hover{
+  border:1.25px solid $input-border-hover-color;
 }
 #session-form-submit{
   height: 44px;
@@ -25,4 +30,22 @@
   border-radius: 4px;
   font-weight: 450; 
   font-size: 20px; 
+}
+#session-form-submit:hover{
+  background-color: $submit-button-hover-color;
+}
+
+#link-to-signup-login{
+  color: $link-blue;
+  font-size: 14px; 
+  margin-top: 15px; 
+}
+
+#link-to-signup-login:hover{
+  text-decoration: underline;
+}
+#session-footer{
+  font-size: 11px;
+  text-align: center; 
+  margin-top: 15px; 
 }
