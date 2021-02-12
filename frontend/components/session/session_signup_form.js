@@ -1,11 +1,22 @@
 
 import React from 'react';
-
+import {Link} from 'react-router-dom';
 class SessionSignupForm extends React.Component{
   constructor(props){
     super(props);
+    this.state = {
+                  email: '',
+                  password: '',
+                  firstName: '',
+                  lastName: ''
+                }
   }
 
+  handleChange(field){
+    return (e)=>{
+      this.setState({[field]: e.target.value})
+    }
+  }
   render(){
     return(
       <div id="session-signup-form">
@@ -22,9 +33,9 @@ class SessionSignupForm extends React.Component{
           <input id="session-form-input" type="password" placeholder="Password" /> 
 
           <p id="">Your password must be at least 8 characters</p>
-          button = <button id="session-form-submit">Sign Up</button>
+          <button id="session-form-submit">Sign Up</button>
         </form>
-        <Link to="/signin/login">Log In Instead</Link>
+        <Link to="/signin">Log In Instead</Link>
       </div>
     )
   }

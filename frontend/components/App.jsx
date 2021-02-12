@@ -3,7 +3,7 @@ import {Redirect} from 'react-router-dom';
 
 import HeaderNavBarContainer from './header/header_nav_bar';
 import SessionLoginFormContainer from './session/session_login_form_container';
-
+import SessionSignupFormContainer from './session/session_signup_form_container';
 import SessionEmailFormContainer from './session/session_email_form_container'; 
 
 import {Route} from 'react-router-dom'; 
@@ -17,6 +17,7 @@ const App = () => {
         <HeaderNavBarContainer /> 
         <AuthRoute path="/signin" component={SessionEmailFormContainer} />
         <AuthRoute exact path="/signin/login" component={SessionLoginFormContainer} />
+        <AuthRoute exact path="/signin/signup" component={SessionSignupFormContainer} />
       </div>
     )
   }
