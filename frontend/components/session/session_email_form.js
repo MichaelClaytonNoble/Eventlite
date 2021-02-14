@@ -68,7 +68,6 @@ class SessionEmailForm extends React.Component{
           {submitButton}
           {or}
           {demoLoginButton}
-          
         </form>
         
       </div>

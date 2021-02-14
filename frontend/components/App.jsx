@@ -10,8 +10,21 @@ import {Route} from 'react-router-dom';
 import {ProtectedRoute} from '../util/route_util.jsx'; 
 import {AuthRoute} from '../util/route_util.jsx';
 
+const permittedHash = [];
+permittedHash.push('#/');
+permittedHash.push('#/signin');
+permittedHash.push('#/signin/login');
+permittedHash.push('#/signin/signup');
 
-const App = () => {
+
+class App extends React.Component{
+
+  render(){
+    // if(!permittedHash.includes(location.hash)){
+    //   return (
+    //     <Redirect to="#/"></Redirect>
+    //   )
+    // }
     return (
       <div id="App">
         <HeaderNavBarContainer /> 
@@ -21,5 +34,6 @@ const App = () => {
       </div>
     )
   }
+}
 
 export default App; 

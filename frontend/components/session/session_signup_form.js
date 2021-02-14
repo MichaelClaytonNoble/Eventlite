@@ -8,22 +8,41 @@ class SessionSignupForm extends React.Component{
                   email: '',
                   password: '',
                   first_name: '',
-                  last_name: ''
+                  last_name: '',
+                  matchEmail: ''
                 }
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.errors = {matchEmail: ''};
-    this.errorFlag = false;
+    this.emailMessage = this.emailMessage.bind(this); 
+    this.displayErrors = this.displayErrors.bind(this); 
+    this.clearErrors = this.clearErrors.bind(this); 
+
+    this.errorMessage = '';
   }
   
-  componentWillUnmount(){
-    
+  clearErrors(){
+    this.props.clearErrors();
+    this.errors = {matchEmail: ''};
   }
   displayErrors(){
+
       return(
         <ul id="session-login-form-errors">
           {
-            this.props.errors.concat(Object.values(this.errors)).map((error, i) => {
-              return <li key={i}>{error}</li>
+            this.props.errors.map((error, i) => {
+
+              if(error === "Email has already been taken"){
+                if (this.state.email !== localStorage.email) {
+                  return '';
+                }
+                else{
+                  return <li key={i}>{error}</li>
+                  
+                }
+              }
+              else{
+                return <li key={i}>{error}</li>
+              }
+            
             })
           }
         </ul>
@@ -36,10 +55,12 @@ class SessionSignupForm extends React.Component{
   }
   handleSubmit(e){
     e.preventDefault();
-    if(this.state.email === localStorage.email){
-      this.props.signup(this.state);
-      this.props.history.push('/');
-    }
+
+    this.props.signup(this.state)
+    .fail( ()=> this.state.email !== localStorage.email ?
+                                      this.setState({matchEmail: false})
+                                      : this.setState({matchEmail: true}));
+    
   }
   passwordMessage(){
     if(this.state.password.length >= 6){
@@ -52,7 +73,7 @@ class SessionSignupForm extends React.Component{
       if (this.state.email === localStorage.email){
         return '';
       }
-      return (<p id="email-message">Emails must match</p>)
+      return (<li>Emails must match</li>)
   }
   render(){
     return(
@@ -70,9 +91,8 @@ class SessionSignupForm extends React.Component{
 
           <input id="session-form-input" type="password" placeholder="Password" 
               onChange={this.handleChange('password')} value={this.state.password}/> 
-
             {this.displayErrors()}
-            {this.emailMessage()}
+          {this.state.matchEmail === true ? '' : this.state.matchEmail=== false ? <li>Emails must match</li>: ''}
           <button id="session-form-submit" type="submit">Sign Up</button>
         </form>
 
