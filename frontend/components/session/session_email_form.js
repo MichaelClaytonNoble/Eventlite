@@ -63,7 +63,7 @@ class SessionEmailForm extends React.Component{
         <form id="session-form" onSubmit={this.handleSubmit}>
           {header}
           {message}
-          <input id="session-form-input" type="text" required placeholder="Email address" 
+          <input className="session-form-input" type="text" required placeholder="Email address" 
               onChange={this.handleChange} value={this.state.email} disabled={disabled}/>
           {submitButton}
           {or}

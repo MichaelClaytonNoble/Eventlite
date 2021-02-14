@@ -45,6 +45,7 @@ class SessionSignupForm extends React.Component{
             
             })
           }
+          {this.state.matchEmail === true ? '' : this.state.matchEmail === false ? <li>Emails must match</li> : ''}
         </ul>
       )
   }
@@ -80,19 +81,19 @@ class SessionSignupForm extends React.Component{
       <div id="session-signup-form">
         <form id="session-signup-info-form" onSubmit={this.handleSubmit}>
 
-          <input id="session-form-input" type="text" placeholder="Confirm email" 
+          <input className="session-form-input" type="text" placeholder="Confirm email" 
                 onChange={this.handleChange('email')} value={this.state.email}/>
           <span id="session-signup-info-form-name">
-            <input id="session-form-half-input" type="text" placeholder="First Name" 
+            <input className="session-form-half-input" type="text" placeholder="First Name" 
                 onChange={this.handleChange('first_name')} value={this.state.first_name}/>
-            <input id="session-form-half-input" type="text" placeholder="Last Name" 
+            <input className="session-form-half-input" type="text" placeholder="Last Name" 
                 onChange={this.handleChange('last_name')} value={this.state.last_name}/>
           </span>
 
-          <input id="session-form-input" type="password" placeholder="Password" 
+          <input className="session-form-input" type="password" placeholder="Password" 
               onChange={this.handleChange('password')} value={this.state.password}/> 
             {this.displayErrors()}
-          {this.state.matchEmail === true ? '' : this.state.matchEmail=== false ? <li>Emails must match</li>: ''}
+          
           <button id="session-form-submit" type="submit">Sign Up</button>
         </form>
 

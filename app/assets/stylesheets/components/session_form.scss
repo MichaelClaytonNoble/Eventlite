@@ -7,7 +7,7 @@
   font-weight: 870;
 }
 
-#session-form-input{
+.session-form-input{
   height: 44px;
   width: 350px; 
   border: 1px solid $input-border-color;
@@ -15,7 +15,7 @@
   border-radius: 2px;
   font-size: 16px;
 }
-#session-form-input:hover{
+.session-form-input:hover{
   border:1px solid $input-border-hover-color;
 }
 #session-form-submit{

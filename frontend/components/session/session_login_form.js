@@ -36,7 +36,7 @@ class SessionLoginForm extends React.Component {
       <div id="session-login-form">
         <form id="session-form" onSubmit={this.handleSubmit}>
         
-          <input id="session-form-input" type="password" placeholder="password" onChange={this.handleChange}/>
+          <input className="session-form-input" type="password" placeholder="password" onChange={this.handleChange}/>
         <ul id="session-login-form-errors">
           {
             this.props.errors.map( (error, i) => {
