@@ -32,10 +32,23 @@ class SessionLoginForm extends React.Component {
   }
 
   render(){
+    let submitButton, message, header, demoLoginButton, or = '';
+    let disabled = '';
+ 
+
+      header = <h1 id="header">Welcome back</h1>;
+      message = <p id="session-login-message">Please enter your password to log in.</p>;
+    
     return(
       <div id="session-login-form">
+        <span id="session-form-header">
+          <h1 id="header-logo">e</h1>
+        </span>
         <form id="session-form" onSubmit={this.handleSubmit}>
-        
+          {header}
+          {message}
+          <input className="session-form-input" type="text" required placeholder="Email address"
+            value={localStorage.email} disabled />
           <input className="session-form-input" type="password" placeholder="password" onChange={this.handleChange}/>
         <ul id="session-login-form-errors">
           {

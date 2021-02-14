@@ -12,6 +12,14 @@
   width: 353px;
 }
 
+#session-signup-form #header{
+  font-size: 28px;
+  font-family: $main-font-family;
+  margin-bottom: 40px;
+  text-align: center;
+  font-weight: 870;
+}
+
 #session-signup-info-form-name{
   width: 350px;
   display: flex;
@@ -27,8 +35,6 @@
 }
 .session-form-half-input:hover{
   border:1px solid $input-border-hover-color;
-}
-#session-signup-info-form-name{ 
 }
 
 #password-message{

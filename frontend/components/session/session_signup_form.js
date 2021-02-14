@@ -36,13 +36,11 @@ class SessionSignupForm extends React.Component{
                 }
                 else{
                   return <li key={i}>{error}</li>
-                  
                 }
               }
               else{
                 return <li key={i}>{error}</li>
               }
-            
             })
           }
           {this.state.matchEmail === true ? '' : this.state.matchEmail === false ? <li>Emails must match</li> : ''}
@@ -77,10 +75,20 @@ class SessionSignupForm extends React.Component{
       return (<li>Emails must match</li>)
   }
   render(){
+    let message, header = '';
+    header = <h1 id="header">Welcome</h1>
+    message = <p id="session-login-message">Create an account.</p>;
+    
     return(
       <div id="session-signup-form">
+        <span id="session-form-header">
+          <h1 id="header-logo">e</h1>
+        </span>
         <form id="session-signup-info-form" onSubmit={this.handleSubmit}>
-
+        {header}
+        {message}
+          <input className="session-form-input" type="text" required placeholder="Email address"
+            value={localStorage.email} disabled />
           <input className="session-form-input" type="text" placeholder="Confirm email" 
                 onChange={this.handleChange('email')} value={this.state.email}/>
           <span id="session-signup-info-form-name">

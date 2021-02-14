@@ -57,7 +57,7 @@ class SessionEmailForm extends React.Component{
     }
     return (
       <div id="session-email-form">
-        <span id="session-email-form-header">
+        <span id="session-form-header">
           <h1 id="header-logo">e</h1>
         </span>
         <form id="session-form" onSubmit={this.handleSubmit}>
