@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom'; 
 
+
 class SessionLoginForm extends React.Component {
   constructor(props){
     super(props);
@@ -42,7 +43,7 @@ class SessionLoginForm extends React.Component {
     return(
       <div id="session-login-form">
         <span id="session-form-header">
-          <h1 id="header-logo">e</h1>
+          <img id="header-image" src={window.stickMan} />
         </span>
         <form id="session-form" onSubmit={this.handleSubmit}>
           {header}

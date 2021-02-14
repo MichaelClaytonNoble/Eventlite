@@ -82,13 +82,13 @@ class SessionSignupForm extends React.Component{
     return(
       <div id="session-signup-form">
         <span id="session-form-header">
-          <h1 id="header-logo">e</h1>
+          <img id="header-image" src={window.stickMan} />
         </span>
         <form id="session-signup-info-form" onSubmit={this.handleSubmit}>
         {header}
         {message}
           <input className="session-form-input" type="text" required placeholder="Email address"
-            value={localStorage.email} disabled />
+            value={localStorage.email} disabled/>
           <input className="session-form-input" type="text" placeholder="Confirm email" 
                 onChange={this.handleChange('email')} value={this.state.email}/>
           <span id="session-signup-info-form-name">
