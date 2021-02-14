@@ -1,0 +1,29 @@
+
+#footer-nav-bar{
+  display: flex;
+  flex-direction: row; 
+  padding-left: 24px;
+  padding-right: 24px; 
+  background-color: $footer-background-color;
+  color: $footer-font-color;
+  justify-self: flex-end;
+  font-weight: 100; 
+  font-size: 13px;
+  justify-content: space-between; 
+  height: 44px;
+  align-items: center; 
+}
+
+
+#footer-nav-bar-menu{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 15%;
+  list-style-type: none;
+}
+#footer-nav-bar-menu li:before{
+  content:"•  ";
+  font-weight: 1;
+  font-size: 24px; 
+}
