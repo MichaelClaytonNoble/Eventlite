@@ -1,8 +1,11 @@
 
 
-
+#App{
+  max-width: 99.5%; 
+  min-height: 100vh; 
+}
 #main-content{
-  min-height:83vh;
+  min-height: 87vh; 
   display: flex; 
   flex-direction: column;
   justify-content: space-between;
