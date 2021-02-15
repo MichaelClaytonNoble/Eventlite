@@ -1,0 +1,36 @@
+
+#create-event-form{
+  display: flex; 
+  flex-direction: column;
+  
+  width: 40%; 
+}
+#create-event-info-form #large-input{
+
+  border: 1px solid black;
+  // padding: 28px 12px 6px; 
+  height: 50px; 
+  min-width: 660px; 
+  min-height: 22px;
+  font-size: 18px; 
+  // line-height: 22px; 
+  width: 100%;
+  border: 1px solid $input-border-color;
+}
+#create-event-info-form #large-input:hover{
+  border-color: $input-border-hover-color;
+}
+
+#create-event-header{
+  font-size: 30px;
+  font-weight: 400; 
+}
+#create-event-description{
+  font-size: 14px; 
+}
+
+#create-event-info-form #categories{
+  height: 50px; 
+  width: 260px;
+  font-size: 16px;
+}

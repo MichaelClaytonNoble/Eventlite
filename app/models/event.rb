@@ -10,6 +10,6 @@ class Event < ApplicationRecord
   #belongs_to categories
   #has many tickets
   #has many attendees through tickets
-  #has many followers through f
+  #has many followers through follows
 
 end

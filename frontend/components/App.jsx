@@ -13,6 +13,7 @@ import {ProtectedRoute} from '../util/route_util.jsx';
 import {AuthRoute} from '../util/route_util.jsx';
 import PageNotFound from './error/error_page';
 
+import CreateEventForm from './create_events/create_event_form';
 class App extends React.Component{
 
   
@@ -29,6 +30,7 @@ class App extends React.Component{
           <AuthRoute exact path="/signin" component={SessionEmailFormContainer} />
           <AuthRoute exact path="/signin/login" component={SessionLoginFormContainer} />
           <AuthRoute exact path="/signin/signup" component={SessionSignupFormContainer} />
+          <Route exact path="/events/create" component={CreateEventForm} />
           <Route component={PageNotFound} />
         </Switch>
         </div>
