@@ -2,35 +2,79 @@
 #create-event-form{
   display: flex; 
   flex-direction: column;
-  
-  width: 40%; 
+  max-width: 660px; 
 }
-#create-event-info-form #large-input{
+.info-section{
+  max-width: 620px;
+  display: flex;
+  flex-direction: column;
+}
+#create-event-info-form .large-input{
 
   border: 1px solid black;
   // padding: 28px 12px 6px; 
   height: 50px; 
-  min-width: 660px; 
+  width: 100%; 
   min-height: 22px;
   font-size: 18px; 
   // line-height: 22px; 
   width: 100%;
   border: 1px solid $input-border-color;
+  margin-bottom: 35px;
+  border-radius: 4px; 
 }
-#create-event-info-form #large-input:hover{
+#create-event-info-form .large-input:hover{
   border-color: $input-border-hover-color;
 }
 
 #create-event-header{
   font-size: 30px;
-  font-weight: 400; 
+  font-weight: bolder; 
+  margin-bottom: 10px;
+  margin-top: 40px; 
 }
 #create-event-description{
   font-size: 14px; 
+  margin-bottom: 15px; 
+  line-height: 1.65;
+  font-weight: lighter;
 }
 
+//LOCATION SECTION 
 #create-event-info-form #categories{
   height: 50px; 
   width: 260px;
   font-size: 16px;
+  border: 1px solid $input-border-color;
+}
+#create-event-info-form #categories:hover{
+  border-color: $input-border-hover-color;
+  cursor: pointer;
+}
+#create-event-info-form #categories:focus{
+  border-color: $radio-button-checked-color
+}
+#location-radio-buttons{
+  margin-left: -23px; 
+}
+#location-radio-buttons input[type="radio"]{
+  opacity: 0;
+}
+#location-radio-buttons label{
+  border: 1px solid $input-border-color;
+  font-size: 16px;
+  padding: 10px 20px;
+  margin-left: 10px;
+  display: inline-block; 
+  margin-bottom: 30px;
+  border-radius: 4px;
+}
+#location-radio-buttons label:hover{
+  cursor: pointer;
+}
+
+#location-radio-buttons input[type="radio"]:checked + label{
+  border: 1px solid $radio-button-checked-color; 
+  background-color: $radio-button-checked-background-color;
+  color: $radio-button-checked-color;
 }

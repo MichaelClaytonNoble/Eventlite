@@ -26,6 +26,9 @@ User.create!({id: 4, email: "222@222.222", password: "123456", first_name: "222"
 # end: , 
 # timezone: , 
 # creator_id: });
+
+Event.destroy_all; 
+
 Event.create!({id: 1, title: "An evening with Kazuo Ishiguro", 
 description: "In his first global in-conversation event, Nobel laureate Kazuo Ishiguro will talk about his much-anticipated new novel, Klara and the Sun.", 
 about: "On awarding Ishiguro the Nobel Prize in literature in 2017, the committee praised him for his novels which “uncovered the abyss beneath our illusory sense of connection with the world” and were driven by a “great emotional force”. From the Booker-winning The Remains of the Day, to the dystopian parable of Never Let Me Go, his novels explore profound ideas about the human experience.

@@ -15,13 +15,7 @@ import PageNotFound from './error/error_page';
 
 import CreateEventForm from './create_events/create_event_form';
 class App extends React.Component{
-
-  
-
   render(){
-
-      localStorage.setItem('hash', location.hash);
-      console.log(localStorage.hash); 
     return (
       <div id="App" >
         <HeaderNavBarContainer /> 
