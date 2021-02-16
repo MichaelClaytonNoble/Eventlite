@@ -1,11 +1,49 @@
+import { get } from 'lodash';
 import React from 'react';
 
 class CreateEventForm extends React.Component{
   constructor(props){
     super(props);
 
+    this.state = {
+      title: '', organizer: '', category_id: 1, location: '',
+      start: this.getCurrentDateTime(),
+      end: this.getCurrentDateTime(),
+      timezone: '',
+    }
+    // let d = this.getLocale(new Date())
+    // console.log(d.toJSON());
+    // console.log(new Date()); 
+    this.getCurrentDateTime = this.getCurrentDateTime.bind(this); 
   }
 
+  convertDateToLocalAsJSON(date){
+    return (date.toJSON(), new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toJSON());
+  }
+
+  getCurrentDateTime(){
+    return this.convertDateToLocalAsJSON(new Date());
+  }
+
+  //changes the start and end datetime objects into their respective locale 
+  // getLocale(date, locale){
+  //   this.setState({
+  //     start: 
+  //   }};
+  //   return new Date(date.toLocaleString("en-US", { timeZone: locale}));
+  // }
+
+  handleInputChange(field){
+    return (e)=>{
+      this.setState({[field]: e.target.value});
+    };
+  }
+
+  handleLocationChange(){
+    return (e)=>{
+      this.setState({location: e.currentTarget.value})
+    }
+  }
   render(){
     return(
       <div id="create-event-form">
@@ -15,13 +53,10 @@ class CreateEventForm extends React.Component{
         <h1 id="create-event-header">Basic Info</h1>
         <p id="create-event-description">Name your event and tell event-goers why they should come. Add details that highlight what makes it unique</p>
 
-            <input className="large-input"
+            <input className="large-input" onChange={this.handleInputChange('title')} value={this.state.title}
                   placeholder="Event Title"/>
-            
-            <label className="large-input">Organizer
-              <input className="large-input"
-                    placeholder ="Organizer"/>
-            </label>
+            <input className="large-input"  onChange={this.handleInputChange('organizer')} value={this.state.organizer}
+                  placeholder ="Organizer"/>
             
             <select name="categories" id="categories">
               <option value="" >Category</option>
@@ -35,11 +70,14 @@ class CreateEventForm extends React.Component{
           
         <div id="create-event-radio-buttons">
 
-          <input type="radio" id="VENUE" name="location" value="VENUE" />
+          <input type="radio" id="VENUE" name="location" value="VENUE"  checked={this.state.location === 'VENUE'} 
+                  onChange={this.handleLocationChange}/>
           <label htmlFor="VENUE">Venue</label>
-          <input type="radio" id="ONLINE" name="location" value="ONLINE" />
+          <input type="radio" id="ONLINE" name="location" value="ONLINE" checked={this.state.location === 'ONLINE'} 
+                  onChange={this.handleLocationChange}/>
           <label htmlFor="ONLINE">Online event</label>
-          <input type="radio" id="TBA" name="location" value="TBA" />
+          <input type="radio" id="TBA" name="location" value="TBA" checked={this.state.location === 'TBA'} 
+                  onChange={this.handleLocationChange}/>
           <label htmlFor="TBA">To be announced</label>
         </div>
 
@@ -58,12 +96,21 @@ class CreateEventForm extends React.Component{
             <label htmlFor="recurring">Recurring Events</label>
           </div>
 
-        <label id="event-time">Event starts<br />
+        <label className="event-time">Event starts<br />
           <input type="datetime-local" id="date-input"/>
         </label>
-        <label id="event-time">Event ends<br />
+        <label className="event-time">Event ends<br />
           <input type="datetime-local" id="date-input" />
         </label>
+
+        <select name="timezones" id="timezones">
+          {
+            this.props.timezones.map( (timezone, i) =>{
+              return <option value={timezone} key={i}>{timezone.zone}</option>
+            })
+          }
+        </select>
+
         </section>
         </form>
       </div>

@@ -13,7 +13,7 @@ import {ProtectedRoute} from '../util/route_util.jsx';
 import {AuthRoute} from '../util/route_util.jsx';
 import PageNotFound from './error/error_page';
 
-import CreateEventForm from './create_events/create_event_form';
+import CreateEventFormContainer from './create_events/create_event_form_container';
 class App extends React.Component{
   render(){
     return (
@@ -26,7 +26,7 @@ class App extends React.Component{
           <AuthRoute exact path="/signin/signup" component={SessionSignupFormContainer} />
         
           <Route exact path="/" render={()=> <h1 id="home"> Home Page </h1>} />
-          <Route exact path="/events/create" component={CreateEventForm} />
+          <Route exact path="/events/create" component={CreateEventFormContainer} />
 
           <Route exact path="/404" component={PageNotFound} />
           <Redirect to="/404" />
