@@ -26,6 +26,9 @@
 #create-event-info-form .large-input:hover{
   border-color: $input-border-hover-color;
 }
+#create-event-info-form .large-input:last-child{
+  margin-bottom: 0px; 
+}
 
 #create-event-header{
   font-size: 30px;
@@ -54,27 +57,34 @@
 #create-event-info-form #categories:focus{
   border-color: $radio-button-checked-color
 }
-#location-radio-buttons{
+#create-event-radio-buttons{
   margin-left: -23px; 
 }
-#location-radio-buttons input[type="radio"]{
+#create-event-radio-buttons input[type="radio"]{
   opacity: 0;
 }
-#location-radio-buttons label{
+#create-event-radio-buttons label{
   border: 1px solid $input-border-color;
   font-size: 16px;
-  padding: 10px 20px;
+  padding: 13px 20px;
   margin-left: 10px;
   display: inline-block; 
   margin-bottom: 30px;
   border-radius: 4px;
 }
-#location-radio-buttons label:hover{
+#create-event-radio-buttons label:hover{
   cursor: pointer;
 }
 
-#location-radio-buttons input[type="radio"]:checked + label{
+#create-event-radio-buttons input[type="radio"]:checked + label{
   border: 1px solid $radio-button-checked-color; 
   background-color: $radio-button-checked-background-color;
   color: $radio-button-checked-color;
 }
+
+
+//Date Time
+#create-event-info-form #event-time{
+  border: 1px solid $input-border-color; 
+}
+
