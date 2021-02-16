@@ -24,8 +24,13 @@ class App extends React.Component{
           <AuthRoute exact path="/signin" component={SessionEmailFormContainer} />
           <AuthRoute exact path="/signin/login" component={SessionLoginFormContainer} />
           <AuthRoute exact path="/signin/signup" component={SessionSignupFormContainer} />
+        
+          <Route exact path="/" render={()=> <h1 id="home"> Home Page </h1>} />
           <Route exact path="/events/create" component={CreateEventForm} />
-          <Route component={PageNotFound} />
+
+          <Route exact path="/404" component={PageNotFound} />
+          <Redirect to="/404" />
+
         </Switch>
         </div>
         <FooterNavBar />

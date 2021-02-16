@@ -59,7 +59,7 @@ class CreateEventForm extends React.Component{
           </div>
 
         <label id="event-time">Event starts<br />
-          <input type="datetime-local" id="date-input" />
+          <input type="datetime-local" id="date-input"/>
         </label>
         <label id="event-time">Event ends<br />
           <input type="datetime-local" id="date-input" />

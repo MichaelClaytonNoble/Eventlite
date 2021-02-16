@@ -3,9 +3,7 @@ import {withRouter} from 'react-router-dom';
 
 class PageNotFound extends React.Component{
 
-  componentDidMount(){
-    this.props.history.push('/');
-  }
+
   render(){
     return (
       <div id="page-not-found"> 
