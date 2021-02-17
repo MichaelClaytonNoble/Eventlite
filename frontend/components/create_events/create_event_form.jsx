@@ -49,9 +49,6 @@ class CreateEventForm extends React.Component{
           this.disabled = false;
         }
       }
-      if(field === 'recurring'){
-        
-      }
       this.setState({[field]: e.currentTarget.value});
     }
   }
@@ -86,6 +83,7 @@ class CreateEventForm extends React.Component{
               <option value="music">Music</option>
             </select>
         </section>
+        <hr />
         <section className="info-section">
 
             <h1 id="create-event-header"><i className="far fa-map create-event-form-icons"></i>Location</h1>
@@ -108,6 +106,8 @@ class CreateEventForm extends React.Component{
           <input type="text" className="large-input" value={this.state.venue} onChange={this.handleInputChange('venue')} disabled={this.disabled}/>
         </label>
         </section>
+
+        <hr /> 
         <section className="info-section">
 
             <h1 id="create-event-header"><i className="far fa-calendar-alt create-event-form-icons"></i>Date and time</h1>

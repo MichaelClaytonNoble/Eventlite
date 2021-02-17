@@ -4,20 +4,27 @@
   flex-direction: column;
   max-width: 660px; 
 }
-.info-section{
+#create-event-info-form .info-section{
   max-width: 620px;
   display: flex;
   flex-direction: column;
 }
-#create-event-info-form .large-input{
 
+#create-event-info-form .large-input{
   height: 20px; 
   width: 100%; 
   min-height: 22px;
   font-size: 16px; 
   margin-left: 10px;
   border: none;
-  margin-bottom: 5px; 
+  padding-bottom: 5px; 
+}
+
+hr{
+  $color: $icon-color;
+  min-width: 860px;
+  transform: translateX(-120px);
+  opacity: 20%;
 }
 
 #create-event-info-form .large-input-label{
@@ -66,6 +73,7 @@
   width: 260px;
   font-size: 16px;
   border: 1px solid $input-border-color;
+  margin-bottom: 30px; 
 }
 #create-event-info-form #categories:hover{
   border-color: $input-border-hover-color;
@@ -199,7 +207,7 @@
 }
 
 #create-event-info-form #form-buttons{
-  margin-top: 35px; 
+  margin-top: 90px; 
   align-content: center;
   display: flex; 
   flex-direction: row;
@@ -210,7 +218,7 @@
 .create-event-form-icons{
   color: $icon-color;
   font-weight: lighter;
-  margin-right: -30px; 
-  position: relative;
-  right: 55px; 
+  position: absolute;
+  transform: translateX(-65px);
+
 }
