@@ -88,6 +88,15 @@
   border: 1px solid $input-border-color; 
 }
 
-.date-input{
+#create-event-info-form .date-input{
   border: 1px solid $input-border-color; 
+  height: 50px; 
+  width: 50%;
+  font-size: 14px; 
+  text-justify:inter-cluster;
+}
+
+#create-event-info-form select#timezones{
+  width: 50%; 
+  height: 50px; 
 }

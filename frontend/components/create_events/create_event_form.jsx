@@ -1,39 +1,33 @@
-import { get } from 'lodash';
+
 import React from 'react';
+
 
 class CreateEventForm extends React.Component{
   constructor(props){
     super(props);
 
     this.state = {
-      title: '', organizer: '', venue: '', recurring: false, category_id: 1, location: 'VENUE',
+      title: '', organizer: '', venue: '', recurring: 'false', category_id: 1, location: 'VENUE',
       start: this.getCurrentDateTime(),
       end: this.getCurrentDateTime(),
       timezone: '',
     }
+
     this.disabled = true;
-    // let d = this.getLocale(new Date())
-    // console.log(d.toJSON());
-    // console.log(new Date()); 
     this.getCurrentDateTime = this.getCurrentDateTime.bind(this); 
+
   }
 
   convertDateToLocalAsJSON(date){
     return (date.toJSON(), new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toJSON());
   }
 
+
   getCurrentDateTime(){
     return this.convertDateToLocalAsJSON(new Date()).slice(0,16);
   }
 
-  //changes the start and end datetime objects into their respective locale 
-  // getLocale(date, locale){
-  //   this.setState({
-  //     start: 
-  //   }};
-  //   return new Date(date.toLocaleString("en-US", { timeZone: locale}));
-  // }
-
+  
   handleInputChange(field){
     return (e)=>{
       this.setState({[field]: e.target.value});
@@ -42,10 +36,10 @@ class CreateEventForm extends React.Component{
   
   handleSubmit(){
     //before submit change recurring into a boolean value 
-  
+    
   }
-
-
+  
+  
   handleRadioChange(field){
     return (e)=>{
       if(field === 'location'){
@@ -56,12 +50,18 @@ class CreateEventForm extends React.Component{
         }
       }
       if(field === 'recurring'){
-      
+        
       }
       this.setState({[field]: e.currentTarget.value});
     }
   }
-
+  
+  handleTimezoneChange(){
+    return (e)=>{
+    
+      this.setState({timezone: e.currentTarget.value});
+    }
+  }
 
   render(){
 
@@ -128,10 +128,10 @@ class CreateEventForm extends React.Component{
               onChange={this.handleInputChange('end')}/>
         </label>
 
-        <select name="timezones" id="timezones">
+          <select name="timezones" id="timezones" onChange={this.handleInputChange('timezone')}>
           {
             this.props.timezones.map( (timezone, i) =>{
-              return <option value={timezone} key={i}>{timezone.zone}</option>
+              return <option value={timezone.zone} key={i}>{timezone.zone}</option>
             })
           }
         </select>
