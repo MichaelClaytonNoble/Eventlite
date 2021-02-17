@@ -6,7 +6,7 @@ import {signup} from './actions/users';
 import configureStore from './store/store';
 import Root from './components/root';
 
-
+import { createEvent } from './actions/events';
 
 document.addEventListener('DOMContentLoaded', ()=>{
   let store;
@@ -42,4 +42,5 @@ const windowStuff = (store)=>{
 
   window.dispatch = store.dispatch;
   window.getState = store.getState;
+  window.createEvent = createEvent;
 }

@@ -128,6 +128,7 @@ class CreateEventForm extends React.Component{
               onChange={this.handleInputChange('end')}/>
         </label>
 
+        <label className="timezone-label">TimeZone</label>
           <select name="timezones" id="timezones" onChange={this.handleInputChange('timezone')}>
           {
             this.props.timezones.map( (timezone, i) =>{
