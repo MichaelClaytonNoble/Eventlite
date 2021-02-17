@@ -1,6 +1,7 @@
 
 import CreateEventForm from './create_event_form';
 import {connect} from 'react-redux'; 
+import {createEvent, clearErrors} from '../../actions/events'; 
 
 const mSTP = state =>{
   return ({
@@ -11,11 +12,12 @@ const mSTP = state =>{
 
 const mDTP = dispatch =>{
   return({
-
+    createEvent: (formEvent)=>dispatch(createEvent(formEvent)),
+    clearErrors: ()=>dispatch(clearErrors())
   })
 }
 
-const CreateEventFormContainer = connect(mSTP, null)(CreateEventForm);
+const CreateEventFormContainer = connect(mSTP, mDTP)(CreateEventForm);
 export default CreateEventFormContainer;
 
 var timezones = [

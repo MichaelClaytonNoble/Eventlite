@@ -5,17 +5,19 @@ import React from 'react';
 class CreateEventForm extends React.Component{
   constructor(props){
     super(props);
-
+    let findTimezone = this.props.timezones.filter( timezone => {
+      return timezone.locale === Intl.DateTimeFormat().resolvedOptions().timeZone;
+    })
     this.state = {
       title: '', organizer: '', venue: '', recurring: 'false', category_id: 1, location: 'VENUE',
-      start: this.getCurrentDateTime(),
-      end: this.getCurrentDateTime(),
-      timezone: '',
+      start: '',
+      end: '',
+      timezone: findTimezone[0].zone,
     }
 
     this.disabled = true;
     this.getCurrentDateTime = this.getCurrentDateTime.bind(this); 
-
+    this.handleSubmit = this.handleSubmit.bind(this); 
   }
 
   convertDateToLocalAsJSON(date){
@@ -34,9 +36,11 @@ class CreateEventForm extends React.Component{
     };
   }
   
-  handleSubmit(){
+  handleSubmit(e){
     //before submit change recurring into a boolean value 
-    
+    e.preventDefault(); 
+    this.props.createEvent(this.state).then( (data)=>console.log(data)); 
+
   }
   
   
@@ -68,7 +72,7 @@ class CreateEventForm extends React.Component{
     let locationOption = '';
     return(
       <div id="create-event-form">
-        <form id="create-event-info-form">
+        <form id="create-event-info-form" onSubmit={this.handleSubmit}>
 
         <section className="info-section">
         <h1 id="create-event-header">Basic Info</h1>
@@ -129,7 +133,8 @@ class CreateEventForm extends React.Component{
         </label>
 
         <label className="timezone-label">TimeZone</label>
-          <select name="timezones" id="timezones" onChange={this.handleInputChange('timezone')}>
+          <select name="timezones" id="timezones" value={this.state.timezone} 
+            onChange={this.handleInputChange('timezone')}>
           {
             this.props.timezones.map( (timezone, i) =>{
               return <option value={timezone.zone} key={i}>{timezone.zone}</option>
@@ -138,6 +143,8 @@ class CreateEventForm extends React.Component{
         </select>
 
         </section>
+
+        <button>Save & Continue</button>
         </form>
       </div>
     )
