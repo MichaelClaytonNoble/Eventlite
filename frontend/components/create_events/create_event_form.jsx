@@ -6,11 +6,12 @@ class CreateEventForm extends React.Component{
     super(props);
 
     this.state = {
-      title: '', organizer: '', category_id: 1, location: '',
+      title: '', organizer: '', venue: '', recurring: false, category_id: 1, location: 'VENUE',
       start: this.getCurrentDateTime(),
       end: this.getCurrentDateTime(),
       timezone: '',
     }
+    this.disabled = true;
     // let d = this.getLocale(new Date())
     // console.log(d.toJSON());
     // console.log(new Date()); 
@@ -22,7 +23,7 @@ class CreateEventForm extends React.Component{
   }
 
   getCurrentDateTime(){
-    return this.convertDateToLocalAsJSON(new Date());
+    return this.convertDateToLocalAsJSON(new Date()).slice(0,16);
   }
 
   //changes the start and end datetime objects into their respective locale 
@@ -38,13 +39,33 @@ class CreateEventForm extends React.Component{
       this.setState({[field]: e.target.value});
     };
   }
+  
+  handleSubmit(){
+    //before submit change recurring into a boolean value 
+  
+  }
 
-  handleLocationChange(){
+
+  handleRadioChange(field){
     return (e)=>{
-      this.setState({location: e.currentTarget.value})
+      if(field === 'location'){
+        this.disabled = true; 
+        if(e.currentTarget.value === "VENUE"){
+          this.state.venue = '';
+          this.disabled = false;
+        }
+      }
+      if(field === 'recurring'){
+      
+      }
+      this.setState({[field]: e.currentTarget.value});
     }
   }
+
+
   render(){
+
+    let locationOption = '';
     return(
       <div id="create-event-form">
         <form id="create-event-info-form">
@@ -71,18 +92,18 @@ class CreateEventForm extends React.Component{
         <div id="create-event-radio-buttons">
 
           <input type="radio" id="VENUE" name="location" value="VENUE"  checked={this.state.location === 'VENUE'} 
-                  onChange={this.handleLocationChange}/>
+                  onChange={this.handleRadioChange('location')}/>
           <label htmlFor="VENUE">Venue</label>
           <input type="radio" id="ONLINE" name="location" value="ONLINE" checked={this.state.location === 'ONLINE'} 
-                  onChange={this.handleLocationChange}/>
+                  onChange={this.handleRadioChange('location')}/>
           <label htmlFor="ONLINE">Online event</label>
           <input type="radio" id="TBA" name="location" value="TBA" checked={this.state.location === 'TBA'} 
-                  onChange={this.handleLocationChange}/>
+                  onChange={this.handleRadioChange('location')}/>
           <label htmlFor="TBA">To be announced</label>
         </div>
 
-        <input type="text" className="large-input"
-            placeholder="Venue Address" />
+        <input type="text" className="large-input" value={this.state.venue} onChange={this.handleInputChange('venue')}
+            placeholder="Venue Address" disabled={this.disabled}/>
         </section>
         <section className="info-section">
 
@@ -90,17 +111,21 @@ class CreateEventForm extends React.Component{
         <p id="create-event-description">Tell event-goers when your event starts and ends so they can make plans to attend.</p>
 
           <div id="create-event-radio-buttons">
-            <input type="radio" id="single" name="recurring" value="false" />
+            <input type="radio" id="single" name="recurring" value='false' checked={this.state.recurring === 'false'}
+                  onChange={this.handleRadioChange('recurring')} />
             <label htmlFor="single">Single Event</label>
-            <input type="radio" id="recurring" name="recurring" value="true" />
+            <input type="radio" id="recurring" name="recurring" value='true' checked={this.state.recurring === 'true'} 
+                  onChange={this.handleRadioChange('recurring')} />
             <label htmlFor="recurring">Recurring Events</label>
           </div>
 
-        <label className="event-time">Event starts<br />
-          <input type="datetime-local" id="date-input"/>
+        <label className="event-time">Event starts<br /> 
+          <input type="datetime-local" className="date-input" min={this.getCurrentDateTime()}
+              onChange={this.handleInputChange('start')} />
         </label>
         <label className="event-time">Event ends<br />
-          <input type="datetime-local" id="date-input" />
+          <input type="datetime-local" className="date-input" min={this.getCurrentDateTime()} 
+              onChange={this.handleInputChange('end')}/>
         </label>
 
         <select name="timezones" id="timezones">
