@@ -38,7 +38,7 @@ class HeaderNavBar extends React.Component {
             </span>
         </span>
         <span id="header-nav-bar-right">
-          <span id="host-event-dropdown">Host an event</span>
+          <span id="host-event-dropdown"><Link to="/events/create">Host an event</Link></span>
           <span id="help-dropdown">Help</span>
           {signinLink}
           {signoutButton}

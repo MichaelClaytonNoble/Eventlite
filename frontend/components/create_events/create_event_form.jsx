@@ -37,7 +37,7 @@ class CreateEventForm extends React.Component{
   handleSubmit(e){
     //before submit change recurring into a boolean value 
     e.preventDefault(); 
-    this.props.createEvent(this.state).then( (data)=>console.log(data)); 
+    this.props.createEvent(this.state); 
   }
 
   handleRadioChange(field){
