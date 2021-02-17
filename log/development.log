@@ -28213,3 +28213,1780 @@ Unpermitted parameter: :organizer
 Completed 422 Unprocessable Entity in 5ms (Views: 0.1ms | ActiveRecord: 1.2ms)
 
 
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 00:39:16 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "MKDyOsYyyo3ZR8_g-Bzu3g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+Completed 200 OK in 468ms (Views: 465.7ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/api/session" for ::1 at 2021-02-17 00:47:08 -0800
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "MKDyOsYyyo3ZR8_g-Bzu3g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:37
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Example.Account@demo.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:37
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "s5ndceIdv1ZuCLhztWqEkw"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:37
+  [1m[36mUser Update (2.7ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "s5ndceIdv1ZuCLhztWqEkw"], ["updated_at", "2021-02-17 08:47:08.832532"], ["id", 1]]
+  ↳ app/models/user.rb:37
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:37
+Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 00:47:21 -0800
+Processing by StaticPagesController#root as */*
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 500 Internal Server Error in 296ms (ActiveRecord: 0.0ms)
+
+
+
+Sass::SyntaxError - Invalid CSS after "  height:": expected expression (e.g. 1px, bold), was "}":
+  app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb__4045045387312476320_70178016176520'
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 00:48:12 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 633ms (Views: 631.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 00:48:31 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 103ms (Views: 100.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 00:48:44 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 114ms (Views: 110.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 00:49:02 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 89ms (Views: 86.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 00:51:57 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 591ms (Views: 589.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 00:52:29 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 111ms (Views: 108.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 00:53:20 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 112ms (Views: 110.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 00:54:08 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 120ms (Views: 118.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 00:54:09 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 22ms (Views: 20.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 00:54:20 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 108ms (Views: 106.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 00:54:21 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 20ms (Views: 17.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 00:54:23 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 20ms (Views: 17.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 00:55:27 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 100ms (Views: 97.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 00:55:38 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 100ms (Views: 98.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 00:55:50 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 112ms (Views: 109.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 00:56:08 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 574ms (Views: 571.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 00:56:31 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 529ms (Views: 526.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 00:57:23 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 96ms (Views: 92.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 00:57:47 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 95ms (Views: 93.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 00:58:41 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 98ms (Views: 96.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 00:59:19 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 98ms (Views: 95.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 00:59:43 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 449ms (Views: 447.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:00:30 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 450ms (Views: 448.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:01:04 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 145ms (Views: 142.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:01:23 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 137ms (Views: 135.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:01:37 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 99ms (Views: 97.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:01:54 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 103ms (Views: 101.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:02:05 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 103ms (Views: 100.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:02:39 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 105ms (Views: 103.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:02:40 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 26ms (Views: 24.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:02:57 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 107ms (Views: 105.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:03:11 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 114ms (Views: 110.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:03:28 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 99ms (Views: 97.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:03:38 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 129ms (Views: 125.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:04:15 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 106ms (Views: 103.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:04:22 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 21ms (Views: 19.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:04:27 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 100ms (Views: 97.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:05:25 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 551ms (Views: 549.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:05:53 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 106ms (Views: 104.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:06:10 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 104ms (Views: 102.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:06:22 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 98ms (Views: 96.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:06:35 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 116ms (Views: 114.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:07:02 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 128ms (Views: 124.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:08:58 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 118ms (Views: 116.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:09:16 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 110ms (Views: 108.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:10:46 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 139ms (Views: 137.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:13:00 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 137ms (Views: 135.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:13:43 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 119ms (Views: 117.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:14:01 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 117ms (Views: 115.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:14:27 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 103ms (Views: 101.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:16:11 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 192ms (Views: 190.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:16:23 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 107ms (Views: 105.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:16:55 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 109ms (Views: 107.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:17:07 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 105ms (Views: 103.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:17:22 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 112ms (Views: 110.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:17:36 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 127ms (Views: 125.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:17:44 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 103ms (Views: 101.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:18:05 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 102ms (Views: 100.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:18:25 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 107ms (Views: 104.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:21:49 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 136ms (Views: 134.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:22:13 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 120ms (Views: 117.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:23:23 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 160ms (Views: 158.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:25:53 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 160ms (Views: 157.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:26:15 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 112ms (Views: 110.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:26:32 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 136ms (Views: 134.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:26:54 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 22ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:30:18 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 631ms (Views: 629.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:30:55 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 113ms (Views: 111.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:31:29 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 108ms (Views: 106.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:31:48 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 120ms (Views: 117.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:32:20 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 116ms (Views: 114.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:32:37 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 117ms (Views: 115.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:32:38 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 21ms (Views: 19.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:32:55 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 500 Internal Server Error in 55ms (ActiveRecord: 0.0ms)
+
+
+
+Sass::SyntaxError - Invalid CSS after "  width: 50%%": expected expression (e.g. 1px, bold), was ";":
+  app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb__4045045387312476320_70178077002460'
+
+Started POST "/__better_errors/969eaa5946f7bd72/variables" for ::1 at 2021-02-17 01:32:55 -0800
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:33:01 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 145ms (Views: 143.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:33:03 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 35ms (Views: 32.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:33:41 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 137ms (Views: 133.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:33:42 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 27ms (Views: 24.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:33:52 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 108ms (Views: 106.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:34:48 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 113ms (Views: 110.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:35:00 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 118ms (Views: 114.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:36:35 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 574ms (Views: 572.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:37:18 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 116ms (Views: 114.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:37:34 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 126ms (Views: 123.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:37:50 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 119ms (Views: 117.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:38:42 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 118ms (Views: 115.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:39:59 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 116ms (Views: 113.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:41:14 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 116ms (Views: 114.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:41:43 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 451ms (Views: 449.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:42:07 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 115ms (Views: 113.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:44:57 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 456ms (Views: 454.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:45:31 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 122ms (Views: 119.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:45:43 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 113ms (Views: 111.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:46:00 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 108ms (Views: 105.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:48:08 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 642ms (Views: 640.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:48:31 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 126ms (Views: 124.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:48:43 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 114ms (Views: 112.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:49:36 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 137ms (Views: 135.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:50:01 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 106ms (Views: 104.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:50:41 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 111ms (Views: 108.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:50:58 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 123ms (Views: 121.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:52:03 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 118ms (Views: 116.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:52:37 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 108ms (Views: 105.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:53:11 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 119ms (Views: 117.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:53:17 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 23ms (Views: 21.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:53:37 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 141ms (Views: 139.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:53:39 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 23ms (Views: 21.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:54:12 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 146ms (Views: 144.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:57:35 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 197ms (Views: 195.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:57:53 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 467ms (Views: 465.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:58:06 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 35ms (Views: 32.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 01:59:23 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 485ms (Views: 482.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:01:42 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 201ms (Views: 199.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:02:06 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 127ms (Views: 124.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:02:11 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 24ms (Views: 21.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:02:12 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 24ms (Views: 22.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:02:39 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 124ms (Views: 122.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:02:49 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 118ms (Views: 116.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:05:05 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 182ms (Views: 180.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:05:33 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 135ms (Views: 133.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:06:13 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 142ms (Views: 140.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:06:40 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 119ms (Views: 117.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:07:34 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 96ms (Views: 94.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:08:08 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.0ms)
+
+
+
+Sass::SyntaxError - Invalid CSS after "...ut-border-color": expected selector or at-rule, was ": #dbdae3;":
+  app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb__4045045387312476320_70178076659140'
+
+Started POST "/__better_errors/d0d07b274f02eb17/variables" for ::1 at 2021-02-17 02:08:08 -0800
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:08:14 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 107ms (Views: 104.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:08:22 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 92ms (Views: 90.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:08:34 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 101ms (Views: 98.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:09:01 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 27ms (Views: 24.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:09:25 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 29ms (Views: 26.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:10:00 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 116ms (Views: 113.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:10:13 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 114ms (Views: 112.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:10:21 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 108ms (Views: 105.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:10:36 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 114ms (Views: 112.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:11:18 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 111ms (Views: 109.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:11:54 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 129ms (Views: 127.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:12:03 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 138ms (Views: 136.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:12:24 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 126ms (Views: 124.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:14:59 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 126ms (Views: 124.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:15:35 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 123ms (Views: 121.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:16:19 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 148ms (Views: 145.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:17:14 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 132ms (Views: 130.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:17:22 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 122ms (Views: 120.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 02:17:40 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+Filter chain halted as :require_logged_in rendered or redirected
+Completed 422 Unprocessable Entity in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:20:54 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 640ms (Views: 638.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:21:03 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 41ms (Views: 37.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:21:06 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 447ms (Views: 445.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:21:41 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 607ms (Views: 603.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:22:16 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 457ms (Views: 454.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:23:03 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 132ms (Views: 129.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:23:25 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 113ms (Views: 110.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:23:35 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 125ms (Views: 122.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:23:51 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 115ms (Views: 113.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:24:00 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 113ms (Views: 111.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:24:09 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 112ms (Views: 110.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:24:34 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 453ms (Views: 450.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:24:51 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 129ms (Views: 127.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:24:57 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 130ms (Views: 127.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:25:04 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 114ms (Views: 112.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:25:10 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 152ms (Views: 149.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:25:33 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 205ms (Views: 203.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:26:00 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 135ms (Views: 133.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:26:16 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 116ms (Views: 114.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:26:23 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 113ms (Views: 110.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:26:41 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 155ms (Views: 153.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:26:49 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 121ms (Views: 119.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:30:39 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 457ms (Views: 455.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:31:03 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 467ms (Views: 464.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:33:00 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 499ms (Views: 496.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:33:35 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 124ms (Views: 122.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:33:37 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 21ms (Views: 19.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:33:44 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 123ms (Views: 120.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:33:46 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 24ms (Views: 21.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:33:57 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 112ms (Views: 110.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:33:58 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 22ms (Views: 20.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:34:08 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 133ms (Views: 131.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:34:24 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 118ms (Views: 116.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:34:26 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 20ms (Views: 18.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:35:03 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 110ms (Views: 107.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:35:11 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 124ms (Views: 122.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:35:12 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 21ms (Views: 19.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:35:31 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 108ms (Views: 106.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:36:09 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 116ms (Views: 114.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:36:30 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 131ms (Views: 128.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:36:38 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 130ms (Views: 128.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:36:48 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 119ms (Views: 116.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:36:54 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 109ms (Views: 107.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:37:17 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 111ms (Views: 108.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:37:27 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 117ms (Views: 115.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:39:07 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 560ms (Views: 558.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:39:40 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 445ms (Views: 439.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:40:22 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 450ms (Views: 447.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:41:10 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 547ms (Views: 545.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:41:52 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 147ms (Views: 144.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:42:05 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 125ms (Views: 123.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:42:52 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 142ms (Views: 140.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:42:54 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 22ms (Views: 20.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:43:45 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 29ms (Views: 27.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:44:41 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 189ms (Views: 186.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:45:28 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 173ms (Views: 169.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:45:41 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 113ms (Views: 110.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:45:43 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 21ms (Views: 18.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:46:04 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 122ms (Views: 120.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:46:10 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 123ms (Views: 121.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:46:11 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 20ms (Views: 18.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:46:21 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 23ms (Views: 21.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:46:50 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 116ms (Views: 114.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:47:09 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 113ms (Views: 111.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:47:22 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 113ms (Views: 110.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:47:35 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 112ms (Views: 110.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:47:56 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 114ms (Views: 112.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:47:57 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 30ms (Views: 28.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:48:07 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 121ms (Views: 118.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:48:15 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 122ms (Views: 120.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:48:22 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 117ms (Views: 115.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:48:35 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 117ms (Views: 115.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?categories=&location=VENUE&recurring=false&timezones=%28GMT-12%3A00%29+International+Date+Line+West" for ::1 at 2021-02-17 02:48:52 -0800
+Processing by StaticPagesController#root as HTML
+  Parameters: {"categories"=>"", "location"=>"VENUE", "recurring"=>"false", "timezones"=>"(GMT-12:00) International Date Line West"}
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 92ms (Views: 90.2ms | ActiveRecord: 0.0ms)
+
+

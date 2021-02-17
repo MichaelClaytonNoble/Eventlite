@@ -15,7 +15,7 @@ class CreateEventForm extends React.Component{
       timezone: findTimezone[0].zone,
     }
 
-    this.disabled = true;
+    this.disabled = false;
     this.getCurrentDateTime = this.getCurrentDateTime.bind(this); 
     this.handleSubmit = this.handleSubmit.bind(this); 
   }
@@ -24,12 +24,10 @@ class CreateEventForm extends React.Component{
     return (date.toJSON(), new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toJSON());
   }
 
-
   getCurrentDateTime(){
     return this.convertDateToLocalAsJSON(new Date()).slice(0,16);
   }
 
-  
   handleInputChange(field){
     return (e)=>{
       this.setState({[field]: e.target.value});
@@ -40,10 +38,8 @@ class CreateEventForm extends React.Component{
     //before submit change recurring into a boolean value 
     e.preventDefault(); 
     this.props.createEvent(this.state).then( (data)=>console.log(data)); 
-
   }
-  
-  
+
   handleRadioChange(field){
     return (e)=>{
       if(field === 'location'){
@@ -62,26 +58,28 @@ class CreateEventForm extends React.Component{
   
   handleTimezoneChange(){
     return (e)=>{
-    
       this.setState({timezone: e.currentTarget.value});
     }
   }
 
   render(){
 
-    let locationOption = '';
     return(
+
       <div id="create-event-form">
+
         <form id="create-event-info-form" onSubmit={this.handleSubmit}>
 
         <section className="info-section">
-        <h1 id="create-event-header">Basic Info</h1>
+            <h1 id="create-event-header"><i className="far fa-edit create-event-form-icons"></i>Basic Info</h1>
         <p id="create-event-description">Name your event and tell event-goers why they should come. Add details that highlight what makes it unique</p>
 
-            <input className="large-input" onChange={this.handleInputChange('title')} value={this.state.title}
-                  placeholder="Event Title"/>
-            <input className="large-input"  onChange={this.handleInputChange('organizer')} value={this.state.organizer}
-                  placeholder ="Organizer"/>
+            <label className='large-input-label'><p>Event title</p>
+              <input className="large-input" onChange={this.handleInputChange('title')} value={this.state.title}/>
+            </label>  
+            <label className='large-input-label'><p>Organizer</p>
+            <input className="large-input"  onChange={this.handleInputChange('organizer')} value={this.state.organizer}/>
+            </label>
             
             <select name="categories" id="categories">
               <option value="" >Category</option>
@@ -90,7 +88,7 @@ class CreateEventForm extends React.Component{
         </section>
         <section className="info-section">
 
-        <h1 id="create-event-header">Location</h1>
+            <h1 id="create-event-header"><i className="far fa-map create-event-form-icons"></i>Location</h1>
         <p id="create-event-description">Help people in the area discover your event and let attendees know where to show up.</p>
           
         <div id="create-event-radio-buttons">
@@ -106,12 +104,13 @@ class CreateEventForm extends React.Component{
           <label htmlFor="TBA">To be announced</label>
         </div>
 
-        <input type="text" className="large-input" value={this.state.venue} onChange={this.handleInputChange('venue')}
-            placeholder="Venue Address" disabled={this.disabled}/>
+        <label className='large-input-label'><p>Venue address</p>
+          <input type="text" className="large-input" value={this.state.venue} onChange={this.handleInputChange('venue')} disabled={this.disabled}/>
+        </label>
         </section>
         <section className="info-section">
 
-        <h1 id="create-event-header">Date and time</h1>
+            <h1 id="create-event-header"><i className="far fa-calendar-alt create-event-form-icons"></i>Date and time</h1>
         <p id="create-event-description">Tell event-goers when your event starts and ends so they can make plans to attend.</p>
 
           <div id="create-event-radio-buttons">
@@ -123,16 +122,18 @@ class CreateEventForm extends React.Component{
             <label htmlFor="recurring">Recurring Events</label>
           </div>
 
-        <label className="event-time">Event starts<br /> 
-          <input type="datetime-local" className="date-input" min={this.getCurrentDateTime()}
-              onChange={this.handleInputChange('start')} />
-        </label>
-        <label className="event-time">Event ends<br />
-          <input type="datetime-local" className="date-input" min={this.getCurrentDateTime()} 
-              onChange={this.handleInputChange('end')}/>
-        </label>
+        <div id='date-elements'>
+          <label className="event-time"><p>Event starts</p>
+            <input type="datetime-local" className="date-input" min={this.getCurrentDateTime()}
+                onChange={this.handleInputChange('start')} />
+          </label>
+          <label className="event-time"><p>Event ends</p>
+            <input type="datetime-local" className="date-input" min={this.getCurrentDateTime()} 
+                onChange={this.handleInputChange('end')}/>
+          </label>
+        </div>
 
-        <label className="timezone-label">TimeZone</label>
+        <label id="timezone-label"><p>TimeZone</p>
           <select name="timezones" id="timezones" value={this.state.timezone} 
             onChange={this.handleInputChange('timezone')}>
           {
@@ -140,11 +141,15 @@ class CreateEventForm extends React.Component{
               return <option value={timezone.zone} key={i}>{timezone.zone}</option>
             })
           }
-        </select>
+          </select>
+        </label>
 
         </section>
 
-        <button>Save & Continue</button>
+        <div id="form-buttons">
+          <button className="form-discard-button" type="reset">Discard</button>
+          <button className="form-submit-button">Save & Continue</button>
+        </div>
         </form>
       </div>
     )
