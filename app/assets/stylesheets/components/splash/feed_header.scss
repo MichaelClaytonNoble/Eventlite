@@ -1,62 +1,59 @@
 
 #feed-header{
   display: grid;
-  grid-template-columns: 5% 5% 10% 20% 20% 10% 5% 5%;
-  grid-template-rows: 5% 5% 5% 40% 10% 5% 5%;
+  grid-template-columns: 7% 3% 35% 50%;
+  grid-template-rows: 10% 14% 70% 14% 10%;
 }
 #feed{
   display: flex;
   flex-direction: column;
   font-size: 16px; 
   grid-column-start: 2;
-  grid-column-end: 5;
-  grid-row: 4; 
+  grid-column-end: 4;
+  grid-row: 3; 
 
   justify-content: center; 
   h2{
-    font-size: 36px;
+    font-size: 3vw;
     color: $eventbrite-orange;
     font-weight: bold;
     margin-bottom: 10px;
   }
   h1{
-    font-size: 60px;
+    font-size: 4vw;
     font-weight: bold;
-    margin-bottom: 15px;
+    margin-bottom: 1vw;
   }
   .header.link{
     background-color: $submit-button-color;
-    font-size:13px;
+    font-size:1vw;
     color: white;
-
     border-radius:100px;
     padding: 12px 16px 12px 18px;
-    width: 110px;
-    height: 130px;
+    width: 10vw;
+    height: 1.25vw;
     text-align: center;
     span{
       position: relative;
-      top: 6px;
+      top: 0px;
     }
   }
 }
 #grey-box{
-  grid-column-start: 3;
-  grid-column-end: 5;
-  grid-row-start: 3;
-  grid-row-end: 6; 
+  grid-column: 3;
+  grid-row: 3; 
   background-color: $border-color-light;
 }
 .header{
-  grid-column-start: 1;
+  grid-column-start: 2;
 }
 #feed-image{
-  grid-column-start: 5;
-  grid-column-end: 9;
+  grid-column: 4;
   grid-row-start: 2;
-  grid-row-end: 7;
+  grid-row-end: 5;
   img{
     object-fit: cover; 
     max-height: 100%;
+    height: 100%;
   }
 }
