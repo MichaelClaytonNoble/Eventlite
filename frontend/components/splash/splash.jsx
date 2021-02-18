@@ -18,23 +18,14 @@ class Splash extends React.Component{
 
               <h2 id="top-header" className="header">Celebrate and honor</h2>
               <h1 id="main-header"className="header">Black Excellence</h1>
-              <Link to="#browseEvents"className="header">Browse events</Link>
+            <Link to="#browseEvents" className="header link"><span>Browse events  →</span></Link>
 
           </div>
           <div id="feed-image">
             <img src={window.feedImage}/>
           </div>
         </div>
-        oehtunoehuntohuo
-        oesnuhoeuh
-        oeu
-        oehtunoehuntohuooeu
-        oehtunoehuntohuooeuoe
-        uoeu
-        ue
-        console.error(oe
-        oe
-        );
+        
       </div>
     );
 
