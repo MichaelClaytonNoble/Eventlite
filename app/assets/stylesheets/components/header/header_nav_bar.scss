@@ -28,7 +28,9 @@
 #header-nav-bar-right{
   display: flex;
   font-size: 14px; 
-  margin-right: -10px;
+  margin-right: 5px;
+  flex-direction: row; 
+  align-items: center; 
 }
 #header-nav-bar-right span{
   height: 100%;
@@ -48,7 +50,6 @@
   font-size: 14px;
   margin-left: 24px;
   background-color: $search-bar-color;
-  padding-left: 10px;
   width: 60%;
   height: 48px;
   align-items: center; 

@@ -16,7 +16,7 @@ class HeaderNavBar extends React.Component {
   }
 
   render(){
-    let signoutButton, signinLink = '';
+    let signoutButton, signinLink, menuDropdown = '';
 
     if(!this.props.loggedIn){
       signinLink = <span id="signin-link">
@@ -24,9 +24,20 @@ class HeaderNavBar extends React.Component {
       </span>
     }
     else{
-      signoutButton = <span id="signout-link">
-        <button onClick={this.signOut}>Sign Out</button>
-      </span>
+      // signoutButton = <span id="signout-link">
+      //   <button onClick={this.signOut}>Sign Out</button>
+      // </span>
+      signoutButton = <button onClick={this.signOut}>Sign Out</button>
+      menuDropdown = (
+        <ul id="menu-dropdown">
+          <li><span><div id="icon"><img src={window.stickManGrey}/></div>myemailaddress@mail.com</span></li>
+          <li>Browse events</li>
+          <li>Manage my events</li>
+          <li>Following</li>
+          <li>Tickets</li>
+          <li>{signoutButton}</li>
+        </ul>
+      )
     }
     return(
       <div id="header-nav-bar">
@@ -40,8 +51,9 @@ class HeaderNavBar extends React.Component {
         <span id="header-nav-bar-right">
           <span id="host-event-dropdown"><Link to="/events/create">Host an event</Link></span>
           <span id="help-dropdown">Help</span>
+          {menuDropdown}
           {signinLink}
-          {signoutButton}
+          {/* {signoutButton} */}
         </span>
       </div>
     )
