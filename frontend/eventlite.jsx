@@ -6,7 +6,7 @@ import {signup} from './actions/users';
 import configureStore from './store/store';
 import Root from './components/root';
 
-import { createEvent } from './actions/events';
+import { createEvent, updateEvent } from './actions/events';
 
 document.addEventListener('DOMContentLoaded', ()=>{
   let store;
@@ -39,7 +39,7 @@ const windowStuff = (store)=>{
   window.logout = logout;
   window.login = login;
   window.findUserByEmailForSession = findUserByEmailForSession;
-
+  window.updateEvent = updateEvent;
   window.dispatch = store.dispatch;
   window.getState = store.getState;
   window.createEvent = createEvent;

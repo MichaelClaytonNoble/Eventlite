@@ -97,7 +97,7 @@ class CreateEventForm extends React.Component{
           return;
       }
 
-    })
+    });
     return(
 
       <div id="create-event-form">

@@ -2,13 +2,13 @@
 import CreateEventForm from './create_event_form';
 import {connect} from 'react-redux'; 
 import {createEvent, clearErrors} from '../../actions/events'; 
-import { EVENT_DETAILS_FORM_ERROR_LIST } from '../../reducers/selectors/error_selectors';
+import { CREATE_EVENT_FORM_ERROR_LIST } from '../../reducers/selectors/error_selectors';
 
 const mSTP = state =>{
   return ({
     // getCategories: 
     errors: state.errors.events,
-    errorList: EVENT_DETAILS_FORM_ERROR_LIST,
+    errorList: CREATE_EVENT_FORM_ERROR_LIST,
     timezones
   })
 }

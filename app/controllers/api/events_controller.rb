@@ -10,9 +10,27 @@ class Api::EventsController < ApplicationController
       render json: @event.errors.full_messages, status: 422
     end
   end
-end
 
+  def update
+    @event = Event.find_by(id: params[:id])
 
-def event_params_basic_info
-  params.require(:event).permit(:id, :title, :venue, :recurring, :category_id, :location, :start, :end, :timezone)
+    if @event
+      if @event.update(event_params)
+        render :event_info
+      else
+        render json: @event.errors.full_messages, status: 422
+      end
+    else
+      render json: ["This event does not exist"], status: 422
+    end
+  end
+  
+  
+  def event_params_basic_info
+    params.require(:event).permit(:id, :title, :venue, :recurring, :category_id, :location, :start, :end, :timezone)
+  end
+  def event_params
+    params.require(:event).permit(:id, :title, :description, :category_id, :location,
+              :address, :venue, :recurring, :start, :end, :timezone, :creator_id, :about)
+  end
 end
