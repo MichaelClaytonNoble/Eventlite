@@ -12,10 +12,16 @@ class SessionLoginForm extends React.Component {
   }
 
   componentDidMount(){
+    this.props.clearErrors();
+    this.clearErrors=true;
     this.state.email = localStorage.email;
     localStorage.clear(); 
   }
+  componentWillUnmount(){
+    this.props.clearErrors();
+  }
   componentDidUpdate(){
+    localStorage.email=this.state.email;
     if(this.clearErrors){
       this.props.clearErrors();
     }
@@ -27,15 +33,18 @@ class SessionLoginForm extends React.Component {
     this.setState();
   }
    
-  handleChange(e){
-    this.clearErrors = true;
-    this.setState({password: e.target.value})
+  handleChange(field){
+    return (e)=>{
+      this.clearErrors = true;
+      this.setState({[field]: e.target.value})
+    }
+  }
+  handleEmail(e){
+    localStorage.email = e.target.value;
   }
 
   render(){
-    let submitButton, message, header, demoLoginButton, or = '';
-    let disabled = '';
- 
+    let message, header, or = '';
 
       header = <h1 id="header">Welcome back</h1>;
       message = <p id="session-login-message">Please enter your password to log in.</p>;
@@ -48,9 +57,14 @@ class SessionLoginForm extends React.Component {
         <form id="session-form" onSubmit={this.handleSubmit}>
           {header}
           {message}
-          <input className="session-form-input" type="text" required placeholder="Email address"
-            value={localStorage.email} disabled />
-          <input className="session-form-input" type="password" placeholder="password" onChange={this.handleChange}/>
+          <label className="session-form-input-label"><p>Email address</p>
+            <input className="session-form-input" type="text" required onChange={this.handleChange('password')}
+              value={this.state.email} />
+          </label>
+          <label className="session-form-input-label"><p>Password</p>
+          <input className="session-form-input" type="password" 
+              onChange={this.handleChange('email')}/>
+          </label>
         <ul id="session-login-form-errors">
           {
             this.props.errors.map( (error, i) => {

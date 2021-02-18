@@ -3,17 +3,17 @@ import {RECEIVE_SESSION_ERRORS, RECEIVE_CURRENT_USER, CLEAR_ERRORS} from '../act
 const sessionErrorsReducer = (state =[], action)=>{
   Object.freeze(state);
 
-  const orange = [];
+  const _nullSession = [];
 
   switch(action.type){
     case RECEIVE_SESSION_ERRORS:
       return action.errors;
 
     case RECEIVE_CURRENT_USER: 
-      return orange;
+      return _nullSession;
 
     case CLEAR_ERRORS:
-      return orange;
+      return _nullSession;
       
     default:
       return state;

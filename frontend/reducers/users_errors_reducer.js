@@ -11,7 +11,7 @@ const usersErrorsReducer = (state=[], action) => {
       return action.errors;
     
     case CLEAR_ERRORS:
-      return state;
+      return [];
     default: 
       return state;
   }

@@ -13,9 +13,10 @@ class SessionEmailForm extends React.Component{
   }
 
   componentDidMount(){
+    this.props.clearErrors();
   }
   componentWillUnmount(){
-
+    this.props.clearErrors();
   }
   handleSubmit(e){
     if(this.props.emailExists){
@@ -63,8 +64,10 @@ class SessionEmailForm extends React.Component{
         <form id="session-form" onSubmit={this.handleSubmit}>
           {header}
           {message}
-          <input className="session-form-input" type="text" required placeholder="Email address" 
-              onChange={this.handleChange} value={this.state.email} disabled={disabled}/>
+          <label className="session-form-input-label"><p>Email address</p>
+            <input className="session-form-input" type="text" required
+                onChange={this.handleChange} value={this.state.email} disabled={disabled}/>
+          </label>
           {submitButton}
           {or}
           {demoLoginButton}

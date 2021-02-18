@@ -1,6 +1,6 @@
 
 import {connect} from 'react-redux';
-import { findUserByEmailForSession, login } from '../../actions/session';
+import { clearSessionErrors, findUserByEmailForSession, login } from '../../actions/session';
 import SessionEmailForm from './session_email_form';
 import { selectSessionErrors } from '../../reducers/selectors/session_selectors';
 const mSTP = (state, ownProps) =>{
@@ -18,7 +18,8 @@ const mDTP = dispatch =>{
   }
   return({
     findIfEmailExists: (email) => dispatch(findUserByEmailForSession(email)),
-    demoLogin: () => dispatch(login(formUser))
+    demoLogin: () => dispatch(login(formUser)),
+    clearErrors: ()=>dispatch(clearSessionErrors())
   })
 }
 

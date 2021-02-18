@@ -15,10 +15,16 @@ class SessionSignupForm extends React.Component{
     this.emailMessage = this.emailMessage.bind(this); 
     this.displayErrors = this.displayErrors.bind(this); 
     this.clearErrors = this.clearErrors.bind(this); 
-
+    this.handleEmail=this.handleEmail.bind(this); 
+                
     this.errorMessage = '';
   }
-  
+  componentDidMount(){
+    this.clearErrors();
+  }
+  componentWillUnmount(){
+    this.clearErrors();
+  }
   clearErrors(){
     this.props.clearErrors();
     this.errors = {matchEmail: ''};
@@ -74,6 +80,11 @@ class SessionSignupForm extends React.Component{
       }
       return (<li>Emails must match</li>)
   }
+  handleEmail(e){
+
+    localStorage.email=e.target.value;
+    this.setState({});
+  }
   render(){
     let message, header = '';
     header = <h1 id="header">Welcome</h1>
@@ -87,19 +98,28 @@ class SessionSignupForm extends React.Component{
         <form id="session-signup-info-form" onSubmit={this.handleSubmit}>
         {header}
         {message}
-          <input className="session-form-input" type="text" required placeholder="Email address"
-            value={localStorage.email} disabled/>
-          <input className="session-form-input" type="text" placeholder="Confirm email" 
-                onChange={this.handleChange('email')} value={this.state.email}/>
+          <label className="session-form-input-label"><p>Email address</p>
+            <input className="session-form-input" type="text" required onChange={this.handleEmail}
+              value={localStorage.email}/>
+          </label>
+          <label className="session-form-input-label"><p>Confirm email</p>
+            <input className="session-form-input" type="text"
+                  onChange={this.handleChange('email')} value={this.state.email}/>
+          </label>
           <span id="session-signup-info-form-name">
-            <input className="session-form-half-input" type="text" placeholder="First Name" 
-                onChange={this.handleChange('first_name')} value={this.state.first_name}/>
-            <input className="session-form-half-input" type="text" placeholder="Last Name" 
-                onChange={this.handleChange('last_name')} value={this.state.last_name}/>
+            <label className="session-form-input-half-label"><p>First name</p>
+              <input className="session-form-half-input" type="text" 
+                  onChange={this.handleChange('first_name')} value={this.state.first_name}/>
+            </label>
+            <label className="session-form-input-half-label"><p>Last name</p>
+              <input className="session-form-half-input" type="text" 
+                  onChange={this.handleChange('last_name')} value={this.state.last_name}/>
+            </label>
           </span>
-
-          <input className="session-form-input" type="password" placeholder="Password" 
-              onChange={this.handleChange('password')} value={this.state.password}/> 
+          <label className="session-form-input-label"><p>Password</p>
+            <input className="session-form-input" type="password"
+                onChange={this.handleChange('password')} value={this.state.password}/> 
+          </label>
             {this.displayErrors()}
           
           <button id="session-form-submit" type="submit">Sign Up</button>

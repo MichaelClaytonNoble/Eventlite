@@ -28,12 +28,29 @@
 .session-form-half-input{
   width: 165px; 
   height: 44px;
+  border: none;
+  margin-bottom: 5px; 
+  font-size: 16px;  
+  border-radius: 2px;
+  margin-left: 10px; 
+  line-height: 22px; 
+}
+.session-form-input-half-label{
+  width: 165px; 
+  height: 50px;
   border: 1px solid $input-border-color;
   margin-bottom: 20px; 
   border-radius: 2px;
-  font-size: 16px; 
+  display: flex;
+  flex-direction: column;
+  p{
+    font-size: 13px; 
+    margin-left: 10px; 
+    margin-top: 10px;
+    color: $label-text-color;
+  }
 }
-.session-form-half-input:hover{
+.session-form-half-input-label:hover{
   border:1px solid $input-border-hover-color;
 }
 

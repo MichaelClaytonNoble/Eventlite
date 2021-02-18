@@ -7,16 +7,42 @@
   font-weight: 870;
 }
 
+// .session-form-input{
+//   height: 44px;
+//   width: 350px; 
+//   border: 1px solid $input-border-color;
+//   margin-bottom: 20px; 
+//   border-radius: 2px;
+//   font-size: 16px;
+// }
 .session-form-input{
   height: 44px;
+  width: 350px; 
+  border: none;
+  margin-bottom: 20px; 
+  border-radius: 2px;
+  font-size: 16px;
+  margin-left: 10px; 
+  line-height: 22px; 
+}
+.session-form-input-label{
+  height: 50px;
   width: 350px; 
   border: 1px solid $input-border-color;
   margin-bottom: 20px; 
   border-radius: 2px;
-  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  p{
+    font-size: 13px; 
+    margin-left: 10px; 
+    margin-top: 10px; 
+    color: $label-text-color;
+  }
 }
-.session-form-input:hover{
+.session-form-input-label:hover{
   border:1px solid $input-border-hover-color;
+  cursor:text;
 }
 #session-form-submit{
   height: 44px;
