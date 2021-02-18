@@ -10,16 +10,31 @@ class Splash extends React.Component{
   render(){
     return(
       <div id="splash">
+
         <div id="feed-header">
+          <div id="grey-box"></div>
           <div id="feed">
-            <h2 id="top-header">Celebrate and honor</h2>
-            <h1 id="main-header">Black Excellence</h1>
-            <Link to="#browseEvents">Browse events</Link>
+              
+
+              <h2 id="top-header" className="header">Celebrate and honor</h2>
+              <h1 id="main-header"className="header">Black Excellence</h1>
+              <Link to="#browseEvents"className="header">Browse events</Link>
+
+          </div>
+          <div id="feed-image">
+            <img src={window.feedImage}/>
           </div>
         </div>
-        <div id="feed-image">
-          <img src={window.feedImage}/>
-        </div>
+        oehtunoehuntohuo
+        oesnuhoeuh
+        oeu
+        oehtunoehuntohuooeu
+        oehtunoehuntohuooeuoe
+        uoeu
+        ue
+        console.error(oe
+        oe
+        );
       </div>
     );
 
