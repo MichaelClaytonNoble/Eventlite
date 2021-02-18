@@ -24,13 +24,11 @@ class DetailsEventForm extends React.Component{
           <section className="info-section">
             <h1 id="create-event-header"><i className="far fa-images create-event-form-icons"></i>Main Event Image</h1>
             <p id="create-event-description">This is the first image attendees will see at the top of your listing. Use a high quality image: 2160x1080px (2:1 ratio).</p>
-
             <button id="add-event-images">
               <i className="fas fa-images button-icon"></i>
               <h1>Click to add main event image.</h1>
               <p>JPEG or PNG, no larger than 10MB.</p>
             </button>
-
           </section>
           <hr />
           <section className="info-section">
@@ -47,8 +45,6 @@ class DetailsEventForm extends React.Component{
 
           <hr />
         
-
-
           <div id="form-buttons">
             <button className="form-discard-button" type="reset">Discard</button>
             <button className="form-submit-button">Save & Continue</button>

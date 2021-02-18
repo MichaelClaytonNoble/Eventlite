@@ -221,5 +221,21 @@ hr{
   position: absolute;
   transform: translateX(-90px);
   font-size:xx-large;
+}
 
+.form-error-message{
+  transform: translate(10px,-25px);
+  font-size: 11px; 
+  color: $error-red;
+  font-weight: lighter; 
+}
+.date-err {
+  position: relative;
+  transform: translatey(30px);
+  width: 47%;
+}
+#date-errors{
+  flex-direction: row;
+  display: flex;
+  justify-content: space-between;
 }

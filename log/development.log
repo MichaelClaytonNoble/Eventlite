@@ -33438,3 +33438,1280 @@ Processing by Api::SessionsController#create as JSON
 Completed 422 Unprocessable Entity in 2ms (Views: 0.3ms | ActiveRecord: 0.3ms)
 
 
+Started GET "/" for ::1 at 2021-02-17 21:22:17 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 521ms (Views: 519.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 21:22:42 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 475ms (Views: 473.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 21:22:47 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"oeuoeu", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+Filter chain halted as :require_logged_in rendered or redirected
+Completed 422 Unprocessable Entity in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 21:23:44 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 528ms (Views: 525.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 21:23:46 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+Filter chain halted as :require_logged_in rendered or redirected
+Completed 422 Unprocessable Entity in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 21:24:24 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 541ms (Views: 538.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 21:24:26 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+Filter chain halted as :require_logged_in rendered or redirected
+Completed 422 Unprocessable Entity in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 21:25:57 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 475ms (Views: 473.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 21:28:13 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 710ms (Views: 707.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 21:28:29 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 147ms (Views: 145.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 21:28:44 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 145ms (Views: 142.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 21:29:16 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 140ms (Views: 137.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 21:29:22 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 177ms (Views: 173.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 21:29:34 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 179ms (Views: 176.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 21:29:45 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 154ms (Views: 152.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 21:34:01 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+Filter chain halted as :require_logged_in rendered or redirected
+Completed 422 Unprocessable Entity in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 21:36:17 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 480ms (Views: 478.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 21:36:21 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+Filter chain halted as :require_logged_in rendered or redirected
+Completed 422 Unprocessable Entity in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/session" for ::1 at 2021-02-17 21:39:21 -0800
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"Example.Account@demo.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "Example.Account@demo.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:37
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "Example.Account@demo.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:37
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:37
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["updated_at", "2021-02-18 05:39:22.220613"], ["id", 1]]
+  ↳ app/models/user.rb:37
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:37
+  Rendering api/sessions/create.json.jbuilder
+  Rendered api/sessions/_user.json.jbuilder (0.3ms)
+  Rendered api/sessions/create.json.jbuilder (2.0ms)
+Completed 200 OK in 293ms (Views: 9.0ms | ActiveRecord: 3.9ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 21:39:27 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/events_controller.rb:7
+Completed 422 Unprocessable Entity in 42ms (Views: 0.2ms | ActiveRecord: 11.5ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 21:53:08 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+Completed 200 OK in 484ms (Views: 480.9ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 21:53:12 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/events_controller.rb:7
+Completed 422 Unprocessable Entity in 10ms (Views: 0.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 21:53:29 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+Completed 200 OK in 517ms (Views: 514.3ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 21:53:31 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/events_controller.rb:7
+Completed 422 Unprocessable Entity in 7ms (Views: 0.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 21:56:13 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+Completed 200 OK in 505ms (Views: 503.0ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 21:56:15 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/events_controller.rb:7
+Completed 422 Unprocessable Entity in 8ms (Views: 0.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 21:56:34 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.7ms)
+Completed 200 OK in 38ms (Views: 33.7ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 21:56:37 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/events_controller.rb:7
+Completed 422 Unprocessable Entity in 7ms (Views: 0.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 21:56:39 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+Completed 200 OK in 701ms (Views: 697.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 21:56:41 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/events_controller.rb:7
+Completed 422 Unprocessable Entity in 7ms (Views: 0.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 21:56:56 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+Completed 200 OK in 466ms (Views: 463.7ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 21:56:58 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (4.9ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/events_controller.rb:7
+Completed 422 Unprocessable Entity in 14ms (Views: 0.1ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 21:57:20 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+Completed 200 OK in 31ms (Views: 29.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 21:57:22 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/events_controller.rb:7
+Completed 422 Unprocessable Entity in 7ms (Views: 0.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 21:58:45 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.7ms)
+Completed 200 OK in 496ms (Views: 493.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 21:59:42 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+Completed 200 OK in 209ms (Views: 206.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 22:00:39 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+Completed 200 OK in 198ms (Views: 195.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 22:01:24 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+Completed 200 OK in 182ms (Views: 179.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 22:01:34 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.7ms)
+Completed 200 OK in 181ms (Views: 176.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 22:01:36 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/events_controller.rb:7
+Completed 422 Unprocessable Entity in 10ms (Views: 0.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 22:02:07 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+Completed 200 OK in 196ms (Views: 189.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 22:02:11 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/events_controller.rb:7
+Completed 422 Unprocessable Entity in 6ms (Views: 0.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 22:02:29 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+Completed 200 OK in 164ms (Views: 160.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 22:02:32 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/events_controller.rb:7
+Completed 422 Unprocessable Entity in 7ms (Views: 0.2ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 22:02:50 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/events_controller.rb:7
+Completed 422 Unprocessable Entity in 9ms (Views: 0.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 22:02:53 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.7ms)
+Completed 200 OK in 151ms (Views: 149.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 22:02:54 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/events_controller.rb:7
+Completed 422 Unprocessable Entity in 9ms (Views: 0.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 22:03:26 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+Completed 200 OK in 499ms (Views: 493.9ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 22:03:27 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/events_controller.rb:7
+Completed 422 Unprocessable Entity in 6ms (Views: 0.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 22:03:59 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+Completed 200 OK in 34ms (Views: 31.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 22:04:20 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+Completed 200 OK in 527ms (Views: 523.9ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 22:04:22 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/events_controller.rb:7
+Completed 422 Unprocessable Entity in 8ms (Views: 0.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 22:04:45 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+Completed 200 OK in 491ms (Views: 487.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 22:05:13 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+Completed 200 OK in 194ms (Views: 192.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 22:05:15 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/events_controller.rb:7
+Completed 422 Unprocessable Entity in 8ms (Views: 0.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 22:05:25 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+Completed 200 OK in 178ms (Views: 174.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 22:05:26 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/events_controller.rb:7
+Completed 422 Unprocessable Entity in 7ms (Views: 0.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 22:05:42 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+Completed 200 OK in 159ms (Views: 155.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 22:05:43 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/events_controller.rb:7
+Completed 422 Unprocessable Entity in 8ms (Views: 0.2ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 22:05:45 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/events_controller.rb:7
+Completed 422 Unprocessable Entity in 7ms (Views: 0.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 22:06:28 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.9ms)
+Completed 200 OK in 642ms (Views: 639.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 22:06:30 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/events_controller.rb:7
+Completed 422 Unprocessable Entity in 7ms (Views: 0.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 22:06:58 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (1.0ms)
+Completed 200 OK in 160ms (Views: 157.9ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 22:06:59 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/events_controller.rb:7
+Completed 422 Unprocessable Entity in 7ms (Views: 0.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 22:07:06 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+Completed 200 OK in 180ms (Views: 174.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 22:07:08 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/events_controller.rb:7
+Completed 422 Unprocessable Entity in 7ms (Views: 0.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 22:09:12 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.9ms)
+Completed 200 OK in 251ms (Views: 242.4ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 22:09:13 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/events_controller.rb:7
+Completed 422 Unprocessable Entity in 10ms (Views: 0.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 22:09:21 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+Completed 200 OK in 201ms (Views: 196.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 22:09:22 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/events_controller.rb:7
+Completed 422 Unprocessable Entity in 6ms (Views: 0.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 22:09:33 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+Completed 200 OK in 168ms (Views: 164.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 22:09:35 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/events_controller.rb:7
+Completed 422 Unprocessable Entity in 6ms (Views: 0.1ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 22:09:48 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/events_controller.rb:7
+Completed 422 Unprocessable Entity in 12ms (Views: 0.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 22:09:51 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+Completed 200 OK in 177ms (Views: 175.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 22:09:52 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/events_controller.rb:7
+Completed 422 Unprocessable Entity in 7ms (Views: 0.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 22:10:01 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+Completed 200 OK in 188ms (Views: 186.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 22:10:03 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/events_controller.rb:7
+Completed 422 Unprocessable Entity in 7ms (Views: 0.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 22:10:27 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+Completed 200 OK in 505ms (Views: 503.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 22:10:28 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/events_controller.rb:7
+Completed 422 Unprocessable Entity in 7ms (Views: 0.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 22:10:40 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+Completed 200 OK in 511ms (Views: 508.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 22:10:41 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/events_controller.rb:7
+Completed 422 Unprocessable Entity in 8ms (Views: 0.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 22:11:49 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+Completed 200 OK in 771ms (Views: 768.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 22:11:50 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/events_controller.rb:7
+Completed 422 Unprocessable Entity in 8ms (Views: 0.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 22:12:04 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+Completed 200 OK in 198ms (Views: 194.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 22:12:05 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/events_controller.rb:7
+Completed 422 Unprocessable Entity in 11ms (Views: 0.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 22:12:12 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+Completed 200 OK in 166ms (Views: 163.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 22:12:13 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/events_controller.rb:7
+Completed 422 Unprocessable Entity in 9ms (Views: 0.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 22:12:19 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+Completed 200 OK in 167ms (Views: 163.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 22:12:20 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/events_controller.rb:7
+Completed 422 Unprocessable Entity in 7ms (Views: 0.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 22:12:46 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+Completed 200 OK in 169ms (Views: 164.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 22:12:47 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/events_controller.rb:7
+Completed 422 Unprocessable Entity in 8ms (Views: 0.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 22:12:55 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+Completed 200 OK in 162ms (Views: 159.9ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 22:12:56 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/events_controller.rb:7
+Completed 422 Unprocessable Entity in 7ms (Views: 0.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 22:13:58 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+Completed 200 OK in 160ms (Views: 157.7ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 22:14:00 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/events_controller.rb:7
+Completed 422 Unprocessable Entity in 8ms (Views: 0.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 22:16:31 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+Completed 200 OK in 540ms (Views: 534.3ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 22:16:38 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"oeu", "organizer"=>"oeu", "venue"=>"oeu", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/events_controller.rb:7
+Completed 422 Unprocessable Entity in 6ms (Views: 0.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 22:18:34 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+Completed 200 OK in 560ms (Views: 557.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 22:18:36 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"", "end"=>"", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/events_controller.rb:7
+Completed 422 Unprocessable Entity in 8ms (Views: 0.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 22:20:23 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+Completed 200 OK in 500ms (Views: 496.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 22:21:10 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+Completed 200 OK in 490ms (Views: 487.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 22:21:24 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"oeu", "organizer"=>"oeu", "venue"=>"oeu", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"2021-02-19T22:21", "end"=>"2021-02-20T22:21", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mEvent Create (1.1ms)[0m  [1m[32mINSERT INTO "events" ("title", "category_id", "location", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["title", "oeu"], ["category_id", 1], ["location", "VENUE"], ["venue", "oeu"], ["recurring", false], ["start", "2021-02-19 22:21:00"], ["end", "2021-02-20 22:21:00"], ["timezone", "(GMT-08:00) Pacific Time (US & Canada)"], ["creator_id", 1], ["created_at", "2021-02-18 06:21:24.179246"], ["updated_at", "2021-02-18 06:21:24.179246"]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  Rendering api/events/event_basic_info.json.jbuilder
+  Rendered api/events/event_basic_info.json.jbuilder (0.7ms)
+Completed 200 OK in 15ms (Views: 7.4ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 22:22:39 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"oeu", "organizer"=>"oeu", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"2021-02-26T22:22", "end"=>"2021-02-26T22:22", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mEvent Create (0.7ms)[0m  [1m[32mINSERT INTO "events" ("title", "category_id", "location", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["title", "oeu"], ["category_id", 1], ["location", "VENUE"], ["venue", ""], ["recurring", false], ["start", "2021-02-26 22:22:00"], ["end", "2021-02-26 22:22:00"], ["timezone", "(GMT-08:00) Pacific Time (US & Canada)"], ["creator_id", 1], ["created_at", "2021-02-18 06:22:39.832264"], ["updated_at", "2021-02-18 06:22:39.832264"]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  Rendering api/events/event_basic_info.json.jbuilder
+  Rendered api/events/event_basic_info.json.jbuilder (0.5ms)
+Completed 200 OK in 15ms (Views: 6.5ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 22:23:00 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"oeu", "organizer"=>"", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"2021-02-20T22:22", "end"=>"2021-02-26T22:22", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mEvent Create (0.6ms)[0m  [1m[32mINSERT INTO "events" ("title", "category_id", "location", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["title", "oeu"], ["category_id", 1], ["location", "VENUE"], ["venue", ""], ["recurring", false], ["start", "2021-02-20 22:22:00"], ["end", "2021-02-26 22:22:00"], ["timezone", "(GMT-08:00) Pacific Time (US & Canada)"], ["creator_id", 1], ["created_at", "2021-02-18 06:23:00.569576"], ["updated_at", "2021-02-18 06:23:00.569576"]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  Rendering api/events/event_basic_info.json.jbuilder
+  Rendered api/events/event_basic_info.json.jbuilder (0.6ms)
+Completed 200 OK in 14ms (Views: 6.9ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 22:23:04 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (8.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+Completed 200 OK in 640ms (Views: 629.5ms | ActiveRecord: 8.2ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 22:23:18 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"oeuoeu", "organizer"=>"oeu", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"2021-02-27T22:23", "end"=>"2021-02-27T22:23", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("title", "category_id", "location", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["title", "oeuoeu"], ["category_id", 1], ["location", "VENUE"], ["venue", ""], ["recurring", false], ["start", "2021-02-27 22:23:00"], ["end", "2021-02-27 22:23:00"], ["timezone", "(GMT-08:00) Pacific Time (US & Canada)"], ["creator_id", 1], ["created_at", "2021-02-18 06:23:18.202120"], ["updated_at", "2021-02-18 06:23:18.202120"]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  Rendering api/events/event_basic_info.json.jbuilder
+  Rendered api/events/event_basic_info.json.jbuilder (0.5ms)
+Completed 200 OK in 13ms (Views: 6.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for ::1 at 2021-02-17 22:24:11 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.7ms)
+Completed 200 OK in 511ms (Views: 507.6ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/api/events" for ::1 at 2021-02-17 22:24:23 -0800
+Processing by Api::EventsController#create as JSON
+  Parameters: {"event"=>{"title"=>"oeuoeu", "organizer"=>"oeuoeu", "venue"=>"", "recurring"=>"false", "category_id"=>"1", "location"=>"VENUE", "start"=>"2021-02-26T22:24", "end"=>"2021-02-19T22:24", "timezone"=>"(GMT-08:00) Pacific Time (US & Canada)"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vt1Vd4e2s9pwmEmaqxvn1Q"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :organizer
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("title", "category_id", "location", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["title", "oeuoeu"], ["category_id", 1], ["location", "VENUE"], ["venue", ""], ["recurring", false], ["start", "2021-02-26 22:24:00"], ["end", "2021-02-19 22:24:00"], ["timezone", "(GMT-08:00) Pacific Time (US & Canada)"], ["creator_id", 1], ["created_at", "2021-02-18 06:24:23.201822"], ["updated_at", "2021-02-18 06:24:23.201822"]]
+  ↳ app/controllers/api/events_controller.rb:7
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/events_controller.rb:7
+  Rendering api/events/event_basic_info.json.jbuilder
+  Rendered api/events/event_basic_info.json.jbuilder (0.5ms)
+Completed 200 OK in 15ms (Views: 6.8ms | ActiveRecord: 1.8ms)
+
+
