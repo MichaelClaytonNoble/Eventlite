@@ -8,7 +8,7 @@ import SessionEmailFormContainer from './session/session_email_form_container';
 import FooterNavBar from './footer/footer_nav_bar';
 import CreateEventFormContainer from './create_events/create_event_form_container';
 import DetailsEventFormContainer from './create_events/details_event_form_container';
-
+import Splash from './splash/splash';
 import {Route} from 'react-router-dom'; 
 import {Switch} from 'react-router-dom';
 import {ProtectedRoute} from '../util/route_util.jsx'; 
@@ -26,7 +26,7 @@ class App extends React.Component{
           <AuthRoute exact path="/signin/login" component={SessionLoginFormContainer} />
           <AuthRoute exact path="/signin/signup" component={SessionSignupFormContainer} />
         
-          <Route exact path="/" render={()=> <h1 id="home"> Home Page </h1>} />
+          <Route exact path="/" component={Splash}/>
           <Route exact path="/events/create" component={CreateEventFormContainer} />
           <Route exact path ="/events/:eventId/details" component={DetailsEventFormContainer} />
 
