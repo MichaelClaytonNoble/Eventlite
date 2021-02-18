@@ -14,7 +14,13 @@ class SessionLoginForm extends React.Component {
   componentDidMount(){
     this.props.clearErrors();
     this.clearErrors=true;
-    this.state.email = localStorage.email;
+    if(localStorage.email === undefined){
+      this.state.email='';
+    }
+    else{
+
+      this.state.email = localStorage.email;
+    }
     localStorage.clear(); 
   }
   componentWillUnmount(){
@@ -58,12 +64,12 @@ class SessionLoginForm extends React.Component {
           {header}
           {message}
           <label className="session-form-input-label"><p>Email address</p>
-            <input className="session-form-input" type="text" required onChange={this.handleChange('password')}
+            <input className="session-form-input" type="text" required onChange={this.handleChange('email')}
               value={this.state.email} />
           </label>
           <label className="session-form-input-label"><p>Password</p>
           <input className="session-form-input" type="password" 
-              onChange={this.handleChange('email')}/>
+              onChange={this.handleChange('password')}/>
           </label>
         <ul id="session-login-form-errors">
           {

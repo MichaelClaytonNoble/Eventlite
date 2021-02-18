@@ -40,9 +40,7 @@ class SessionEmailForm extends React.Component{
   }
   render(){
     let submitButton, message, header, demoLoginButton, or = '';
-    let disabled = ''; 
     if (this.props.location.pathname === "/signin" ){
-      disabled = '';
       submitButton = <button id="session-form-submit">Get Started</button>;
       demoLoginButton = <button id="session-form-demo-login-button" onClick={this.loginDemoUser}>Demo User</button>;
       or = <p id="session-email-form-or">or</p>;
@@ -66,7 +64,7 @@ class SessionEmailForm extends React.Component{
           {message}
           <label className="session-form-input-label"><p>Email address</p>
             <input className="session-form-input" type="text" required
-                onChange={this.handleChange} value={this.state.email} disabled={disabled}/>
+                onChange={this.handleChange} value={this.state.email} />
           </label>
           {submitButton}
           {or}
