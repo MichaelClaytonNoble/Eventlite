@@ -6,6 +6,8 @@ import SessionLoginFormContainer from './session/session_login_form_container';
 import SessionSignupFormContainer from './session/session_signup_form_container';
 import SessionEmailFormContainer from './session/session_email_form_container'; 
 import FooterNavBar from './footer/footer_nav_bar';
+import CreateEventFormContainer from './create_events/create_event_form_container';
+import DetailsEventForm from './create_events/details_event_form'; 
 
 import {Route} from 'react-router-dom'; 
 import {Switch} from 'react-router-dom';
@@ -13,7 +15,6 @@ import {ProtectedRoute} from '../util/route_util.jsx';
 import {AuthRoute} from '../util/route_util.jsx';
 import PageNotFound from './error/error_page';
 
-import CreateEventFormContainer from './create_events/create_event_form_container';
 class App extends React.Component{
   render(){
     return (
@@ -27,6 +28,7 @@ class App extends React.Component{
         
           <Route exact path="/" render={()=> <h1 id="home"> Home Page </h1>} />
           <Route exact path="/events/create" component={CreateEventFormContainer} />
+          <Route exact path ="/events/:eventId/details" component={DetailsEventForm} />
 
           <Route exact path="/404" component={PageNotFound} />
           <Redirect to="/404" />

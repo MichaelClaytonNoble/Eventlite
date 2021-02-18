@@ -20,12 +20,6 @@
   padding-bottom: 5px; 
 }
 
-hr{
-  $color: $icon-color;
-  min-width: 860px;
-  transform: translateX(-120px);
-  opacity: 20%;
-}
 
 #create-event-info-form .large-input-label{
   width: 100%; 
@@ -54,6 +48,12 @@ hr{
   margin-bottom: 0px; 
 }
 
+hr{
+  $color: $icon-color;
+  min-width: 860px;
+  transform: translateX(-120px);
+  opacity: 20%;
+}
 #create-event-header{
   font-size: 30px;
   font-weight: bolder; 
@@ -184,7 +184,7 @@ hr{
     color: $radio-button-checked-color;
 }
 
-#create-event-info-form .form-submit-button{
+.form-submit-button{
   background-color: $submit-button-color;
   height: 46px; 
   width: 170px; 
@@ -193,20 +193,20 @@ hr{
   color: white;
   border: 2px solid $submit-button-color
 }
-#create-event-info-form .form-discard-button{
+.form-discard-button{
   border: 2px solid $input-border-hover-color;
   height: 46px; 
   width: 170px; 
   font-size: 16px; 
   text-align: center;
 }
-#create-event-info-form .form-submit-button:hover{
+.form-submit-button:hover{
   background-color: $submit-button-hover-color;
   border-color: $submit-button-hover-color;
   cursor: pointer; 
 }
 
-#create-event-info-form #form-buttons{
+#form-buttons{
   margin-top: 90px; 
   align-content: center;
   display: flex; 
@@ -219,6 +219,7 @@ hr{
   color: $icon-color;
   font-weight: lighter;
   position: absolute;
-  transform: translateX(-65px);
+  transform: translateX(-90px);
+  font-size:xx-large;
 
 }
