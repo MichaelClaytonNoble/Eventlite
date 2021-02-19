@@ -35,7 +35,7 @@ class App extends React.Component{
 
         </Switch>
         </div>
-        <FooterNavBar />
+        {/* <FooterNavBar /> */}
       </div>
     )
   }

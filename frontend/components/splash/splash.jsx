@@ -37,20 +37,32 @@ class Splash extends React.Component{
           </ul>
           <div id="featured-icon"></div>
           <div id="favorite-collections">
-          <div id="header">
-            <span id="left">
-              <h2>Our favorite collections</h2>
-              <p>Browse through some of the best collections in Online Events hand picked by people who know the area best.</p>
-            </span>
-            <span id="right">
-                <span></span>
-                <span id="buttons">
+            <div id="header">
+              <span id="left">
+                <h2>Our favorite collections</h2>
+                <p>Browse through some of the best collections in Online Events hand picked by people who know the area best.</p>
+              </span>
+              <span id="right">
+                  <span></span>
+                  <span id="buttons">
 
-                <button id="left-arrow">←</button>
-                <button id="right-arrow">→</button>
+                  <button id="left-arrow">←</button>
+                  <button id="right-arrow">→</button>
                 </span>
-            </span>
-          </div>
+              </span>
+            </div>
+            <div id="content">
+              <div id="summary">
+                <h2>Educate Yourself: Online Racial Equity Workshops</h2>
+                <p>
+                  Black History Month is a time for celebrating Black achievement. Black History Month is a time is celebrate and remember important people that are a part of this African diaspora. Come celebrate our brothers by learning and participating in one of many racial equity and history workshops. 
+                </p>
+              </div>
+                <img src={window.blackHM}/>
+
+            </div>
+
+
           </div>
         </div>
       </div>

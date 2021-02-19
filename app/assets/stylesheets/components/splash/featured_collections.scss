@@ -1,6 +1,7 @@
 
 #popular-events{
-
+  display: flex; 
+  flex-direction: column;
   width: 84vw; 
   h1{
     font-size: 2.5vw;
@@ -22,8 +23,11 @@
 #favorite-collections{
   background-color: $border-color-light;
   width: 100%;
-  height: 45vh; 
+  height: 100%; 
   margin-bottom: 20px; 
+  display: flex;
+  flex-direction: column;
+
   h2{
     font-size: 2vw;
     font-weight: bold;
@@ -38,10 +42,13 @@
       width: 50%;
     }
     #left{
-      font-size: 16px; 
+      font-size: 1.3vw; 
+      color:$input-border-hover-color;
       p{
-        padding: 0px 0px 20px 25px; 
-        
+        padding: 0px 0px 20px 40px; 
+      }
+      h2{
+        padding-left: 40px; 
       }
     }
     #right{
@@ -76,6 +83,36 @@
        
       }
 
+    }
+  }
+
+  #content{
+    width: 99%;
+    display: grid;
+    grid-template-columns: 33% 63%;
+    grid-template-rows: 80%;
+    align-self: center; 
+    margin-left: 25px;
+    margin-top: 15px; 
+
+    #summary{
+      grid-column: 1;
+      grid-row: 1;
+      font-size: 1vw;
+      background-color: white;
+
+    }
+    img{
+      object-fit:fill; 
+      max-height: 100%;
+      height: 100%;
+      grid-column: 2;
+      grid-row: 1;
+    }
+    p{
+      padding-left: 25px; 
+      font-size: 1.3vw;
+      font-weight: lighter;
     }
   }
 }
