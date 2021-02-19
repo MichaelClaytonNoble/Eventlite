@@ -11,18 +11,13 @@ class Splash extends React.Component{
     .then( ()=>this.setState({relevantEvents: this.props.events})); 
   }
   componentDidMount(){
-    console.log(this.props.events)
-    
+ 
     this.props.getEvents("location", "ONLINE"); 
     this.setState({})
   }
-  componentDidUpdate(){
-    console.log(this.props.events);
-  }
+  
   render(){
-    if(this.state.relevantEvents.length===0){
-    console.log("OHEU")
-    }
+  
     return(
       <div id="splash">
         <div id="feed-header">
