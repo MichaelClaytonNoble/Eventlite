@@ -1,6 +1,7 @@
-import {patchEvent, postEvent} from '../util/events';
+import { patchEvent, postEvent, pullEventsByType } from '../util/events';
 export const RECEIVE_CURRENT_EVENT="RECEIVE_CURRENT_EVENT";
 export const RECEIVE_EVENT_ERRORS ="RECEIVE_EVENT_ERRORS"; 
+export const RECEIVE_EVENTS = "RECEIVE_EVENTS";
 export const CLEAR_ERRORS ="CLEAR_ERRORS"; 
 
 const receiveNewEvent = event =>({
@@ -11,6 +12,11 @@ const receiveNewEvent = event =>({
 const receiveEventErrors = errors => ({
   type: RECEIVE_EVENT_ERRORS,
   errors
+})
+
+const receiveEvents = events => ({
+  type: RECEIVE_EVENTS,
+  events
 })
 
 export const clearErrors = () =>({
@@ -25,4 +31,9 @@ export const createEvent = event => dispatch =>{
 export const updateEvent = event => dispatch =>{
   return patchEvent(event)
     .then(event => dispatch(receiveNewEvent(event)), err => dispatch(receiveEventErrors(err.responseJSON))); 
+}
+
+export const getEventsByType = (col,val) => dispatch =>{
+  return pullEventsByType(col,val)
+    .then(events => dispatch(receiveEvents(events)), err => dispatch(receiveEventErrors(err.responseJSON)));
 }

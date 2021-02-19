@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do
     resources :users, only: [:create, :index, :show, :update]
     resources :events
+    get 'events/getByType', to: 'events#getByType'
     resource :session, only: [:create, :new, :destroy]
     post "/sessions/find", to: "sessions#find"
   end 

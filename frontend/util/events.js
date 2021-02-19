@@ -20,3 +20,11 @@ export const patchEvent = event =>{
   });
 }
 
+//get events by propery 
+export const pullEventsByType = (column, value) =>{
+  return $.ajax({
+    method: "GET",
+    url: '/api/events/getByType',
+    data: {column, value}
+  })
+}

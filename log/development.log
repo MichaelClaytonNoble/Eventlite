@@ -44401,3 +44401,800 @@ Processing by StaticPagesController#root as HTML
 Completed 200 OK in 211ms (Views: 206.0ms | ActiveRecord: 0.4ms)
 
 
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Destroy (1.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 2]]
+  ↳ db/seeds.rb:10
+  [1m[35m (3.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 3]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 4]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 55]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "Example.Account@demo.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HctQSAOWKleb-fJp4zG_Fw"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (4.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "session_token", "password_digest", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["id", 1], ["email", "Example.Account@demo.com"], ["session_token", "HctQSAOWKleb-fJp4zG_Fw"], ["password_digest", "$2a$12$m804fZAEHgGQ.DoB6PcWh.sXQ2AVtQ9DcFbYNhoVMAdWSrnkZpLn6"], ["first_name", "Demo"], ["last_name", "Login"], ["created_at", "2021-02-19 07:33:06.947614"], ["updated_at", "2021-02-19 07:33:06.947614"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "000@000.000"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:13
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IYVdrwJYpL12Z1YppNgRIQ"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:13
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "session_token", "password_digest", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["id", 2], ["email", "000@000.000"], ["session_token", "IYVdrwJYpL12Z1YppNgRIQ"], ["password_digest", "$2a$12$yZREZH7FPVrdgyZXS3NnZ.z1DldOC9dLYjbNpyfs.lqpPJ2G.vQyK"], ["first_name", "000"], ["last_name", "000"], ["created_at", "2021-02-19 07:33:07.218287"], ["updated_at", "2021-02-19 07:33:07.218287"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:14
+  [1m[36mUser Exists (2.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "111@111.111"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:14
+  [1m[36mUser Exists (1.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "B5Qtr4p32TM5NzGRMBT8cw"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:14
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "session_token", "password_digest", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["id", 3], ["email", "111@111.111"], ["session_token", "B5Qtr4p32TM5NzGRMBT8cw"], ["password_digest", "$2a$12$XqsOnysu9or20YPv.hw.eue9WYI0H4oylJH5Jm8XqL.fOtGvNxa1i"], ["first_name", "111"], ["last_name", "111"], ["created_at", "2021-02-19 07:33:07.489015"], ["updated_at", "2021-02-19 07:33:07.489015"]]
+  ↳ db/seeds.rb:14
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "222@222.222"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:15
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "0K1uiq7guci3TivE5bMM6w"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:15
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "session_token", "password_digest", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["id", 4], ["email", "222@222.222"], ["session_token", "0K1uiq7guci3TivE5bMM6w"], ["password_digest", "$2a$12$EOeZde.HOj6a0m08bHxAv./mL3EVW9mxX/wugutqyWLHtTKOq.o/2"], ["first_name", "222"], ["last_name", "222"], ["created_at", "2021-02-19 07:33:07.757495"], ["updated_at", "2021-02-19 07:33:07.757495"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[36mEvent Load (3.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.7ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 1]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.4ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 10]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.6ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 11]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.4ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 12]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.3ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 13]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.3ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 14]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.5ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 15]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.3ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 16]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.3ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 17]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.2ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 18]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.2ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 19]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.2ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 20]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.3ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 21]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.2ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 22]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.2ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 23]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.2ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 24]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.2ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 25]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.2ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 27]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.2ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 28]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.2ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 29]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.3ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 30]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.3ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 26]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.3ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 31]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.5ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 32]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.4ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 33]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:34
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mEvent Create (2.9ms)[0m  [1m[32mINSERT INTO "events" ("id", "title", "description", "category_id", "location", "address", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["id", 1], ["title", "Coming Soon"], ["description", "Unavailable"], ["category_id", 1], ["location", "TBA"], ["address", ""], ["venue", ""], ["recurring", false], ["start", "2021-02-19 07:30:00"], ["end", "2021-02-19 07:30:00"], ["timezone", "(GMT-12:00) International Date Line West"], ["creator_id", 1], ["created_at", "2021-02-19 07:33:07.834326"], ["updated_at", "2021-02-19 07:33:07.834326"]]
+  ↳ db/seeds.rb:34
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:34
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:45
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:45
+  [1m[36mEvent Create (0.3ms)[0m  [1m[32mINSERT INTO "events" ("id", "title", "description", "category_id", "location", "address", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["id", 2], ["title", "Coming Soon"], ["description", "Unavailable"], ["category_id", 1], ["location", "TBA"], ["address", ""], ["venue", ""], ["recurring", false], ["start", "2021-02-19 07:30:00"], ["end", "2021-02-19 07:30:00"], ["timezone", "(GMT-12:00) International Date Line West"], ["creator_id", 1], ["created_at", "2021-02-19 07:33:07.840672"], ["updated_at", "2021-02-19 07:33:07.840672"]]
+  ↳ db/seeds.rb:45
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:45
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:56
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:56
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("id", "title", "description", "category_id", "location", "address", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["id", 3], ["title", "Coming Soon"], ["description", "Unavailable"], ["category_id", 1], ["location", "TBA"], ["address", ""], ["venue", ""], ["recurring", false], ["start", "2021-02-19 07:30:00"], ["end", "2021-02-19 07:30:00"], ["timezone", "(GMT-12:00) International Date Line West"], ["creator_id", 1], ["created_at", "2021-02-19 07:33:07.843957"], ["updated_at", "2021-02-19 07:33:07.843957"]]
+  ↳ db/seeds.rb:56
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:56
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:67
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:67
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("id", "title", "description", "category_id", "location", "address", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["id", 4], ["title", "Coming Soon"], ["description", "Unavailable"], ["category_id", 1], ["location", "TBA"], ["address", ""], ["venue", ""], ["recurring", false], ["start", "2021-02-19 07:30:00"], ["end", "2021-02-19 07:30:00"], ["timezone", "(GMT-12:00) International Date Line West"], ["creator_id", 1], ["created_at", "2021-02-19 07:33:07.847315"], ["updated_at", "2021-02-19 07:33:07.847315"]]
+  ↳ db/seeds.rb:67
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:67
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:78
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:78
+  [1m[36mEvent Create (0.5ms)[0m  [1m[32mINSERT INTO "events" ("id", "title", "description", "category_id", "location", "address", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["id", 5], ["title", "Coming Soon"], ["description", "Unavailable"], ["category_id", 1], ["location", "TBA"], ["address", ""], ["venue", ""], ["recurring", false], ["start", "2021-02-19 07:30:00"], ["end", "2021-02-19 07:30:00"], ["timezone", "(GMT-12:00) International Date Line West"], ["creator_id", 1], ["created_at", "2021-02-19 07:33:07.850507"], ["updated_at", "2021-02-19 07:33:07.850507"]]
+  ↳ db/seeds.rb:78
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:78
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:89
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:89
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("id", "title", "description", "category_id", "location", "address", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["id", 6], ["title", "Coming Soon"], ["description", "Unavailable"], ["category_id", 1], ["location", "TBA"], ["address", ""], ["venue", ""], ["recurring", false], ["start", "2021-02-19 07:30:00"], ["end", "2021-02-19 07:30:00"], ["timezone", "(GMT-12:00) International Date Line West"], ["creator_id", 1], ["created_at", "2021-02-19 07:33:07.854689"], ["updated_at", "2021-02-19 07:33:07.854689"]]
+  ↳ db/seeds.rb:89
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:89
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:100
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:100
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("id", "title", "description", "category_id", "location", "address", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["id", 7], ["title", "Coming Soon"], ["description", "Unavailable"], ["category_id", 1], ["location", "TBA"], ["address", ""], ["venue", ""], ["recurring", false], ["start", "2021-02-19 07:30:00"], ["end", "2021-02-19 07:30:00"], ["timezone", "(GMT-12:00) International Date Line West"], ["creator_id", 1], ["created_at", "2021-02-19 07:33:07.858369"], ["updated_at", "2021-02-19 07:33:07.858369"]]
+  ↳ db/seeds.rb:100
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:100
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:111
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:111
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("id", "title", "description", "category_id", "location", "address", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["id", 8], ["title", "Coming Soon"], ["description", "Unavailable"], ["category_id", 1], ["location", "TBA"], ["address", ""], ["venue", ""], ["recurring", false], ["start", "2021-02-19 07:30:00"], ["end", "2021-02-19 07:30:00"], ["timezone", "(GMT-12:00) International Date Line West"], ["creator_id", 1], ["created_at", "2021-02-19 07:33:07.861691"], ["updated_at", "2021-02-19 07:33:07.861691"]]
+  ↳ db/seeds.rb:111
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:111
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:122
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:122
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("id", "title", "description", "category_id", "location", "address", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["id", 9], ["title", "Coming Soon"], ["description", "Unavailable"], ["category_id", 1], ["location", "TBA"], ["address", ""], ["venue", ""], ["recurring", false], ["start", "2021-02-19 07:30:00"], ["end", "2021-02-19 07:30:00"], ["timezone", "(GMT-12:00) International Date Line West"], ["creator_id", 1], ["created_at", "2021-02-19 07:33:07.865582"], ["updated_at", "2021-02-19 07:33:07.865582"]]
+  ↳ db/seeds.rb:122
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:122
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:133
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:133
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("id", "title", "description", "category_id", "location", "address", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["id", 10], ["title", "Coming Soon"], ["description", "Unavailable"], ["category_id", 1], ["location", "TBA"], ["address", ""], ["venue", ""], ["recurring", false], ["start", "2021-02-19 07:30:00"], ["end", "2021-02-19 07:30:00"], ["timezone", "(GMT-12:00) International Date Line West"], ["creator_id", 1], ["created_at", "2021-02-19 07:33:07.869728"], ["updated_at", "2021-02-19 07:33:07.869728"]]
+  ↳ db/seeds.rb:133
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:133
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:144
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:144
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("id", "title", "description", "category_id", "location", "address", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["id", 11], ["title", "Coming Soon"], ["description", "Unavailable"], ["category_id", 1], ["location", "TBA"], ["address", ""], ["venue", ""], ["recurring", false], ["start", "2021-02-19 07:30:00"], ["end", "2021-02-19 07:30:00"], ["timezone", "(GMT-12:00) International Date Line West"], ["creator_id", 1], ["created_at", "2021-02-19 07:33:07.873469"], ["updated_at", "2021-02-19 07:33:07.873469"]]
+  ↳ db/seeds.rb:144
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:144
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:155
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:155
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("id", "title", "description", "category_id", "location", "address", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["id", 12], ["title", "Coming Soon"], ["description", "Unavailable"], ["category_id", 1], ["location", "TBA"], ["address", ""], ["venue", ""], ["recurring", false], ["start", "2021-02-19 07:30:00"], ["end", "2021-02-19 07:30:00"], ["timezone", "(GMT-12:00) International Date Line West"], ["creator_id", 1], ["created_at", "2021-02-19 07:33:07.877335"], ["updated_at", "2021-02-19 07:33:07.877335"]]
+  ↳ db/seeds.rb:155
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:155
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:166
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:166
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("id", "title", "description", "category_id", "location", "address", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["id", 13], ["title", "Coming Soon"], ["description", "Unavailable"], ["category_id", 1], ["location", "TBA"], ["address", ""], ["venue", ""], ["recurring", false], ["start", "2021-02-19 07:30:00"], ["end", "2021-02-19 07:30:00"], ["timezone", "(GMT-12:00) International Date Line West"], ["creator_id", 1], ["created_at", "2021-02-19 07:33:07.880548"], ["updated_at", "2021-02-19 07:33:07.880548"]]
+  ↳ db/seeds.rb:166
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:166
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:177
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:177
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("id", "title", "description", "category_id", "location", "address", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["id", 14], ["title", "Coming Soon"], ["description", "Unavailable"], ["category_id", 1], ["location", "TBA"], ["address", ""], ["venue", ""], ["recurring", false], ["start", "2021-02-19 07:30:00"], ["end", "2021-02-19 07:30:00"], ["timezone", "(GMT-12:00) International Date Line West"], ["creator_id", 1], ["created_at", "2021-02-19 07:33:07.884239"], ["updated_at", "2021-02-19 07:33:07.884239"]]
+  ↳ db/seeds.rb:177
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:177
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:188
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:188
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("id", "title", "description", "category_id", "location", "address", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["id", 15], ["title", "Coming Soon"], ["description", "Unavailable"], ["category_id", 1], ["location", "TBA"], ["address", ""], ["venue", ""], ["recurring", false], ["start", "2021-02-19 07:30:00"], ["end", "2021-02-19 07:30:00"], ["timezone", "(GMT-12:00) International Date Line West"], ["creator_id", 1], ["created_at", "2021-02-19 07:33:07.889055"], ["updated_at", "2021-02-19 07:33:07.889055"]]
+  ↳ db/seeds.rb:188
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:188
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:199
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:199
+  [1m[36mEvent Create (0.5ms)[0m  [1m[32mINSERT INTO "events" ("id", "title", "description", "category_id", "location", "address", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["id", 16], ["title", "Coming Soon"], ["description", "Unavailable"], ["category_id", 1], ["location", "TBA"], ["address", ""], ["venue", ""], ["recurring", false], ["start", "2021-02-19 07:30:00"], ["end", "2021-02-19 07:30:00"], ["timezone", "(GMT-12:00) International Date Line West"], ["creator_id", 1], ["created_at", "2021-02-19 07:33:07.892605"], ["updated_at", "2021-02-19 07:33:07.892605"]]
+  ↳ db/seeds.rb:199
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:199
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:210
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:210
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("id", "title", "description", "category_id", "location", "address", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["id", 17], ["title", "Coming Soon"], ["description", "Unavailable"], ["category_id", 1], ["location", "TBA"], ["address", ""], ["venue", ""], ["recurring", false], ["start", "2021-02-19 07:30:00"], ["end", "2021-02-19 07:30:00"], ["timezone", "(GMT-12:00) International Date Line West"], ["creator_id", 1], ["created_at", "2021-02-19 07:33:07.896319"], ["updated_at", "2021-02-19 07:33:07.896319"]]
+  ↳ db/seeds.rb:210
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:210
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:221
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:221
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("id", "title", "description", "category_id", "location", "address", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["id", 18], ["title", "Coming Soon"], ["description", "Unavailable"], ["category_id", 1], ["location", "TBA"], ["address", ""], ["venue", ""], ["recurring", false], ["start", "2021-02-19 07:30:00"], ["end", "2021-02-19 07:30:00"], ["timezone", "(GMT-12:00) International Date Line West"], ["creator_id", 1], ["created_at", "2021-02-19 07:33:07.899583"], ["updated_at", "2021-02-19 07:33:07.899583"]]
+  ↳ db/seeds.rb:221
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:221
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:232
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:232
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("id", "title", "description", "category_id", "location", "address", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["id", 19], ["title", "Coming Soon"], ["description", "Unavailable"], ["category_id", 1], ["location", "TBA"], ["address", ""], ["venue", ""], ["recurring", false], ["start", "2021-02-19 07:30:00"], ["end", "2021-02-19 07:30:00"], ["timezone", "(GMT-12:00) International Date Line West"], ["creator_id", 1], ["created_at", "2021-02-19 07:33:07.904240"], ["updated_at", "2021-02-19 07:33:07.904240"]]
+  ↳ db/seeds.rb:232
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:232
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:243
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:243
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("id", "title", "description", "category_id", "location", "address", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["id", 20], ["title", "Coming Soon"], ["description", "Unavailable"], ["category_id", 1], ["location", "TBA"], ["address", ""], ["venue", ""], ["recurring", false], ["start", "2021-02-19 07:30:00"], ["end", "2021-02-19 07:30:00"], ["timezone", "(GMT-12:00) International Date Line West"], ["creator_id", 1], ["created_at", "2021-02-19 07:33:07.907907"], ["updated_at", "2021-02-19 07:33:07.907907"]]
+  ↳ db/seeds.rb:243
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:243
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:254
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:254
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("id", "title", "description", "category_id", "location", "address", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["id", 21], ["title", "Coming Soon"], ["description", "Unavailable"], ["category_id", 1], ["location", "TBA"], ["address", ""], ["venue", ""], ["recurring", false], ["start", "2021-02-19 07:30:00"], ["end", "2021-02-19 07:30:00"], ["timezone", "(GMT-12:00) International Date Line West"], ["creator_id", 1], ["created_at", "2021-02-19 07:33:07.911551"], ["updated_at", "2021-02-19 07:33:07.911551"]]
+  ↳ db/seeds.rb:254
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:254
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Destroy (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 2]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 3]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 4]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "Example.Account@demo.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "P7m88L5AN17VGwXJ4fDPQQ"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "session_token", "password_digest", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["id", 1], ["email", "Example.Account@demo.com"], ["session_token", "P7m88L5AN17VGwXJ4fDPQQ"], ["password_digest", "$2a$12$TN5xl/H3SunRswOdAfil/Ox27D6JX1ml8.vwqiUMNIV/1VcwnUz/."], ["first_name", "Demo"], ["last_name", "Login"], ["created_at", "2021-02-19 07:33:59.742158"], ["updated_at", "2021-02-19 07:33:59.742158"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "000@000.000"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:13
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "CVjbMLWOFMZIJPc9V1uEzw"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:13
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "session_token", "password_digest", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["id", 2], ["email", "000@000.000"], ["session_token", "CVjbMLWOFMZIJPc9V1uEzw"], ["password_digest", "$2a$12$Hm3ijXLKhEB1nnFXYDWl1.MKlKV0Q5uzkbWz9dmS7uErrXXb.0qOu"], ["first_name", "000"], ["last_name", "000"], ["created_at", "2021-02-19 07:34:00.008060"], ["updated_at", "2021-02-19 07:34:00.008060"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:14
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "111@111.111"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:14
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qTX6Y88CCmUGvlVE9SH7Ow"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:14
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "session_token", "password_digest", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["id", 3], ["email", "111@111.111"], ["session_token", "qTX6Y88CCmUGvlVE9SH7Ow"], ["password_digest", "$2a$12$7OZkeY4l.DWgRqqxYumPbu7jVpK2OtPTck73b7HpHQgneVEvseXxm"], ["first_name", "111"], ["last_name", "111"], ["created_at", "2021-02-19 07:34:00.277075"], ["updated_at", "2021-02-19 07:34:00.277075"]]
+  ↳ db/seeds.rb:14
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "222@222.222"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:15
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "9A1PCwkh0DnRTrxzZwqgjA"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:15
+  [1m[36mUser Create (2.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "email", "session_token", "password_digest", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["id", 4], ["email", "222@222.222"], ["session_token", "9A1PCwkh0DnRTrxzZwqgjA"], ["password_digest", "$2a$12$5IeuLdri6MpRewffNEkB2.egSt6B7bInEddRlUrGNiwamp590SiBO"], ["first_name", "222"], ["last_name", "222"], ["created_at", "2021-02-19 07:34:00.547125"], ["updated_at", "2021-02-19 07:34:00.547125"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[36mEvent Load (1.4ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (1.3ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 9]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.3ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 10]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.5ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 11]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.3ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 12]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.2ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 13]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.3ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 14]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.4ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 15]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.3ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 16]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.3ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 1]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.4ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 2]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.3ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 3]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.3ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 4]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.3ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 5]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.3ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 6]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.3ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 7]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.2ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 8]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.3ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 17]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.2ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 18]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.2ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 19]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.2ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 20]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mEvent Destroy (0.2ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 21]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:34
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mEvent Create (0.7ms)[0m  [1m[32mINSERT INTO "events" ("id", "title", "description", "category_id", "location", "address", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["id", 1], ["title", "Coming Soon"], ["description", "Unavailable"], ["category_id", 1], ["location", "ONLINE"], ["address", ""], ["venue", ""], ["recurring", false], ["start", "2021-02-19 07:30:00"], ["end", "2021-02-19 07:30:00"], ["timezone", "(GMT-12:00) International Date Line West"], ["creator_id", 1], ["created_at", "2021-02-19 07:34:00.620544"], ["updated_at", "2021-02-19 07:34:00.620544"]]
+  ↳ db/seeds.rb:34
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:34
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:45
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:45
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("id", "title", "description", "category_id", "location", "address", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["id", 2], ["title", "Coming Soon"], ["description", "Unavailable"], ["category_id", 1], ["location", "ONLINE"], ["address", ""], ["venue", ""], ["recurring", false], ["start", "2021-02-19 07:30:00"], ["end", "2021-02-19 07:30:00"], ["timezone", "(GMT-12:00) International Date Line West"], ["creator_id", 1], ["created_at", "2021-02-19 07:34:00.624884"], ["updated_at", "2021-02-19 07:34:00.624884"]]
+  ↳ db/seeds.rb:45
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:45
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:56
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:56
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("id", "title", "description", "category_id", "location", "address", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["id", 3], ["title", "Coming Soon"], ["description", "Unavailable"], ["category_id", 1], ["location", "ONLINE"], ["address", ""], ["venue", ""], ["recurring", false], ["start", "2021-02-19 07:30:00"], ["end", "2021-02-19 07:30:00"], ["timezone", "(GMT-12:00) International Date Line West"], ["creator_id", 1], ["created_at", "2021-02-19 07:34:00.627988"], ["updated_at", "2021-02-19 07:34:00.627988"]]
+  ↳ db/seeds.rb:56
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:56
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:67
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:67
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("id", "title", "description", "category_id", "location", "address", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["id", 4], ["title", "Coming Soon"], ["description", "Unavailable"], ["category_id", 1], ["location", "ONLINE"], ["address", ""], ["venue", ""], ["recurring", false], ["start", "2021-02-19 07:30:00"], ["end", "2021-02-19 07:30:00"], ["timezone", "(GMT-12:00) International Date Line West"], ["creator_id", 1], ["created_at", "2021-02-19 07:34:00.631367"], ["updated_at", "2021-02-19 07:34:00.631367"]]
+  ↳ db/seeds.rb:67
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:67
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:78
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:78
+  [1m[36mEvent Create (0.3ms)[0m  [1m[32mINSERT INTO "events" ("id", "title", "description", "category_id", "location", "address", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["id", 5], ["title", "Coming Soon"], ["description", "Unavailable"], ["category_id", 1], ["location", "ONLINE"], ["address", ""], ["venue", ""], ["recurring", false], ["start", "2021-02-19 07:30:00"], ["end", "2021-02-19 07:30:00"], ["timezone", "(GMT-12:00) International Date Line West"], ["creator_id", 1], ["created_at", "2021-02-19 07:34:00.634632"], ["updated_at", "2021-02-19 07:34:00.634632"]]
+  ↳ db/seeds.rb:78
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:78
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:89
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:89
+  [1m[36mEvent Create (0.6ms)[0m  [1m[32mINSERT INTO "events" ("id", "title", "description", "category_id", "location", "address", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["id", 6], ["title", "Coming Soon"], ["description", "Unavailable"], ["category_id", 1], ["location", "ONLINE"], ["address", ""], ["venue", ""], ["recurring", false], ["start", "2021-02-19 07:30:00"], ["end", "2021-02-19 07:30:00"], ["timezone", "(GMT-12:00) International Date Line West"], ["creator_id", 1], ["created_at", "2021-02-19 07:34:00.637655"], ["updated_at", "2021-02-19 07:34:00.637655"]]
+  ↳ db/seeds.rb:89
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:89
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:100
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:100
+  [1m[36mEvent Create (0.6ms)[0m  [1m[32mINSERT INTO "events" ("id", "title", "description", "category_id", "location", "address", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["id", 7], ["title", "Coming Soon"], ["description", "Unavailable"], ["category_id", 1], ["location", "ONLINE"], ["address", ""], ["venue", ""], ["recurring", false], ["start", "2021-02-19 07:30:00"], ["end", "2021-02-19 07:30:00"], ["timezone", "(GMT-12:00) International Date Line West"], ["creator_id", 1], ["created_at", "2021-02-19 07:34:00.641153"], ["updated_at", "2021-02-19 07:34:00.641153"]]
+  ↳ db/seeds.rb:100
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:100
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:111
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:111
+  [1m[36mEvent Create (0.5ms)[0m  [1m[32mINSERT INTO "events" ("id", "title", "description", "category_id", "location", "address", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["id", 8], ["title", "Coming Soon"], ["description", "Unavailable"], ["category_id", 1], ["location", "ONLINE"], ["address", ""], ["venue", ""], ["recurring", false], ["start", "2021-02-19 07:30:00"], ["end", "2021-02-19 07:30:00"], ["timezone", "(GMT-12:00) International Date Line West"], ["creator_id", 1], ["created_at", "2021-02-19 07:34:00.645129"], ["updated_at", "2021-02-19 07:34:00.645129"]]
+  ↳ db/seeds.rb:111
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:111
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:122
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:122
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("id", "title", "description", "category_id", "location", "address", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["id", 9], ["title", "Coming Soon"], ["description", "Unavailable"], ["category_id", 1], ["location", "ONLINE"], ["address", ""], ["venue", ""], ["recurring", false], ["start", "2021-02-19 07:30:00"], ["end", "2021-02-19 07:30:00"], ["timezone", "(GMT-12:00) International Date Line West"], ["creator_id", 1], ["created_at", "2021-02-19 07:34:00.649102"], ["updated_at", "2021-02-19 07:34:00.649102"]]
+  ↳ db/seeds.rb:122
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:122
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:133
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:133
+  [1m[36mEvent Create (0.5ms)[0m  [1m[32mINSERT INTO "events" ("id", "title", "description", "category_id", "location", "address", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["id", 10], ["title", "Coming Soon"], ["description", "Unavailable"], ["category_id", 1], ["location", "ONLINE"], ["address", ""], ["venue", ""], ["recurring", false], ["start", "2021-02-19 07:30:00"], ["end", "2021-02-19 07:30:00"], ["timezone", "(GMT-12:00) International Date Line West"], ["creator_id", 1], ["created_at", "2021-02-19 07:34:00.652505"], ["updated_at", "2021-02-19 07:34:00.652505"]]
+  ↳ db/seeds.rb:133
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:133
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:144
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:144
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("id", "title", "description", "category_id", "location", "address", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["id", 11], ["title", "Coming Soon"], ["description", "Unavailable"], ["category_id", 1], ["location", "ONLINE"], ["address", ""], ["venue", ""], ["recurring", false], ["start", "2021-02-19 07:30:00"], ["end", "2021-02-19 07:30:00"], ["timezone", "(GMT-12:00) International Date Line West"], ["creator_id", 1], ["created_at", "2021-02-19 07:34:00.656515"], ["updated_at", "2021-02-19 07:34:00.656515"]]
+  ↳ db/seeds.rb:144
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:144
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:155
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:155
+  [1m[36mEvent Create (0.5ms)[0m  [1m[32mINSERT INTO "events" ("id", "title", "description", "category_id", "location", "address", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["id", 12], ["title", "Coming Soon"], ["description", "Unavailable"], ["category_id", 1], ["location", "ONLINE"], ["address", ""], ["venue", ""], ["recurring", false], ["start", "2021-02-19 07:30:00"], ["end", "2021-02-19 07:30:00"], ["timezone", "(GMT-12:00) International Date Line West"], ["creator_id", 1], ["created_at", "2021-02-19 07:34:00.660077"], ["updated_at", "2021-02-19 07:34:00.660077"]]
+  ↳ db/seeds.rb:155
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:155
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:166
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:166
+  [1m[36mEvent Create (0.6ms)[0m  [1m[32mINSERT INTO "events" ("id", "title", "description", "category_id", "location", "address", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["id", 13], ["title", "Coming Soon"], ["description", "Unavailable"], ["category_id", 1], ["location", "ONLINE"], ["address", ""], ["venue", ""], ["recurring", false], ["start", "2021-02-19 07:30:00"], ["end", "2021-02-19 07:30:00"], ["timezone", "(GMT-12:00) International Date Line West"], ["creator_id", 1], ["created_at", "2021-02-19 07:34:00.663829"], ["updated_at", "2021-02-19 07:34:00.663829"]]
+  ↳ db/seeds.rb:166
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:166
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:177
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:177
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("id", "title", "description", "category_id", "location", "address", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["id", 14], ["title", "Coming Soon"], ["description", "Unavailable"], ["category_id", 1], ["location", "ONLINE"], ["address", ""], ["venue", ""], ["recurring", false], ["start", "2021-02-19 07:30:00"], ["end", "2021-02-19 07:30:00"], ["timezone", "(GMT-12:00) International Date Line West"], ["creator_id", 1], ["created_at", "2021-02-19 07:34:00.667760"], ["updated_at", "2021-02-19 07:34:00.667760"]]
+  ↳ db/seeds.rb:177
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:177
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:188
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:188
+  [1m[36mEvent Create (0.5ms)[0m  [1m[32mINSERT INTO "events" ("id", "title", "description", "category_id", "location", "address", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["id", 15], ["title", "Coming Soon"], ["description", "Unavailable"], ["category_id", 1], ["location", "ONLINE"], ["address", ""], ["venue", ""], ["recurring", false], ["start", "2021-02-19 07:30:00"], ["end", "2021-02-19 07:30:00"], ["timezone", "(GMT-12:00) International Date Line West"], ["creator_id", 1], ["created_at", "2021-02-19 07:34:00.671263"], ["updated_at", "2021-02-19 07:34:00.671263"]]
+  ↳ db/seeds.rb:188
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:188
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:199
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:199
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("id", "title", "description", "category_id", "location", "address", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["id", 16], ["title", "Coming Soon"], ["description", "Unavailable"], ["category_id", 1], ["location", "ONLINE"], ["address", ""], ["venue", ""], ["recurring", false], ["start", "2021-02-19 07:30:00"], ["end", "2021-02-19 07:30:00"], ["timezone", "(GMT-12:00) International Date Line West"], ["creator_id", 1], ["created_at", "2021-02-19 07:34:00.675461"], ["updated_at", "2021-02-19 07:34:00.675461"]]
+  ↳ db/seeds.rb:199
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:199
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:210
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:210
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("id", "title", "description", "category_id", "location", "address", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["id", 17], ["title", "Coming Soon"], ["description", "Unavailable"], ["category_id", 1], ["location", "ONLINE"], ["address", ""], ["venue", ""], ["recurring", false], ["start", "2021-02-19 07:30:00"], ["end", "2021-02-19 07:30:00"], ["timezone", "(GMT-12:00) International Date Line West"], ["creator_id", 1], ["created_at", "2021-02-19 07:34:00.679168"], ["updated_at", "2021-02-19 07:34:00.679168"]]
+  ↳ db/seeds.rb:210
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:210
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:221
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:221
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("id", "title", "description", "category_id", "location", "address", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["id", 18], ["title", "Coming Soon"], ["description", "Unavailable"], ["category_id", 1], ["location", "ONLINE"], ["address", ""], ["venue", ""], ["recurring", false], ["start", "2021-02-19 07:30:00"], ["end", "2021-02-19 07:30:00"], ["timezone", "(GMT-12:00) International Date Line West"], ["creator_id", 1], ["created_at", "2021-02-19 07:34:00.682840"], ["updated_at", "2021-02-19 07:34:00.682840"]]
+  ↳ db/seeds.rb:221
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:221
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:232
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:232
+  [1m[36mEvent Create (0.6ms)[0m  [1m[32mINSERT INTO "events" ("id", "title", "description", "category_id", "location", "address", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["id", 19], ["title", "Coming Soon"], ["description", "Unavailable"], ["category_id", 1], ["location", "ONLINE"], ["address", ""], ["venue", ""], ["recurring", false], ["start", "2021-02-19 07:30:00"], ["end", "2021-02-19 07:30:00"], ["timezone", "(GMT-12:00) International Date Line West"], ["creator_id", 1], ["created_at", "2021-02-19 07:34:00.686202"], ["updated_at", "2021-02-19 07:34:00.686202"]]
+  ↳ db/seeds.rb:232
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:232
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:243
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:243
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("id", "title", "description", "category_id", "location", "address", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["id", 20], ["title", "Coming Soon"], ["description", "Unavailable"], ["category_id", 1], ["location", "ONLINE"], ["address", ""], ["venue", ""], ["recurring", false], ["start", "2021-02-19 07:30:00"], ["end", "2021-02-19 07:30:00"], ["timezone", "(GMT-12:00) International Date Line West"], ["creator_id", 1], ["created_at", "2021-02-19 07:34:00.690006"], ["updated_at", "2021-02-19 07:34:00.690006"]]
+  ↳ db/seeds.rb:243
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:243
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:254
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:254
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("id", "title", "description", "category_id", "location", "address", "venue", "recurring", "start", "end", "timezone", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["id", 21], ["title", "Coming Soon"], ["description", "Unavailable"], ["category_id", 1], ["location", "ONLINE"], ["address", ""], ["venue", ""], ["recurring", false], ["start", "2021-02-19 07:30:00"], ["end", "2021-02-19 07:30:00"], ["timezone", "(GMT-12:00) International Date Line West"], ["creator_id", 1], ["created_at", "2021-02-19 07:34:00.693305"], ["updated_at", "2021-02-19 07:34:00.693305"]]
+  ↳ db/seeds.rb:254
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:254
+Started GET "/" for ::1 at 2021-02-18 23:53:00 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-hAsKU2-gm4FYPzvDrbi3A"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 528ms (Views: 517.7ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/" for ::1 at 2021-02-18 23:56:41 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-hAsKU2-gm4FYPzvDrbi3A"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 574ms (Views: 570.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2021-02-18 23:57:33 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-hAsKU2-gm4FYPzvDrbi3A"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 532ms (Views: 529.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/events/getByType?column=Location&value=ONLINE" for ::1 at 2021-02-18 23:57:53 -0800
+
+SyntaxError - syntax error, unexpected ':', expecting ')'
+... Event.find_by(params[:column]: params[:value]);
+...                              ^
+/Users/makonobo/Desktop/Eventlite/app/controllers/api/events_controller.rb:29: syntax error, unexpected ')', expecting keyword_end
+...arams[:column]: params[:value]);
+...                              ^:
+  app/controllers/api/events_controller.rb:29:in `'
+

@@ -25,6 +25,10 @@ class Api::EventsController < ApplicationController
     end
   end
   
+  def getByType
+    @events = Event.find_by(params[:column]: params[:value]);
+    render json: @events
+  end
   
   def event_params_basic_info
     params.require(:event).permit(:id, :title, :venue, :recurring, :category_id, :location, :start, :end, :timezone)
