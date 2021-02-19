@@ -114,6 +114,14 @@
       font-size: 1.3vw;
       font-weight: lighter;
     }
+    button{
+      height: 2vw;
+      width: 11vw;
+      border: 2px solid $input-border-hover-color;
+      text-align: center; 
+      align-self: center; 
+      margin: 10%; 
+    }
   }
 }
 

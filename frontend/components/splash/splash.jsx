@@ -57,6 +57,7 @@ class Splash extends React.Component{
                 <p>
                   Black History Month is a time for celebrating Black achievement. Black History Month is a time is celebrate and remember important people that are a part of this African diaspora. Come celebrate our brothers by learning and participating in one of many racial equity and history workshops. 
                 </p>
+                <button>View Upcoming Events</button>
               </div>
                 <img src={window.blackHM}/>
 
