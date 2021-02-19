@@ -84,9 +84,9 @@ class Splash extends React.Component{
               if(i<8){
                 return(
                   <div id={i}key={i}>
-                  <span><i className="far fa-image"></i></span>
-                  <span id="start">{event.start}</span>
-                  <span id="title">{event.title}</span>
+                  <span id="image"><i className="far fa-image"></i></span>
+                  <span id="start">{new Date(event.start).toGMTString()}</span>
+                  <span id="title">{event.title}...</span>
                 </div>
               )
             }
