@@ -6,7 +6,7 @@ import {getEventsByType} from '../../actions/events';
 
 const mSTP = state => {
   return({  
-    
+    events: Object.values(state.entities.events)
   })
 }
 

@@ -4,15 +4,27 @@ import {Link} from 'react-router-dom';
 class Splash extends React.Component{
   constructor(props){
     super(props);
-
+    this.state = {
+      relevantEvents: this.props.events
+    }
+    this.props.getEvents("location", "ONLINE")
+    .then( ()=>this.setState({relevantEvents: this.props.events})); 
   }
   componentDidMount(){
+    console.log(this.props.events)
+    
     this.props.getEvents("location", "ONLINE"); 
+    this.setState({})
+  }
+  componentDidUpdate(){
+    console.log(this.props.events);
   }
   render(){
+    if(this.state.relevantEvents.length===0){
+    console.log("OHEU")
+    }
     return(
       <div id="splash">
-
         <div id="feed-header">
           <div id="grey-box"></div>
           <div id="feed">
@@ -24,8 +36,6 @@ class Splash extends React.Component{
             <img src={window.feedImage}/>
           </div>
         </div>
-
-
         <div id="popular-events">
           <h1>Popular in Online Events</h1>
           <ul id="nav-bar">
@@ -67,6 +77,28 @@ class Splash extends React.Component{
 
 
           </div>
+        </div>
+      
+        <div id="relevant-events">
+          <h1>Events in Online Events</h1>
+          <div id="event-grid">
+
+          {
+            
+            this.state.relevantEvents.map( (event, i)=>{
+              if(i<8){
+                return(
+                  <div id={i}key={i}>
+                  <span><i className="far fa-image"></i></span>
+                  <span id="start">{event.start}</span>
+                  <span id="title">{event.title}</span>
+                </div>
+              )
+            }
+          })
+        }
+        </div>
+
         </div>
       </div>
 
