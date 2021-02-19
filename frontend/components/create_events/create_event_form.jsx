@@ -39,14 +39,13 @@ class CreateEventForm extends React.Component{
     e.preventDefault(); 
     this.props.createEvent(this.state)
       .then( (action)=>{
-        console.log(action.event);
         this.props.history.push(`/events/${action.event.id}/details`)
       }); 
   }
 
   componentDidUpdate(){
     if(this.props.errors.length > 0){
-      console.log(this.props.errors.length);
+
     }
   }
   handleRadioChange(field){

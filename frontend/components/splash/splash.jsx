@@ -6,7 +6,9 @@ class Splash extends React.Component{
     super(props);
 
   }
-
+  componentDidMount(){
+    this.props.getEvents("location", "ONLINE"); 
+  }
   render(){
     return(
       <div id="splash">

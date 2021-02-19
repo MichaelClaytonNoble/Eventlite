@@ -14,6 +14,7 @@ import {Switch} from 'react-router-dom';
 import {ProtectedRoute} from '../util/route_util.jsx'; 
 import {AuthRoute} from '../util/route_util.jsx';
 import PageNotFound from './error/error_page';
+import SplashContainer from './splash/splash_container';
 
 class App extends React.Component{
   render(){
@@ -26,7 +27,7 @@ class App extends React.Component{
           <AuthRoute exact path="/signin/login" component={SessionLoginFormContainer} />
           <AuthRoute exact path="/signin/signup" component={SessionSignupFormContainer} />
         
-          <Route exact path="/" component={Splash}/>
+          <Route exact path="/" component={SplashContainer}/>
           <Route exact path="/events/create" component={CreateEventFormContainer} />
           <Route exact path ="/events/:eventId/details" component={DetailsEventFormContainer} />
 

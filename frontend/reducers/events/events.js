@@ -10,7 +10,6 @@ const eventsReducer = (state = {}, action) =>{
       nextState[action.event.id] = action.event;
       return nextState;
     case RECEIVE_EVENTS:
-      console.log("ACTION", action.events);
       return Object.assign(nextState, action.events);
     default: 
       return state;

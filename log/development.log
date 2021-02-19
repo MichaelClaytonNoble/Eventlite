@@ -45625,3 +45625,52 @@ Processing by Api::EventsController#getByType as JSON
 Completed 200 OK in 53ms (Views: 43.1ms | ActiveRecord: 7.7ms)
 
 
+Started GET "/" for ::1 at 2021-02-19 01:33:11 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-hAsKU2-gm4FYPzvDrbi3A"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 454ms (Views: 451.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2021-02-19 01:33:59 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-hAsKU2-gm4FYPzvDrbi3A"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 462ms (Views: 459.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/events/getByType?column=location&value=ONLINE" for ::1 at 2021-02-19 01:34:00 -0800
+Processing by Api::EventsController#getByType as JSON
+  Parameters: {"column"=>"location", "value"=>"ONLINE"}
+  Rendering api/events/event_list.json.jbuilder
+  [1m[36mEvent Load (1.7ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (location = 'ONLINE')[0m
+  ↳ app/views/api/events/event_list.json.jbuilder:2
+  Rendered api/events/_event_info.json.jbuilder (1.1ms)
+  Rendered api/events/_event_info.json.jbuilder (0.5ms)
+  Rendered api/events/_event_info.json.jbuilder (0.4ms)
+  Rendered api/events/_event_info.json.jbuilder (0.3ms)
+  Rendered api/events/_event_info.json.jbuilder (0.3ms)
+  Rendered api/events/_event_info.json.jbuilder (0.6ms)
+  Rendered api/events/_event_info.json.jbuilder (0.3ms)
+  Rendered api/events/_event_info.json.jbuilder (0.4ms)
+  Rendered api/events/_event_info.json.jbuilder (0.7ms)
+  Rendered api/events/_event_info.json.jbuilder (0.3ms)
+  Rendered api/events/_event_info.json.jbuilder (0.4ms)
+  Rendered api/events/_event_info.json.jbuilder (0.2ms)
+  Rendered api/events/_event_info.json.jbuilder (0.5ms)
+  Rendered api/events/_event_info.json.jbuilder (0.3ms)
+  Rendered api/events/_event_info.json.jbuilder (0.2ms)
+  Rendered api/events/_event_info.json.jbuilder (0.2ms)
+  Rendered api/events/_event_info.json.jbuilder (0.2ms)
+  Rendered api/events/_event_info.json.jbuilder (0.2ms)
+  Rendered api/events/_event_info.json.jbuilder (0.2ms)
+  Rendered api/events/_event_info.json.jbuilder (0.3ms)
+  Rendered api/events/_event_info.json.jbuilder (0.6ms)
+  Rendered api/events/event_list.json.jbuilder (49.2ms)
+Completed 200 OK in 60ms (Views: 57.4ms | ActiveRecord: 1.7ms)
+
+
