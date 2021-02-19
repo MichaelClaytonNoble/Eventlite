@@ -80,7 +80,7 @@ class Splash extends React.Component{
 
           {
             
-            this.state.relevantEvents.map( (event, i)=>{
+            this.state.relevantEvents.reverse().map( (event, i)=>{
               if(i<8){
                 return(
                   <div id={i}key={i}>
