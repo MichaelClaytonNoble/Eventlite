@@ -26,15 +26,31 @@ class Api::EventsController < ApplicationController
   end
   
   def getByType
-    @events = Event.find_by(params[:column]: params[:value]);
-    render json: @events
+    col = params[:column]
+    val = params[:value]
+    @events = Event.where("#{col} = ?", val) if whitelist(col.downcase);
+
+    if @events
+      render :event_list
+    else
+      render json: []
+    end
   end
   
   def event_params_basic_info
     params.require(:event).permit(:id, :title, :venue, :recurring, :category_id, :location, :start, :end, :timezone)
   end
+
   def event_params
     params.require(:event).permit(:id, :title, :description, :category_id, :location,
               :address, :venue, :recurring, :start, :end, :timezone, :creator_id, :about)
+  end
+
+  def whitelist(column)
+    {'title'=>true, 'description'=>true, 'category_id'=>true, 'location'=>true, 'address'=>true, 'venue'=>true, 'recurring'=>true, 'start'=>true, 'end'=>true, 'timezone'=>true, 'creator_id'=>true, 'about'=>true}[column]
+  end 
+
+  def whitelist2(column)
+    Event.columns.map(&name).to_set.include?(column)
   end
 end

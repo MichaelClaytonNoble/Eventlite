@@ -1,17 +1,18 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import Splash from './splash';
+import {getEventsByType} from '../../actions/events';
 
 
 const mSTP = state => {
-  return({
-    // pullEvents: 
+  return({  
+    
   })
 }
 
 const mDTP = dispatch => {
   return({
-
+    getEvents: (col,val)=>dispatch(getEventsByType(col,val))
   })
 }
 

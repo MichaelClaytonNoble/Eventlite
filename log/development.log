@@ -45198,3 +45198,430 @@ SyntaxError - syntax error, unexpected ':', expecting ')'
 ...                              ^:
   app/controllers/api/events_controller.rb:29:in `'
 
+Started GET "/" for ::1 at 2021-02-18 23:59:58 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-hAsKU2-gm4FYPzvDrbi3A"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 33ms (Views: 28.8ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/api/events/getByType?column=Location&value=ONLINE" for ::1 at 2021-02-19 00:00:01 -0800
+
+SyntaxError - syntax error, unexpected ':', expecting ')'
+... Event.find_by(params[:column]: params[:value]);
+...                              ^
+/Users/makonobo/Desktop/Eventlite/app/controllers/api/events_controller.rb:29: syntax error, unexpected ')', expecting keyword_end
+...arams[:column]: params[:value]);
+...                              ^:
+  app/controllers/api/events_controller.rb:29:in `'
+
+Started GET "/" for ::1 at 2021-02-19 00:01:32 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-hAsKU2-gm4FYPzvDrbi3A"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 35ms (Views: 29.3ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/api/events/getByType?column=Location&value=ONLINE" for ::1 at 2021-02-19 00:01:36 -0800
+
+SyntaxError - syntax error, unexpected ':', expecting ')'
+... @events = Event.find_by([col]: params[:value]);
+...                              ^
+/Users/makonobo/Desktop/Eventlite/app/controllers/api/events_controller.rb:31: syntax error, unexpected ')', expecting keyword_end
+....find_by([col]: params[:value]);
+...                              ^:
+  app/controllers/api/events_controller.rb:31:in `'
+
+Started GET "/" for ::1 at 2021-02-19 00:02:00 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-hAsKU2-gm4FYPzvDrbi3A"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 45ms (Views: 40.1ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/api/events/getByType?column=Location&value=ONLINE" for ::1 at 2021-02-19 00:02:03 -0800
+
+AbstractController::ActionNotFound - The action 'show' could not be found for Api::EventsController:
+
+Started GET "/" for ::1 at 2021-02-19 00:03:03 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-hAsKU2-gm4FYPzvDrbi3A"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 28ms (Views: 25.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/events/getByType?column=Location&value=ONLINE" for ::1 at 2021-02-19 00:03:06 -0800
+
+AbstractController::ActionNotFound - The action 'show' could not be found for Api::EventsController:
+
+Started GET "/" for ::1 at 2021-02-19 00:03:18 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-hAsKU2-gm4FYPzvDrbi3A"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 28ms (Views: 25.8ms | ActiveRecord: 0.2ms)
+
+
+  [1m[36mEvent Load (2.8ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (location IS ONLINE)[0m
+  [1m[36mEvent Load (2.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (location IS ONLINE) LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mEvent Load (2.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (location IS ONLINE)[0m
+  [1m[36mEvent Load (2.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (location IS ONLINE)[0m
+  [1m[36mEvent Load (1.7ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (location IS ONLINE) LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mEvent Load (1.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE ('Location' is 'ONLINE')[0m
+  [1m[36mEvent Load (2.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE ('Location' is 'ONLINE') LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE ('Location' is 'ONLINE')[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE ('Location' is 'ONLINE')[0m
+  [1m[36mEvent Load (1.7ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (location = ONLINE)[0m
+  [1m[36mEvent Load (1.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (location = ONLINE) LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (location = ONLINE)[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (location = 'ONLINE')[0m
+  [1m[36mEvent Load (1.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE ('location'='ONLINE')[0m
+  [1m[36mEvent Load (1.7ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE ('location' is 'ONLINE')[0m
+  [1m[36mEvent Load (1.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE ('location' is 'ONLINE') LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE ('location' is 'ONLINE')[0m
+  [1m[36mEvent Load (1.8ms)[0m  [1m[34mSELECT "events"."location" FROM "events" WHERE (ONLINE)[0m
+  [1m[36mEvent Load (1.7ms)[0m  [1m[34mSELECT  "events"."location" FROM "events" WHERE (ONLINE) LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (ONLINE)[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE ('ONLINE')[0m
+  [1m[36mEvent Load (1.8ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (#{c} is 'ONLINE')[0m
+  [1m[36mEvent Load (1.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (#{c} is 'ONLINE') LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (#{c} is 'ONLINE')[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (location is 'ONLINE')[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (location = 'ONLINE')[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (location = 'ONLINE')[0m
+Started GET "/" for ::1 at 2021-02-19 00:57:16 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-hAsKU2-gm4FYPzvDrbi3A"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 45ms (Views: 37.3ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/api/events/getByType?column=Location&value=ONLINE" for ::1 at 2021-02-19 00:57:18 -0800
+
+AbstractController::ActionNotFound - The action 'show' could not be found for Api::EventsController:
+
+Started GET "/" for ::1 at 2021-02-19 00:58:33 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-hAsKU2-gm4FYPzvDrbi3A"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 48ms (Views: 41.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/events/getByType?column=Location&value=ONLINE" for ::1 at 2021-02-19 00:58:44 -0800
+
+AbstractController::ActionNotFound - The action 'show' could not be found for Api::EventsController:
+
+Started GET "/" for ::1 at 2021-02-19 01:01:19 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-hAsKU2-gm4FYPzvDrbi3A"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 46ms (Views: 38.7ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/api/events/getByType?column=Location&value=ONLINE" for ::1 at 2021-02-19 01:01:28 -0800
+Processing by Api::EventsController#getByType as JSON
+  Parameters: {"column"=>"Location", "value"=>"ONLINE"}
+  Rendering api/events/event_list.json.jbuilder
+  [1m[36mEvent Load (1.0ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/api/events/event_list.json.jbuilder:2
+  Rendered api/events/event_list.json.jbuilder (32.1ms)
+Completed 500 Internal Server Error in 68687ms (ActiveRecord: 8.2ms)
+
+
+
+ActionView::MissingTemplate - Missing partial api/events/_event_info, application/_event_info with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:jbuilder]}. Searched in:
+  * "/Users/makonobo/Desktop/Eventlite/app/views":
+  app/views/api/events/event_list.json.jbuilder:4:in `block (2 levels) in _app_views_api_events_event_list_json_jbuilder___1009860456510867691_70295211793560'
+  app/views/api/events/event_list.json.jbuilder:3:in `block in _app_views_api_events_event_list_json_jbuilder___1009860456510867691_70295211793560'
+  app/views/api/events/event_list.json.jbuilder:2:in `_app_views_api_events_event_list_json_jbuilder___1009860456510867691_70295211793560'
+  app/controllers/api/events_controller.rb:33:in `getByType'
+
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (location = 'ONLINE')[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (location = 'ONLINE')[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (location = 'ONLINE')[0m
+  [1m[36mEvent Load (3.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (Location = ONLINE)[0m
+  [1m[36mEvent Load (1.6ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (Location = ONLINE) LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (Location = ONLINE)[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (Location = 'ONLINE')[0m
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (location = 'ONLINE')[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (location = 'ONLINE')[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (location = 'ONLINE')[0m
+Started GET "/" for ::1 at 2021-02-19 01:15:02 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-hAsKU2-gm4FYPzvDrbi3A"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 49ms (Views: 38.5ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/api/events/getByType?column=Location&value=ONLINE" for ::1 at 2021-02-19 01:15:06 -0800
+Processing by Api::EventsController#getByType as JSON
+  Parameters: {"column"=>"Location", "value"=>"ONLINE"}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-19 01:17:23 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-hAsKU2-gm4FYPzvDrbi3A"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 502ms (Views: 498.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/events/getByType?column=Location&value=ONLINE" for ::1 at 2021-02-19 01:17:25 -0800
+Processing by Api::EventsController#getByType as JSON
+  Parameters: {"column"=>"Location", "value"=>"ONLINE"}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-19 01:17:34 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-hAsKU2-gm4FYPzvDrbi3A"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 37ms (Views: 33.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2021-02-19 01:17:35 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-hAsKU2-gm4FYPzvDrbi3A"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 63ms (Views: 59.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/events/getByType?column=Location&value=ONLINE" for ::1 at 2021-02-19 01:20:46 -0800
+Processing by Api::EventsController#getByType as JSON
+  Parameters: {"column"=>"Location", "value"=>"ONLINE"}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-19 01:21:24 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-hAsKU2-gm4FYPzvDrbi3A"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 676ms (Views: 672.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/events/getByType?column=Location&value=ONLINE" for ::1 at 2021-02-19 01:21:26 -0800
+Processing by Api::EventsController#getByType as JSON
+  Parameters: {"column"=>"Location", "value"=>"ONLINE"}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-19 01:21:45 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-hAsKU2-gm4FYPzvDrbi3A"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 70ms (Views: 64.3ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/api/events/getByType?column=Location&value=ONLINE" for ::1 at 2021-02-19 01:21:46 -0800
+Processing by Api::EventsController#getByType as JSON
+  Parameters: {"column"=>"Location", "value"=>"ONLINE"}
+Completed 200 OK in 19879ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-19 01:22:22 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-hAsKU2-gm4FYPzvDrbi3A"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 35ms (Views: 30.6ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/api/events/getByType?column=Location&value=ONLINE" for ::1 at 2021-02-19 01:22:24 -0800
+Processing by Api::EventsController#getByType as JSON
+  Parameters: {"column"=>"Location", "value"=>"ONLINE"}
+Completed 500 Internal Server Error in 177ms (ActiveRecord: 0.0ms)
+
+
+
+NameError - undefined local variable or method `c' for #<Api::EventsController:0x00007fddb9eaa238>:
+  app/controllers/api/events_controller.rb:31:in `getByType'
+
+Started GET "/" for ::1 at 2021-02-19 01:22:33 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-hAsKU2-gm4FYPzvDrbi3A"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 71ms (Views: 67.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/api/events/getByType?column=Location&value=ONLINE" for ::1 at 2021-02-19 01:22:35 -0800
+Processing by Api::EventsController#getByType as JSON
+  Parameters: {"column"=>"Location", "value"=>"ONLINE"}
+Completed 500 Internal Server Error in 150ms (ActiveRecord: 0.0ms)
+
+
+
+NameError - undefined local variable or method `c' for #<Api::EventsController:0x00007fddc5c11da8>:
+  app/controllers/api/events_controller.rb:31:in `getByType'
+
+Started GET "/" for ::1 at 2021-02-19 01:23:24 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-hAsKU2-gm4FYPzvDrbi3A"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 32ms (Views: 26.5ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/api/events/getByType?column=Location&value=ONLINE" for ::1 at 2021-02-19 01:23:26 -0800
+Processing by Api::EventsController#getByType as JSON
+  Parameters: {"column"=>"Location", "value"=>"ONLINE"}
+  [1m[36mEvent Load (1.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (Location is 'ONLINE') LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ app/controllers/api/events_controller.rb:33
+  [1m[35m (11.8ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (Location is 'ONLINE')[0m
+  ↳ (byebug):1
+  [1m[36mEvent Load (1.7ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (Location='ONLINE') LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ app/controllers/api/events_controller.rb:33
+Completed 200 OK in 75780ms (Views: 0.2ms | ActiveRecord: 24.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-19 01:24:56 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-hAsKU2-gm4FYPzvDrbi3A"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 32ms (Views: 29.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/events/getByType?column=Location&value=ONLINE" for ::1 at 2021-02-19 01:24:58 -0800
+Processing by Api::EventsController#getByType as JSON
+  Parameters: {"column"=>"Location", "value"=>"ONLINE"}
+Completed 200 OK in 29499ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-19 01:25:30 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-hAsKU2-gm4FYPzvDrbi3A"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 40ms (Views: 33.8ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/api/events/getByType?column=Location&value=ONLINE" for ::1 at 2021-02-19 01:25:32 -0800
+Processing by Api::EventsController#getByType as JSON
+  Parameters: {"column"=>"Location", "value"=>"ONLINE"}
+  [1m[36mEvent Load (0.8ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (Location = 'ONLINE') LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ app/controllers/api/events_controller.rb:33
+  Rendering api/events/event_list.json.jbuilder
+  [1m[36mEvent Load (2.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (Location = 'ONLINE')[0m
+  ↳ app/views/api/events/event_list.json.jbuilder:2
+  Rendered api/events/event_list.json.jbuilder (9.5ms)
+Completed 500 Internal Server Error in 5777ms (ActiveRecord: 9.1ms)
+
+
+
+ActionView::MissingTemplate - Missing partial api/events/_event_info, application/_event_info with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:jbuilder]}. Searched in:
+  * "/Users/makonobo/Desktop/Eventlite/app/views":
+  app/views/api/events/event_list.json.jbuilder:4:in `block (2 levels) in _app_views_api_events_event_list_json_jbuilder___1009860456510867691_70295142161540'
+  app/views/api/events/event_list.json.jbuilder:3:in `block in _app_views_api_events_event_list_json_jbuilder___1009860456510867691_70295142161540'
+  app/views/api/events/event_list.json.jbuilder:2:in `_app_views_api_events_event_list_json_jbuilder___1009860456510867691_70295142161540'
+  app/controllers/api/events_controller.rb:34:in `getByType'
+
+Started GET "/" for ::1 at 2021-02-19 01:27:15 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-hAsKU2-gm4FYPzvDrbi3A"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 44ms (Views: 40.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2021-02-19 01:27:17 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-hAsKU2-gm4FYPzvDrbi3A"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 28ms (Views: 25.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/events/getByType?column=Location&value=ONLINE" for ::1 at 2021-02-19 01:27:20 -0800
+Processing by Api::EventsController#getByType as JSON
+  Parameters: {"column"=>"Location", "value"=>"ONLINE"}
+  Rendering api/events/event_list.json.jbuilder
+  [1m[36mEvent Load (1.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (Location = 'ONLINE')[0m
+  ↳ app/views/api/events/event_list.json.jbuilder:2
+  Rendered api/events/_event_info.json.jbuilder (7.1ms)
+  Rendered api/events/event_list.json.jbuilder (12.1ms)
+Completed 500 Internal Server Error in 3767ms (ActiveRecord: 1.2ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/events/_event_info.json.jbuilder:1:in `_app_views_api_events__event_info_json_jbuilder__599259773745339143_70295211318680'
+  app/views/api/events/event_list.json.jbuilder:4:in `block (2 levels) in _app_views_api_events_event_list_json_jbuilder___1009860456510867691_70295142422260'
+  app/views/api/events/event_list.json.jbuilder:3:in `block in _app_views_api_events_event_list_json_jbuilder___1009860456510867691_70295142422260'
+  app/views/api/events/event_list.json.jbuilder:2:in `_app_views_api_events_event_list_json_jbuilder___1009860456510867691_70295142422260'
+  app/controllers/api/events_controller.rb:34:in `getByType'
+
+Started GET "/" for ::1 at 2021-02-19 01:28:13 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "-hAsKU2-gm4FYPzvDrbi3A"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 37ms (Views: 32.1ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/api/events/getByType?column=Location&value=ONLINE" for ::1 at 2021-02-19 01:28:15 -0800
+Processing by Api::EventsController#getByType as JSON
+  Parameters: {"column"=>"Location", "value"=>"ONLINE"}
+  Rendering api/events/event_list.json.jbuilder
+  [1m[36mEvent Load (0.8ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (Location = 'ONLINE')[0m
+  ↳ app/views/api/events/event_list.json.jbuilder:2
+  Rendered api/events/_event_info.json.jbuilder (0.5ms)
+  Rendered api/events/_event_info.json.jbuilder (0.4ms)
+  Rendered api/events/_event_info.json.jbuilder (0.3ms)
+  Rendered api/events/_event_info.json.jbuilder (0.2ms)
+  Rendered api/events/_event_info.json.jbuilder (0.3ms)
+  Rendered api/events/_event_info.json.jbuilder (0.2ms)
+  Rendered api/events/_event_info.json.jbuilder (0.2ms)
+  Rendered api/events/_event_info.json.jbuilder (0.1ms)
+  Rendered api/events/_event_info.json.jbuilder (0.1ms)
+  Rendered api/events/_event_info.json.jbuilder (0.1ms)
+  Rendered api/events/_event_info.json.jbuilder (0.1ms)
+  Rendered api/events/_event_info.json.jbuilder (0.1ms)
+  Rendered api/events/_event_info.json.jbuilder (0.2ms)
+  Rendered api/events/_event_info.json.jbuilder (0.3ms)
+  Rendered api/events/_event_info.json.jbuilder (0.2ms)
+  Rendered api/events/_event_info.json.jbuilder (0.3ms)
+  Rendered api/events/_event_info.json.jbuilder (0.2ms)
+  Rendered api/events/_event_info.json.jbuilder (0.2ms)
+  Rendered api/events/_event_info.json.jbuilder (0.5ms)
+  Rendered api/events/_event_info.json.jbuilder (0.4ms)
+  Rendered api/events/_event_info.json.jbuilder (0.3ms)
+  Rendered api/events/event_list.json.jbuilder (44.1ms)
+Completed 200 OK in 53ms (Views: 43.1ms | ActiveRecord: 7.7ms)
+
+
