@@ -1,4 +1,7 @@
 
 #splash {
   width: 96vw; 
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
 }
