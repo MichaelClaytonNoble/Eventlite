@@ -13,3 +13,11 @@
   align-items: center;
   margin: 0;
 }
+
+::-webkit-resizer{
+  display: none;
+}
+
+::-webkit-scrollbar-corner{
+  display: none;
+}

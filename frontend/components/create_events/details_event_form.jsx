@@ -17,20 +17,9 @@ class DetailsEventForm extends React.Component{
     this.handleFile = this.handleFile.bind(this); 
   }
 
-  // handleFile(files) {
+  handleFile(files) {
 
-  //   const file = files[0]
-  //   const fileReader = new FileReader();
-  //   fileReader.onloadend = () => {
-  //     this.setState({ imageFile: file, imageUrl: fileReader.result })
-  //   }
-  //   if (file) {
-  //     fileReader.readAsDataURL(file);
-  //   }
-  // }
-  handleFile(e) {
-
-    const file = e.currentTarget.files[0]
+    const file = files[0]
     const fileReader = new FileReader();
     fileReader.onloadend = () => {
       this.setState({ imageFile: file, imageUrl: fileReader.result })
@@ -79,7 +68,7 @@ class DetailsEventForm extends React.Component{
     };
   }
   render(){
-const preview = this.state.imageUrl ? <img alt="signup-form" src={this.state.imageUrl} /> : null;
+const preview = this.state.imageUrl ? <img alt="signup-form" id="preview" src={this.state.imageUrl} /> : null;
     let eventExistErr, summaryErr, aboutErr = '';
     this.errors.forEach((error) => {
       let err = this.props.errorList[error];
@@ -97,7 +86,6 @@ const preview = this.state.imageUrl ? <img alt="signup-form" src={this.state.ima
     });
     return(
       <div id="details-event-form">
-        <input type="file" onChange={this.handleFile}></input>
         {preview}
         <form id="details-event-info-form" onSubmit={this.handleSubmit}>
 
@@ -105,7 +93,7 @@ const preview = this.state.imageUrl ? <img alt="signup-form" src={this.state.ima
             <h1 id="create-event-header"><i className="far fa-images create-event-form-icons"></i>Main Event Image</h1>
             <p id="create-event-description">This is the first image attendees will see at the top of your listing. Use a high quality image: 2160x1080px (2:1 ratio).</p>
 
-            {/* <Dropzone multiple={false} accept="image/*" onDrop={this.handleFile}>
+            <Dropzone multiple={false} accept="image/*" onDrop={this.handleFile}>
               {({getRootProps, getInputProps}) => (
                 <section id="add-event-images">
                   <div {...getRootProps()}>
@@ -117,7 +105,7 @@ const preview = this.state.imageUrl ? <img alt="signup-form" src={this.state.ima
                   </div>
                 </section>
               )}
-            </Dropzone> */}
+            </Dropzone>
           </section>
           <hr />
           <section className="info-section">

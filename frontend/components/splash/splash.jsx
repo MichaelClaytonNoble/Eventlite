@@ -91,7 +91,7 @@ class Splash extends React.Component{
                   <div id={i}key={i}>
                   <span id="image">{img}</span>
                   <span id="start">{new Date(event.start).toGMTString()}</span>
-                  <span id="title">{event.title}...</span>
+                  <span id="title"><p>{event.title}</p></span>
                 </div>
               )
             }

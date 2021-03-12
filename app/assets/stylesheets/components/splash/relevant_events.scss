@@ -37,32 +37,41 @@
       justify-content: center;
       align-items: center;
       border: 1px solid $border-color;
+      margin: 10px;
     }
     #title{
-      font-size: 1.6vw;
+      font-size: 1.2vw;
       font-weight: bold;
       height: 35%;
       width: 100%;
-      background-color: whitesmoke;
+      background-color: white;
+      p{
+        margin: 0 1vw;
+        overflow-y: hidden;
+        height: 100%; 
+      }
     }
     #start{
-      font-size: 1.1vw;
+      font-size: .8vw;
       font-weight: normal;
       color: $submit-button-color; 
-      background-color: whitesmoke;
-      height: 15%;
+      background-color: white;
+      height: 10%;
       width: 100%;
       text-align: center; 
+      padding-top: .7vw;
     }
     #image{
       font-size: 6vw;
       color: teal;
       height: 50%;
+      border: $border-color;
     }
     img{
       height: 100%; 
-      object-fit: contain;
-      object-position:bottom;
+      width: 100%;
+      object-fit:fill;
+      object-position:center;
       
     }
   }
