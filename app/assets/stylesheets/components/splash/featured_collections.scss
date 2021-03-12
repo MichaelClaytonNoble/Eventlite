@@ -18,6 +18,10 @@
     font-size: 14px; 
     padding: 15px 10px 30px 10px;
     
+  }:hover{
+    cursor: pointer;
+  }:active{
+    text-decoration: underline;
   }
 }
 

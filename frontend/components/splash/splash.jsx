@@ -5,26 +5,39 @@ class Splash extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      relevantEvents: this.props.events
+      relevantEvents: this.props.events,
+      popularIn: "Online Events"
     }
     this.props.getEvents("location", "ONLINE")
     .then( ()=>this.setState({relevantEvents: this.props.events})); 
+    this.changeEventList = this.changeEventList.bind(this); 
   }
   componentDidMount(){
- 
+    this.props.getCategories(); 
     this.props.getEvents("location", "ONLINE"); 
     this.setState({})
   }
-  
+  changeEventList(e){
+    let category = this.props.categories.filter(cat => {return cat.name === e.target.innerText})[0]
+    this.props.clearEvents(); 
+    this.props.getEvents("category_id", category.id)
+    .then( ()=>this.setState({relevantEvents: this.props.events, popularIn: category.name}));
+  }
+
   render(){
-  
+    let categories = '';
+    if(this.props.categories.length){
+      categories = this.props.categories.map( (category,key) => {
+        return <li key={key}>{category.name}</li>
+      })
+    }
     return(
       <div id="splash">
         <div id="feed-header">
           <div id="grey-box"></div>
           <div id="feed">
-              <h2 id="top-header" className="header">Celebrate and honor</h2>
-              <h1 id="main-header"className="header">Black Excellence</h1>
+              <h2 id="top-header" className="header">Connect through</h2>
+              <h1 id="main-header"className="header">online events</h1>
             <Link to="#browseEvents" className="header link"><span>Browse events  →</span></Link>
           </div>
           <div id="feed-image">
@@ -32,15 +45,10 @@ class Splash extends React.Component{
           </div>
         </div>
         <div id="popular-events">
-          <h1>Popular in Online Events</h1>
-          <ul id="nav-bar">
-            <li>Today</li>
-            <li>This weekend</li>
-            <li>Black History Month</li>
-            <li>Free</li>
-            <li>Music</li>
-            <li>Food & Drink</li>
-            <li>Charity & Causes</li>
+          <h1>Popular in {this.state.popularIn}</h1>
+          <ul id="nav-bar" onClick={this.changeEventList}>
+            <li>All</li>
+            {categories}
           </ul>
           <div id="featured-icon"></div>
           <div id="favorite-collections">
@@ -75,14 +83,12 @@ class Splash extends React.Component{
         </div>
       
         <div id="relevant-events">
-          <h1>Events in Online Events</h1>
+          <h1>Events in {this.state.popularIn}</h1>
           <div id="event-grid">
 
           {
-            
             this.state.relevantEvents.reverse().map( (event, i)=>{
-
-              if(i<8){
+              if(i<12){
                 let img=<i className="far fa-image"></i>;
                 if(event.imageUrl){
                   img = <img src={event.imageUrl} alt="" />

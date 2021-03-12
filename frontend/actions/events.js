@@ -3,6 +3,7 @@ export const RECEIVE_CURRENT_EVENT="RECEIVE_CURRENT_EVENT";
 export const RECEIVE_EVENT_ERRORS ="RECEIVE_EVENT_ERRORS"; 
 export const RECEIVE_EVENTS = "RECEIVE_EVENTS";
 export const CLEAR_ERRORS ="CLEAR_ERRORS"; 
+export const CLEAR_EVENTS ="CLEAR_EVENTS"; 
 
 const receiveNewEvent = event =>({
   type: RECEIVE_CURRENT_EVENT,
@@ -17,6 +18,10 @@ const receiveEventErrors = errors => ({
 const receiveEvents = events => ({
   type: RECEIVE_EVENTS,
   events
+})
+
+export const clearEvents = () => ({
+  type: CLEAR_EVENTS
 })
 
 export const clearErrors = () =>({
