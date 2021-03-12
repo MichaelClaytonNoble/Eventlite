@@ -1,1 +1,1 @@
-json.extract! category, :name
+json.extract! category, :name, :id

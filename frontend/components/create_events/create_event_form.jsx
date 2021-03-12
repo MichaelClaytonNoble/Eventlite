@@ -9,7 +9,7 @@ class CreateEventForm extends React.Component{
       return timezone.locale === Intl.DateTimeFormat().resolvedOptions().timeZone;
     })
     this.state = {
-      title: '', organizer: '', venue: '', recurring: 'false', category_id: 1, location: 'VENUE',
+      title: '', organizer: '', venue: '', recurring: 'false', category_id: '', location: 'VENUE',
       start: '',
       end: '',
       timezone: findTimezone[0].zone,
@@ -42,7 +42,9 @@ class CreateEventForm extends React.Component{
         this.props.history.push(`/events/${action.event.id}/details`)
       }); 
   }
-
+  componentDidMount(){
+    this.props.getCategories(); 
+  }
   componentDidUpdate(){
     if(this.props.errors.length > 0){
 
@@ -68,8 +70,9 @@ class CreateEventForm extends React.Component{
   }
 
   render(){
+
     let userLoginErr, titleErr, organizerErr, locationErr, startErr, endErr, 
-          recurringErr, categoryErr, timezoneErr='';
+          recurringErr, categoryErr, timezoneErr, categories='';
     this.props.errors.forEach( (error)=>{
       let err = this.props.errorList[error]; 
       let message = <p className='form-error-message'>{error}</p>
@@ -96,7 +99,13 @@ class CreateEventForm extends React.Component{
           return;
       }
 
+      
     });
+    if(this.props.categories.length){
+      categories = this.props.categories.map( (category,key) => {
+        return <option value={category.id} key={key}>{category.name}</option>
+      })
+    }
     return(
 
       <div id="create-event-form">
@@ -115,9 +124,9 @@ class CreateEventForm extends React.Component{
             <input className="large-input"  onChange={this.handleInputChange('organizer')} value={this.state.organizer}/>
             </label>
             {organizerErr}
-            <select name="categories" id="categories">
+            <select name="categories" id="categories" onChange={this.handleInputChange('category_id')}>
               <option value="" >Category</option>
-              <option value="music">Music</option>
+              {categories}
             </select>
             {categoryErr}
         </section>

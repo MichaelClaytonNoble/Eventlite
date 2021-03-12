@@ -3,20 +3,23 @@ import CreateEventForm from './create_event_form';
 import {connect} from 'react-redux'; 
 import {createEvent, clearErrors} from '../../actions/events'; 
 import { CREATE_EVENT_FORM_ERROR_LIST } from '../../reducers/selectors/error_selectors';
+import {pullCategories} from '../../actions/categories'; 
 
 const mSTP = state =>{
   return ({
     // getCategories: 
     errors: state.errors.events,
     errorList: CREATE_EVENT_FORM_ERROR_LIST,
-    timezones
+    timezones,
+    categories: Object.values(state.entities.categories)
   })
 }
 
 const mDTP = dispatch =>{
   return({
     createEvent: (formEvent)=>dispatch(createEvent(formEvent)),
-    clearErrors: ()=>dispatch(clearErrors())
+    clearErrors: ()=>dispatch(clearErrors()),
+    getCategories: ()=>dispatch(pullCategories())
   })
 }
 
