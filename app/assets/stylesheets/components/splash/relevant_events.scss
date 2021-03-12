@@ -59,6 +59,12 @@
       color: teal;
       height: 50%;
     }
+    img{
+      height: 100%; 
+      object-fit: contain;
+      object-position:bottom;
+      
+    }
   }
 }
 

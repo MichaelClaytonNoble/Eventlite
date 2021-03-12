@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create,  :index, :show, :update]
     get 'events/getByType', to: 'events#getByType'
     resources :events
+    resources :categories, only: [:index]
     resource :session, only: [:create, :new, :destroy]
     post "/sessions/find", to: "sessions#find"
   end 
