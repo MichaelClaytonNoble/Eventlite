@@ -14,6 +14,8 @@ npm install webpack@4.46.0
 npm install redux-logger
 npm install react-router-dom
 npm install lodash
+npm install react-dropzone
+npm install superagent
 
 touch .gitignore
 echo "node_modules

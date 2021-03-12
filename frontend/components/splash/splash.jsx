@@ -81,10 +81,15 @@ class Splash extends React.Component{
           {
             
             this.state.relevantEvents.reverse().map( (event, i)=>{
+
               if(i<8){
+                let img=<i className="far fa-image"></i>;
+                if(event.imageUrl){
+                  img = <img src={event.imageUrl} alt="" />
+                }
                 return(
                   <div id={i}key={i}>
-                  <span id="image"><i className="far fa-image"></i></span>
+                  <span id="image">{img}</span>
                   <span id="start">{new Date(event.start).toGMTString()}</span>
                   <span id="title">{event.title}...</span>
                 </div>

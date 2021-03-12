@@ -7,6 +7,10 @@ class Event < ApplicationRecord
     primary_key: :id,
     foreign_key: :creator_id,
     class_name: :User
+
+
+  has_one_attached :image
+
   #belongs_to categories
   #has many tickets
   #has many attendees through tickets

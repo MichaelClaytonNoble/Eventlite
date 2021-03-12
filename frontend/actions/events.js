@@ -1,4 +1,4 @@
-import { patchEvent, postEvent, pullEventsByType } from '../util/events';
+import { patchEvent, postEvent, pullEventsByType, postImage } from '../util/events';
 export const RECEIVE_CURRENT_EVENT="RECEIVE_CURRENT_EVENT";
 export const RECEIVE_EVENT_ERRORS ="RECEIVE_EVENT_ERRORS"; 
 export const RECEIVE_EVENTS = "RECEIVE_EVENTS";
@@ -32,6 +32,7 @@ export const updateEvent = event => dispatch =>{
   return patchEvent(event)
     .then(event => dispatch(receiveNewEvent(event)), err => dispatch(receiveEventErrors(err.responseJSON))); 
 }
+
 
 export const getEventsByType = (col,val) => dispatch =>{
   return pullEventsByType(col,val)

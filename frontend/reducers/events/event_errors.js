@@ -8,7 +8,10 @@ const eventErrorsReducer = (state = [], action) =>{
 
   switch (action.type){
     case RECEIVE_EVENT_ERRORS:
-      return action.errors;
+      if (action.errors){
+        return action.errors;
+      }
+      return [];
     case CLEAR_ERRORS:
       return [];
     default: 

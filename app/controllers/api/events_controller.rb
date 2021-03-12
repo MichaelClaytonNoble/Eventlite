@@ -2,7 +2,7 @@ class Api::EventsController < ApplicationController
   before_action :require_logged_in, only: [:create]
 
   def create
-    @event = Event.new(event_params_basic_info)
+    @event = Event.new(event_params)
     @event.creator_id = current_user.id
     if @event.save
       render :event_basic_info
@@ -12,11 +12,10 @@ class Api::EventsController < ApplicationController
   end
 
   def update
-    @event = Event.find_by(id: params[:id])
-
+    @event = Event.find_by(id: params[:event][:id])
     if @event
       if @event.update(event_params)
-        render :event_info
+        render :event_all_info
       else
         render json: @event.errors.full_messages, status: 422
       end
@@ -33,7 +32,7 @@ class Api::EventsController < ApplicationController
     if @events
       render :event_list
     else
-      render json: []
+      render json: ["No Events Found"], status: 422
     end
   end
   
@@ -41,9 +40,13 @@ class Api::EventsController < ApplicationController
     params.require(:event).permit(:id, :title, :venue, :recurring, :category_id, :location, :start, :end, :timezone)
   end
 
+  def event_params_details
+    params.require(:event).permit(:id, :imageURL, :description, :about)
+  end
+
   def event_params
     params.require(:event).permit(:id, :title, :description, :category_id, :location,
-              :address, :venue, :recurring, :start, :end, :timezone, :creator_id, :about)
+              :address, :venue, :recurring, :start, :end, :timezone, :creator_id, :about, :image)
   end
 
   def whitelist(column)

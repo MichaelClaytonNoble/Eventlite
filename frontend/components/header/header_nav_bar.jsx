@@ -30,7 +30,7 @@ class HeaderNavBar extends React.Component {
       signoutButton = <button onClick={this.signOut}>Sign Out</button>
       menuDropdown = (
         <ul id="menu-dropdown">
-          <li className="menu-dropdown-li"><span><div id="icon"><img src={window.stickManGrey}/></div>myemailaddress@mail.com</span></li>
+          <li className="menu-dropdown-li"><span><div id="icon"><img src={window.stickManGrey}/></div>michael.clayton.noble@hotmail.com</span></li>
           <li className="menu-dropdown-li">Browse events</li>
           <li className="menu-dropdown-li">Manage my events</li>
           <li className="menu-dropdown-li">Following</li>

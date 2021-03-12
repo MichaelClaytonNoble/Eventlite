@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import { EVENT_DETAILS_FORM_ERROR_LIST } from '../../reducers/selectors/error_selectors';
 import DetailsEventForm from './details_event_form';
-import { clearErrors, updateEvent } from '../../actions/events';
+import { clearErrors, updateEvent, uploadImage } from '../../actions/events';
 const mSTP = state => {
   return({
     errors: state.errors.events,
