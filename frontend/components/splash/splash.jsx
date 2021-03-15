@@ -18,39 +18,34 @@ class Splash extends React.Component{
     this.setState({})
   }
   changeEventList(e){
-    let category = this.props.categories.filter(cat => {return cat.name === e.target.innerText})[0]
     this.props.clearEvents(); 
-    this.props.getEvents("category_id", category.id)
-    .then( ()=>this.setState({relevantEvents: this.props.events, popularIn: category.name}));
+    let col = "category_id";
+    let val, name = '';
+    
+    if(e.target.innerText === 'All'){
+      col = "location";
+      val = "ONLINE";
+      name="Online Events";
+    }
+    else{
+      let category = this.props.categories.filter(cat => {return cat.name === e.target.innerText})[0]
+      val = category.id;
+      name = category.name;
+    }
+    this.props.getEvents(col, val)
+    .then( ()=>this.setState({relevantEvents: this.props.events, popularIn: name}));
   }
 
   render(){
-    let categories = '';
+    let categories, featured, featuredMessage = '';
     if(this.props.categories.length){
       categories = this.props.categories.map( (category,key) => {
         return <li key={key}>{category.name}</li>
       })
     }
-    return(
-      <div id="splash">
-        <div id="feed-header">
-          <div id="grey-box"></div>
-          <div id="feed">
-              <h2 id="top-header" className="header">Connect through</h2>
-              <h1 id="main-header"className="header">online events</h1>
-            <Link to="#browseEvents" className="header link"><span>Browse events  →</span></Link>
-          </div>
-          <div id="feed-image">
-            <img src={window.feedImage}/>
-          </div>
-        </div>
-        <div id="popular-events">
-          <h1>Popular in {this.state.popularIn}</h1>
-          <ul id="nav-bar" onClick={this.changeEventList}>
-            <li>All</li>
-            {categories}
-          </ul>
-          <div id="featured-icon"></div>
+    if(this.state.popularIn === 'Online Events'){
+      featuredMessage = <h1>Events in {this.state.popularIn}</h1>;
+      featured =
           <div id="favorite-collections">
             <div id="header">
               <span id="left">
@@ -75,20 +70,38 @@ class Splash extends React.Component{
                 <button>View Upcoming Events</button>
               </div>
                 <img src={window.blackHM}/>
-
             </div>
-
-
           </div>
+    }
+    return(
+      <div id="splash">
+        <div id="feed-header">
+          <div id="grey-box"></div>
+          <div id="feed">
+              <h2 id="top-header" className="header">Connect through</h2>
+              <h1 id="main-header"className="header">online events</h1>
+            <Link to="#browseEvents" className="header link"><span>Browse events  →</span></Link>
+          </div>
+          <div id="feed-image">
+            <img src={window.feedImage}/>
+          </div>
+        </div>
+        <div id="popular-events">
+          <h1>Popular in {this.state.popularIn}</h1>
+          <ul id="nav-bar" onClick={this.changeEventList}>
+            <li>All</li>
+            {categories}
+          </ul>
+          {featured}
         </div>
       
         <div id="relevant-events">
-          <h1>Events in {this.state.popularIn}</h1>
+          {featuredMessage}
           <div id="event-grid">
 
           {
             this.state.relevantEvents.reverse().map( (event, i)=>{
-              if(i<12){
+              if(i<16){
                 let img=<i className="far fa-image"></i>;
                 if(event.imageUrl){
                   img = <img src={event.imageUrl} alt="" />

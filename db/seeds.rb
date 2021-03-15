@@ -9,10 +9,10 @@
 
 User.destroy_all
 
-User.create!({id: 1, email: "Example.Account@demo.com", password: "123456", first_name: "Demo", last_name: "Login"}); 
-User.create!({id: 2, email: "000@000.000", password: "123456", first_name: "000", last_name: "000"}); 
-User.create!({id: 3, email: "111@111.111", password: "123456", first_name: "111", last_name: "111"}); 
-User.create!({id: 4, email: "222@222.222", password: "123456", first_name: "222", last_name: "222"}); 
+User.create!({id: 1, email: "Example.Account@demo.com", password: "123456", first_name: "Demo", last_name: "Login"})
+User.create!({id: 2, email: "000@000.000", password: "123456", first_name: "000", last_name: "000"})
+User.create!({id: 3, email: "111@111.111", password: "123456", first_name: "111", last_name: "111"}) 
+User.create!({id: 4, email: "222@222.222", password: "123456", first_name: "222", last_name: "222"}) 
 
 
 # Event.create!({id: , title: , 
@@ -29,11 +29,28 @@ User.create!({id: 4, email: "222@222.222", password: "123456", first_name: "222"
 
 Event.destroy_all; 
 
+title = 'comming soon...'
+description ='To city near you'
+(0...30).each do |i|
+  Event.create!({id: i+1, title: title, 
+  description: description, 
+  category_id: 4, 
+  location: "ONLINE", 
+  address: '', 
+  venue: '', 
+  recurring: false, 
+  start: Date.new, 
+  end: Date.new, 
+  timezone: 'PST', 
+  creator_id: 1})
+end
+
+
 
 Category.destroy_all; 
 
-Category.create!({id: 1, name: "Food & Drink"}); 
-Category.create!({id: 2, name: "Health"}); 
+Category.create!({id: 1, name: "Food & Drink"})
+Category.create!({id: 2, name: "Health"})
 Category.create!({id: 3, name: "Community"}); 
 Category.create!({id: 4, name: "Film & Media"}); 
 Category.create!({id: 5, name: "Travel & Outdoor"}); 
