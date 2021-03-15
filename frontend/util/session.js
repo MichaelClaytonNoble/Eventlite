@@ -1,6 +1,4 @@
 
-
-// for sessions logging in, and out, 
 export const postSession = (user) =>{
   return $.ajax({
     method: "POST",

@@ -12,7 +12,6 @@ const receiveUsersErrors = (errors) =>({
   errors
 })
 
-//will be used in the containers 
 export const signup = user => dispatch => {
   return postUser(user)
   .then( user => dispatch(receiveNewUser(user)) , err => dispatch(receiveUsersErrors(err.responseJSON)))

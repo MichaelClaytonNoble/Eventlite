@@ -6,10 +6,7 @@
   h1{
     font-size: 1.5vw;
     font-weight: bold;
-
   }
-  // margin-left: 15px;
-
 }
 #nav-bar{
   display: flex; 
@@ -17,7 +14,6 @@
   li{
     font-size: 14px; 
     padding: 15px 10px 30px 10px;
-    
   }:hover{
     cursor: pointer;
   }:active{

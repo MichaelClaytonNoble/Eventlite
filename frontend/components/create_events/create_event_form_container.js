@@ -7,7 +7,6 @@ import {pullCategories} from '../../actions/categories';
 
 const mSTP = state =>{
   return ({
-    // getCategories: 
     errors: state.errors.events,
     errorList: CREATE_EVENT_FORM_ERROR_LIST,
     timezones,

@@ -24,9 +24,6 @@ class HeaderNavBar extends React.Component {
       </span>
     }
     else{
-      // signoutButton = <span id="signout-link">
-      //   <button onClick={this.signOut}>Sign Out</button>
-      // </span>
       signoutButton = <button onClick={this.signOut}>Sign Out</button>
       menuDropdown = (
         <ul id="menu-dropdown">

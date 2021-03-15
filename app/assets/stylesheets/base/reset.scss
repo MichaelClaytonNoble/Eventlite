@@ -24,7 +24,6 @@ input, textarea, article, footer, time {
   box-sizing: inherit;
   background: transparent;
 }
-/* remember to define focus styles! */
 :focus {
   outline: 0;
 }
@@ -36,7 +35,7 @@ body {
 ol, ul {
   list-style: none;
 }
-/* tables still need 'cellspacing="0"' in the markup */
+
 table {
   border-collapse: separate;
   border-spacing: 0;
@@ -66,10 +65,7 @@ input[type="text"],
 input[type="submit"],
 textarea,
 button {
-  /*
-  Get rid of native styling. Read more here:
-  http://css-tricks.com/almanac/properties/a/appearance/
-  */
+
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;

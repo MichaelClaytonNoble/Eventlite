@@ -1,6 +1,4 @@
 
-//create new event
-
 export const postEvent = event =>{
   return $.ajax({
     method: "POST",
@@ -8,9 +6,6 @@ export const postEvent = event =>{
     data: {event}
   }); 
 }
-
-
-//add more info to the event via update
 
 export const patchEvent = event =>{
   return $.ajax({
@@ -22,7 +17,6 @@ export const patchEvent = event =>{
   });
 }
 
-//get events by propery 
 export const pullEventsByType = (column, value) =>{
   return $.ajax({
     method: "GET",

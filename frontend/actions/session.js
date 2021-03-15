@@ -30,13 +30,10 @@ const receiveSessionErrors = (errors) =>({
   errors
 })
 
-//we will be manually dispatch thing. 
-//not through a thunk action creator 
 export const clearSessionErrors = () => ({
   type: CLEAR_ERRORS
 })
 
-//thunk actions to be used in container  
 export const login = formUser => dispatch => postSession(formUser)
   .then(user => dispatch(receiveCurrentUser(user)),(err) => dispatch(receiveSessionErrors(err.responseJSON)));
 
