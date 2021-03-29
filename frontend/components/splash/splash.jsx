@@ -76,15 +76,16 @@ class Splash extends React.Component{
     return(
       <div id="splash">
         <div id="feed-header">
-          <div id="grey-box"></div>
-          <div id="feed">
-              <h2 id="top-header" className="header">Connect through</h2>
-              <h1 id="main-header"className="header">online events</h1>
-            <Link to="#browseEvents" className="header link"><span>Browse events  →</span></Link>
+          <div id="grey-box">
+            <div id="feed">
+                <h2 id="top-header" className="header">Connect through</h2>
+                <h1 id="main-header"className="header">online events</h1>
+              <Link to="#browseEvents" className="header link"><span>Browse events  →</span></Link>
+            </div>
           </div>
-          <div id="feed-image">
-            <img src={window.feedImage}/>
-          </div>
+            <div id="feed-image">
+              <img src={window.feedImage}/>
+            </div>
         </div>
         <div id="popular-events">
           <h1>Popular in {this.state.popularIn}</h1>

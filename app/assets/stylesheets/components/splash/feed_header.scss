@@ -1,32 +1,38 @@
 
 #feed-header{
-  width: 70vw;
-  height: 20vw;
+  width: 100%;
+  
+  height: calc(10vw + 15vh);
   display: grid;
-  grid-template-columns: 4% 3% 35% 50%;
-  grid-template-rows: 10% 14% 70% 14% 10%;
-  margin-bottom: 7vw;
+  grid-template-columns: 42.5% 52.5%;
+  grid-template-rows: 14% 72% 14% ;
+  margin-bottom: 4vw;
   align-self: center;  
+  justify-content: center;
 
-  margin-left: auto;
+  margin-left: 2.5%;
   margin-right: auto; 
 }
 #feed{
+  margin-left: -10%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-
-  grid-column-start: 2;
-  grid-column-end: 4;
-  grid-row: 3; 
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row: 2; 
 
   justify-content: center; 
   h2{
     font-size: 2vw;
+    letter-spacing: .1vw;
+    @media screen and (max-width: 1300px){ letter-spacing: .3vw; transition: letter-spacing 1s}
     color: $eventbrite-orange;
     font-weight: bold;
     margin-bottom: 10px;
   }
   h1{
+    @media screen and (max-width: 1300px){ letter-spacing: .2vw; transition: letter-spacing 1s}
     font-size: 3vw;
     font-weight: bold;
     margin-bottom: 1vw;
@@ -36,28 +42,42 @@
     font-size:.8vw;
     color: white;
     border-radius:100px;
-    padding: 12px 16px 12px 18px;
-    width: 8vw;
+    padding: 12px 15px 12px 15px;
+    @media screen and (max-width: 1300px){padding: .8vw 1.7vw;}
+
+    width: 7vw;
     height: 1.25vw;
     text-align: center;
     span{
       position: relative;
       top: 3px;
+      @media screen and (max-width: 900px){ 
+        display: none;
+      }
+    }
+    @media screen and (max-width: 900px){
+      &::after{
+        font-size: 1.2vw;
+        color: white;
+        content: "Browse";
+        text-align: center;
+        vertical-align: middle;
+      }
     }
   }
 }
 #grey-box{
-  grid-column: 3;
-  grid-row: 3; 
+  grid-column: 1;
+  grid-row: 2; 
   background-color: $border-color-light;
 }
 .header{
-  grid-column-start: 2;
+  grid-column-start: 1;
 }
 #feed-image{
-  grid-column: 4;
-  grid-row-start: 2;
-  grid-row-end: 5;
+  grid-column: 2;
+  grid-row-start: 1;
+  grid-row-end: 4;
   img{
     object-fit: cover; 
     max-height: 100%;

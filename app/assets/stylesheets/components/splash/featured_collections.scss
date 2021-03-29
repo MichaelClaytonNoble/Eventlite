@@ -2,7 +2,7 @@
 #popular-events{
   display: flex; 
   flex-direction: column;
-  width: 70vw; 
+  width: 100%; 
   h1{
     font-size: 1.5vw;
     font-weight: bold;
@@ -11,9 +11,11 @@
 #nav-bar{
   display: flex; 
   flex-direction: row; 
+  width: 100%;
   li{
-    font-size: 14px; 
-    padding: 15px 10px 30px 10px;
+    font-size: .9vw; 
+    padding: .5vw;
+    width: fit-content;
   }:hover{
     cursor: pointer;
   }:active{
@@ -23,7 +25,7 @@
 
 #favorite-collections{
   background-color: $border-color-light;
-  width: 65vw;
+  width: 100%;
   height: 100%; 
   margin-bottom: 20px; 
   display: flex;
