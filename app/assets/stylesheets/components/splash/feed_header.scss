@@ -2,16 +2,16 @@
 #feed-header{
   width: 100%;
   
-  height: calc(10vw + 15vh);
+  height: calc(11vw + 15vh);
   display: grid;
   grid-template-columns: 42.5% 52.5%;
-  grid-template-rows: 14% 72% 14% ;
-  margin-bottom: 4vw;
+  grid-template-rows: 12% 76% 12% ;
   align-self: center;  
   justify-content: center;
-
+  
   margin-left: 2.5%;
   margin-right: auto; 
+  margin-bottom: 3.2vw;
 }
 #feed{
   margin-left: -10%;
@@ -69,7 +69,7 @@
 #grey-box{
   grid-column: 1;
   grid-row: 2; 
-  background-color: $border-color-light;
+  background-color: $header-grey-background;
 }
 .header{
   grid-column-start: 1;

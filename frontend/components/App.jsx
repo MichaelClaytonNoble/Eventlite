@@ -28,8 +28,8 @@ class App extends React.Component{
           <AuthRoute exact path="/signin/signup" component={SessionSignupFormContainer} />
         
           <Route exact path="/" component={SplashContainer}/>
-          <Route exact path="/events/create" component={CreateEventFormContainer} />
-          <Route exact path ="/events/:eventId/details" component={DetailsEventFormContainer} />
+          <ProtectedRoute exact path="/events/create" component={CreateEventFormContainer} />
+          <ProtectedRoute exact path ="/events/:eventId/details" component={DetailsEventFormContainer} />
 
           <Route exact path="/404" component={PageNotFound} />
           <Redirect to="/404" />

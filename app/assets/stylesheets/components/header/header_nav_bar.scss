@@ -5,8 +5,9 @@
   margin-bottom: 10px;
   height: 72px;
   align-items: center; 
-  border-bottom: .5px solid $border-color;
-  width: 99vw;
+  border-bottom: 1px solid #EEFFFF;
+  width: 100%;
+  color: $header-nav-bar-font-color;
 }
 
 #logo-link{

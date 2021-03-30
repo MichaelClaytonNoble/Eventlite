@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 import {logout} from '../../actions/session';
 import {connect} from 'react-redux'; 
 
@@ -12,7 +12,7 @@ class HeaderNavBar extends React.Component {
 
   signOut(e){
     this.setState({});
-    this.props.logout();
+    this.props.logout().then( ()=>this.props.history.push('/'));
   }
 
   render(){
@@ -27,7 +27,7 @@ class HeaderNavBar extends React.Component {
       signoutButton = <button onClick={this.signOut}>Sign Out</button>
       menuDropdown = (
         <ul id="menu-dropdown">
-          <li className="menu-dropdown-li"><span><div id="icon"><img src={window.stickManGrey}/></div>michael.clayton.noble@hotmail.com</span></li>
+          <li className="menu-dropdown-li"><span><div id="icon"><img src={window.stickManGrey}/></div>{this.props.self.email}</span></li>
           <li className="menu-dropdown-li">Browse events</li>
           <li className="menu-dropdown-li">Manage my events</li>
           <li className="menu-dropdown-li">Following</li>
@@ -46,8 +46,8 @@ class HeaderNavBar extends React.Component {
             </span>
         </span>
         <span id="header-nav-bar-right">
+          <span id="help-dropdown"><Link to="/about">About</Link></span>
           <span id="host-event-dropdown"><Link to="/events/create">Host an event</Link></span>
-          <span id="help-dropdown">Help</span>
           {menuDropdown}
           {signinLink}
           {/* {signoutButton} */}
@@ -57,10 +57,12 @@ class HeaderNavBar extends React.Component {
   }
 }
 
-const mSTP = state =>({
-
-  loggedIn: state.session.currentUser.id
-})
+const mSTP = state =>{
+  return ({
+  loggedIn: state.session.currentUser.id,
+  self: state.entities.users[state.session.currentUser.id]
+  })
+}
 
 const mDTP = (dispatch) => {
   return ({
@@ -69,4 +71,4 @@ const mDTP = (dispatch) => {
 }
 
 const HeaderNavBarContainer = connect(mSTP, mDTP)(HeaderNavBar);
-export default HeaderNavBarContainer;
+export default withRouter(HeaderNavBarContainer);
