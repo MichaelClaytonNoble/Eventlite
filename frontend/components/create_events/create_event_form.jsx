@@ -15,6 +15,7 @@ class CreateEventForm extends React.Component{
       timezone: findTimezone[0].zone,
     }
 
+    this.props.clearErrors(); 
     this.disabled = false;
     this.getCurrentDateTime = this.getCurrentDateTime.bind(this); 
     this.handleSubmit = this.handleSubmit.bind(this); 

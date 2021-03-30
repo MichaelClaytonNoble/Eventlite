@@ -14,6 +14,7 @@
     padding: 0px 15px 25px 0px; 
   }
   #event-grid{
+    clear: both;
     max-width: 100%;
     height: fit-content;
     display: grid;
@@ -24,8 +25,12 @@
     grid-template-columns: 22.75% 22.75% 22.75% 22.75%;
     column-gap: 3%;
     grid-auto-rows: calc(10vw + 10vh); 
-    @media screen and (max-width: 600px) {grid-template-columns: 80%; grid-auto-rows: 30%;}
-    @media screen and (max-width: 850px) {grid-template-columns: 40% 40%; grid-auto-rows: calc(10vw + 15h); column-gap: 9.3%;}
+    @media screen and (max-width: 850px) {grid-template-columns: repeat(2, .4fr); grid-auto-rows: calc(12vw + 16vh); column-gap: 5%;}
+    @media screen and (max-width: 600px) {grid-template-columns: repeat(1, .7fr); grid-auto-rows: calc(12vw + 16vh);}
+    @media screen and (max-width: 650px) {grid-template-columns: repeat(1, .5fr); grid-auto-rows: calc(12vw + 16vh);}
+    @media screen and (max-width: 500px) {grid-template-columns: repeat(1, .6fr); grid-auto-rows: calc(12vw + 16vh);}
+    @media screen and (max-width: 400px) {grid-template-columns: repeat(1, .7fr); grid-auto-rows: calc(12vw + 16vh);}
+    @media screen and (max-width: 300px) {grid-template-columns: repeat(1, .85fr); grid-auto-rows: calc(12vw + 16vh);}
     row-gap: 20px; 
     div{
       display:flex;
@@ -34,7 +39,6 @@
       align-items: center;
       border: 1px solid $border-color;
       width: 100%;
-
     }
     #title{
       font-size: 1.2vw;
@@ -69,7 +73,6 @@
       width: 100%;
       object-fit:fill;
       object-position:center;
-      
     }
   }
 }

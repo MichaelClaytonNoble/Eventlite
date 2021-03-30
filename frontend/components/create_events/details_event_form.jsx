@@ -13,6 +13,7 @@ class DetailsEventForm extends React.Component{
       about: ''
     }
     this.errors = [];
+    this.props.clearErrors();
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleFile = this.handleFile.bind(this); 
   }
