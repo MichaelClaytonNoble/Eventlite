@@ -1,5 +1,6 @@
-#header-nav-bar{
 
+#header-nav-bar{
+  max-width: 100%;
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
@@ -14,6 +15,7 @@
   color: $eventbrite-orange;
   font-family: "roboto", helvetica, arial, sans-serif;
   padding: 20px 10px 20px 10px;
+  @media screen and (max-width: 450px){font-size: calc(.2vw + 1vh);}
 }
 #logo-link:hover{
   cursor: pointer;
@@ -23,17 +25,19 @@
   display: flex;
   align-items: center;
   width: 50%;
+  @media screen and (max-width: 450px){width: unset;}
 }
 
 #header-nav-bar-right{
   display: flex;
-  font-size: 14px; 
+  font-size: calc(.2vw + 1vh); 
   margin-right: 5px;
   flex-direction: row; 
   align-items: center; 
 }
 #header-nav-bar-right span{
   height: 100%;
+  word-wrap:break-word;
   padding: 29px 10px 29px 10px;
 }  
 #header-nav-bar-right span:hover{
@@ -55,11 +59,14 @@
   align-items: center; 
   display: flex;
   flex-direction: row;
+
+  @media screen and (max-width: 530px) {background-color: unset; margin-left:unset;}
 }
 
 #search-bar-input {
   width: 90%;
   height: 48px;
+  @media screen and (max-width: 530px) {display: none;}
 }
 
 #search-bar-input-span i{

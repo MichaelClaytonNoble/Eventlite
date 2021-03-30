@@ -26,14 +26,16 @@ class HeaderNavBar extends React.Component {
     else{
       signoutButton = <button onClick={this.signOut}>Sign Out</button>
       menuDropdown = (
+        <span id="menu-dropdown">
+          {this.props.self.email}<br />
         <ul id="menu-dropdown">
-          <li className="menu-dropdown-li"><span><div id="icon"><img src={window.stickManGrey}/></div>{this.props.self.email}</span></li>
           <li className="menu-dropdown-li">Browse events</li>
           <li className="menu-dropdown-li">Manage my events</li>
           <li className="menu-dropdown-li">Following</li>
           <li className="menu-dropdown-li">Tickets</li>
           <li className="menu-dropdown-li">{signoutButton}</li>
         </ul>
+        </span>
       )
     }
     return(
@@ -50,7 +52,6 @@ class HeaderNavBar extends React.Component {
           <span id="host-event-dropdown"><Link to="/events/create">Host an event</Link></span>
           {menuDropdown}
           {signinLink}
-          {/* {signoutButton} */}
         </span>
       </div>
     )

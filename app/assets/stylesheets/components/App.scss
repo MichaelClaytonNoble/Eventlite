@@ -1,5 +1,13 @@
 
 #App{
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  justify-content: center;
+  justify-self: center;
+  align-items: center;
+  align-content: center;
+  align-self: center;
 }
 #main-content{
   width: 65%;
@@ -12,6 +20,8 @@
   @media screen and (max-width:1100px) {width: 95%;}
   min-height: 100%; 
   margin: auto;
+  margin-left: auto;
+  margin-right: auto; 
 }
 
 ::-webkit-resizer{

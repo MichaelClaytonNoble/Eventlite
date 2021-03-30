@@ -120,6 +120,8 @@ class Splash extends React.Component{
         </div>
 
         </div>
+      
+        <button id="see-more-button">See more</button>
       </div>
 
 
