@@ -1,20 +1,23 @@
 import React from 'react';
 import {Redirect} from 'react-router-dom';
+import {Route} from 'react-router-dom'; 
+import {Switch} from 'react-router-dom';
+import {ProtectedRoute} from '../util/route_util.jsx'; 
+import {AuthRoute} from '../util/route_util.jsx';
 
 import HeaderNavBarContainer from './header/header_nav_bar';
+import SplashContainer from './splash/splash_container';
+
 import SessionLoginFormContainer from './session/session_login_form_container';
 import SessionSignupFormContainer from './session/session_signup_form_container';
 import SessionEmailFormContainer from './session/session_email_form_container'; 
 import FooterNavBar from './footer/footer_nav_bar';
 import CreateEventFormContainer from './create_events/create_event_form_container';
 import DetailsEventFormContainer from './create_events/details_event_form_container';
-import Splash from './splash/splash';
-import {Route} from 'react-router-dom'; 
-import {Switch} from 'react-router-dom';
-import {ProtectedRoute} from '../util/route_util.jsx'; 
-import {AuthRoute} from '../util/route_util.jsx';
+
+import MyEventsContainer from './my_events/my_events_container'; 
+
 import PageNotFound from './error/error_page';
-import SplashContainer from './splash/splash_container';
 
 class App extends React.Component{
   render(){
@@ -30,6 +33,7 @@ class App extends React.Component{
           <Route exact path="/" component={SplashContainer}/>
           <ProtectedRoute exact path="/events/create" component={CreateEventFormContainer} />
           <ProtectedRoute exact path ="/events/:eventId/details" component={DetailsEventFormContainer} />
+          <ProtectedRoute exact path ="/:myId/events" component={MyEventsContainer} />
 
           <Route exact path="/404" component={PageNotFound} />
           <Redirect to="/404" />

@@ -2,8 +2,10 @@ import { patchEvent, postEvent, pullEventsByType, postImage } from '../util/even
 export const RECEIVE_CURRENT_EVENT="RECEIVE_CURRENT_EVENT";
 export const RECEIVE_EVENT_ERRORS ="RECEIVE_EVENT_ERRORS"; 
 export const RECEIVE_EVENTS = "RECEIVE_EVENTS";
+export const RECEIVE_EVENTS_BY_USER = "RECEIVE_EVENTS_BY_USER";
 export const CLEAR_ERRORS ="CLEAR_ERRORS"; 
 export const CLEAR_EVENTS ="CLEAR_EVENTS"; 
+export const CLEAR_USER_EVENTS = "CLEAR_USER_EVENTS"; 
 
 const receiveNewEvent = event =>({
   type: RECEIVE_CURRENT_EVENT,
@@ -19,9 +21,16 @@ const receiveEvents = events => ({
   type: RECEIVE_EVENTS,
   events
 })
+const receiveEventsByUser = events => ({
+  type: RECEIVE_EVENTS_BY_USER,
+  events
+})
 
 export const clearEvents = () => ({
   type: CLEAR_EVENTS
+})
+export const clearUserEvents = () => ({
+  type: CLEAR_USER_EVENTS
 })
 
 export const clearErrors = () =>({
@@ -40,6 +49,12 @@ export const updateEvent = event => dispatch =>{
 
 
 export const getEventsByType = (col,val) => dispatch =>{
-  return pullEventsByType(col,val)
-    .then(events => dispatch(receiveEvents(events)), err => dispatch(receiveEventErrors(err.responseJSON)));
+  if(col==='creator_id'){
+    return (pullEventsByType(col,val)
+    .then(events => dispatch(receiveEventsByUser(events)), err => dispatch(receiveEventErrors(err.responseJSON))));
+  }
+  else{
+    return (pullEventsByType(col,val)
+    .then(events => dispatch(receiveEvents(events)), err => dispatch(receiveEventErrors(err.responseJSON))));
+  }
 }

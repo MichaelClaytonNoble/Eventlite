@@ -16,7 +16,7 @@ class HeaderNavBar extends React.Component {
   }
 
   render(){
-    let signoutButton, signinLink, menuDropdown = '';
+    let signoutButton,manageMyEventsButton, signinLink, menuDropdown = '';
 
     if(!this.props.loggedIn){
       signinLink = <span id="signin-link">
@@ -25,12 +25,13 @@ class HeaderNavBar extends React.Component {
     }
     else{
       signoutButton = <button onClick={this.signOut}>Sign Out</button>
+      manageMyEventsButton = <button onClick={()=>{this.props.history.push(`/${this.props.myId}/events`)}}>Manage my events</button>
       menuDropdown = (
         <span id="menu-dropdown">
           {this.props.self.email}<br />
         <ul id="menu-dropdown">
           <li className="menu-dropdown-li">Browse events</li>
-          <li className="menu-dropdown-li">Manage my events</li>
+          <li className="menu-dropdown-li">{manageMyEventsButton}</li>
           <li className="menu-dropdown-li">Following</li>
           <li className="menu-dropdown-li">Tickets</li>
           <li className="menu-dropdown-li">{signoutButton}</li>
@@ -61,13 +62,14 @@ class HeaderNavBar extends React.Component {
 const mSTP = state =>{
   return ({
   loggedIn: state.session.currentUser.id,
-  self: state.entities.users[state.session.currentUser.id]
+  self: state.entities.users[state.session.currentUser.id],
+  myId: state.session.currentUser.id
   })
 }
 
 const mDTP = (dispatch) => {
   return ({
-    logout: () => dispatch(logout())
+    logout: () => {dispatch(logout()).then(()=>this.props.history.push('/'))}
   });
 }
 
