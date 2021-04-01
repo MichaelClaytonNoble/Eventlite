@@ -15,13 +15,41 @@ class MyEvents extends React.Component{
 
   render(){
     let eventList = [];
+    let location;
     if(this.props.myEvents){
       eventList = this.props.myEvents.map( (event, key)=> {
+        if(event.location === "ONLINE"){
+          location = "Online event";
+        }
+        if(event.location ==="VENUE"){
+          location = event.venue;
+        }
+        if(event.location ==="TBA"){
+          location = "To be announced";
+        }
+        let img= <img id="event-icon" src={window.placeholder} alt="" />
+        if(event.imageUrl){
+          img = <img id="event-icon" src={event.imageUrl} alt="" />
+        }
         return(
           <li id="event-list-item" key={key}>
-            {event.date}
-            {event.title}
-            
+            <div id="left">
+              <div id="date">
+                <span id="month">{new Date(event.start).toLocaleString('default', {month: 'short'}).toUpperCase()}</span>
+                <span id="day">{new Date(event.start).getDate()}</span>
+              </div>
+              <div id="img-icon">{img}</div>
+              <div id="details">
+                <div id="title">{event.title}</div>
+                <div>
+                  <div id="location">{location}</div>
+                  <div id="time">{event.start}</div>
+                </div>
+              </div>
+            </div>
+            <div id="right">
+              
+            </div>
           </li>
         )
       })
