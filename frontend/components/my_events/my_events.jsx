@@ -5,28 +5,23 @@ class MyEvents extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      eventList: this.props.myEvents,
-      loaded: false
+      eventList: this.props.myEvents
     }
   }
 
   componentWillMount(){
-    //load all my events here 
-    this.props.getMyEvents().then(()=>{console.log('hello'); this.setState({loaded: true})});
+    this.props.getMyEvents();
   }
 
-  componentDidMount(){
-    //load all my events here 
-    this.props.getMyEvents().then(()=>{console.log('hello'); this.setState({loaded: true})});
-  }
   render(){
-    if(this.state.loaded){
     let eventList = [];
-    if(this.state.eventList){
-      eventList = this.state.eventList.map( event=> {
+    if(this.props.myEvents){
+      eventList = this.props.myEvents.map( (event, key)=> {
         return(
-          <li id="event-list-item">
+          <li id="event-list-item" key={key}>
+            {event.date}
             {event.title}
+            
           </li>
         )
       })
@@ -51,9 +46,6 @@ class MyEvents extends React.Component{
         </div>
       )
     }
-    else{return null;}
-
-  }
 }
 
 export default MyEvents;
