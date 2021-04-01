@@ -48,7 +48,14 @@ class MyEvents extends React.Component{
               </div>
             </div>
             <div id="right">
-              
+
+              <div id="stats">0/44
+                <div id="progress"></div>
+              </div>
+              <div id="stats">$0.00</div>
+              <div id="stats">Past</div>
+              <i className="fas fa-ellipsis-v" id="kebab"></i>
+              {/* </div> */}
             </div>
           </li>
         )
@@ -66,6 +73,16 @@ class MyEvents extends React.Component{
           <section id="all-events">
             <div id="all-events-header">
               
+            </div>
+            <div id="events-list-header">
+              <div id="left">
+                <span id="heading">Event</span>
+              </div>
+              <div id="right">
+                <span id="heading">Sold</span>
+                <span id="heading">Gross</span>
+                <span id="heading">Status</span>
+              </div>
             </div>
             <ul id="events-list">
               {eventList}
