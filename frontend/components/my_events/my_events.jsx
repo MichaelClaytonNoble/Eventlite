@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {Link} from 'react-router-dom';
 class MyEvents extends React.Component{
 
   constructor(props){
@@ -48,14 +48,20 @@ class MyEvents extends React.Component{
               </div>
             </div>
             <div id="right">
-
               <div id="stats">0/44
                 <div id="progress"></div>
               </div>
               <div id="stats">$0.00</div>
               <div id="stats">Past</div>
-              <i className="fas fa-ellipsis-v" id="kebab"></i>
-              {/* </div> */}
+              <input type="checkbox" id={"kebab-focus"+key} className="kebab-focus"></input>
+              <label htmlFor={"kebab-focus" + key} id="kebab-wrap">
+                <i className="fas fa-ellipsis-v kebab" id="kebab"></i>
+                <ul className="kebab">
+                  <li>HELLO</li>
+                  <li>HELLO</li>
+                  <li>HELLO</li>
+                </ul>
+              </label>
             </div>
           </li>
         )
@@ -66,9 +72,27 @@ class MyEvents extends React.Component{
           <section id="my-events-header">
             <div id="title-header">
               <span id="title">Events</span>
-              <span id="create-event-button"><button className="form-submit-button">Create Event</button></span>
+              <span id="create-event-button">
+                <Link to="/events/create/"><button id="create-button" className="form-submit-button">Create Event</button></Link>
+                </span>
             </div>
-            <div id="search-header"></div>
+            <div id="search-header">
+              <label id="search-events-input">
+                <div id="search-icon"><i className="fas fa-search"></i></div>
+                <input type="text" id="events-search" placeholder="Search events"></input>
+              </label>
+             
+              <label id="select-status-input"><p>Event status</p>
+                <select>
+                  <option value="All">All</option>
+                  <option value="Published">Published</option>
+                  <option value="Draft">Draft</option>
+                  <option value="Past">Past</option>
+                </select>
+              </label>
+              <label id="select-organizer-input"><p>Organizer</p>
+              </label>
+            </div>
           </section>
           <section id="all-events">
             <div id="all-events-header">
