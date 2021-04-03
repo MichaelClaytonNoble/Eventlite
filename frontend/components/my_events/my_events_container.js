@@ -4,13 +4,14 @@ import {getEventsByType, clearEvents} from '../../actions/events';
 
 
 const mSTP = state => {
+  let myEvents = []; 
+  let organizers = [];
+  if(state.entities.userEvents[state.session.currentUser.id]){
+    myEvents = Object.values(state.entities.userEvents[state.session.currentUser.id]);
+  }
   return ({
-    myEvents: (()=>{
-      if(state.entities.userEvents[state.session.currentUser.id]){
-        return Object.values(state.entities.userEvents[state.session.currentUser.id]);
-      }
-      return []; 
-    })(),
+    myEvents: myEvents,
+    organizers: myEvents.map( (event)=> event.organizer)
   })
 }
 

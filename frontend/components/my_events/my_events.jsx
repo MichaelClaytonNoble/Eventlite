@@ -5,19 +5,31 @@ class MyEvents extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      eventList: this.props.myEvents
+      myEvents: this.props.myEvents,
+      organizers: this.props.organizers,
+      loading: true
     }
+    this.loadEvents = this.loadEvents.bind(this); 
+    this.createEventList = this.createEventList.bind(this); 
   }
 
   componentWillMount(){
     this.props.getMyEvents();
   }
-
-  render(){
-    let eventList = [];
+  componentDidUpdate(){
+    if(this.state.loading){
+      this.loadEvents();
+      this.setState({loading: false});
+    }
+  }
+  loadEvents(){
+    this.setState({myEvents: this.props.myEvents, organizers: this.props.organizers});
+  }
+  createEventList(){
+    let myEvents;
     let location;
-    if(this.props.myEvents){
-      eventList = this.props.myEvents.map( (event, key)=> {
+    if(this.state.myEvents){
+      return myEvents = this.state.myEvents.map( (event, key)=> {
         if(event.location === "ONLINE"){
           location = "Online event";
         }
@@ -65,7 +77,21 @@ class MyEvents extends React.Component{
             </div>
           </li>
         )
-      })
+      });
+    }
+    return [];
+  }
+
+  render(){
+    let myEvents = [];
+    let organizers=[];
+    let location;
+    {
+      myEvents = this.createEventList();
+      organizers = this.state.organizers.map( (organizer, key)=>{
+        return <option key={key} value={organizer}>{organizer}</option>
+      });
+      console.log(this.props.organizers);
     }
       return(
         <div id="my-events">
@@ -85,12 +111,15 @@ class MyEvents extends React.Component{
               <label id="select-status-input"><p>Event status</p>
                 <select>
                   <option value="All">All</option>
-                  <option value="Published">Published</option>
+                  <option value="Complete">Complete</option>
                   <option value="Draft">Draft</option>
                   <option value="Past">Past</option>
                 </select>
               </label>
               <label id="select-organizer-input"><p>Organizer</p>
+                <select>
+                  {organizers}
+                </select>
               </label>
             </div>
           </section>
@@ -109,7 +138,7 @@ class MyEvents extends React.Component{
               </div>
             </div>
             <ul id="events-list">
-              {eventList}
+              {myEvents}
             </ul>
           </section>
         </div>

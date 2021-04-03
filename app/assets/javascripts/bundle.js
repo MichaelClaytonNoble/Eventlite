@@ -1619,8 +1619,12 @@ var MyEvents = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      eventList: _this.props.myEvents
+      myEvents: _this.props.myEvents,
+      organizers: _this.props.organizers,
+      loading: true
     };
+    _this.loadEvents = _this.loadEvents.bind(_assertThisInitialized(_this));
+    _this.createEventList = _this.createEventList.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -1630,13 +1634,31 @@ var MyEvents = /*#__PURE__*/function (_React$Component) {
       this.props.getMyEvents();
     }
   }, {
-    key: "render",
-    value: function render() {
-      var eventList = [];
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      if (this.state.loading) {
+        this.loadEvents();
+        this.setState({
+          loading: false
+        });
+      }
+    }
+  }, {
+    key: "loadEvents",
+    value: function loadEvents() {
+      this.setState({
+        myEvents: this.props.myEvents,
+        organizers: this.props.organizers
+      });
+    }
+  }, {
+    key: "createEventList",
+    value: function createEventList() {
+      var myEvents;
       var location;
 
-      if (this.props.myEvents) {
-        eventList = this.props.myEvents.map(function (event, key) {
+      if (this.state.myEvents) {
+        return myEvents = this.state.myEvents.map(function (event, key) {
           if (event.location === "ONLINE") {
             location = "Online event";
           }
@@ -1712,6 +1734,24 @@ var MyEvents = /*#__PURE__*/function (_React$Component) {
         });
       }
 
+      return [];
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var myEvents = [];
+      var organizers = [];
+      var location;
+      {
+        myEvents = this.createEventList();
+        organizers = this.state.organizers.map(function (organizer, key) {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+            key: key,
+            value: organizer
+          }, organizer);
+        });
+        console.log(this.props.organizers);
+      }
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "my-events"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
@@ -1744,14 +1784,14 @@ var MyEvents = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Event status"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "All"
       }, "All"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "Published"
-      }, "Published"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Complete"
+      }, "Complete"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Draft"
       }, "Draft"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Past"
       }, "Past"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         id: "select-organizer-input"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Organizer")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Organizer"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", null, organizers)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
         id: "all-events"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "all-events-header"
@@ -1771,7 +1811,7 @@ var MyEvents = /*#__PURE__*/function (_React$Component) {
         id: "heading"
       }, "Status"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         id: "events-list"
-      }, eventList)));
+      }, myEvents)));
     }
   }]);
 
@@ -1799,14 +1839,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state) {
-  return {
-    myEvents: function () {
-      if (state.entities.userEvents[state.session.currentUser.id]) {
-        return Object.values(state.entities.userEvents[state.session.currentUser.id]);
-      }
+  var myEvents = [];
+  var organizers = [];
 
-      return [];
-    }()
+  if (state.entities.userEvents[state.session.currentUser.id]) {
+    myEvents = Object.values(state.entities.userEvents[state.session.currentUser.id]);
+  }
+
+  return {
+    myEvents: myEvents,
+    organizers: myEvents.map(function (event) {
+      return event.organizer;
+    })
   };
 };
 
