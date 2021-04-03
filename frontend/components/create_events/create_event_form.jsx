@@ -37,6 +37,7 @@ class CreateEventForm extends React.Component{
   
   handleSubmit(e){
     e.preventDefault(); 
+    console.log(this.state); 
     this.props.createEvent(this.state)
       .then( (action)=>{
         this.props.history.push(`/events/${action.event.id}/details`)
@@ -45,11 +46,7 @@ class CreateEventForm extends React.Component{
   componentDidMount(){
     this.props.getCategories(); 
   }
-  componentDidUpdate(){
-    if(this.props.errors.length > 0){
 
-    }
-  }
   handleRadioChange(field){
     return (e)=>{
       if(field === 'location'){

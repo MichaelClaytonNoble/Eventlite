@@ -594,6 +594,7 @@ var CreateEventForm = /*#__PURE__*/function (_React$Component) {
       var _this3 = this;
 
       e.preventDefault();
+      console.log(this.state);
       this.props.createEvent(this.state).then(function (action) {
         _this3.props.history.push("/events/".concat(action.event.id, "/details"));
       });
@@ -602,11 +603,6 @@ var CreateEventForm = /*#__PURE__*/function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.getCategories();
-    }
-  }, {
-    key: "componentDidUpdate",
-    value: function componentDidUpdate() {
-      if (this.props.errors.length > 0) {}
     }
   }, {
     key: "handleRadioChange",
@@ -1849,6 +1845,8 @@ var mSTP = function mSTP(state) {
   return {
     myEvents: myEvents,
     organizers: myEvents.map(function (event) {
+      return event.organizer;
+    }).filter(function () {
       return event.organizer;
     })
   };

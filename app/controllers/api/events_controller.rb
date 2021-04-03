@@ -45,12 +45,12 @@ class Api::EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:id, :title, :description, :category_id, :location,
+    params.require(:event).permit(:id, :title, :description, :category_id, :location, :organizer,
               :address, :venue, :recurring, :start, :end, :timezone, :creator_id, :about, :image)
   end
 
   def whitelist(column)
-    {'title'=>true, 'description'=>true, 'category_id'=>true, 'location'=>true, 'address'=>true, 'venue'=>true, 'recurring'=>true, 'start'=>true, 'end'=>true, 'timezone'=>true, 'creator_id'=>true, 'about'=>true}[column]
+    {'title'=>true, 'description'=>true, 'category_id'=>true, 'location'=>true, 'address'=>true, 'venue'=>true, 'recurring'=>true, 'start'=>true, 'end'=>true, 'timezone'=>true, 'creator_id'=>true, 'about'=>true, 'organizer'=>true}[column]
   end 
 
   def whitelist2(column)

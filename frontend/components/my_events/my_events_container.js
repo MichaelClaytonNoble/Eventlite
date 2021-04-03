@@ -11,7 +11,7 @@ const mSTP = state => {
   }
   return ({
     myEvents: myEvents,
-    organizers: myEvents.map( (event)=> event.organizer)
+    organizers: myEvents.map( (event)=> event.organizer).filter(()=>event.organizer)
   })
 }
 
