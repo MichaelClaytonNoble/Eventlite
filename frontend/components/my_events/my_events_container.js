@@ -1,7 +1,7 @@
 import MyEvents from './my_events'; 
 import {connect} from 'react-redux'; 
 import {getEventsByType, clearEvents} from '../../actions/events';
-
+import {analyzeEvents} from '../../reducers/selectors/events_selectors';
 
 const mSTP = state => {
   let myEvents = []; 
@@ -10,8 +10,8 @@ const mSTP = state => {
     myEvents = Object.values(state.entities.userEvents[state.session.currentUser.id]);
   }
   return ({
-    myEvents: myEvents,
-    organizers: myEvents.map( (event)=> event.organizer).filter(()=>event.organizer)
+    myEvents: analyzeEvents(myEvents),
+    organizers: myEvents.map( (event)=> event.organizer).filter( (organizer)=> organizer)
   })
 }
 

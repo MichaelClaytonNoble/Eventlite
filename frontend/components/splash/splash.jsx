@@ -99,7 +99,6 @@ class Splash extends React.Component{
         <div id="relevant-events">
           {featuredMessage}
           <div id="event-grid">
-
           {
             this.state.relevantEvents.reverse().map( (event, i)=>{
               if(i<16){

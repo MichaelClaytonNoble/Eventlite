@@ -1580,6 +1580,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -1617,10 +1619,14 @@ var MyEvents = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       myEvents: _this.props.myEvents,
       organizers: _this.props.organizers,
-      loading: true
+      loading: true,
+      filterOrganizer: "All",
+      filterStatus: "All",
+      filterSearch: ""
     };
     _this.loadEvents = _this.loadEvents.bind(_assertThisInitialized(_this));
     _this.createEventList = _this.createEventList.bind(_assertThisInitialized(_this));
+    _this.filter = _this.filter.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -1640,10 +1646,43 @@ var MyEvents = /*#__PURE__*/function (_React$Component) {
       }
     }
   }, {
+    key: "filter",
+    value: function filter(field) {
+      var _this2 = this;
+
+      return function (e) {
+        var _this2$setState;
+
+        _this2.setState((_this2$setState = {}, _defineProperty(_this2$setState, field, e.target.value), _defineProperty(_this2$setState, "loading", true), _this2$setState));
+      };
+    }
+  }, {
     key: "loadEvents",
     value: function loadEvents() {
+      var _this3 = this;
+
+      var relevantEvents = this.props.myEvents;
+
+      if (this.state.filterOrganizer !== "All") {
+        relevantEvents = relevantEvents.filter(function (event) {
+          return event.organizer === _this3.state.filterOrganizer;
+        });
+      }
+
+      if (this.state.filterStatus !== "All") {
+        relevantEvents = relevantEvents.filter(function (event) {
+          return event.status === _this3.state.filterStatus;
+        });
+      }
+
+      if (this.state.filterSearch !== "") {
+        relevantEvents = relevantEvents.filter(function (event) {
+          return event.title.toLowerCase().includes(_this3.state.filterSearch.trim().toLowerCase());
+        });
+      }
+
       this.setState({
-        myEvents: this.props.myEvents,
+        myEvents: relevantEvents,
         organizers: this.props.organizers
       });
     }
@@ -1746,7 +1785,6 @@ var MyEvents = /*#__PURE__*/function (_React$Component) {
             value: organizer
           }, organizer);
         });
-        console.log(this.props.organizers);
       }
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "my-events"
@@ -1774,20 +1812,30 @@ var MyEvents = /*#__PURE__*/function (_React$Component) {
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         id: "events-search",
-        placeholder: "Search events"
+        placeholder: "Search events",
+        onChange: this.filter('filterSearch'),
+        value: this.state.filterSearch
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         id: "select-status-input"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Event status"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Event status"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        onChange: this.filter('filterStatus'),
+        value: this.state.filterStatus
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "All"
       }, "All"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "Complete"
-      }, "Complete"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "Draft"
-      }, "Draft"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Complete event"
+      }, "Complete event"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Incomplete event"
+      }, "Incomplete event"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Past"
       }, "Past"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         id: "select-organizer-input"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Organizer"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", null, organizers)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Organizer"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        onChange: this.filter('filterOrganizer'),
+        value: this.state.filterOrganizer
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "All"
+      }, "All"), organizers)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
         id: "all-events"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "all-events-header"
@@ -1830,6 +1878,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _my_events__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./my_events */ "./frontend/components/my_events/my_events.jsx");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_events__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/events */ "./frontend/actions/events.js");
+/* harmony import */ var _reducers_selectors_events_selectors__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../reducers/selectors/events_selectors */ "./frontend/reducers/selectors/events_selectors.js");
+
 
 
 
@@ -1843,11 +1893,11 @@ var mSTP = function mSTP(state) {
   }
 
   return {
-    myEvents: myEvents,
+    myEvents: Object(_reducers_selectors_events_selectors__WEBPACK_IMPORTED_MODULE_3__["analyzeEvents"])(myEvents),
     organizers: myEvents.map(function (event) {
       return event.organizer;
-    }).filter(function () {
-      return event.organizer;
+    }).filter(function (organizer) {
+      return organizer;
     })
   };
 };
@@ -3483,6 +3533,62 @@ var EVENT_DETAILS_FORM_ERROR_LIST = {
   "Summary is required": "eventSummary",
   "About is required": "eventAbout"
 };
+
+/***/ }),
+
+/***/ "./frontend/reducers/selectors/events_selectors.js":
+/*!*********************************************************!*\
+  !*** ./frontend/reducers/selectors/events_selectors.js ***!
+  \*********************************************************/
+/*! exports provided: analyzeEvents */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "analyzeEvents", function() { return analyzeEvents; });
+/**
+ * 3 fields are added. These fields are the result of some anaylsis like
+ * based on the date, the event status could be 'past'. Number of tickets 
+ * sold etc. 
+ * 
+ * @param {Array} events A list events.
+ * @return {Array} events with added fields (status, gross, ticketsSold)
+ */
+function analyzeEvents(events) {
+  var analyzedEvents = events.map(function (event) {
+    return determineStatus(event);
+  });
+  console.log(analyzedEvents);
+  return analyzedEvents;
+}
+/**
+ * An event can have a status of 
+ *  completed profile - "the profile is completed",
+ *  incomplete profile - "the profile is incomplete but posted",
+ *  past -"the event end date has passed"
+ * 
+ * @param {pojo} event a single event
+ * @return {pojo} the event with an added status field
+ */
+
+function determineStatus(event) {
+  var eventWithStatus = event;
+  eventWithStatus['status'] = "Incomplete event";
+
+  if (event.about && event.description) {
+    eventWithStatus['status'] = "Complete event";
+  }
+
+  if (new Date(event.end) < new Date()) {
+    eventWithStatus['status'] = 'Past';
+  }
+
+  return eventWithStatus;
+}
+
+function calculateGrossFromTickets() {
+  return 0;
+}
 
 /***/ }),
 

@@ -7,10 +7,14 @@ class MyEvents extends React.Component{
     this.state = {
       myEvents: this.props.myEvents,
       organizers: this.props.organizers,
-      loading: true
+      loading: true,
+      filterOrganizer: "All",
+      filterStatus: "All",
+      filterSearch: ""
     }
     this.loadEvents = this.loadEvents.bind(this); 
     this.createEventList = this.createEventList.bind(this); 
+    this.filter = this.filter.bind(this); 
   }
 
   componentWillMount(){
@@ -22,8 +26,26 @@ class MyEvents extends React.Component{
       this.setState({loading: false});
     }
   }
+  filter(field){
+    return (e)=>{
+      this.setState({[field]: e.target.value, loading: true})
+    }
+  }
   loadEvents(){
-    this.setState({myEvents: this.props.myEvents, organizers: this.props.organizers});
+    let relevantEvents = this.props.myEvents;
+    if(this.state.filterOrganizer!=="All"){
+      relevantEvents = relevantEvents.filter( (event)=> event.organizer === this.state.filterOrganizer);
+    }
+    if(this.state.filterStatus !== "All"){
+      relevantEvents = relevantEvents.filter( event=> event.status === this.state.filterStatus);
+    }
+    if(this.state.filterSearch !== ""){
+      relevantEvents = relevantEvents.filter( event => {
+        return event.title.toLowerCase().includes(this.state.filterSearch.trim().toLowerCase())
+      })
+    }
+
+    this.setState({myEvents: relevantEvents, organizers: this.props.organizers});
   }
   createEventList(){
     let myEvents;
@@ -91,7 +113,6 @@ class MyEvents extends React.Component{
       organizers = this.state.organizers.map( (organizer, key)=>{
         return <option key={key} value={organizer}>{organizer}</option>
       });
-      console.log(this.props.organizers);
     }
       return(
         <div id="my-events">
@@ -105,19 +126,21 @@ class MyEvents extends React.Component{
             <div id="search-header">
               <label id="search-events-input">
                 <div id="search-icon"><i className="fas fa-search"></i></div>
-                <input type="text" id="events-search" placeholder="Search events"></input>
+                <input type="text" id="events-search" placeholder="Search events"
+                      onChange={this.filter('filterSearch')} value={this.state.filterSearch}></input>
               </label>
              
               <label id="select-status-input"><p>Event status</p>
-                <select>
+                <select onChange={this.filter('filterStatus')} value={this.state.filterStatus}>
                   <option value="All">All</option>
-                  <option value="Complete">Complete</option>
-                  <option value="Draft">Draft</option>
+                  <option value="Complete event">Complete event</option>
+                  <option value="Incomplete event">Incomplete event</option>
                   <option value="Past">Past</option>
                 </select>
               </label>
               <label id="select-organizer-input"><p>Organizer</p>
-                <select>
+                <select onChange={this.filter('filterOrganizer')} value={this.state.filterOrganizer}>
+                  <option value="All">All</option>
                   {organizers}
                 </select>
               </label>
