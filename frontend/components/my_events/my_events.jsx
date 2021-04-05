@@ -83,11 +83,11 @@ class MyEvents extends React.Component{
           img = <img id="event-icon" src={event.imageUrl} alt="" />
         }
 
-        kebab = [<li>View</li>]
+        kebab = [<li key={1}>View</li>]
         if(event.status !== 'Past'){
-          kebab.push(<li onClick={()=>{this.props.history.push(`/events/${event.id}/edit`)}}>Edit</li>);
+          kebab.push(<li key={2}onClick={()=>{this.props.history.push(`/events/${event.id}/edit`)}}>Edit</li>);
         }
-        kebab.push(<li>Cancel</li>)
+        kebab.push(<li key={3}>Cancel</li>)
         return(
           <li id="event-list-item" key={key}>
             <div id="left">

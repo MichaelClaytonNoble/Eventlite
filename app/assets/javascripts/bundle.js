@@ -562,7 +562,8 @@ var CreateEventForm = /*#__PURE__*/function (_React$Component) {
       location: 'VENUE',
       start: '',
       end: '',
-      timezone: findTimezone[0].zone
+      timezone: findTimezone[0].zone,
+      min: _this.getCurrentDateTime()
     };
 
     _this.props.clearErrors();
@@ -587,10 +588,14 @@ var CreateEventForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "getMin",
     value: function getMin() {
-      if (this.props.edit) {
-        this.min = this.convertDateToLocalAsJSON(new Date(this.state.start)).slice(0, 16); // this.min = this.getCurrentDateTime();
+      if (this.props.edit && new Date(this.state.start) < new Date()) {
+        this.setState({
+          min: this.convertDateToLocalAsJSON(new Date(this.state.start)).slice(0, 16)
+        });
       } else {
-        this.min = this.getCurrentDateTime();
+        this.setState({
+          min: this.getCurrentDateTime()
+        });
       }
     }
   }, {
@@ -628,12 +633,10 @@ var CreateEventForm = /*#__PURE__*/function (_React$Component) {
       e.preventDefault();
 
       if (this.props.edit) {
-        console.log("UPDATE");
         this.props.updateEvent(this.state).then(function (action) {
           _this3.props.history.push("/events/".concat(action.event.id, "/details"));
         });
       } else {
-        console.log(this.state);
         this.props.createEvent(this.state).then(function (action) {
           _this3.props.history.push("/events/".concat(action.event.id, "/details"));
         });
@@ -673,8 +676,6 @@ var CreateEventForm = /*#__PURE__*/function (_React$Component) {
 
           _this4.getMin();
         });
-      } else {
-        this.getMin();
       }
     }
   }, {
@@ -797,7 +798,8 @@ var CreateEventForm = /*#__PURE__*/function (_React$Component) {
       })), organizerErr, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         name: "categories",
         id: "categories",
-        onChange: this.handleInputChange('category_id')
+        onChange: this.handleInputChange('category_id'),
+        value: this.state.category_id
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: ""
       }, "Category"), categories), categoryErr), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
@@ -880,7 +882,7 @@ var CreateEventForm = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Event starts"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "datetime-local",
         className: "date-input",
-        min: this.min,
+        min: this.state.min,
         onChange: this.handleInputChange('start'),
         value: this.state.start
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
@@ -1826,17 +1828,22 @@ var MyEvents = /*#__PURE__*/function (_React$Component) {
             });
           }
 
-          kebab = [/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "View")];
+          kebab = [/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+            key: 1
+          }, "View")];
 
           if (event.status !== 'Past') {
             kebab.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+              key: 2,
               onClick: function onClick() {
                 _this4.props.history.push("/events/".concat(event.id, "/edit"));
               }
             }, "Edit"));
           }
 
-          kebab.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Cancel"));
+          kebab.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+            key: 3
+          }, "Cancel"));
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
             id: "event-list-item",
             key: key
@@ -3647,7 +3654,8 @@ var CREATE_EVENT_FORM_ERROR_LIST = {
   "Title can't be blank": "eventTitle",
   "Start can't be blank": "eventStart",
   "End can't be blank": "eventEnd",
-  "Category must exist": "eventCategory"
+  "Category must exist": "eventCategory",
+  "End date must be after start date": "eventEnd"
 };
 var EVENT_DETAILS_FORM_ERROR_LIST = {
   "This event does not exist": "eventExist",

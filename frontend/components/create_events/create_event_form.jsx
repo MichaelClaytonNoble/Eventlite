@@ -14,6 +14,7 @@ class CreateEventForm extends React.Component{
       start: '',
       end: '',
       timezone: findTimezone[0].zone,
+      min: this.getCurrentDateTime()
     }
     this.props.clearErrors(); 
     this.disabled = false;
@@ -31,13 +32,11 @@ class CreateEventForm extends React.Component{
   }
   getMin(){
 
-    if(this.props.edit){
-
-      this.min = this.convertDateToLocalAsJSON(new Date(this.state.start)).slice(0,16);
-      // this.min = this.getCurrentDateTime();
+    if(this.props.edit && ( new Date(this.state.start) < new Date())) {
+        this.setState({min: this.convertDateToLocalAsJSON(new Date(this.state.start)).slice(0,16)})
     }
     else{
-      this.min = this.getCurrentDateTime();
+      this.setState({min: this.getCurrentDateTime()});
     }
   }
 
@@ -60,15 +59,14 @@ class CreateEventForm extends React.Component{
   
   handleSubmit(e){
     e.preventDefault(); 
+
     if(this.props.edit){
-      console.log("UPDATE");
       this.props.updateEvent(this.state)
       .then( (action)=>{
         this.props.history.push(`/events/${action.event.id}/details`)
       }); 
     }
     else{
-      console.log(this.state);
       this.props.createEvent(this.state)
       .then( (action)=>{
         this.props.history.push(`/events/${action.event.id}/details`)
@@ -100,9 +98,6 @@ class CreateEventForm extends React.Component{
         this.setState(this.props.event);
         this.getMin();
       });
-    }
-    else{
-      this.getMin();
     }
   }
 
@@ -178,7 +173,8 @@ class CreateEventForm extends React.Component{
             <input className="large-input"  onChange={this.handleInputChange('organizer')} value={this.state.organizer}/>
             </label>
             {organizerErr}
-            <select name="categories" id="categories" onChange={this.handleInputChange('category_id')}>
+            <select name="categories" id="categories" onChange={this.handleInputChange('category_id')}
+                value={this.state.category_id}>
               <option value="" >Category</option>
               {categories}
             </select>
@@ -228,7 +224,7 @@ class CreateEventForm extends React.Component{
         <div id='date-elements'>
 
             <label className="event-time"><p>Event starts</p>
-              <input type="datetime-local" className="date-input" min={this.min}
+              <input type="datetime-local" className="date-input" min={this.state.min}
                   onChange={this.handleInputChange('start')} 
                   value={this.state.start}/>
             </label>

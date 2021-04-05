@@ -6,7 +6,8 @@ export const CREATE_EVENT_FORM_ERROR_LIST ={
   "Title can't be blank": "eventTitle",
   "Start can't be blank":"eventStart",
   "End can't be blank":"eventEnd",
-  "Category must exist": "eventCategory"
+  "Category must exist": "eventCategory",
+  "End date must be after start date":"eventEnd"
 }
 
 export const EVENT_DETAILS_FORM_ERROR_LIST={
