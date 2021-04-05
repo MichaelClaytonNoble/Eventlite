@@ -18,9 +18,8 @@ const mSTP = (state, ownProps) =>{
 }
 
 const mDTP = (dispatch, ownProps) =>{
-  console.log(ownProps.match.params.eventId);
   return({
-    createEvent: (formEvent)=>dispatch(createEvent(formEvent)),
+    createEvent: (event)=>dispatch(createEvent(event)),
     updateEvent: (formEvent)=>dispatch(updateEvent(formEvent)),
     clearErrors: ()=>dispatch(clearErrors()),
     getCategories: ()=>dispatch(pullCategories()),

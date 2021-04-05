@@ -41,6 +41,17 @@ class CreateEventForm extends React.Component{
     }
   }
 
+  componentDidUpdate(prevProps){
+    if(prevProps.edit !== this.props.edit){
+      this.getMin();
+      this.setState({
+      title: '', organizer: '', venue: '', recurring: 'false', category_id: '', location: 'VENUE',
+      start: '',
+      end: ''
+    }); 
+      delete this.state['id']; 
+    }
+  }
   handleInputChange(field){
     return (e)=>{
       this.setState({[field]: e.target.value});
@@ -50,12 +61,14 @@ class CreateEventForm extends React.Component{
   handleSubmit(e){
     e.preventDefault(); 
     if(this.props.edit){
+      console.log("UPDATE");
       this.props.updateEvent(this.state)
       .then( (action)=>{
         this.props.history.push(`/events/${action.event.id}/details`)
       }); 
     }
     else{
+      console.log(this.state);
       this.props.createEvent(this.state)
       .then( (action)=>{
         this.props.history.push(`/events/${action.event.id}/details`)
@@ -89,7 +102,7 @@ class CreateEventForm extends React.Component{
       });
     }
     else{
-      this.getMin(); 
+      this.getMin();
     }
   }
 

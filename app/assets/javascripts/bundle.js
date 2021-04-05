@@ -594,6 +594,24 @@ var CreateEventForm = /*#__PURE__*/function (_React$Component) {
       }
     }
   }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      if (prevProps.edit !== this.props.edit) {
+        this.getMin();
+        this.setState({
+          title: '',
+          organizer: '',
+          venue: '',
+          recurring: 'false',
+          category_id: '',
+          location: 'VENUE',
+          start: '',
+          end: ''
+        });
+        delete this.state['id'];
+      }
+    }
+  }, {
     key: "handleInputChange",
     value: function handleInputChange(field) {
       var _this2 = this;
@@ -610,10 +628,12 @@ var CreateEventForm = /*#__PURE__*/function (_React$Component) {
       e.preventDefault();
 
       if (this.props.edit) {
+        console.log("UPDATE");
         this.props.updateEvent(this.state).then(function (action) {
           _this3.props.history.push("/events/".concat(action.event.id, "/details"));
         });
       } else {
+        console.log(this.state);
         this.props.createEvent(this.state).then(function (action) {
           _this3.props.history.push("/events/".concat(action.event.id, "/details"));
         });
@@ -947,10 +967,9 @@ var mSTP = function mSTP(state, ownProps) {
 };
 
 var mDTP = function mDTP(dispatch, ownProps) {
-  console.log(ownProps.match.params.eventId);
   return {
-    createEvent: function createEvent(formEvent) {
-      return dispatch(Object(_actions_events__WEBPACK_IMPORTED_MODULE_2__["createEvent"])(formEvent));
+    createEvent: function createEvent(event) {
+      return dispatch(Object(_actions_events__WEBPACK_IMPORTED_MODULE_2__["createEvent"])(event));
     },
     updateEvent: function updateEvent(formEvent) {
       return dispatch(Object(_actions_events__WEBPACK_IMPORTED_MODULE_2__["updateEvent"])(formEvent));
