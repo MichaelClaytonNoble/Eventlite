@@ -6,6 +6,7 @@
   margin-left: auto;
   margin-right: auto;
 
+  
 }
 #details-event-info-form .info-section{
   max-width: 620px;
@@ -93,5 +94,11 @@
     justify-self: flex-start;
     font-size: 35px; 
     color: $input-border-hover-color;
+  }
+  img{
+    height: 145px;
+    align-items: center;
+    text-align: center;
+    object-fit: contain;
   }
 }

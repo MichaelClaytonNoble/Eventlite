@@ -69,8 +69,13 @@ class DetailsEventForm extends React.Component{
     };
   }
   render(){
-const preview = this.state.imageUrl ? <img alt="signup-form" id="preview" src={this.state.imageUrl} /> : null;
+const preview = this.state.imageUrl ? <img alt="signup-form" id="add-image-preview" src={this.state.imageUrl} /> : null;
     let eventExistErr, summaryErr, aboutErr = '';
+    let imgDropzone = <div>
+                        <i className="fas fa-images button-icon"></i>
+                        <h1>Drag & drop or click to add main event image.</h1>
+                        <p>JPEG or PNG, no larger than 10MB.</p>
+                      </div>;
     this.errors.forEach((error) => {
       let err = this.props.errorList[error];
       let message = <p className='form-error-message'>{error}</p>
@@ -85,24 +90,22 @@ const preview = this.state.imageUrl ? <img alt="signup-form" id="preview" src={t
           return;
       }
     });
+    if(this.state.imageFile){
+      imgDropzone = preview;
+    }
     return(
       <div id="details-event-form">
-        {preview}
         <form id="details-event-info-form" onSubmit={this.handleSubmit}>
 
           <section className="info-section">
             <h1 id="create-event-header"><i className="far fa-images create-event-form-icons"></i>Main Event Image</h1>
             <p id="create-event-description">This is the first image attendees will see at the top of your listing. Use a high quality image: 2160x1080px (2:1 ratio).</p>
-
             <Dropzone multiple={false} accept="image/*" onDrop={this.handleFile}>
               {({getRootProps, getInputProps}) => (
                 <section id="add-event-images">
                   <div {...getRootProps()}>
                     <input {...getInputProps()} />
-                      <i className="fas fa-images button-icon"></i>
-                      <h1>Drag & drop or click to add main event image.</h1>
-                      <p>JPEG or PNG, no larger than 10MB.</p>
-
+                    {imgDropzone}
                   </div>
                 </section>
               )}
