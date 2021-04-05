@@ -16,7 +16,7 @@ class HeaderNavBar extends React.Component {
   }
 
   render(){
-    let signoutButton,manageMyEventsButton, signinLink, menuDropdown = '';
+    let signinLink, menuDropdown = '';
 
     if(!this.props.loggedIn){
       signinLink = <span id="signin-link">
@@ -24,17 +24,19 @@ class HeaderNavBar extends React.Component {
       </span>
     }
     else{
-      signoutButton = <button onClick={this.signOut}>Sign Out</button>
-      manageMyEventsButton = <button onClick={()=>{this.props.history.push(`/${this.props.myId}/events`)}}>Manage my events</button>
       menuDropdown = (
         <span id="menu-dropdown">
           {this.props.self.email}<br />
         <ul id="menu-dropdown">
           <li className="menu-dropdown-li">Browse events</li>
-          <li className="menu-dropdown-li">{manageMyEventsButton}</li>
+          <li className="menu-dropdown-li"
+            onClick={()=>{this.props.history.push(`/${this.props.myId}/events`)}}
+            >Manage my events</li>
           <li className="menu-dropdown-li">Following</li>
           <li className="menu-dropdown-li">Tickets</li>
-          <li className="menu-dropdown-li">{signoutButton}</li>
+          <li className="menu-dropdown-li"
+            onClick={this.signOut}
+            >Sign Out</li>
         </ul>
         </span>
       )

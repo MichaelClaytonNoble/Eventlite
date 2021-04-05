@@ -477,6 +477,10 @@ var App = /*#__PURE__*/function (_React$Component) {
         component: _create_events_details_event_form_container__WEBPACK_IMPORTED_MODULE_10__["default"]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util_jsx__WEBPACK_IMPORTED_MODULE_2__["ProtectedRoute"], {
         exact: true,
+        path: "/events/:eventId/edit",
+        component: _create_events_create_event_form_container__WEBPACK_IMPORTED_MODULE_9__["default"]
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util_jsx__WEBPACK_IMPORTED_MODULE_2__["ProtectedRoute"], {
+        exact: true,
         path: "/:myId/events",
         component: _my_events_my_events_container__WEBPACK_IMPORTED_MODULE_11__["default"]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
@@ -1475,9 +1479,7 @@ var HeaderNavBar = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
-      var signoutButton,
-          manageMyEventsButton,
-          signinLink,
+      var signinLink,
           menuDropdown = '';
 
       if (!this.props.loggedIn) {
@@ -1487,14 +1489,6 @@ var HeaderNavBar = /*#__PURE__*/function (_React$Component) {
           to: "/signin"
         }, "Sign In"));
       } else {
-        signoutButton = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          onClick: this.signOut
-        }, "Sign Out");
-        manageMyEventsButton = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          onClick: function onClick() {
-            _this3.props.history.push("/".concat(_this3.props.myId, "/events"));
-          }
-        }, "Manage my events");
         menuDropdown = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
           id: "menu-dropdown"
         }, this.props.self.email, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
@@ -1502,14 +1496,18 @@ var HeaderNavBar = /*#__PURE__*/function (_React$Component) {
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "menu-dropdown-li"
         }, "Browse events"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          className: "menu-dropdown-li"
-        }, manageMyEventsButton), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          className: "menu-dropdown-li",
+          onClick: function onClick() {
+            _this3.props.history.push("/".concat(_this3.props.myId, "/events"));
+          }
+        }, "Manage my events"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "menu-dropdown-li"
         }, "Following"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "menu-dropdown-li"
         }, "Tickets"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          className: "menu-dropdown-li"
-        }, signoutButton)));
+          className: "menu-dropdown-li",
+          onClick: this.signOut
+        }, "Sign Out")));
       }
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1627,6 +1625,7 @@ var MyEvents = /*#__PURE__*/function (_React$Component) {
     _this.loadEvents = _this.loadEvents.bind(_assertThisInitialized(_this));
     _this.createEventList = _this.createEventList.bind(_assertThisInitialized(_this));
     _this.filter = _this.filter.bind(_assertThisInitialized(_this));
+    _this.showMenu = _this.showMenu.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -1644,6 +1643,25 @@ var MyEvents = /*#__PURE__*/function (_React$Component) {
           loading: false
         });
       }
+    }
+  }, {
+    key: "showMenu",
+    value: function showMenu(key) {
+      return function (e) {
+        var menu = e.currentTarget;
+
+        if (menu.classList.contains('hideMenu')) {
+          menu.classList.add("showMenu");
+          menu.classList.remove("hideMenu");
+        }
+
+        window.addEventListener('click', function (e) {
+          if (!menu.contains(e.target)) {
+            menu.classList.add("hideMenu");
+            menu.classList.remove("showMenu");
+          }
+        });
+      };
     }
   }, {
     key: "filter",
@@ -1689,6 +1707,8 @@ var MyEvents = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "createEventList",
     value: function createEventList() {
+      var _this4 = this;
+
       var myEvents;
       var location;
 
@@ -1753,19 +1773,23 @@ var MyEvents = /*#__PURE__*/function (_React$Component) {
             id: "stats"
           }, "$0.00"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             id: "stats"
-          }, "Past"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-            type: "checkbox",
-            id: "kebab-focus" + key,
-            className: "kebab-focus"
-          }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-            htmlFor: "kebab-focus" + key,
-            id: "kebab-wrap"
+          }, event.status), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            id: "stats"
+          }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "kebab-wrap hideMenu",
+            id: "kebab-wrap" + key,
+            onClick: _this4.showMenu(key)
           }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
             className: "fas fa-ellipsis-v kebab",
             id: "kebab"
           }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-            className: "kebab"
-          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "HELLO"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "HELLO"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "HELLO")))));
+            className: "kebab",
+            id: "my-events-menu" + key
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "View"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+            onClick: function onClick() {
+              _this4.props.history.push("/events/".concat(event.id, "/edit"));
+            }
+          }, "Edit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Cancel")))));
         });
       }
 
@@ -1823,10 +1847,10 @@ var MyEvents = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "All"
       }, "All"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "Complete event"
-      }, "Complete event"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "Incomplete event"
-      }, "Incomplete event"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Complete"
+      }, "Complete"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Incomplete"
+      }, "Incomplete"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Past"
       }, "Past"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         id: "select-organizer-input"
@@ -1853,7 +1877,9 @@ var MyEvents = /*#__PURE__*/function (_React$Component) {
         id: "heading"
       }, "Gross"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         id: "heading"
-      }, "Status"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+      }, "Status"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        id: "heading"
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         id: "events-list"
       }, myEvents)));
     }
@@ -1877,8 +1903,10 @@ var MyEvents = /*#__PURE__*/function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _my_events__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./my_events */ "./frontend/components/my_events/my_events.jsx");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _actions_events__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/events */ "./frontend/actions/events.js");
-/* harmony import */ var _reducers_selectors_events_selectors__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../reducers/selectors/events_selectors */ "./frontend/reducers/selectors/events_selectors.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _actions_events__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/events */ "./frontend/actions/events.js");
+/* harmony import */ var _reducers_selectors_events_selectors__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../reducers/selectors/events_selectors */ "./frontend/reducers/selectors/events_selectors.js");
+
 
 
 
@@ -1893,7 +1921,7 @@ var mSTP = function mSTP(state) {
   }
 
   return {
-    myEvents: Object(_reducers_selectors_events_selectors__WEBPACK_IMPORTED_MODULE_3__["analyzeEvents"])(myEvents),
+    myEvents: Object(_reducers_selectors_events_selectors__WEBPACK_IMPORTED_MODULE_4__["analyzeEvents"])(myEvents),
     organizers: Array.from(new Set(myEvents.map(function (event) {
       return event.organizer;
     }).filter(function (organizer) {
@@ -1905,13 +1933,13 @@ var mSTP = function mSTP(state) {
 var mDTP = function mDTP(dispatch, ownProps) {
   return {
     getMyEvents: function getMyEvents() {
-      return dispatch(Object(_actions_events__WEBPACK_IMPORTED_MODULE_2__["getEventsByType"])('creator_id', ownProps.match.params.myId));
+      return dispatch(Object(_actions_events__WEBPACK_IMPORTED_MODULE_3__["getEventsByType"])('creator_id', ownProps.match.params.myId));
     }
   };
 };
 
 var MyEventsContainer = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mSTP, mDTP)(_my_events__WEBPACK_IMPORTED_MODULE_0__["default"]);
-/* harmony default export */ __webpack_exports__["default"] = (MyEventsContainer);
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(MyEventsContainer));
 
 /***/ }),
 
@@ -3572,10 +3600,10 @@ function analyzeEvents(events) {
 
 function determineStatus(event) {
   var eventWithStatus = event;
-  eventWithStatus['status'] = "Incomplete event";
+  eventWithStatus['status'] = "Incomplete";
 
   if (event.about && event.description) {
-    eventWithStatus['status'] = "Complete event";
+    eventWithStatus['status'] = "Complete";
   }
 
   if (new Date(event.end) < new Date()) {

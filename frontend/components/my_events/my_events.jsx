@@ -14,7 +14,8 @@ class MyEvents extends React.Component{
     }
     this.loadEvents = this.loadEvents.bind(this); 
     this.createEventList = this.createEventList.bind(this); 
-    this.filter = this.filter.bind(this); 
+    this.filter = this.filter.bind(this);
+    this.showMenu = this.showMenu.bind(this);
   }
 
   componentWillMount(){
@@ -24,6 +25,21 @@ class MyEvents extends React.Component{
     if(this.state.loading){
       this.loadEvents();
       this.setState({loading: false});
+    }
+  }
+  showMenu(key){
+    return (e)=>{
+      let menu = e.currentTarget;
+      if(menu.classList.contains('hideMenu')){
+        menu.classList.add("showMenu");
+        menu.classList.remove("hideMenu");
+      }
+      window.addEventListener('click', (e)=> {
+        if(!menu.contains(e.target)){
+          menu.classList.add("hideMenu");
+          menu.classList.remove("showMenu");
+        }
+      });
     }
   }
   filter(field){
@@ -86,16 +102,17 @@ class MyEvents extends React.Component{
                 <div id="progress"></div>
               </div>
               <div id="stats">$0.00</div>
-              <div id="stats">Past</div>
-              <input type="checkbox" id={"kebab-focus"+key} className="kebab-focus"></input>
-              <label htmlFor={"kebab-focus" + key} id="kebab-wrap">
+              <div id="stats">{event.status}</div>
+              <div id="stats"></div>
+
+              <div className="kebab-wrap hideMenu" id={"kebab-wrap"+key} onClick={this.showMenu(key)}>
                 <i className="fas fa-ellipsis-v kebab" id="kebab"></i>
-                <ul className="kebab">
-                  <li>HELLO</li>
-                  <li>HELLO</li>
-                  <li>HELLO</li>
+                <ul className="kebab" id={"my-events-menu" + key}>
+                  <li>View</li>
+                  <li onClick={()=>{this.props.history.push(`/events/${event.id}/edit`)}}>Edit</li>
+                  <li>Cancel</li>
                 </ul>
-              </label>
+              </div>
             </div>
           </li>
         )
@@ -133,8 +150,8 @@ class MyEvents extends React.Component{
               <label id="select-status-input"><p>Event status</p>
                 <select onChange={this.filter('filterStatus')} value={this.state.filterStatus}>
                   <option value="All">All</option>
-                  <option value="Complete event">Complete event</option>
-                  <option value="Incomplete event">Incomplete event</option>
+                  <option value="Complete">Complete</option>
+                  <option value="Incomplete">Incomplete</option>
                   <option value="Past">Past</option>
                 </select>
               </label>
@@ -158,6 +175,7 @@ class MyEvents extends React.Component{
                 <span id="heading">Sold</span>
                 <span id="heading">Gross</span>
                 <span id="heading">Status</span>
+                <span id="heading"></span>
               </div>
             </div>
             <ul id="events-list">

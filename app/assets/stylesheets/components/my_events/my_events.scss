@@ -137,7 +137,13 @@
 
 
 
-#right{justify-content: space-evenly;}
+#my-events #right{
+  justify-content: space-evenly;
+  span, #stats{
+    width: 20%;
+    text-align: center;
+  }
+}
 
 #event-list-item{
   #date{
@@ -159,8 +165,8 @@
     }
   }
   #img-icon{
-    height: 56px;
-    width: 56px;
+    height: 71px;
+    width: 71px;
     display: flex;
     align-items: center;
     align-content: center;
@@ -213,16 +219,12 @@ i#kebab{
 }
 
 
-#kebab-wrap{
+.kebab-wrap{
   right: 0;
   position: absolute;
 
     &:hover{
     cursor: pointer;
-  }
-  ul{
-    display: none;
-    position: absolute;
   }
   li{
     padding: 16px 24px;
@@ -231,28 +233,24 @@ i#kebab{
     &:hover{
       cursor: pointer;
       background-color: $hover-background-color;
-      vertical-align: middle;
     }
   }
 }
-.kebab-focus{
-  height: 0;
-  width: 0;
-  position: absolute; 
-}
 
-.kebab-focus:focus + #kebab-wrap{
-  ul{
-    position:absolute; 
-    display: block;
+.kebab-wrap ul{
+    position: absolute;
     background-color: #fff;
     -webkit-box-shadow: 0 1px 17px 0 rgba(40,44,53,.10), 0 2px 4px 0 rgba(40,44,53,.1);
     box-shadow:  0 1px 17px 0 rgba(40,44,53,.10), 0 2px 4px 0 rgba(40,44,53,.1);
-    
     z-index: 100;
     text-align: left;
     min-width: 230px;
     animation: fadeIn .7s;
-  }
 }
 
+.hideMenu ul{
+  display: none;
+}
+.showMenu{
+  display: block; 
+}

@@ -33,6 +33,7 @@ class App extends React.Component{
           <Route exact path="/" component={SplashContainer}/>
           <ProtectedRoute exact path="/events/create" component={CreateEventFormContainer} />
           <ProtectedRoute exact path ="/events/:eventId/details" component={DetailsEventFormContainer} />
+          <ProtectedRoute exact path="/events/:eventId/edit" component={CreateEventFormContainer} />
           <ProtectedRoute exact path ="/:myId/events" component={MyEventsContainer} />
 
           <Route exact path="/404" component={PageNotFound} />
