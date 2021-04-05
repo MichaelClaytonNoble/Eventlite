@@ -11,7 +11,7 @@ const mSTP = state => {
   }
   return ({
     myEvents: analyzeEvents(myEvents),
-    organizers: myEvents.map( (event)=> event.organizer).filter( (organizer)=> organizer)
+    organizers: Array.from(new Set(myEvents.map( (event)=> event.organizer).filter( (organizer)=> organizer)))
   })
 }
 

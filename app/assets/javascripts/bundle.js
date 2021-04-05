@@ -1894,11 +1894,11 @@ var mSTP = function mSTP(state) {
 
   return {
     myEvents: Object(_reducers_selectors_events_selectors__WEBPACK_IMPORTED_MODULE_3__["analyzeEvents"])(myEvents),
-    organizers: myEvents.map(function (event) {
+    organizers: Array.from(new Set(myEvents.map(function (event) {
       return event.organizer;
     }).filter(function (organizer) {
       return organizer;
-    })
+    })))
   };
 };
 
@@ -3558,7 +3558,6 @@ function analyzeEvents(events) {
   var analyzedEvents = events.map(function (event) {
     return determineStatus(event);
   });
-  console.log(analyzedEvents);
   return analyzedEvents;
 }
 /**

@@ -8,7 +8,6 @@
  */
 export function analyzeEvents(events){
   const analyzedEvents = events.map( event=> determineStatus(event));
-  console.log(analyzedEvents);
   return analyzedEvents; 
 }
 
