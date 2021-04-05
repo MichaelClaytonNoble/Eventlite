@@ -570,6 +570,7 @@ var CreateEventForm = /*#__PURE__*/function (_React$Component) {
     _this.disabled = false;
     _this.getCurrentDateTime = _this.getCurrentDateTime.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.getMin = _this.getMin.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -582,6 +583,15 @@ var CreateEventForm = /*#__PURE__*/function (_React$Component) {
     key: "getCurrentDateTime",
     value: function getCurrentDateTime() {
       return this.convertDateToLocalAsJSON(new Date()).slice(0, 16);
+    }
+  }, {
+    key: "getMin",
+    value: function getMin() {
+      if (this.props.edit) {
+        this.min = this.convertDateToLocalAsJSON(new Date(this.state.start)).slice(0, 16); // this.min = this.getCurrentDateTime();
+      } else {
+        this.min = this.getCurrentDateTime();
+      }
     }
   }, {
     key: "handleInputChange",
@@ -598,41 +608,80 @@ var CreateEventForm = /*#__PURE__*/function (_React$Component) {
       var _this3 = this;
 
       e.preventDefault();
-      console.log(this.state);
-      this.props.createEvent(this.state).then(function (action) {
-        _this3.props.history.push("/events/".concat(action.event.id, "/details"));
-      });
+
+      if (this.props.edit) {
+        this.props.updateEvent(this.state).then(function (action) {
+          _this3.props.history.push("/events/".concat(action.event.id, "/details"));
+        });
+      } else {
+        this.props.createEvent(this.state).then(function (action) {
+          _this3.props.history.push("/events/".concat(action.event.id, "/details"));
+        });
+      }
     }
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {
+      var _this4 = this;
+
       this.props.getCategories();
+
+      if (this.props.edit) {
+        this.props.getEvent().then(function (e) {
+          //i could return  the event here. instead of accessing it through state
+          var event = _this4.props.event;
+          Object.keys(event).forEach(function (field) {
+            if (!event[field]) {
+              event[field] = "";
+            }
+          });
+
+          if (event['recurring']) {
+            event['recurring'] = 'true';
+          } else {
+            event['recurring'] = 'false';
+          }
+
+          if (new Date(event.end) < new Date()) {
+            _this4.props.history.goBack();
+          }
+
+          event.start = event.start.slice(0, _this4.state.start.length - 8);
+          event.end = event.end.slice(0, _this4.state.end.length - 8);
+
+          _this4.setState(_this4.props.event);
+
+          _this4.getMin();
+        });
+      } else {
+        this.getMin();
+      }
     }
   }, {
     key: "handleRadioChange",
     value: function handleRadioChange(field) {
-      var _this4 = this;
+      var _this5 = this;
 
       return function (e) {
         if (field === 'location') {
-          _this4.disabled = true;
+          _this5.disabled = true;
 
           if (e.currentTarget.value === "VENUE") {
-            _this4.state.venue = '';
-            _this4.disabled = false;
+            _this5.state.venue = '';
+            _this5.disabled = false;
           }
         }
 
-        _this4.setState(_defineProperty({}, field, e.currentTarget.value));
+        _this5.setState(_defineProperty({}, field, e.currentTarget.value));
       };
     }
   }, {
     key: "handleTimezoneChange",
     value: function handleTimezoneChange() {
-      var _this5 = this;
+      var _this6 = this;
 
       return function (e) {
-        _this5.setState({
+        _this6.setState({
           timezone: e.currentTarget.value
         });
       };
@@ -640,7 +689,7 @@ var CreateEventForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this6 = this;
+      var _this7 = this;
 
       var userLoginErr,
           titleErr,
@@ -653,7 +702,7 @@ var CreateEventForm = /*#__PURE__*/function (_React$Component) {
           timezoneErr,
           categories = '';
       this.props.errors.forEach(function (error) {
-        var err = _this6.props.errorList[error];
+        var err = _this7.props.errorList[error];
         var message = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "form-error-message"
         }, error);
@@ -811,15 +860,17 @@ var CreateEventForm = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Event starts"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "datetime-local",
         className: "date-input",
-        min: this.getCurrentDateTime(),
-        onChange: this.handleInputChange('start')
+        min: this.min,
+        onChange: this.handleInputChange('start'),
+        value: this.state.start
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         className: "event-time"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Event ends"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "datetime-local",
         className: "date-input",
         min: this.getCurrentDateTime(),
-        onChange: this.handleInputChange('end')
+        onChange: this.handleInputChange('end'),
+        value: this.state.end
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "date-errors"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -878,25 +929,40 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var mSTP = function mSTP(state) {
+var mSTP = function mSTP(state, ownProps) {
   return {
     errors: state.errors.events,
     errorList: _reducers_selectors_error_selectors__WEBPACK_IMPORTED_MODULE_3__["CREATE_EVENT_FORM_ERROR_LIST"],
     timezones: _constants_constants__WEBPACK_IMPORTED_MODULE_5__["TIMEZONES"],
-    categories: Object.values(state.entities.categories)
+    categories: Object.values(state.entities.categories),
+    edit: function () {
+      if (ownProps.match.params.eventId) {
+        return true;
+      } else {
+        return false;
+      }
+    }(),
+    event: state.entities.events[ownProps.match.params.eventId]
   };
 };
 
-var mDTP = function mDTP(dispatch) {
+var mDTP = function mDTP(dispatch, ownProps) {
+  console.log(ownProps.match.params.eventId);
   return {
     createEvent: function createEvent(formEvent) {
       return dispatch(Object(_actions_events__WEBPACK_IMPORTED_MODULE_2__["createEvent"])(formEvent));
+    },
+    updateEvent: function updateEvent(formEvent) {
+      return dispatch(Object(_actions_events__WEBPACK_IMPORTED_MODULE_2__["updateEvent"])(formEvent));
     },
     clearErrors: function clearErrors() {
       return dispatch(Object(_actions_events__WEBPACK_IMPORTED_MODULE_2__["clearErrors"])());
     },
     getCategories: function getCategories() {
       return dispatch(Object(_actions_categories__WEBPACK_IMPORTED_MODULE_4__["pullCategories"])());
+    },
+    getEvent: function getEvent() {
+      return dispatch(Object(_actions_events__WEBPACK_IMPORTED_MODULE_2__["getEventsByType"])('id', ownProps.match.params.eventId));
     }
   };
 };
@@ -1711,6 +1777,7 @@ var MyEvents = /*#__PURE__*/function (_React$Component) {
 
       var myEvents;
       var location;
+      var kebab;
 
       if (this.state.myEvents) {
         return myEvents = this.state.myEvents.map(function (event, key) {
@@ -1740,6 +1807,17 @@ var MyEvents = /*#__PURE__*/function (_React$Component) {
             });
           }
 
+          kebab = [/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "View")];
+
+          if (event.status !== 'Past') {
+            kebab.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+              onClick: function onClick() {
+                _this4.props.history.push("/events/".concat(event.id, "/edit"));
+              }
+            }, "Edit"));
+          }
+
+          kebab.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Cancel"));
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
             id: "event-list-item",
             key: key
@@ -1785,11 +1863,7 @@ var MyEvents = /*#__PURE__*/function (_React$Component) {
           }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
             className: "kebab",
             id: "my-events-menu" + key
-          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "View"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-            onClick: function onClick() {
-              _this4.props.history.push("/events/".concat(event.id, "/edit"));
-            }
-          }, "Edit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Cancel")))));
+          }, kebab))));
         });
       }
 
@@ -3877,12 +3951,22 @@ var postEvent = function postEvent(event) {
   });
 };
 var patchEvent = function patchEvent(event) {
+  if (event instanceof FormData) {
+    return $.ajax({
+      method: "PATCH",
+      url: "/api/events/".concat(event.id),
+      data: event,
+      contentType: false,
+      processData: false
+    });
+  }
+
   return $.ajax({
     method: "PATCH",
     url: "/api/events/".concat(event.id),
-    data: event,
-    contentType: false,
-    processData: false
+    data: {
+      event: event
+    }
   });
 };
 var pullEventsByType = function pullEventsByType(column, value) {

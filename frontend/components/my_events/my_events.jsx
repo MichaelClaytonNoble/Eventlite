@@ -66,6 +66,7 @@ class MyEvents extends React.Component{
   createEventList(){
     let myEvents;
     let location;
+    let kebab;
     if(this.state.myEvents){
       return myEvents = this.state.myEvents.map( (event, key)=> {
         if(event.location === "ONLINE"){
@@ -81,6 +82,12 @@ class MyEvents extends React.Component{
         if(event.imageUrl){
           img = <img id="event-icon" src={event.imageUrl} alt="" />
         }
+
+        kebab = [<li>View</li>]
+        if(event.status !== 'Past'){
+          kebab.push(<li onClick={()=>{this.props.history.push(`/events/${event.id}/edit`)}}>Edit</li>);
+        }
+        kebab.push(<li>Cancel</li>)
         return(
           <li id="event-list-item" key={key}>
             <div id="left">
@@ -108,9 +115,7 @@ class MyEvents extends React.Component{
               <div className="kebab-wrap hideMenu" id={"kebab-wrap"+key} onClick={this.showMenu(key)}>
                 <i className="fas fa-ellipsis-v kebab" id="kebab"></i>
                 <ul className="kebab" id={"my-events-menu" + key}>
-                  <li>View</li>
-                  <li onClick={()=>{this.props.history.push(`/events/${event.id}/edit`)}}>Edit</li>
-                  <li>Cancel</li>
+                  {kebab}
                 </ul>
               </div>
             </div>

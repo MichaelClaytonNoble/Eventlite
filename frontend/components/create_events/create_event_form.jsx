@@ -7,18 +7,19 @@ class CreateEventForm extends React.Component{
     super(props);
     let findTimezone = this.props.timezones.filter( timezone => {
       return timezone.locale === Intl.DateTimeFormat().resolvedOptions().timeZone;
-    })
+    }); 
+
     this.state = {
       title: '', organizer: '', venue: '', recurring: 'false', category_id: '', location: 'VENUE',
       start: '',
       end: '',
       timezone: findTimezone[0].zone,
     }
-
     this.props.clearErrors(); 
     this.disabled = false;
     this.getCurrentDateTime = this.getCurrentDateTime.bind(this); 
     this.handleSubmit = this.handleSubmit.bind(this); 
+    this.getMin = this.getMin.bind(this); 
   }
 
   convertDateToLocalAsJSON(date){
@@ -27,6 +28,17 @@ class CreateEventForm extends React.Component{
 
   getCurrentDateTime(){
     return this.convertDateToLocalAsJSON(new Date()).slice(0,16);
+  }
+  getMin(){
+
+    if(this.props.edit){
+
+      this.min = this.convertDateToLocalAsJSON(new Date(this.state.start)).slice(0,16);
+      // this.min = this.getCurrentDateTime();
+    }
+    else{
+      this.min = this.getCurrentDateTime();
+    }
   }
 
   handleInputChange(field){
@@ -37,14 +49,48 @@ class CreateEventForm extends React.Component{
   
   handleSubmit(e){
     e.preventDefault(); 
-    console.log(this.state); 
-    this.props.createEvent(this.state)
+    if(this.props.edit){
+      this.props.updateEvent(this.state)
       .then( (action)=>{
         this.props.history.push(`/events/${action.event.id}/details`)
       }); 
+    }
+    else{
+      this.props.createEvent(this.state)
+      .then( (action)=>{
+        this.props.history.push(`/events/${action.event.id}/details`)
+      }); 
+    }
   }
   componentDidMount(){
     this.props.getCategories(); 
+    if(this.props.edit){
+      this.props.getEvent().then( (e)=>{
+        //i could return  the event here. instead of accessing it through state
+        let event = this.props.event;
+        Object.keys(event).forEach( field =>{
+          if(!event[field]){
+            event[field] = "";
+          }
+        });
+        if(event['recurring']){
+          event['recurring'] = 'true'
+        }
+        else{
+          event['recurring'] ='false';
+        }
+        if(new Date(event.end) < new Date()){
+          this.props.history.goBack();
+        }
+        event.start = event.start.slice(0,this.state.start.length-8);
+        event.end = event.end.slice(0,this.state.end.length-8);
+        this.setState(this.props.event);
+        this.getMin();
+      });
+    }
+    else{
+      this.getMin(); 
+    }
   }
 
   handleRadioChange(field){
@@ -95,8 +141,6 @@ class CreateEventForm extends React.Component{
         default:
           return;
       }
-
-      
     });
     if(this.props.categories.length){
       categories = this.props.categories.map( (category,key) => {
@@ -171,14 +215,16 @@ class CreateEventForm extends React.Component{
         <div id='date-elements'>
 
             <label className="event-time"><p>Event starts</p>
-              <input type="datetime-local" className="date-input" min={this.getCurrentDateTime()}
-                  onChange={this.handleInputChange('start')} />
+              <input type="datetime-local" className="date-input" min={this.min}
+                  onChange={this.handleInputChange('start')} 
+                  value={this.state.start}/>
             </label>
 
 
           <label className="event-time"><p>Event ends</p>
             <input type="datetime-local" className="date-input" min={this.getCurrentDateTime()} 
-                onChange={this.handleInputChange('end')}/>
+                onChange={this.handleInputChange('end')} 
+                value={this.state.end}/>
           </label>
 
         </div>

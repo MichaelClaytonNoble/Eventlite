@@ -50,7 +50,7 @@ class Api::EventsController < ApplicationController
   end
 
   def whitelist(column)
-    {'title'=>true, 'description'=>true, 'category_id'=>true, 'location'=>true, 'address'=>true, 'venue'=>true, 'recurring'=>true, 'start'=>true, 'end'=>true, 'timezone'=>true, 'creator_id'=>true, 'about'=>true, 'organizer'=>true}[column]
+    {'title'=>true, 'description'=>true, 'category_id'=>true, 'location'=>true, 'address'=>true, 'venue'=>true, 'recurring'=>true, 'start'=>true, 'end'=>true, 'timezone'=>true, 'creator_id'=>true, 'about'=>true, 'organizer'=>true, 'id'=>true}[column]
   end 
 
   def whitelist2(column)

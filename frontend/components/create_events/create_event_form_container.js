@@ -1,24 +1,30 @@
 
 import CreateEventForm from './create_event_form';
 import {connect} from 'react-redux'; 
-import {createEvent, clearErrors} from '../../actions/events'; 
+import {createEvent, clearErrors, getEventsByType, updateEvent} from '../../actions/events'; 
 import { CREATE_EVENT_FORM_ERROR_LIST } from '../../reducers/selectors/error_selectors';
 import {pullCategories} from '../../actions/categories'; 
 import {TIMEZONES} from '../../constants/constants'; 
-const mSTP = state =>{
+
+const mSTP = (state, ownProps) =>{
   return ({
     errors: state.errors.events,
     errorList: CREATE_EVENT_FORM_ERROR_LIST,
     timezones: TIMEZONES,
-    categories: Object.values(state.entities.categories)
-  })
+    categories: Object.values(state.entities.categories),
+    edit: (()=>{ if(ownProps.match.params.eventId){return true;} else{return false}})(),
+    event: state.entities.events[ownProps.match.params.eventId]
+  });
 }
 
-const mDTP = dispatch =>{
+const mDTP = (dispatch, ownProps) =>{
+  console.log(ownProps.match.params.eventId);
   return({
     createEvent: (formEvent)=>dispatch(createEvent(formEvent)),
+    updateEvent: (formEvent)=>dispatch(updateEvent(formEvent)),
     clearErrors: ()=>dispatch(clearErrors()),
-    getCategories: ()=>dispatch(pullCategories())
+    getCategories: ()=>dispatch(pullCategories()),
+    getEvent: ()=> dispatch(getEventsByType('id', ownProps.match.params.eventId))
   })
 }
 

@@ -8,12 +8,19 @@ export const postEvent = event =>{
 }
 
 export const patchEvent = event =>{
+  if(event instanceof FormData){
+    return $.ajax({
+      method: "PATCH",
+      url: `/api/events/${event.id}`,
+      data: event,
+      contentType: false,
+      processData: false
+    });
+  }
   return $.ajax({
     method: "PATCH",
     url: `/api/events/${event.id}`,
-    data: event,
-    contentType: false,
-    processData: false
+    data: {event}
   });
 }
 
