@@ -7,14 +7,16 @@ import Modal from './modal';
 
 const mSTP = state => {
   return ({
-    modal: state.ui.modal
+    modal: state.ui.modal,
+    myId: state.session.currentUser.id
   });
 }
 
-const mDTP = dispatch => {
+const mDTP = (dispatch, ownProps) => {
+
   return ({
     closeModal: ()=> dispatch(closeModal()),
-    deleteEvent: (eventId) => dispatch(deleteEvent(eventId))
+    deleteEvent: (myId) => dispatch(deleteEvent(ownProps.eventId, myId))
   });
 }
 const ModalContainer = connect(mSTP, mDTP)(Modal);

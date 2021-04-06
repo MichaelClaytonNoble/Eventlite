@@ -23,10 +23,13 @@ class MyEvents extends React.Component{
   componentWillMount(){
     this.props.getMyEvents();
   }
-  componentDidUpdate(){
+  componentDidUpdate(prevProps){
     if(this.state.loading){
       this.loadEvents();
       this.setState({loading: false});
+    }
+    if(prevProps.myEvents !== this.props.myEvents){
+      this.setState({myEvents: this.props.myEvents});
     }
   }
   showMenu(key){

@@ -29,7 +29,7 @@ class Api::EventsController < ApplicationController
     @event = Event.find_by(id: params[:id])
     if @event
       if @event.destroy
-        render json: :event_all_info
+        render :event_all_info
       else
         render json: @event.errors.full_messages, status: 422
       end
@@ -43,7 +43,9 @@ class Api::EventsController < ApplicationController
     col = params[:column]
     val = params[:value]
     @events = Event.where("#{col} = ?", val) if whitelist(col.downcase);
-
+    if(col == 'creator_id')
+      @creator_id = val
+    end
     if @events
       render :event_list
     else

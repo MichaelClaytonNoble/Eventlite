@@ -169,10 +169,11 @@ var receiveNewEvent = function receiveNewEvent(event) {
   };
 };
 
-var removeEvent = function removeEvent(eventId) {
+var removeEvent = function removeEvent(event, myId) {
   return {
     type: REMOVE_EVENT,
-    eventId: eventId
+    event: event,
+    myId: myId
   };
 };
 
@@ -230,10 +231,10 @@ var updateEvent = function updateEvent(event) {
     });
   };
 };
-var deleteEvent = function deleteEvent(eventId) {
+var deleteEvent = function deleteEvent(eventId, myId) {
   return function (dispatch) {
-    return Object(_util_events__WEBPACK_IMPORTED_MODULE_0__["destroyEvent"])(eventId).then(function (eventId) {
-      return dispatch(removeEvent(eventId));
+    return Object(_util_events__WEBPACK_IMPORTED_MODULE_0__["destroyEvent"])(eventId).then(function (event) {
+      return dispatch(removeEvent(event, myId));
     }, function (err) {
       return dispatch(receiveEventErrors(err.responseJSON));
     });
@@ -1780,7 +1781,7 @@ var Modal = /*#__PURE__*/function (_React$Component) {
           buttonList = [{
             name: "Delete",
             action: function action() {
-              return _this2.props.deleteEvent(_this2.props.eventId).then(_this2.props.closeModal);
+              return _this2.props.deleteEvent(_this2.props.myId).then(_this2.props.closeModal);
             }
           }, {
             name: "Cancel",
@@ -1868,17 +1869,18 @@ __webpack_require__.r(__webpack_exports__);
 
 var mSTP = function mSTP(state) {
   return {
-    modal: state.ui.modal
+    modal: state.ui.modal,
+    myId: state.session.currentUser.id
   };
 };
 
-var mDTP = function mDTP(dispatch) {
+var mDTP = function mDTP(dispatch, ownProps) {
   return {
     closeModal: function closeModal() {
       return dispatch(Object(_actions_modal__WEBPACK_IMPORTED_MODULE_2__["closeModal"])());
     },
-    deleteEvent: function deleteEvent(eventId) {
-      return dispatch(Object(_actions_events__WEBPACK_IMPORTED_MODULE_1__["deleteEvent"])(eventId));
+    deleteEvent: function deleteEvent(myId) {
+      return dispatch(Object(_actions_events__WEBPACK_IMPORTED_MODULE_1__["deleteEvent"])(ownProps.eventId, myId));
     }
   };
 };
@@ -1963,11 +1965,17 @@ var MyEvents = /*#__PURE__*/function (_React$Component) {
     }
   }, {
     key: "componentDidUpdate",
-    value: function componentDidUpdate() {
+    value: function componentDidUpdate(prevProps) {
       if (this.state.loading) {
         this.loadEvents();
         this.setState({
           loading: false
+        });
+      }
+
+      if (prevProps.myEvents !== this.props.myEvents) {
+        this.setState({
+          myEvents: this.props.myEvents
         });
       }
     }
@@ -3838,8 +3846,6 @@ var eventsReducer = function eventsReducer() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_events__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../actions/events */ "./frontend/actions/events.js");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 var userEventsReducer = function userEventsReducer() {
@@ -3851,16 +3857,13 @@ var userEventsReducer = function userEventsReducer() {
   switch (action.type) {
     case _actions_events__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_EVENTS_BY_USER"]:
       if (action.events) {
-        var events = Object.values(action.events);
-        var creator_id = events[0].creator_id;
-        return Object.assign(nextState, _defineProperty({}, creator_id, events));
+        return Object.assign(nextState, action.events);
       }
 
       return nextState;
 
     case _actions_events__WEBPACK_IMPORTED_MODULE_0__["REMOVE_EVENT"]:
-      console.log(nextState);
-      console.log(action.eventId);
+      delete nextState[action.myId][action.event.id];
       return nextState;
 
     case _actions_events__WEBPACK_IMPORTED_MODULE_0__["CLEAR_USER_EVENTS"]:

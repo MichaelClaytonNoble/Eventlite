@@ -10,7 +10,7 @@ class Modal extends React.Component{
     let buttonList;
     switch(this.props.modal){
       case 'deleteEvent':
-        buttonList = [{name: "Delete", action: ()=>this.props.deleteEvent(this.props.eventId).then(this.props.closeModal)}, {name:"Cancel", action:this.props.closeModal}];
+        buttonList = [{name: "Delete", action: ()=>this.props.deleteEvent(this.props.myId).then(this.props.closeModal)}, {name:"Cancel", action:this.props.closeModal}];
         return (
           <div id="modal-main">
             {this.modalMessage("Permanently delete this event?")}

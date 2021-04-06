@@ -8,14 +8,11 @@ const userEventsReducer = (state = {}, action) =>{
   switch(action.type){
     case RECEIVE_EVENTS_BY_USER:
       if(action.events){
-        let events = Object.values(action.events);
-        let creator_id = events[0].creator_id;
-        return Object.assign(nextState, {[creator_id]: events})
+        return Object.assign(nextState, action.events)
       }
       return nextState;
     case REMOVE_EVENT:
-      console.log(nextState);
-      console.log(action.eventId);
+      delete nextState[action.myId][action.event.id];
     return nextState;
     case CLEAR_USER_EVENTS:
       return {};

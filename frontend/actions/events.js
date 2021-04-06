@@ -13,9 +13,10 @@ const receiveNewEvent = event =>({
   event
 });
 
-const removeEvent = eventId => ({
-  type: REMOVE_EVENT,
-  eventId
+const removeEvent = (event, myId) => ({
+    type: REMOVE_EVENT,
+    event,
+    myId
 })
 
 const receiveEventErrors = errors => ({
@@ -53,9 +54,9 @@ export const updateEvent = event => dispatch =>{
     .then(event => dispatch(receiveNewEvent(event)), err => dispatch(receiveEventErrors(err.responseJSON))); 
 }
 
-export const deleteEvent = eventId => dispatch => {
+export const deleteEvent = (eventId, myId) => dispatch => {
   return destroyEvent(eventId)
-    .then( eventId => dispatch(removeEvent(eventId)), err => dispatch(receiveEventErrors(err.responseJSON))); 
+    .then( event=> dispatch(removeEvent(event, myId)), err => dispatch(receiveEventErrors(err.responseJSON))); 
 }
 
 
