@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom'; 
 import {getEventsByType, clearEvents} from '../../actions/events';
 import {analyzeEvents} from '../../reducers/selectors/events_selectors';
+import { openModal } from '../../actions/modal';
 
 const mSTP = state => {
   let myEvents = []; 
@@ -12,14 +13,16 @@ const mSTP = state => {
   }
   return ({
     myEvents: analyzeEvents(myEvents),
-    organizers: Array.from(new Set(myEvents.map( (event)=> event.organizer).filter( (organizer)=> organizer)))
-  })
+    organizers: Array.from(new Set(myEvents.map( (event)=> event.organizer).filter( (organizer)=> organizer))),
+    modal: state.ui.modal
+  });
 }
 
 
 const mDTP = (dispatch, ownProps) => {
   return ({
     getMyEvents: ()=>dispatch(getEventsByType('creator_id',ownProps.match.params.myId)),
+    openModal: (type)=>dispatch(openModal(type))
   })
 }
 

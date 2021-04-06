@@ -24,6 +24,13 @@ export const patchEvent = event =>{
   });
 }
 
+export const destroyEvent = eventId => {
+  return $.ajax({
+    method: "DELETE",
+    url: `/api/events/${eventId}`
+  });
+}
+
 export const pullEventsByType = (column, value) =>{
   return $.ajax({
     method: "GET",

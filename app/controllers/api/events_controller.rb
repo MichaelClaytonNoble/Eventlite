@@ -24,6 +24,20 @@ class Api::EventsController < ApplicationController
       render json: ["This event does not exist"], status: 422
     end
   end
+
+  def destroy
+    @event = Event.find_by(id: params[:id])
+    if @event
+      if @event.destroy
+        render json: :event_all_info
+      else
+        render json: @event.errors.full_messages, status: 422
+      end
+    else
+      render json: ["This event does not exist"], status: 422
+    end
+  end
+
   
   def getByType
     col = params[:column]

@@ -14,10 +14,10 @@ class CreateEventForm extends React.Component{
       start: '',
       end: '',
       timezone: findTimezone[0].zone,
-      min: this.getCurrentDateTime()
+      min: this.getCurrentDateTime(),
+      disabled: false
     }
     this.props.clearErrors(); 
-    this.disabled = false;
     this.getCurrentDateTime = this.getCurrentDateTime.bind(this); 
     this.handleSubmit = this.handleSubmit.bind(this); 
     this.getMin = this.getMin.bind(this); 
@@ -46,7 +46,8 @@ class CreateEventForm extends React.Component{
       this.setState({
       title: '', organizer: '', venue: '', recurring: 'false', category_id: '', location: 'VENUE',
       start: '',
-      end: ''
+      end: '',
+      disabled: false
     }); 
       delete this.state['id']; 
     }
@@ -95,7 +96,11 @@ class CreateEventForm extends React.Component{
         }
         event.start = event.start.slice(0,this.state.start.length-8);
         event.end = event.end.slice(0,this.state.end.length-8);
-        this.setState(this.props.event);
+        let disabled = true; 
+        if(this.props.event.location === "VENUE"){
+          disabled = false;
+        }
+        this.setState(Object.assign({disabled: disabled},this.props.event));
         this.getMin();
       });
     }
@@ -104,10 +109,10 @@ class CreateEventForm extends React.Component{
   handleRadioChange(field){
     return (e)=>{
       if(field === 'location'){
-        this.disabled = true; 
+        this.setState({disabled:true}); 
         if(e.currentTarget.value === "VENUE"){
           this.state.venue = '';
-          this.disabled = false;
+          this.setState({disabled:false});
         }
       }
       this.setState({[field]: e.currentTarget.value});
@@ -200,7 +205,7 @@ class CreateEventForm extends React.Component{
         </div>
 
         <label className='large-input-label'><p>Venue address</p>
-          <input type="text" className="large-input" value={this.state.venue} onChange={this.handleInputChange('venue')} disabled={this.disabled}/>
+          <input type="text" className="large-input" value={this.state.venue} onChange={this.handleInputChange('venue')} disabled={this.state.disabled}/>
         </label>
         {locationErr}
         </section>

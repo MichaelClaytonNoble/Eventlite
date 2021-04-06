@@ -1,5 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import ModalContainer from '../modals/modal_container';
+import modal_container from '../modals/modal_container';
 class MyEvents extends React.Component{
 
   constructor(props){
@@ -87,7 +89,6 @@ class MyEvents extends React.Component{
         if(event.status !== 'Past'){
           kebab.push(<li key={2}onClick={()=>{this.props.history.push(`/events/${event.id}/edit`)}}>Edit</li>);
         }
-        kebab.push(<li key={3}>Cancel</li>)
         return(
           <li id="event-list-item" key={key}>
             <div id="left">
@@ -116,6 +117,7 @@ class MyEvents extends React.Component{
                 <i className="fas fa-ellipsis-v kebab" id="kebab"></i>
                 <ul className="kebab" id={"my-events-menu" + key}>
                   {kebab}
+                  <li key={3} onClick={()=>{this.eventId = event.id; this.props.openModal('deleteEvent')}}>Delete</li>
                 </ul>
               </div>
             </div>
@@ -127,6 +129,9 @@ class MyEvents extends React.Component{
   }
 
   render(){
+    if(this.props.modal){
+      return <ModalContainer eventId={this.eventId} />
+    }
     let myEvents = [];
     let organizers=[];
     let location;

@@ -1,4 +1,5 @@
-import {RECEIVE_CURRENT_EVENT, RECEIVE_EVENTS, CLEAR_EVENTS} from '../../actions/events';
+import {RECEIVE_CURRENT_EVENT, RECEIVE_EVENTS, CLEAR_EVENTS,
+REMOVE_EVENT} from '../../actions/events';
 
 const eventsReducer = (state = {}, action) =>{
 
@@ -11,6 +12,9 @@ const eventsReducer = (state = {}, action) =>{
       return nextState;
     case RECEIVE_EVENTS:
       return Object.assign(nextState, action.events);
+    case REMOVE_EVENT: 
+      delete nextState[action.eventId];
+      return nextState;
     case CLEAR_EVENTS:
       return {};
     default: 
