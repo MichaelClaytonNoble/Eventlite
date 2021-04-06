@@ -11,7 +11,6 @@ class HeaderNavBar extends React.Component {
   }
 
   signOut(e){
-    this.setState({});
     this.props.logout().then( ()=>this.props.history.push('/'));
   }
 
@@ -71,7 +70,7 @@ const mSTP = state =>{
 
 const mDTP = (dispatch) => {
   return ({
-    logout: () => {dispatch(logout()).then(()=>this.props.history.push('/'))}
+    logout: () => dispatch(logout())
   });
 }
 

@@ -1576,8 +1576,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-var _this4 = undefined;
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -1624,7 +1622,6 @@ var HeaderNavBar = /*#__PURE__*/function (_React$Component) {
     value: function signOut(e) {
       var _this2 = this;
 
-      this.setState({});
       this.props.logout().then(function () {
         return _this2.props.history.push('/');
       });
@@ -1707,9 +1704,7 @@ var mSTP = function mSTP(state) {
 var mDTP = function mDTP(dispatch) {
   return {
     logout: function logout() {
-      dispatch(Object(_actions_session__WEBPACK_IMPORTED_MODULE_2__["logout"])()).then(function () {
-        return _this4.props.history.push('/');
-      });
+      return dispatch(Object(_actions_session__WEBPACK_IMPORTED_MODULE_2__["logout"])());
     }
   };
 };
