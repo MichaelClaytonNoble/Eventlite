@@ -29,7 +29,7 @@ class MyEvents extends React.Component{
       this.setState({loading: false});
     }
     if(prevProps.myEvents !== this.props.myEvents){
-      this.setState({myEvents: this.props.myEvents});
+      this.setState({myEvents: this.props.myEvents, organizers: this.props.organizers});
     }
   }
   showMenu(key){

@@ -1975,7 +1975,8 @@ var MyEvents = /*#__PURE__*/function (_React$Component) {
 
       if (prevProps.myEvents !== this.props.myEvents) {
         this.setState({
-          myEvents: this.props.myEvents
+          myEvents: this.props.myEvents,
+          organizers: this.props.organizers
         });
       }
     }
