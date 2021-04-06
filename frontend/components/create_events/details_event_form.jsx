@@ -18,6 +18,13 @@ class DetailsEventForm extends React.Component{
     this.handleFile = this.handleFile.bind(this); 
   }
 
+  componentDidMount(){
+    this.props.getEvent().then( ()=>this.setState({
+      description: this.props.event.description,
+      about: this.props.event.about,
+      imageUrl: this.props.event.imageUrl
+    }));
+  }
   handleFile(files) {
 
     const file = files[0]
@@ -69,7 +76,7 @@ class DetailsEventForm extends React.Component{
     };
   }
   render(){
-const preview = this.state.imageUrl ? <img alt="signup-form" id="add-image-preview" src={this.state.imageUrl} /> : null;
+    const preview = this.state.imageUrl ? <img alt="signup-form" id="add-image-preview" src={this.state.imageUrl} /> : null;
     let eventExistErr, summaryErr, aboutErr = '';
     let imgDropzone = <div>
                         <i className="fas fa-images button-icon"></i>
@@ -90,7 +97,7 @@ const preview = this.state.imageUrl ? <img alt="signup-form" id="add-image-previ
           return;
       }
     });
-    if(this.state.imageFile){
+    if(this.state.imageFile || this.state.imageUrl){
       imgDropzone = preview;
     }
     return(

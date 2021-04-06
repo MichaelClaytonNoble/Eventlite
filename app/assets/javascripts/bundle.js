@@ -1208,15 +1208,28 @@ var DetailsEventForm = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(DetailsEventForm, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      this.props.getEvent().then(function () {
+        return _this2.setState({
+          description: _this2.props.event.description,
+          about: _this2.props.event.about,
+          imageUrl: _this2.props.event.imageUrl
+        });
+      });
+    }
+  }, {
     key: "handleFile",
     value: function handleFile(files) {
-      var _this2 = this;
+      var _this3 = this;
 
       var file = files[0];
       var fileReader = new FileReader();
 
       fileReader.onloadend = function () {
-        _this2.setState({
+        _this3.setState({
           imageFile: file,
           imageUrl: fileReader.result
         });
@@ -1236,7 +1249,7 @@ var DetailsEventForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      var _this3 = this;
+      var _this4 = this;
 
       e.preventDefault();
       this.errors = [];
@@ -1264,23 +1277,23 @@ var DetailsEventForm = /*#__PURE__*/function (_React$Component) {
         this.props.updateEvent(formData).then(function () {
           alert("Event Fully Created");
 
-          _this3.props.history.push('/');
+          _this4.props.history.push('/');
         });
       }
     }
   }, {
     key: "handleInputChange",
     value: function handleInputChange(field) {
-      var _this4 = this;
+      var _this5 = this;
 
       return function (e) {
-        _this4.setState(_defineProperty({}, field, e.target.value));
+        _this5.setState(_defineProperty({}, field, e.target.value));
       };
     }
   }, {
     key: "render",
     value: function render() {
-      var _this5 = this;
+      var _this6 = this;
 
       var preview = this.state.imageUrl ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         alt: "signup-form",
@@ -1294,7 +1307,7 @@ var DetailsEventForm = /*#__PURE__*/function (_React$Component) {
         className: "fas fa-images button-icon"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Drag & drop or click to add main event image."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "JPEG or PNG, no larger than 10MB."));
       this.errors.forEach(function (error) {
-        var err = _this5.props.errorList[error];
+        var err = _this6.props.errorList[error];
         var message = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "form-error-message"
         }, error);
@@ -1314,7 +1327,7 @@ var DetailsEventForm = /*#__PURE__*/function (_React$Component) {
         }
       });
 
-      if (this.state.imageFile) {
+      if (this.state.imageFile || this.state.imageUrl) {
         imgDropzone = preview;
       }
 
@@ -1397,20 +1410,24 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var mSTP = function mSTP(state) {
+var mSTP = function mSTP(state, ownProps) {
   return {
     errors: state.errors.events,
-    errorList: _reducers_selectors_error_selectors__WEBPACK_IMPORTED_MODULE_1__["EVENT_DETAILS_FORM_ERROR_LIST"]
+    errorList: _reducers_selectors_error_selectors__WEBPACK_IMPORTED_MODULE_1__["EVENT_DETAILS_FORM_ERROR_LIST"],
+    event: state.entities.events[ownProps.match.params.eventId]
   };
 };
 
-var mDTP = function mDTP(dispatch) {
+var mDTP = function mDTP(dispatch, ownProps) {
   return {
     updateEvent: function updateEvent(event) {
       return dispatch(Object(_actions_events__WEBPACK_IMPORTED_MODULE_3__["updateEvent"])(event));
     },
     clearErrors: function clearErrors() {
       return dispatch(Object(_actions_events__WEBPACK_IMPORTED_MODULE_3__["clearErrors"])());
+    },
+    getEvent: function getEvent() {
+      return dispatch(getEventsByType('id', ownProps.match.params.eventId));
     }
   };
 };

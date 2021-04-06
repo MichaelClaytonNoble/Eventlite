@@ -39,8 +39,8 @@ description ='To city near you'
   address: '', 
   venue: '', 
   recurring: false, 
-  start: Date.new, 
-  end: Date.new, 
+  start: Date.today + 1, 
+  end: Date.today + 10, 
   timezone: 'PST', 
   creator_id: 1})
 end
