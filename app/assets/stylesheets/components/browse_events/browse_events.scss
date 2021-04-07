@@ -67,8 +67,16 @@
 
 
 #browse-events{
-  .filter-menu{
+  #date-menu{
+
+  }
+  #category-menu{
+    display: none;
+  }
+  #price-menu{
     display: none; 
+  }
+  .filter-menu{
     position: absolute; 
     height: 400px;
     background-color: inherit; 

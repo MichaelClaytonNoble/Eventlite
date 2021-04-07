@@ -13,9 +13,13 @@ class BrowseEvents extends React.Component{
         <div id="filters">
           <div id="title">Filters</div>
           <div id="date-menu" className="filter-menu">
-            <span className="filter-menu-options"></span>
-            <span className="filter-menu-options"></span>
-            <span className="filter-menu-options"></span>
+            <span className="filter-menu-options">Today</span>
+            <span className="filter-menu-options">Tomorrow</span>
+            <span className="filter-menu-options">This weekend</span>
+            <span className="filter-menu-options">This week</span>
+            <span className="filter-menu-options">Next week</span>
+            <span className="filter-menu-options">This month</span>
+            <span className="filter-menu-options">Next month</span>
           </div>
           <div id="category-menu" className="filter-menu">
             <span className="filter-menu-options"></span>
