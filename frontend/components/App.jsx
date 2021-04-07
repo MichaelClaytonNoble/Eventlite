@@ -18,6 +18,7 @@ import DetailsEventFormContainer from './create_events/details_event_form_contai
 import MyEventsContainer from './my_events/my_events_container'; 
 
 import PageNotFound from './error/error_page';
+import BrowseEvents from './browse_events/browse_events.jsx';
 
 class App extends React.Component{
   render(){
@@ -35,6 +36,8 @@ class App extends React.Component{
           <ProtectedRoute exact path ="/events/:eventId/details" component={DetailsEventFormContainer} />
           <ProtectedRoute exact path="/events/:eventId/edit" component={CreateEventFormContainer} />
           <ProtectedRoute exact path ="/:myId/events" component={MyEventsContainer} />
+
+          <Route exact path="/events/browse" component={BrowseEvents} />
 
           <Route exact path="/404" component={PageNotFound} />
           <Redirect to="/404" />

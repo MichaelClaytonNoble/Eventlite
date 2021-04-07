@@ -1,0 +1,27 @@
+
+
+#browse-events{
+  display: grid; 
+  grid-template-columns: 20% 40%;
+  @media screen and (max-width: 1600px){
+    grid-template-columns: 320px 60%;
+  }
+  position: absolute;
+  left: 0;
+  width: 100%;
+  min-height: 90%;
+  -webkit-box-shadow: inset 0px 0px 10px 2px $inset-box-shadow; 
+  box-shadow: inset 0px 0px 10px 2px $inset-box-shadow;
+}
+
+#browse-events #filters{
+  background-color: $search-bar-color;
+  height: 100%;
+    -webkit-box-shadow: inset 0px 0px 10px 2px $inset-box-shadow; 
+  box-shadow: inset 0px 0px 10px 2px $inset-box-shadow;
+}
+
+#events-list{
+
+}
+
