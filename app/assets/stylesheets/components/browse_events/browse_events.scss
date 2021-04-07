@@ -1,6 +1,7 @@
 
 
 #browse-events{
+  font-family: $main-font-family;
   display: grid; 
   grid-template-columns: 20% 40%;
   @media screen and (max-width: 1600px){
@@ -10,15 +11,96 @@
   left: 0;
   width: 100%;
   min-height: 90%;
-  -webkit-box-shadow: inset 0px 0px 10px 2px $inset-box-shadow; 
-  box-shadow: inset 0px 0px 10px 2px $inset-box-shadow;
+  -webkit-box-shadow: inset 0px 0px 10px 2px $box-shadow-color; 
+  box-shadow: inset 0px 0px 10px 2px $box-shadow-color;
 }
-
 #browse-events #filters{
   background-color: $search-bar-color;
   height: 100%;
-    -webkit-box-shadow: inset 0px 0px 10px 2px $inset-box-shadow; 
-  box-shadow: inset 0px 0px 10px 2px $inset-box-shadow;
+    -webkit-box-shadow: inset 0px 0px 10px 2px $box-shadow-color; 
+  box-shadow: inset 0px 0px 10px 2px $box-shadow-color;
+}
+
+#browse-events #filters{
+  position: relative; 
+  #title{
+    font-size: 30px;
+    padding-left: 32px;
+    color: #1e0a3c;
+    height: 100px;
+    vertical-align: middle;
+    line-height: 100px;
+    border-bottom: 2px solid $browse-border-color;
+  }
+  .filter{
+    height: 80px;
+    font-size: 18px;
+    color: #39364f;
+    width: 86%;
+    border-bottom: 2px solid $browse-border-color;
+    margin-left: auto;
+    margin-right: auto; 
+    display: flex; 
+    span{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      align-self: center;
+      height: 80%;
+      width: 100%;
+      border-radius: 4px;
+      padding: 0 8%;
+    }
+    &:hover{
+      span{
+        cursor: pointer; 
+        background-color: #f2f0f6;
+      }
+    }
+    img{
+      height: 15px;
+      width: 15px;
+    }
+  } 
+}
+
+
+#browse-events{
+  .filter-menu{
+    display: none; 
+    position: absolute; 
+    height: 400px;
+    background-color: inherit; 
+    width: 86%; 
+    left: 7%;
+  }
+  .filter-menu-options{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      align-self: center;
+      height: 64px;
+      border-radius: 4px;
+      padding: 0 8%;
+      margin-top: 16px;
+      &:not(:first-child){
+        &:hover{
+          background-color: #f2f0f6;
+          cursor: pointer; 
+        }
+      }
+      &:first-child{
+        background: rgb(54,89,227);
+        background: linear-gradient(90deg, rgba(54,89,227,1) 1.5%, rgba(255,255,255,1) 1.5%);
+        box-shadow: 0 4px 12px -4px rgba(46,55,77,.12);
+        &:hover{
+          cursor: pointer; 
+          box-shadow: 0 4px 12px 0 rgba(54,89,227,.16);
+        }
+      }
+  }
 }
 
 #events-list{

@@ -12,6 +12,24 @@ class BrowseEvents extends React.Component{
       <div id="browse-events">
         <div id="filters">
           <div id="title">Filters</div>
+          <div id="date-menu" className="filter-menu">
+            <span className="filter-menu-options"></span>
+            <span className="filter-menu-options"></span>
+            <span className="filter-menu-options"></span>
+          </div>
+          <div id="category-menu" className="filter-menu">
+            <span className="filter-menu-options"></span>
+            <span className="filter-menu-options"></span>
+            <span className="filter-menu-options"></span>
+          </div>
+          <div id="price-menu" className="filter-menu">
+            <span className="filter-menu-options"></span>
+            <span className="filter-menu-options"></span>
+            <span className="filter-menu-options"></span>
+          </div>
+          <div id="date-filter" className="filter"><span>Date<img src="https://img.icons8.com/metro/52/000000/chevron-right.png"/></span></div>
+          <div id="category-filter" className="filter"><span>Category<img src="https://img.icons8.com/metro/52/000000/chevron-right.png"/></span></div>
+          <div id="price-filter" className="filter"><span>Price<img src="https://img.icons8.com/metro/52/000000/chevron-right.png"/></span></div>
         </div>
         <div id="events-list">
           <div id="search">
