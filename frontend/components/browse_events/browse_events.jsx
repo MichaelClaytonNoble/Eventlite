@@ -69,7 +69,6 @@ class BrowseEvents extends React.Component{
       this.resetMenu.bind(this)();
     }
     else{
-
       switch(this.currentMenuEvent.id){
         case 'date-filter-value':
           this.dateMenu.style.display="unset";
