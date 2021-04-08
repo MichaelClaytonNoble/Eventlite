@@ -80,7 +80,7 @@ class Splash extends React.Component{
             <div id="feed">
                 <h2 id="top-header" className="header">Connect through</h2>
                 <h1 id="main-header"className="header">online events</h1>
-              <Link to="#browseEvents" className="header link"><span>Browse events  →</span></Link>
+              <Link to="/events/browse" className="header link"><span>Browse events  →</span></Link>
             </div>
           </div>
             <div id="feed-image">

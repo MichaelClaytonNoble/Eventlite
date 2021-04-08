@@ -1,4 +1,4 @@
-import { patchEvent, postEvent, pullEventsByType, postImage, destroyEvent } from '../util/events';
+import { patchEvent, postEvent, pullEventsByType, postImage, destroyEvent, pullAllEvents } from '../util/events';
 export const RECEIVE_CURRENT_EVENT="RECEIVE_CURRENT_EVENT";
 export const RECEIVE_EVENT_ERRORS ="RECEIVE_EVENT_ERRORS"; 
 export const RECEIVE_EVENTS = "RECEIVE_EVENTS";
@@ -59,7 +59,11 @@ export const deleteEvent = (eventId, myId) => dispatch => {
     .then( event=> dispatch(removeEvent(event, myId)), err => dispatch(receiveEventErrors(err.responseJSON))); 
 }
 
-
+export const getAllEvents = () => dispatch => {
+  return (pullAllEvents()
+    .then(events => dispatch(receiveEvents(events)), err=> dispatch(receiveEventErrors(err.responseJSON))));
+}
+              
 export const getEventsByType = (col,val) => dispatch =>{
   if(col==='creator_id'){
     return (pullEventsByType(col,val)
@@ -67,6 +71,6 @@ export const getEventsByType = (col,val) => dispatch =>{
   }
   else{
     return (pullEventsByType(col,val)
-    .then(events => dispatch(receiveEvents(events)), err => dispatch(receiveEventErrors(err.responseJSON))));
+    .then(events => dispatch(receiveEvents(events)), err => dispatch(receiveEventErrors(err.responseJSON) ) ) );
   }
 }

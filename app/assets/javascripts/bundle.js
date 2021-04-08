@@ -131,7 +131,7 @@ var pullCategories = function pullCategories() {
 /*!************************************!*\
   !*** ./frontend/actions/events.js ***!
   \************************************/
-/*! exports provided: RECEIVE_CURRENT_EVENT, RECEIVE_EVENT_ERRORS, RECEIVE_EVENTS, RECEIVE_EVENTS_BY_USER, CLEAR_ERRORS, CLEAR_EVENTS, CLEAR_USER_EVENTS, REMOVE_EVENT, clearEvents, clearUserEvents, clearErrors, createEvent, updateEvent, deleteEvent, getEventsByType */
+/*! exports provided: RECEIVE_CURRENT_EVENT, RECEIVE_EVENT_ERRORS, RECEIVE_EVENTS, RECEIVE_EVENTS_BY_USER, CLEAR_ERRORS, CLEAR_EVENTS, CLEAR_USER_EVENTS, REMOVE_EVENT, clearEvents, clearUserEvents, clearErrors, createEvent, updateEvent, deleteEvent, getAllEvents, getEventsByType */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -150,6 +150,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createEvent", function() { return createEvent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateEvent", function() { return updateEvent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteEvent", function() { return deleteEvent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getAllEvents", function() { return getAllEvents; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getEventsByType", function() { return getEventsByType; });
 /* harmony import */ var _util_events__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/events */ "./frontend/util/events.js");
 
@@ -235,6 +236,15 @@ var deleteEvent = function deleteEvent(eventId, myId) {
   return function (dispatch) {
     return Object(_util_events__WEBPACK_IMPORTED_MODULE_0__["destroyEvent"])(eventId).then(function (event) {
       return dispatch(removeEvent(event, myId));
+    }, function (err) {
+      return dispatch(receiveEventErrors(err.responseJSON));
+    });
+  };
+};
+var getAllEvents = function getAllEvents() {
+  return function (dispatch) {
+    return Object(_util_events__WEBPACK_IMPORTED_MODULE_0__["pullAllEvents"])().then(function (events) {
+      return dispatch(receiveEvents(events));
     }, function (err) {
       return dispatch(receiveEventErrors(err.responseJSON));
     });
@@ -443,7 +453,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _create_events_details_event_form_container__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./create_events/details_event_form_container */ "./frontend/components/create_events/details_event_form_container.js");
 /* harmony import */ var _my_events_my_events_container__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./my_events/my_events_container */ "./frontend/components/my_events/my_events_container.js");
 /* harmony import */ var _error_error_page__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./error/error_page */ "./frontend/components/error/error_page.jsx");
-/* harmony import */ var _browse_events_browse_events_jsx__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./browse_events/browse_events.jsx */ "./frontend/components/browse_events/browse_events.jsx");
+/* harmony import */ var _browse_events_browse_events_container__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./browse_events/browse_events_container */ "./frontend/components/browse_events/browse_events_container.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -537,7 +547,7 @@ var App = /*#__PURE__*/function (_React$Component) {
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         exact: true,
         path: "/events/browse",
-        component: _browse_events_browse_events_jsx__WEBPACK_IMPORTED_MODULE_13__["default"]
+        component: _browse_events_browse_events_container__WEBPACK_IMPORTED_MODULE_13__["default"]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         exact: true,
         path: "/404",
@@ -568,6 +578,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -596,12 +608,133 @@ var BrowseEvents = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(BrowseEvents);
 
   function BrowseEvents(props) {
+    var _this;
+
     _classCallCheck(this, BrowseEvents);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+    _this.state = {
+      dateFilter: 'Any',
+      priceFilter: 'Any',
+      categoryFilter: 'Any',
+      events: _this.props.events,
+      categories: _this.props.categories
+    };
+    _this.createCategoryMenu = _this.createCategoryMenu.bind(_assertThisInitialized(_this));
+    _this.showFilterMenu = _this.showFilterMenu.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(BrowseEvents, [{
+    key: "setFilter",
+    value: function setFilter(filterType) {
+      var _this2 = this;
+
+      return function (e) {
+        var val = e.target.innerText;
+
+        if (val.includes('Any')) {
+          val = 'Any';
+        }
+
+        ;
+
+        _this2.setState(_defineProperty({}, filterType, val));
+
+        _this2.showMainMenu(e.currentTarget, val);
+      };
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.categoryMenu = document.getElementById('category-menu');
+      this.dateMenu = document.getElementById('date-menu');
+      this.priceMenu = document.getElementById('price-menu');
+    }
+  }, {
+    key: "showMainMenu",
+    value: function showMainMenu(e, val) {
+      e.style.display = "none";
+      var filter = val;
+      var id = e.id;
+
+      if (filter !== "Any") {
+        this.currentMenuEvent.classList.add('filter-selected');
+        this.currentMenuEvent.innerHTML = "".concat(filter);
+        this.currentMenuEvent.innerHTML += "<img id=\"".concat(id + 'x', "\" class=\"x\" onClick=\"{e => e.stopPropagation()}\" src=\"https://img.icons8.com/metro/26/3d64ff/delete-sign.png\"/>");
+      } else {
+        this.resetMenu.bind(this)();
+      }
+    }
+  }, {
+    key: "resetMenu",
+    value: function resetMenu() {
+      this.currentMenuEvent.classList.remove('filter-selected');
+
+      if (this.currentMenuEvent.id.toLowerCase().includes("category")) {
+        this.currentMenuEvent.innerHTML = "Category<img class=\"chevron\" src=\"https://img.icons8.com/metro/52/000000/chevron-right.png\"/>";
+        this.setState({
+          categoryFilter: "Any"
+        });
+      }
+
+      if (this.currentMenuEvent.id.toLowerCase().includes("date")) {
+        this.currentMenuEvent.innerHTML = "Date<img class=\"chevron\" src=\"https://img.icons8.com/metro/52/000000/chevron-right.png\"/>";
+        this.setState({
+          dateFilter: "Any"
+        });
+      }
+
+      if (this.currentMenuEvent.id.toLowerCase().includes("price")) {
+        this.currentMenuEvent.innerHTML = "Price<img class=\"chevron\" src=\"https://img.icons8.com/metro/52/000000/chevron-right.png\"/>";
+        this.setState({
+          priceFilter: "Any"
+        });
+      }
+    }
+  }, {
+    key: "showFilterMenu",
+    value: function showFilterMenu(e) {
+      var id = e.target.id;
+      this.currentMenuEvent = e.target;
+
+      if (e.target.classList.contains("chevron")) {
+        this.currentMenuEvent = e.target.parentElement;
+      }
+
+      if (id.includes('x')) {
+        this.currentMenuEvent = e.target.parentElement;
+        this.resetMenu.bind(this)();
+      } else {
+        switch (this.currentMenuEvent.id) {
+          case 'date-filter-value':
+            this.dateMenu.style.display = "unset";
+            break;
+
+          case 'category-filter-value':
+            this.categoryMenu.style.display = "unset";
+            break;
+
+          case 'price-filter-value':
+            this.priceMenu.style.display = "unset";
+            break;
+
+          default:
+            break;
+        }
+      }
+    }
+  }, {
+    key: "createCategoryMenu",
+    value: function createCategoryMenu() {
+      return this.props.categories.map(function (category, key) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          key: key,
+          className: "filter-menu-options"
+        }, category.name);
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -610,55 +743,70 @@ var BrowseEvents = /*#__PURE__*/function (_React$Component) {
         id: "filters"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "title"
-      }, "Filters"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Filters"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         id: "date-menu",
-        className: "filter-menu"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "filter-menu",
+        onClick: this.setFilter('dateFilter')
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "filter-menu-options"
-      }, "Today"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }, "Any day"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "filter-menu-options"
-      }, "Tomorrow"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }, "Pick a date..."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "filter-menu-options"
-      }, "This weekend"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }, "Today"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "filter-menu-options"
-      }, "This week"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }, "Tomorrow"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "filter-menu-options"
-      }, "Next week"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }, "This weekend"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "filter-menu-options"
-      }, "This month"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }, "This week"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "filter-menu-options"
-      }, "Next month")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Next week"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        className: "filter-menu-options"
+      }, "This month"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        className: "filter-menu-options"
+      }, "Next month")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         id: "category-menu",
-        className: "filter-menu"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "filter-menu",
+        onClick: this.setFilter('categoryFilter')
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "filter-menu-options"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "filter-menu-options"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "filter-menu-options"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Any category"), this.createCategoryMenu()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         id: "price-menu",
-        className: "filter-menu"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "filter-menu",
+        onClick: this.setFilter('priceFilter')
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "filter-menu-options"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }, "Any price"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "filter-menu-options"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }, "Free"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "filter-menu-options"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Paid")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "date-filter",
-        className: "filter"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Date", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "filter",
+        onClick: this.showFilterMenu
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        id: "date-filter-value"
+      }, "Date", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "chevron",
         src: "https://img.icons8.com/metro/52/000000/chevron-right.png"
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "category-filter",
-        className: "filter"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Category", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "filter",
+        onClick: this.showFilterMenu
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        id: "category-filter-value"
+      }, "Category", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "chevron",
         src: "https://img.icons8.com/metro/52/000000/chevron-right.png"
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "price-filter",
-        className: "filter"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Price", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "filter",
+        onClick: this.showFilterMenu
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        id: "price-filter-value"
+      }, "Price", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "chevron",
         src: "https://img.icons8.com/metro/52/000000/chevron-right.png"
       })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "events-list"
@@ -674,6 +822,43 @@ var BrowseEvents = /*#__PURE__*/function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (BrowseEvents);
+
+/***/ }),
+
+/***/ "./frontend/components/browse_events/browse_events_container.js":
+/*!**********************************************************************!*\
+  !*** ./frontend/components/browse_events/browse_events_container.js ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_categories__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/categories */ "./frontend/actions/categories.js");
+/* harmony import */ var _actions_events__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/events */ "./frontend/actions/events.js");
+/* harmony import */ var _browse_events__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./browse_events */ "./frontend/components/browse_events/browse_events.jsx");
+
+
+
+
+
+var mSTP = function mSTP(state) {
+  return {
+    events: state.entities.events,
+    categories: Object.values(state.entities.categories)
+  };
+};
+
+var mDTP = function mDTP(dispatch) {
+  return {
+    getEvents: dispatch(Object(_actions_events__WEBPACK_IMPORTED_MODULE_2__["getAllEvents"])()),
+    getCategories: dispatch(Object(_actions_categories__WEBPACK_IMPORTED_MODULE_1__["pullCategories"])())
+  };
+};
+
+var BrowseEventsContainer = Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_browse_events__WEBPACK_IMPORTED_MODULE_3__["default"]);
+/* harmony default export */ __webpack_exports__["default"] = (BrowseEventsContainer);
 
 /***/ }),
 
@@ -3335,7 +3520,7 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         id: "main-header",
         className: "header"
       }, "online events"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "#browseEvents",
+        to: "/events/browse",
         className: "header link"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Browse events  \u2192")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "feed-image"
@@ -4426,7 +4611,7 @@ var getCategories = function getCategories() {
 /*!*********************************!*\
   !*** ./frontend/util/events.js ***!
   \*********************************/
-/*! exports provided: postEvent, patchEvent, destroyEvent, pullEventsByType */
+/*! exports provided: postEvent, patchEvent, destroyEvent, pullAllEvents, pullEventsByType */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4434,6 +4619,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "postEvent", function() { return postEvent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "patchEvent", function() { return patchEvent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "destroyEvent", function() { return destroyEvent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pullAllEvents", function() { return pullAllEvents; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pullEventsByType", function() { return pullEventsByType; });
 var postEvent = function postEvent(event) {
   return $.ajax({
@@ -4467,6 +4653,12 @@ var destroyEvent = function destroyEvent(eventId) {
   return $.ajax({
     method: "DELETE",
     url: "/api/events/".concat(eventId)
+  });
+};
+var pullAllEvents = function pullAllEvents() {
+  return $.ajax({
+    method: "GET",
+    url: '/api/events'
   });
 };
 var pullEventsByType = function pullEventsByType(column, value) {

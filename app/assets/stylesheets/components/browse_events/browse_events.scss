@@ -67,8 +67,18 @@
 
 
 #browse-events{
+  .x{
+    height: 24px;
+    width: 24px;
+    padding: 8px;
+    border-radius: 50%;
+    color: $radio-button-checked-color;
+    &:hover{
+      background-color: $search-bar-color;
+    }
+  }
   #date-menu{
-
+    display: none;
   }
   #category-menu{
     display: none;
@@ -93,7 +103,9 @@
       border-radius: 4px;
       padding: 0 8%;
       margin-top: 16px;
+      font-size: 14px;
       &:not(:first-child){
+        font-weight: lighter;
         &:hover{
           background-color: #f2f0f6;
           cursor: pointer; 
@@ -103,6 +115,7 @@
         background: rgb(54,89,227);
         background: linear-gradient(90deg, rgba(54,89,227,1) 1.5%, rgba(255,255,255,1) 1.5%);
         box-shadow: 0 4px 12px -4px rgba(46,55,77,.12);
+        font-weight: normal;
         &:hover{
           cursor: pointer; 
           box-shadow: 0 4px 12px 0 rgba(54,89,227,.16);
@@ -111,7 +124,13 @@
   }
 }
 
-#events-list{
-
+.filter-selected{
+  background: rgb(54,89,227);
+  background: linear-gradient(90deg, rgba(54,89,227,1) 1.5%, rgba(255,255,255,1) 1.5%);
+  box-shadow: 0 4px 12px -4px rgba(46,55,77,.12);
+  font-weight: normal;
+  &:hover{
+    cursor: pointer; 
+    box-shadow: 0 4px 12px 0 rgba(54,89,227,.16);
+  }
 }
-

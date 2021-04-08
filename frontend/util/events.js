@@ -31,10 +31,17 @@ export const destroyEvent = eventId => {
   });
 }
 
+export const pullAllEvents = () => {
+  return $.ajax({
+    method: "GET", 
+    url: '/api/events'
+  });
+}
+
 export const pullEventsByType = (column, value) =>{
   return $.ajax({
     method: "GET",
     url: '/api/events/getByType',
     data: {column, value}
-  })
+  });
 }
