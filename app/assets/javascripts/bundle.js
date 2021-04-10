@@ -622,6 +622,7 @@ var BrowseEvents = /*#__PURE__*/function (_React$Component) {
     };
     _this.createCategoryMenu = _this.createCategoryMenu.bind(_assertThisInitialized(_this));
     _this.showFilterMenu = _this.showFilterMenu.bind(_assertThisInitialized(_this));
+    _this.createEventsList = _this.createEventsList.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -647,9 +648,16 @@ var BrowseEvents = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {
+      var _this3 = this;
+
       this.categoryMenu = document.getElementById('category-menu');
       this.dateMenu = document.getElementById('date-menu');
       this.priceMenu = document.getElementById('price-menu');
+      this.props.getEvents().then(function () {
+        return _this3.setState({
+          events: _this3.props.events
+        });
+      });
     }
   }, {
     key: "showMainMenu",
@@ -735,6 +743,24 @@ var BrowseEvents = /*#__PURE__*/function (_React$Component) {
       });
     }
   }, {
+    key: "createEventsList",
+    value: function createEventsList() {
+      return this.state.events.map(function (event, key) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          key: key
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "events-left"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, event.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, event.start)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "events-right"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: event.imageUrl,
+          alt: "event-img"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "like-button"
+        }, " oteu ")));
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -809,12 +835,27 @@ var BrowseEvents = /*#__PURE__*/function (_React$Component) {
         className: "chevron",
         src: "https://img.icons8.com/metro/52/000000/chevron-right.png"
       })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "events-list"
+        id: "events-list-wrap"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "search"
+        id: "location-filter-wrap"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "location-filter"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "text"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Search"))));
+        type: "text",
+        placeholder: "Search events"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        id: "location-select"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "All"
+      }, "All"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "ONLINE"
+      }, "Online"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "TBA"
+      }, "To be announced"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "VENUE"
+      }, "Venue"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Search")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        id: "events-list"
+      }, this.createEventsList())));
     }
   }]);
 
@@ -845,15 +886,19 @@ __webpack_require__.r(__webpack_exports__);
 
 var mSTP = function mSTP(state) {
   return {
-    events: state.entities.events,
+    events: Object.values(state.entities.events),
     categories: Object.values(state.entities.categories)
   };
 };
 
 var mDTP = function mDTP(dispatch) {
   return {
-    getEvents: dispatch(Object(_actions_events__WEBPACK_IMPORTED_MODULE_2__["getAllEvents"])()),
-    getCategories: dispatch(Object(_actions_categories__WEBPACK_IMPORTED_MODULE_1__["pullCategories"])())
+    getEvents: function getEvents() {
+      return dispatch(Object(_actions_events__WEBPACK_IMPORTED_MODULE_2__["getAllEvents"])());
+    },
+    getCategories: function getCategories() {
+      return dispatch(Object(_actions_categories__WEBPACK_IMPORTED_MODULE_1__["pullCategories"])());
+    }
   };
 };
 

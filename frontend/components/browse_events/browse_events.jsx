@@ -15,6 +15,7 @@ class BrowseEvents extends React.Component{
 
     this.createCategoryMenu = this.createCategoryMenu.bind(this); 
     this.showFilterMenu = this.showFilterMenu.bind(this);
+    this.createEventsList = this.createEventsList.bind(this); 
   }
   setFilter(filterType){
     return (e)=> {
@@ -28,6 +29,7 @@ class BrowseEvents extends React.Component{
     this.categoryMenu = document.getElementById('category-menu');
     this.dateMenu = document.getElementById('date-menu');
     this.priceMenu = document.getElementById('price-menu');
+    this.props.getEvents().then( ()=>this.setState({events: this.props.events})); 
   }
   showMainMenu(e, val){
     e.style.display = "none"; 
@@ -58,7 +60,6 @@ class BrowseEvents extends React.Component{
     }
   }
   showFilterMenu(e){
-
     let id=e.target.id;
     this.currentMenuEvent = e.target;
     if(e.target.classList.contains("chevron")){
@@ -85,12 +86,27 @@ class BrowseEvents extends React.Component{
     }
   }
   createCategoryMenu(){
-    return this.props.categories.map( (category,key) => {
+    return this.props.categories.map( (category, key) => {
       return <li key={key} className="filter-menu-options">
                   {category.name}
                 </li>
-    })
+    });
   }
+  createEventsList(){
+    return this.state.events.map( (event, key) => {
+      return <li key={key}>
+        <div id="events-left">
+          <div>{event.title}</div>
+          <div>{event.start}</div>
+        </div>
+        <div id="events-right">
+          <img src={event.imageUrl} alt="event-img" />
+          <div id="like-button"> oteu </div>
+        </div>
+      </li>
+    });
+  }
+  
   render(){
     return (
       <div id="browse-events">
@@ -120,11 +136,22 @@ class BrowseEvents extends React.Component{
           <div id="category-filter" className="filter" onClick={this.showFilterMenu}><span id="category-filter-value">Category<img className="chevron" src="https://img.icons8.com/metro/52/000000/chevron-right.png"/></span></div>
           <div id="price-filter" className="filter" onClick={this.showFilterMenu}><span id="price-filter-value">Price<img className="chevron" src="https://img.icons8.com/metro/52/000000/chevron-right.png"/></span></div>
         </div>
-        <div id="events-list">
-          <div id="search">
-            <input type="text"/>
+        <div id="events-list-wrap">
+          <div id="location-filter-wrap">
+            <div id="location-filter">
+              <input type="text" placeholder="Search events"/>
+              <select id="location-select">
+                <option value="All">All</option>
+                <option value="ONLINE">Online</option>
+                <option value="TBA">To be announced</option>
+                <option value="VENUE">Venue</option>
+              </select>
+            </div>
             <button>Search</button>
           </div>
+          <ul id="events-list">
+            {this.createEventsList()}
+          </ul>
         </div>
       </div>
     )

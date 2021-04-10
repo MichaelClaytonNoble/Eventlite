@@ -7,13 +7,13 @@ import BrowseEvents from './browse_events';
 
 
 const mSTP = state => ({
-  events: state.entities.events,
+  events: Object.values(state.entities.events),
   categories: Object.values(state.entities.categories),
 })
 
 const mDTP = dispatch => ({
-  getEvents: dispatch(getAllEvents()),
-  getCategories: dispatch(pullCategories()),
+  getEvents: ()=>dispatch(getAllEvents()),
+  getCategories: ()=>dispatch(pullCategories()),
 })
 
 const BrowseEventsContainer = connect(mSTP, mDTP)(BrowseEvents);
