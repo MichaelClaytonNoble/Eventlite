@@ -617,48 +617,62 @@ var BrowseEvents = /*#__PURE__*/function (_React$Component) {
       dateFilter: 'Any',
       priceFilter: 'Any',
       categoryFilter: 'Any',
+      categoryIdFilter: 'Any',
+      searchFilter: "",
       events: _this.props.events,
-      categories: _this.props.categories
+      categories: _this.props.categories,
+      loading: true
     };
     _this.createCategoryMenu = _this.createCategoryMenu.bind(_assertThisInitialized(_this));
     _this.showFilterMenu = _this.showFilterMenu.bind(_assertThisInitialized(_this));
     _this.createEventsList = _this.createEventsList.bind(_assertThisInitialized(_this));
+    _this.filterEvents = _this.filterEvents.bind(_assertThisInitialized(_this));
+    _this.filter = _this.filter.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(BrowseEvents, [{
-    key: "setFilter",
-    value: function setFilter(filterType) {
-      var _this2 = this;
-
-      return function (e) {
-        var val = e.target.innerText;
-
-        if (val.includes('Any')) {
-          val = 'Any';
-        }
-
-        ;
-
-        _this2.setState(_defineProperty({}, filterType, val));
-
-        _this2.showMainMenu(e.currentTarget, val);
-      };
-    }
-  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
-      var _this3 = this;
+      var _this2 = this;
 
       this.categoryMenu = document.getElementById('category-menu');
       this.dateMenu = document.getElementById('date-menu');
       this.priceMenu = document.getElementById('price-menu');
       this.props.getEvents().then(function () {
-        return _this3.setState({
-          events: _this3.props.events
+        return _this2.setState({
+          events: _this2.props.events
+        });
+      });
+      this.props.getCategories().then(function () {
+        return _this2.setState({
+          categories: _this2.props.categories
         });
       });
     }
+  }, {
+    key: "componentWillMount",
+    value: function componentWillMount() {
+      this.props.getEvents();
+      this.props.getCategories();
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      if (this.state.loading) {
+        this.filterEvents();
+        this.setState({
+          loading: false
+        });
+      }
+
+      if (prevProps.events !== this.props.events) {
+        this.setState({
+          events: this.props.myEvents
+        });
+      }
+    } //display filter menu 
+
   }, {
     key: "showMainMenu",
     value: function showMainMenu(e, val) {
@@ -682,21 +696,25 @@ var BrowseEvents = /*#__PURE__*/function (_React$Component) {
       if (this.currentMenuEvent.id.toLowerCase().includes("category")) {
         this.currentMenuEvent.innerHTML = "Category<img class=\"chevron\" src=\"https://img.icons8.com/metro/52/000000/chevron-right.png\"/>";
         this.setState({
-          categoryFilter: "Any"
+          categoryFilter: "Any",
+          categoryIdFilter: "Any",
+          loading: true
         });
       }
 
       if (this.currentMenuEvent.id.toLowerCase().includes("date")) {
         this.currentMenuEvent.innerHTML = "Date<img class=\"chevron\" src=\"https://img.icons8.com/metro/52/000000/chevron-right.png\"/>";
         this.setState({
-          dateFilter: "Any"
+          dateFilter: "Any",
+          loading: true
         });
       }
 
       if (this.currentMenuEvent.id.toLowerCase().includes("price")) {
         this.currentMenuEvent.innerHTML = "Price<img class=\"chevron\" src=\"https://img.icons8.com/metro/52/000000/chevron-right.png\"/>";
         this.setState({
-          priceFilter: "Any"
+          priceFilter: "Any",
+          loading: true
         });
       }
     }
@@ -738,26 +756,110 @@ var BrowseEvents = /*#__PURE__*/function (_React$Component) {
       return this.props.categories.map(function (category, key) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           key: key,
-          className: "filter-menu-options"
+          className: "filter-menu-options",
+          "data-category_id": category.id
         }, category.name);
+      });
+    } //filter the events
+
+  }, {
+    key: "setFilter",
+    value: function setFilter(filterType) {
+      var _this3 = this;
+
+      return function (e) {
+        var val = e.target.innerText;
+
+        if (val.includes('Any')) {
+          val = 'Any';
+        } else {
+          if (filterType === 'categoryFilter') {
+            var _this3$setState;
+
+            var categoryId = parseInt(e.target.dataset.category_id);
+
+            _this3.setState((_this3$setState = {}, _defineProperty(_this3$setState, filterType, val), _defineProperty(_this3$setState, "loading", true), _defineProperty(_this3$setState, "categoryIdFilter", categoryId), _this3$setState));
+          } else {
+            var _this3$setState2;
+
+            _this3.setState((_this3$setState2 = {}, _defineProperty(_this3$setState2, filterType, val), _defineProperty(_this3$setState2, "loading", true), _this3$setState2));
+          }
+        }
+
+        _this3.showMainMenu(e.currentTarget, val);
+      };
+    }
+  }, {
+    key: "filter",
+    value: function filter(field) {
+      var _this4 = this;
+
+      return function (e) {
+        var _this4$setState;
+
+        _this4.setState((_this4$setState = {}, _defineProperty(_this4$setState, field, e.target.value), _defineProperty(_this4$setState, "loading", true), _this4$setState));
+      };
+    }
+  }, {
+    key: "filterEvents",
+    value: function filterEvents() {
+      var _this5 = this;
+
+      var relevantEvents = this.props.events;
+
+      if (this.state.dateFilter !== "Any") {
+        relevantEvents = relevantEvents.filter(function (event) {
+          return event.organizer === _this5.state.dateFilter;
+        });
+      }
+
+      if (this.state.categoryFilter !== "Any") {
+        relevantEvents = relevantEvents.filter(function (event) {
+          return event.category_id === _this5.state.categoryIdFilter;
+        });
+      }
+
+      if (this.state.searchFilter !== "") {
+        relevantEvents = relevantEvents.filter(function (event) {
+          return event.title.toLowerCase().includes(_this5.state.searchFilter.trim().toLowerCase());
+        });
+      } // if(this.state.filterPrice !== "All"){
+      //   relevantEvents = relevantEvents.filter( event=> event.price === this.state.filterStatus);
+      // }
+
+
+      this.setState({
+        events: relevantEvents,
+        loading: true
       });
     }
   }, {
     key: "createEventsList",
     value: function createEventsList() {
+      if (!this.state.events) {
+        return [];
+      }
+
       return this.state.events.map(function (event, key) {
+        var img = event.imageUrl || window.placeholder;
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           key: key
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           id: "events-left"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, event.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, event.start)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "title"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, event.title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "start"
+        }, event.start)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           id: "events-right"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "event-img"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-          src: event.imageUrl,
+          src: img,
           alt: "event-img"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           id: "like-button"
-        }, " oteu ")));
+        }, "\u2661")));
       });
     }
   }, {
@@ -796,7 +898,8 @@ var BrowseEvents = /*#__PURE__*/function (_React$Component) {
         className: "filter-menu",
         onClick: this.setFilter('categoryFilter')
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        className: "filter-menu-options"
+        className: "filter-menu-options",
+        "data-category_id": "Any"
       }, "Any category"), this.createCategoryMenu()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         id: "price-menu",
         className: "filter-menu",
@@ -840,10 +943,23 @@ var BrowseEvents = /*#__PURE__*/function (_React$Component) {
         id: "location-filter-wrap"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "location-filter"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "search-icon"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-search"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
-        placeholder: "Search events"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        placeholder: "Search events",
+        value: this.state.searchFilter,
+        onChange: this.filter('searchFilter')
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "search-icon"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        list: "location-select",
+        name: "locations",
+        id: "locations",
+        onChange: this.handleLocations
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("datalist", {
         id: "location-select"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "All"
@@ -851,11 +967,13 @@ var BrowseEvents = /*#__PURE__*/function (_React$Component) {
         value: "ONLINE"
       }, "Online"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "TBA"
-      }, "To be announced"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "VENUE"
-      }, "Venue"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Search")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+      })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Search")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         id: "events-list"
-      }, this.createEventsList())));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "border"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null)), this.createEventsList())));
     }
   }]);
 

@@ -50,7 +50,7 @@
   margin-bottom: 0px; 
 }
 
-hr{
+#create-event-form hr, #details-event-info-form hr{
   $color: $icon-color;
   min-width: 860px;
   transform: translateX(-120px);

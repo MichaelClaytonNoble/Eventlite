@@ -11,11 +11,9 @@
     grid-template-columns: 320px 55%;
   }
   @media screen and (max-width: 1450px){
-    grid-template-columns: 320px 50%;
+    grid-template-columns: 320px 60%;
   }
-  @media screen and (max-width: 1000px){
-    grid-template-columns: 320px 55%;
-  }
+
   position: absolute;
   left: 0;
   width: 100%;
@@ -25,6 +23,8 @@
 }
 #browse-events #filters{
   background-color: $search-bar-color;
+  min-width: 320px;
+  max-width: 320px;
   height: 100%;
     -webkit-box-shadow: inset 0px 0px 10px 2px $box-shadow-color; 
   box-shadow: inset 0px 0px 10px 2px $box-shadow-color;
@@ -146,15 +146,16 @@
 
 
 #events-list-wrap{
-  margin-left: 8%;
+  width: 100%;
 }
 
 #location-filter-wrap{
   width: 100%;
+  height: 100px;
+  margin: auto;
+  padding: 16px;
   display: flex;
   flex-direction: row;
-  height: 100px;
-  border-bottom: 2px solid #e4e3e680;
   justify-content: space-between;
   button{
     color: #39364f;
@@ -166,30 +167,109 @@
     font-size: 14px;
   }
 }
+#location-filter #search-icon {
+  i{
+    font-size: 17px;
+  }
+}
 
 #location-filter{
   display: flex;
   flex-direction: column;
   justify-content:space-evenly ;
   width: 70%;
+  input{
+    margin-left: 10px;
+  }
+}
+#location-filter{
+  #locations{
+    width: 70%;
+  }
 }
 #location-select{
-  display: flex;
-  flex-direction: column;
   color: #39364f;
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
 
-#events-list-wrap li{
-  height: 200px;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+#events-list-wrap {
+  width: 90%;
+  margin: 0 auto; 
 
+  #events-list{
+    #border{
+      padding: 0 16px;
+      width: 100%;
+      margin: auto auto 10px auto;
+      hr{
+        padding: 0;
+        margin: auto;
+        height: 2px;
+        background-color: #e4e3e680;
+        border: none;
+      }
+    }
+  }
+  li{
+    width: 100%;
+    height: 160px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 16px; 
+
+  }
+
+}
+
+#events-list-wrap{
   #events-left{
     display: flex; 
     flex-direction: column;
+    width: 50%;
+  }
+  #events-right{
+    display: flex;
+    flex-direction: column; 
+    width: 50%;
+    text-align: right;
+    position: relative;
+    #event-img{
+      position: relative;
+      top: 0px;
+      width: 220px;
+      text-align: center;
+      align-self: flex-end;
+    }
+    img{
+      object-fit:scale-down;
+      height: 110px;
+      max-width: 220px;
+      margin: auto;
+      &:hover{
+      cursor: pointer;
+    }
+    }
+    #like-button{
+      color: red; 
+    }
+  }
+}
+
+#events-list-wrap #events-left{
+  #title{
+    color: #39364f;
+    font-size: 1.225rem;
+    line-height: 1.5rem;
+    span:hover{
+      cursor: pointer;
+    }
+  }
+  #start{
+    color: $eventbrite-orange;
+    font-size: .975rem;
+    line-height: 1.25rem;
+    padding: 8px 0px 4px 0px;
   }
 }
