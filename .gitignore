@@ -5,7 +5,9 @@
 
 # Created by https://www.toptal.com/developers/gitignore/api/react,ruby,rails
 # Edit at https://www.toptal.com/developers/gitignore?templates=react,ruby,rails
-
+app/assets/javascripts/bundle.js
+app/assets/javascripts/bundle.js.map
+log/development.log
 ### Rails ###
 *.rbc
 capybara-*.html
