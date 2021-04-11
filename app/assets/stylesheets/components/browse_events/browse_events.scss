@@ -178,8 +178,11 @@
   flex-direction: column;
   justify-content:space-evenly ;
   width: 70%;
-  input{
+  input, select{
     margin-left: 10px;
+    border: none;
+      font-size: 1.25rem;
+  line-height: 1.75rem;
   }
 }
 #location-filter{

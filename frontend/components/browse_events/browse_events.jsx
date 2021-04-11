@@ -10,6 +10,7 @@ class BrowseEvents extends React.Component{
       priceFilter: 'Any',
       categoryFilter: 'Any',
       categoryIdFilter: 'Any',
+      locationFilter: "Any",
       searchFilter: "",
       events: this.props.events,
       categories: this.props.categories,
@@ -20,7 +21,9 @@ class BrowseEvents extends React.Component{
     this.showFilterMenu = this.showFilterMenu.bind(this);
     this.createEventsList = this.createEventsList.bind(this); 
     this.filterEvents=this.filterEvents.bind(this); 
-    this.filter = this.filter.bind(this); 
+    this.filter = this.filter.bind(this);
+    this.filterEventsByDate = this.filterEventsByDate.bind(this);
+    this.getCurrentDateTime = this.getCurrentDateTime.bind(this); 
   }
 
    componentDidMount(){
@@ -130,17 +133,24 @@ class BrowseEvents extends React.Component{
     }
   }
   filter(field){
+    if(field === 'loading'){
+      return (e)=>{
+        e.preventDefault(); 
+        this.setState({[field]: true})
+      }
+    }
     return (e)=>{
-      this.setState({[field]: e.target.value, loading: true})
+      this.setState({[field]: e.target.value})
     }
   }
   filterEvents(){
     let relevantEvents = this.props.events;
-    if(this.state.dateFilter!=="Any"){
-      relevantEvents = relevantEvents.filter( (event)=> event.organizer === this.state.dateFilter);
-    }
+
     if(this.state.categoryFilter !== "Any"){
       relevantEvents = relevantEvents.filter( event=> event.category_id === this.state.categoryIdFilter);
+    }
+    if(this.state.locationFilter !== "Any"){
+      relevantEvents = relevantEvents.filter( event=> event.location === this.state.locationFilter);
     }
     if(this.state.searchFilter !== ""){
       relevantEvents = relevantEvents.filter( event => {
@@ -150,8 +160,58 @@ class BrowseEvents extends React.Component{
     // if(this.state.filterPrice !== "All"){
     //   relevantEvents = relevantEvents.filter( event=> event.price === this.state.filterStatus);
     // }
-
+    if(this.state.dateFilter !== "Any" && !this.state.dateFilter.includes("Pick")){
+      relevantEvents = this.filterEventsByDate(relevantEvents);
+      console.log(relevantEvents)
+    }
     this.setState({events: relevantEvents, loading: true});
+  }
+  filterEventsByDate(relevantEvents){
+
+    console.log("today", this.getCurrentDateTime());
+    switch(this.state.dateFilter){
+      case 'Today':
+        relevantEvents = relevantEvents.filter( event => {
+          let date = this.convertDateToLocalAsJSON(new Date(event.start.slice(0,10)));
+          console.log(date); 
+          // let today = new Date().toJSON().slice(0,10);
+          let today = this.getCurrentDateTime();
+          return date === today;
+        });
+        break;
+      case 'Tomorrow':
+        relevantEvents = relevantEvents.filter( event => {
+          let date = event.start.slice(0,10);
+          let today = new Date()
+          today.setDate(new Date().getDate()+1);
+          today = today.toJSON().slice(0,10);
+          console.log(today);
+          return date === today;
+        });
+        break;
+      case 'This weekend':
+        break;
+      case 'This week':
+        break;
+      case 'Next week':
+        break;
+      case 'Next week':
+        break;
+      case 'This month':
+        break;
+      case 'Next month':
+        break;
+      default:
+        break;
+    }
+    return relevantEvents;
+  }
+  convertDateToLocalAsJSON(date){
+    return (date.toJSON(), new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toJSON()).slice(0,10);
+  }
+
+  getCurrentDateTime(){
+    return this.convertDateToLocalAsJSON(new Date()).slice(0,10);
   }
   createEventsList(){
     if(!this.state.events){return []}
@@ -200,24 +260,27 @@ class BrowseEvents extends React.Component{
           <div id="price-filter" className="filter" onClick={this.showFilterMenu}><span id="price-filter-value">Price<img className="chevron" src="https://img.icons8.com/metro/52/000000/chevron-right.png"/></span></div>
         </div>
         <div id="events-list-wrap">
+              <form onSubmit={this.filter('loading')}>
           <div id="location-filter-wrap">
             <div id="location-filter">
-              <div id="search-icon">
-                <i className="fas fa-search"></i>
-                <input type="text" placeholder="Search events" value={this.state.searchFilter} onChange={this.filter('searchFilter')}/>
-              </div>
-              <div id="search-icon">
-                <input list="location-select" name="locations" id="locations" onChange={this.handleLocations}/>
-                <datalist id="location-select">
-                  <option value="All">All</option>
-                  <option value="ONLINE">Online</option>
-                  <option value="TBA"></option>
-                  <option value="VENUE"></option>
-                </datalist>
-              </div>
+                <div id="search-icon">
+                  <i className="fas fa-search"></i>
+                  <input type="text" placeholder="Search events" value={this.state.searchFilter} onChange={this.filter('searchFilter')}/>
+                </div>
+                <div id="search-icon">
+                  <i className="fas fa-map-marker-alt"></i>
+                  {/* <input list="location-select" name="locations" id="locations" onChange={this.filter('locationFilter')} value={this.state.location}/> */}
+                  <select id="location-select" onChange={this.filter('locationFilter')} value={this.state.locationFilter}>
+                    <option value="Any">Any</option>
+                    <option value="ONLINE">Online</option>
+                    <option value="TBA">To be announced</option>
+                    <option value="VENUE">Venue</option>
+                  </select>
+                </div>
             </div>
             <button>Search</button>
           </div>
+              </form>
           <ul id="events-list">
             <div id="border"><hr /></div>
             {this.createEventsList()}

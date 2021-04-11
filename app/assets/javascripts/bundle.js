@@ -618,6 +618,7 @@ var BrowseEvents = /*#__PURE__*/function (_React$Component) {
       priceFilter: 'Any',
       categoryFilter: 'Any',
       categoryIdFilter: 'Any',
+      locationFilter: "Any",
       searchFilter: "",
       events: _this.props.events,
       categories: _this.props.categories,
@@ -628,6 +629,8 @@ var BrowseEvents = /*#__PURE__*/function (_React$Component) {
     _this.createEventsList = _this.createEventsList.bind(_assertThisInitialized(_this));
     _this.filterEvents = _this.filterEvents.bind(_assertThisInitialized(_this));
     _this.filter = _this.filter.bind(_assertThisInitialized(_this));
+    _this.filterEventsByDate = _this.filterEventsByDate.bind(_assertThisInitialized(_this));
+    _this.getCurrentDateTime = _this.getCurrentDateTime.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -794,10 +797,16 @@ var BrowseEvents = /*#__PURE__*/function (_React$Component) {
     value: function filter(field) {
       var _this4 = this;
 
-      return function (e) {
-        var _this4$setState;
+      if (field === 'loading') {
+        return function (e) {
+          e.preventDefault();
 
-        _this4.setState((_this4$setState = {}, _defineProperty(_this4$setState, field, e.target.value), _defineProperty(_this4$setState, "loading", true), _this4$setState));
+          _this4.setState(_defineProperty({}, field, true));
+        };
+      }
+
+      return function (e) {
+        _this4.setState(_defineProperty({}, field, e.target.value));
       };
     }
   }, {
@@ -807,15 +816,15 @@ var BrowseEvents = /*#__PURE__*/function (_React$Component) {
 
       var relevantEvents = this.props.events;
 
-      if (this.state.dateFilter !== "Any") {
-        relevantEvents = relevantEvents.filter(function (event) {
-          return event.organizer === _this5.state.dateFilter;
-        });
-      }
-
       if (this.state.categoryFilter !== "Any") {
         relevantEvents = relevantEvents.filter(function (event) {
           return event.category_id === _this5.state.categoryIdFilter;
+        });
+      }
+
+      if (this.state.locationFilter !== "Any") {
+        relevantEvents = relevantEvents.filter(function (event) {
+          return event.location === _this5.state.locationFilter;
         });
       }
 
@@ -828,10 +837,80 @@ var BrowseEvents = /*#__PURE__*/function (_React$Component) {
       // }
 
 
+      if (this.state.dateFilter !== "Any" && !this.state.dateFilter.includes("Pick")) {
+        relevantEvents = this.filterEventsByDate(relevantEvents);
+        console.log(relevantEvents);
+      }
+
       this.setState({
         events: relevantEvents,
         loading: true
       });
+    }
+  }, {
+    key: "filterEventsByDate",
+    value: function filterEventsByDate(relevantEvents) {
+      var _this6 = this;
+
+      console.log("today", this.getCurrentDateTime());
+
+      switch (this.state.dateFilter) {
+        case 'Today':
+          relevantEvents = relevantEvents.filter(function (event) {
+            var date = _this6.convertDateToLocalAsJSON(new Date(event.start.slice(0, 10)));
+
+            console.log(date); // let today = new Date().toJSON().slice(0,10);
+
+            var today = _this6.getCurrentDateTime();
+
+            return date === today;
+          });
+          break;
+
+        case 'Tomorrow':
+          relevantEvents = relevantEvents.filter(function (event) {
+            var date = event.start.slice(0, 10);
+            var today = new Date();
+            today.setDate(new Date().getDate() + 1);
+            today = today.toJSON().slice(0, 10);
+            console.log(today);
+            return date === today;
+          });
+          break;
+
+        case 'This weekend':
+          break;
+
+        case 'This week':
+          break;
+
+        case 'Next week':
+          break;
+
+        case 'Next week':
+          break;
+
+        case 'This month':
+          break;
+
+        case 'Next month':
+          break;
+
+        default:
+          break;
+      }
+
+      return relevantEvents;
+    }
+  }, {
+    key: "convertDateToLocalAsJSON",
+    value: function convertDateToLocalAsJSON(date) {
+      return (date.toJSON(), new Date(date.getTime() - date.getTimezoneOffset() * 60000).toJSON()).slice(0, 10);
+    }
+  }, {
+    key: "getCurrentDateTime",
+    value: function getCurrentDateTime() {
+      return this.convertDateToLocalAsJSON(new Date()).slice(0, 10);
     }
   }, {
     key: "createEventsList",
@@ -939,6 +1018,8 @@ var BrowseEvents = /*#__PURE__*/function (_React$Component) {
         src: "https://img.icons8.com/metro/52/000000/chevron-right.png"
       })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "events-list-wrap"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        onSubmit: this.filter('loading')
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "location-filter-wrap"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -954,22 +1035,21 @@ var BrowseEvents = /*#__PURE__*/function (_React$Component) {
         onChange: this.filter('searchFilter')
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "search-icon"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        list: "location-select",
-        name: "locations",
-        id: "locations",
-        onChange: this.handleLocations
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("datalist", {
-        id: "location-select"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-map-marker-alt"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        id: "location-select",
+        onChange: this.filter('locationFilter'),
+        value: this.state.locationFilter
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "All"
-      }, "All"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Any"
+      }, "Any"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "ONLINE"
       }, "Online"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "TBA"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, "To be announced"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "VENUE"
-      })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Search")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+      }, "Venue")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Search"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         id: "events-list"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "border"

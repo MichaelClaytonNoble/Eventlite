@@ -31,18 +31,62 @@ Event.destroy_all;
 
 title = 'comming soon...'
 description ='To city near you'
-(0...30).each do |i|
-  Event.create!({id: i+1, title: title, 
+j = 0;
+(0...20).each do |i|
+  Event.create!({id: j+1, title: title, 
   description: description, 
-  category_id: 4, 
+  category_id: 1, 
   location: "ONLINE", 
   address: '', 
   venue: '', 
   recurring: false, 
-  start: Date.today + 1, 
-  end: Date.today + 10, 
+  start: Date.today + rand(1...10), 
+  end: Date.today + 11, 
   timezone: 'PST', 
   creator_id: 1})
+  j+=1
+end
+(0...20).each do |i|
+  Event.create!({id: j+1, title: title, 
+  description: description, 
+  category_id: 2, 
+  location: "TBA", 
+  address: '', 
+  venue: '', 
+  recurring: false, 
+  start: Date.today + rand(10...20), 
+  end: Date.today + 21, 
+  timezone: 'PST', 
+  creator_id: 1})
+  j+=1
+end
+(0...20).each do |i|
+  Event.create!({id: j+1, title: title, 
+  description: description, 
+  category_id: 3, 
+  location: "VENUE", 
+  address: '111 main st', 
+  venue: '', 
+  recurring: false, 
+  start: Date.today + rand(20...30), 
+  end: Date.today + 31, 
+  timezone: 'PST', 
+  creator_id: 1})
+  j+=1
+end
+(0...20).each do |i|
+  Event.create!({id: j+1, title: title, 
+  description: description, 
+  category_id: 4, 
+  location: "ONLINE", 
+  address: '111 main st', 
+  venue: '', 
+  recurring: false, 
+  start: Date.today + rand(30...40), 
+  end: Date.today + 41, 
+  timezone: 'PST', 
+  creator_id: 1})
+  j+=1
 end
 
 
