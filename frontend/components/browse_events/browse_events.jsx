@@ -173,19 +173,16 @@ class BrowseEvents extends React.Component{
       case 'Today':
         relevantEvents = relevantEvents.filter( event => {
           let date = this.convertDateToLocalAsJSON(new Date(event.start.slice(0,10)));
-          console.log(date); 
-          // let today = new Date().toJSON().slice(0,10);
           let today = this.getCurrentDateTime();
           return date === today;
         });
         break;
       case 'Tomorrow':
         relevantEvents = relevantEvents.filter( event => {
-          let date = event.start.slice(0,10);
-          let today = new Date()
-          today.setDate(new Date().getDate()+1);
+          let date = this.convertDateToLocalAsJSON(new Date(event.start.slice(0,10)));
+          let today = new Date(this.getCurrentDateTime());
+          today.setDate(today.getDate()+1);
           today = today.toJSON().slice(0,10);
-          console.log(today);
           return date === today;
         });
         break;
