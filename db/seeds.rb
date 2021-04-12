@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+ 
+
 
 
 User.destroy_all
@@ -28,7 +31,7 @@ User.create!({id: 4, email: "222@222.222", password: "123456", first_name: "222"
 # creator_id: });
 
 Event.destroy_all; 
-
+console.log(faker.name.findName());
 title = 'comming soon...'
 description ='To city near you'
 j = 0;
@@ -74,6 +77,7 @@ end
   creator_id: 1})
   j+=1
 end
+
 (0...20).each do |i|
   Event.create!({id: j+1, title: title, 
   description: description, 
