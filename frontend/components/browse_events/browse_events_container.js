@@ -7,7 +7,7 @@ import BrowseEvents from './browse_events';
 
 
 const mSTP = state => ({
-  events: Object.values(state.entities.events),
+  events: Object.values(state.entities.events).sort( (a, b)=> new Date(a.start) - new Date(b.start)),
   categories: Object.values(state.entities.categories),
 })
 

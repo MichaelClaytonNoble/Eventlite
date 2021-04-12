@@ -33,10 +33,10 @@ class BrowseEvents extends React.Component{
     this.props.getEvents().then( ()=>this.setState({events: this.props.events})); 
     this.props.getCategories().then( ()=>this.setState({categories: this.props.categories})); 
   }
-  componentWillMount(){
-    this.props.getEvents();
-    this.props.getCategories(); 
-  }
+  // componentWillMount(){
+  //   this.props.getEvents();
+  //   this.props.getCategories(); 
+  // }
   componentDidUpdate(prevProps){
     if(this.state.loading){
       this.filterEvents();
@@ -162,14 +162,18 @@ class BrowseEvents extends React.Component{
     // }
     if(this.state.dateFilter !== "Any" && !this.state.dateFilter.includes("Pick")){
       relevantEvents = this.filterEventsByDate(relevantEvents);
-      console.log(relevantEvents)
     }
     this.setState({events: relevantEvents, loading: true});
   }
   filterEventsByDate(relevantEvents){
 
-    console.log("today", this.getCurrentDateTime());
+    //day of the week => days away from the weekend 
+    const weekendOffset = {
+      0: -2, 1:4, 2:3, 3:2, 4:1, 5:0, 6:-1
+    }
     switch(this.state.dateFilter){
+      case 'Pick a date...':
+        break;
       case 'Today':
         relevantEvents = relevantEvents.filter( event => {
           let date = this.convertDateToLocalAsJSON(new Date(event.start.slice(0,10)));
@@ -187,16 +191,100 @@ class BrowseEvents extends React.Component{
         });
         break;
       case 'This weekend':
+        relevantEvents = relevantEvents.filter( event => {
+          let today = JSON.stringify(this.getCurrentDateTime());
+          let start = JSON.stringify(new Date(this.convertDateToLocalAsJSON(new Date(event.start))));
+
+          start = new Date(JSON.parse(start));
+          today = new Date(JSON.parse(today)); 
+
+          let friday = new Date(today.toJSON());
+          let sunday = new Date(today.toJSON());
+          friday.setDate(today.getDate()+weekendOffset[today.getDay()]);
+          sunday.setDate(today.getDate()+weekendOffset[today.getDay()]+2);
+          sunday.setHours(23,59,59);
+
+          if(today > friday){
+            friday = today;
+          }
+          if(start <= sunday && start >= friday){
+            return true;
+          }
+        });
         break;
       case 'This week':
+        relevantEvents = relevantEvents.filter( event => {
+          let today = JSON.stringify(this.getCurrentDateTime());
+          let start = JSON.stringify(new Date(this.convertDateToLocalAsJSON(new Date(event.start))));
+
+          start = new Date(JSON.parse(start));
+          today = new Date(JSON.parse(today));  
+
+          let monday = new Date(today.toJSON());
+          let sunday = new Date(today.toJSON());
+
+          monday.setDate(today.getDate()-today.getDay()+1);
+          monday.setHours(0,0,0);
+          sunday.setDate(monday.getDate()+6);
+          sunday.setHours(23,59,59);
+          if(today > monday){
+            monday = today;
+          }
+          if(start <= sunday && start >= monday){
+            return true;
+          }
+        });
         break;
       case 'Next week':
-        break;
-      case 'Next week':
+        relevantEvents = relevantEvents.filter( event => {
+          let today = JSON.stringify(this.getCurrentDateTime());
+          let start = JSON.stringify(new Date(this.convertDateToLocalAsJSON(new Date(event.start))));
+
+          start = new Date(JSON.parse(start));
+          today = new Date(JSON.parse(today));  
+
+          let monday = new Date(today.toJSON());
+          let sunday = new Date(today.toJSON());
+
+          monday.setDate(today.getDate()-today.getDay()+1+7);
+          monday.setHours(0,0,0);
+
+          sunday.setDate(monday.getDate()+6);
+          sunday.setHours(23,59,59);
+
+          if(today > monday){
+            monday = today;
+          }
+          if(start <= sunday && start >= monday){
+            return true;
+          }
+        });
         break;
       case 'This month':
+        relevantEvents = relevantEvents.filter( event => {
+          let today = JSON.stringify(this.getCurrentDateTime());
+          let start = JSON.stringify(new Date(this.convertDateToLocalAsJSON(new Date(event.start))));
+
+          start = new Date(JSON.parse(start));
+          today = new Date(JSON.parse(today));  
+
+          if(start >= today && start.getMonth()=== today.getMonth()){
+            return true;
+          }
+        });
         break;
       case 'Next month':
+        relevantEvents = relevantEvents.filter( event => {
+          let today = JSON.stringify(this.getCurrentDateTime());
+          let start = JSON.stringify(new Date(this.convertDateToLocalAsJSON(new Date(event.start))));
+
+          start = new Date(JSON.parse(start));
+          today = new Date(JSON.parse(today));  
+
+          if(start >= today && start.getMonth()=== today.getMonth()+1){
+            return true;
+          }
+        });
         break;
       default:
         break;
@@ -204,20 +292,26 @@ class BrowseEvents extends React.Component{
     return relevantEvents;
   }
   convertDateToLocalAsJSON(date){
-    return (date.toJSON(), new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toJSON()).slice(0,10);
+    return (date.toJSON(), new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toJSON()).slice(0,16);
   }
 
   getCurrentDateTime(){
-    return this.convertDateToLocalAsJSON(new Date()).slice(0,10);
+    return this.convertDateToLocalAsJSON(new Date()).slice(0,16);
   }
+
+ 
   createEventsList(){
     if(!this.state.events){return []}
     return this.state.events.map( (event, key) => {
-      let img = event.imageUrl || window.placeholder;
+      let start = this.convertDateToLocalAsJSON(new Date(event.start)); 
+      // console.log("event start", event.start);
+      // console.log("adjusted", start); 
+      let img = window.placeholder
+      if(event.imageUrl){img = event.imageUrl}
       return <li key={key}>
         <div id="events-left">
           <div id="title"><span>{event.title}</span></div>
-          <div id="start">{event.start}</div>
+          <div id="start">{start}</div>
         </div>
         <div id="events-right">
           <div id="event-img"><img src={img} alt="event-img" /></div>
