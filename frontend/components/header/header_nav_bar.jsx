@@ -27,7 +27,9 @@ class HeaderNavBar extends React.Component {
         <span id="menu-dropdown">
           {this.props.self.email}<br />
         <ul id="menu-dropdown">
-          <li className="menu-dropdown-li">Browse events</li>
+          <li className="menu-dropdown-li"
+            onClick={()=>{this.props.history.push(`/events/browse`)}}
+            >Browse events</li>
           <li className="menu-dropdown-li"
             onClick={()=>{this.props.history.push(`/${this.props.myId}/events`)}}
             >Manage my events</li>
