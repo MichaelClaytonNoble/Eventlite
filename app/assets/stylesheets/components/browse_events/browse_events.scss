@@ -192,8 +192,14 @@
   input, select{
     margin-left: 10px;
     border: none;
-      font-size: 1.25rem;
-  line-height: 1.75rem;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+  #location-input{
+    width: 90%;
+    @media screen and (max-width: 750px) {
+      width: 70%;
+    }
   }
 }
 #location-filter{
@@ -209,7 +215,7 @@
 
 #events-list-wrap {
   width: 90%;
-  margin: 0 auto; 
+  // margin: 0 auto; 
 
   #events-list{
     #border{
@@ -279,18 +285,40 @@
 }
 
 #events-list-wrap #events-left{
-  #title{
+  #title-wrap{
     color: #39364f;
     font-size: 1.225rem;
     line-height: 1.5rem;
-    span:hover{
+    max-height: 48px;
+
+    #title{
+      max-height: 48px;
+      word-wrap: break-word;
+      text-overflow: ellipsis;
+
+      overflow: hidden;
+      display: -webkit-box;
+      display: -moz-box;
+      -moz-box-orient: vertical;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      -moz-line-clamp: 2;
+    }
+    #title:hover{
       cursor: pointer;
     }
   }
-  #start{
-    color: $eventbrite-orange;
+  #start, #location{
     font-size: .975rem;
     line-height: 1.25rem;
-    padding: 8px 0px 4px 0px;
+  }
+  #start{
+    color: $eventbrite-orange;
+    padding-top: 8px;
+  }
+
+  #location{
+    color: $nav-bar-font-color;
+    padding-top: 4px;
   }
 }

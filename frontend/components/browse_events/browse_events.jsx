@@ -313,11 +313,20 @@ class BrowseEvents extends React.Component{
     return this.state.events.map( (event, key) => {
       let start = this.convertDateToLocalAsJSON(new Date(event.start)); 
       let img = window.placeholder
+      let location = "Online"
       if(event.imageUrl){img = event.imageUrl}
+      if(event.location === "VENUE"){
+        location = event.venue;
+      }
+      if(event.location === "TBA"){
+        location = "To be announced"; 
+      }
+
       return <li key={key}>
         <div id="events-left">
-          <div id="title"><span>{event.title}</span></div>
+          <div id="title-wrap"><div id="title">{event.title}</div></div>
           <div id="start">{start}</div>
+          <div id="location">{location}</div>
         </div>
         <div id="events-right">
           <div id="event-img"><img src={img} alt="event-img" /></div>
@@ -362,7 +371,7 @@ class BrowseEvents extends React.Component{
             <div id="location-filter">
                 <div id="search-icon">
                   <i className="fas fa-search"></i>
-                  <input type="text" placeholder="Search events" value={this.state.searchFilter} onChange={this.filter('searchFilter')}/>
+                  <input type="text" id="location-input"placeholder="Search events" value={this.state.searchFilter} onChange={this.filter('searchFilter')}/>
                 </div>
                 <div id="search-icon">
                   <i className="fas fa-map-marker-alt"></i>
