@@ -309,9 +309,11 @@ class BrowseEvents extends React.Component{
 
  
   createEventsList(){
+    var options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', timeZoneName: 'short'};
+
     if(!this.state.events){return []}
     return this.state.events.map( (event, key) => {
-      let start = this.convertDateToLocalAsJSON(new Date(event.start)); 
+      let start = (new Date(this.convertDateToLocalAsJSON(new Date(event.start))).toLocaleTimeString("en-US", options)); 
       let img = window.placeholder
       let location = "Online"
       if(event.imageUrl){img = event.imageUrl}
