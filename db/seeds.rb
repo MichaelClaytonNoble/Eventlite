@@ -31,7 +31,7 @@ User.create!({id: 4, email: "222@222.222", password: "123456", first_name: "222"
 # creator_id: });
 
 Event.destroy_all; 
-console.log(faker.name.findName());
+
 title = 'comming soon...'
 description ='To city near you'
 j = 0;

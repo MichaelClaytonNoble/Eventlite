@@ -304,8 +304,6 @@ class BrowseEvents extends React.Component{
     if(!this.state.events){return []}
     return this.state.events.map( (event, key) => {
       let start = this.convertDateToLocalAsJSON(new Date(event.start)); 
-      // console.log("event start", event.start);
-      // console.log("adjusted", start); 
       let img = window.placeholder
       if(event.imageUrl){img = event.imageUrl}
       return <li key={key}>
