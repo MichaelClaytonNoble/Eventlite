@@ -9,7 +9,7 @@ const mSTP = state => {
   let myEvents = []; 
   let organizers = [];
   if(state.entities.userEvents[state.session.currentUser.id]){
-    myEvents = Object.values(state.entities.userEvents[state.session.currentUser.id]);
+    myEvents = Object.values(state.entities.userEvents[state.session.currentUser.id]).sort( (a, b)=> new Date(a.start) - new Date(b.start));
   }
   return ({
     myEvents: analyzeEvents(myEvents),
