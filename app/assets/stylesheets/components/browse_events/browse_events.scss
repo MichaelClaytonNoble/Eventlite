@@ -3,16 +3,23 @@
 #browse-events{
   font-family: $main-font-family;
   display: grid; 
-  grid-template-columns: 20% 50%;
+  grid-template-columns: 20% 40% 40%;
   @media screen and (max-width: 1600px){
-    grid-template-columns: 320px 60%;
+    grid-template-columns: 320px 45% 50%;
   }
   @media screen and (max-width: 1550px){
-    grid-template-columns: 320px 55%;
+    grid-template-columns: 320px 45% 45%;
   }
   @media screen and (max-width: 1450px){
-    grid-template-columns: 320px 60%;
+    grid-template-columns: 320px 40% 40%;
   }
+  @media screen and (max-width: 1200px){
+    grid-template-columns: 320px 65%;
+  }
+  @media screen and (max-width: 900px){
+    grid-template-columns: 220px 65%;
+  }
+
 
   position: absolute;
   left: 0;
@@ -25,6 +32,10 @@
   background-color: $search-bar-color;
   min-width: 320px;
   max-width: 320px;
+  @media screen and (max-width: 900px){
+    min-width: 220px;
+    max-width: 220px;
+  }
   height: 100%;
     -webkit-box-shadow: inset 0px 0px 10px 2px $box-shadow-color; 
   box-shadow: inset 0px 0px 10px 2px $box-shadow-color;
@@ -238,18 +249,25 @@
     width: 50%;
     text-align: right;
     position: relative;
+    justify-content: space-between;
     #event-img{
+      margin-top: 7px;
       position: relative;
       top: 0px;
       width: 220px;
-      text-align: center;
+      @media screen and (max-width: 1050px) {
+        width: 150px;
+      }
+      height: 110px;
+      text-align: right;
       align-self: flex-end;
     }
     img{
       object-fit:scale-down;
-      height: 110px;
       max-width: 220px;
-      margin: auto;
+      @media screen and (max-width: 1050px) {
+        max-width: 150px;
+      }
       &:hover{
       cursor: pointer;
     }

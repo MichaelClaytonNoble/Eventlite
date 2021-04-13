@@ -176,18 +176,26 @@ class BrowseEvents extends React.Component{
         break;
       case 'Today':
         relevantEvents = relevantEvents.filter( event => {
-          let date = this.convertDateToLocalAsJSON(new Date(event.start.slice(0,10)));
-          let today = this.getCurrentDateTime();
-          return date === today;
+          let today = JSON.stringify(this.getCurrentDateTime());
+          let start = JSON.stringify(new Date(this.convertDateToLocalAsJSON(new Date(event.start))));
+
+          start = new Date(JSON.parse(start));
+          today = new Date(JSON.parse(today)); 
+          if(start.getMonth() === today.getMonth() && start.getYear() === today.getYear() && start.getDate() === today.getDate()){
+            if(start >= today){return true;}
+          }
         });
         break;
       case 'Tomorrow':
         relevantEvents = relevantEvents.filter( event => {
-          let date = this.convertDateToLocalAsJSON(new Date(event.start.slice(0,10)));
-          let today = new Date(this.getCurrentDateTime());
-          today.setDate(today.getDate()+1);
-          today = today.toJSON().slice(0,10);
-          return date === today;
+          let today = JSON.stringify(this.getCurrentDateTime());
+          let start = JSON.stringify(new Date(this.convertDateToLocalAsJSON(new Date(event.start))));
+
+          start = new Date(JSON.parse(start));
+          today = new Date(JSON.parse(today)); 
+          if(start.getMonth() === today.getMonth() && start.getYear() === today.getYear() && start.getDate() === today.getDate()+1){
+            return true;
+          }
         });
         break;
       case 'This weekend':
