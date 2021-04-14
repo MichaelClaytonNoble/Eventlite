@@ -47,7 +47,7 @@ class Api::EventsController < ApplicationController
   def getByType
     col = params[:column]
     val = params[:value]
-    @events = Event.where("#{col} = ?", val) if whitelist(col.downcase);
+    @events = Event.where("#{col} = ?", val).where('start >= ?', DateTime.now) if whitelist(col.downcase)
     if(col == 'creator_id')
       @creator_id = val
     end

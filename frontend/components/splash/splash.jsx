@@ -33,10 +33,20 @@ class Splash extends React.Component{
       name = category.name;
     }
     this.props.getEvents(col, val)
-    .then( ()=>this.setState({relevantEvents: this.props.events, popularIn: name}));
+    .then( ()=>this.setState({relevantEvents: this.props.events.reverse(), popularIn: name}));
+  }
+
+    convertDateToLocalAsJSON(date){
+    return (date.toJSON(), new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toJSON()).slice(0,16);
+  }
+
+  getCurrentDateTime(){
+    return this.convertDateToLocalAsJSON(new Date()).slice(0,16);
   }
 
   render(){
+    var options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', timeZoneName: 'short'};
+
     let categories, featured, featuredMessage = '';
     if(this.props.categories.length){
       categories = this.props.categories.map( (category,key) => {
@@ -86,46 +96,42 @@ class Splash extends React.Component{
             <div id="feed-image">
               <img src={window.feedImage}/>
             </div>
-        </div>
-        <div id="popular-events">
-          <h1>Popular in {this.state.popularIn}</h1>
-          <ul id="nav-bar" onClick={this.changeEventList}>
-            <li>All</li>
-            {categories}
-          </ul>
-          {featured}
-        </div>
-      
-        <div id="relevant-events">
-          {featuredMessage}
-          <div id="event-grid">
-          {
-            this.state.relevantEvents.reverse().map( (event, i)=>{
-              if(i<16){
-                let img=<i className="far fa-image"></i>;
-                if(event.imageUrl){
-                  img = <img src={event.imageUrl} alt="" />
+          </div>
+          <div id="popular-events">
+            <h1>Popular in {this.state.popularIn}</h1>
+            <ul id="nav-bar" onClick={this.changeEventList}>
+              <li>All</li>
+              {categories}
+            </ul>
+            {featured}
+          </div>
+        
+          <div id="relevant-events">
+            {featuredMessage}
+            <div id="event-grid">
+            {
+              this.state.relevantEvents.reverse().map( (event, i)=>{
+                if(i<16){
+                  let img=<i className="far fa-image"></i>;
+                  if(event.imageUrl){
+                    img = <img src={event.imageUrl} alt="" />
+                  }
+                  let start = (new Date(this.convertDateToLocalAsJSON(new Date(event.start))).toLocaleTimeString("en-US", options)); 
+                  return(
+                    <div id={i}key={i}>
+                      <span id="image">{img}</span>
+                      <span id="title"><p>{event.title}</p></span>
+                      <span id="start">{start}</span>
+                    </div>
+                  )
                 }
-                return(
-                  <div id={i}key={i}>
-                  <span id="image">{img}</span>
-                  <span id="start">{new Date(event.start).toGMTString()}</span>
-                  <span id="title"><p>{event.title}</p></span>
-                </div>
-              )
+              })
             }
-          })
-        }
-        </div>
-
+          </div>
         </div>
         <button id="see-more-button">See more</button>
-      
       </div>
-
-
     );
-
   }
 }
 
