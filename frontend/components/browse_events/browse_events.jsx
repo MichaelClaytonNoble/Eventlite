@@ -30,23 +30,31 @@ class BrowseEvents extends React.Component{
     this.categoryMenu = document.getElementById('category-menu');
     this.dateMenu = document.getElementById('date-menu');
     this.priceMenu = document.getElementById('price-menu');
-    this.props.getEvents().then( ()=>this.setState({events: this.props.events})); 
-    this.props.getCategories().then( ()=>this.setState({categories: this.props.categories})); 
-    console.log("HELLO", this.props.initialCategory);
-    if(this.props.initialCategory){
-      console.log("Hi"); 
-      if(this.props.initialCategory === "Online events"){
-        this.setState({locationFilter: "ONLINE"});
-      }
-      else{
-        this.setState({categoryFilter: this.props.initialCategory});
-      }
-    }
+    this.props.getCategories().then( ()=>{
+      
+      this.setState({categories: this.props.categories, loading:false});
+      this.props.getEvents().then( ()=>{
+        this.setState({events: this.props.events})
+
+        if(this.props.initialCategory){
+          console.log(this.props.initialCategory); 
+          if(this.props.initialCategory === "Online Events"){
+            document.getElementById('location-select').value = "ONLINE";
+            this.setState({locationFilter: "ONLINE"});
+          }
+          else{
+            document.getElementById('category-filter-value').click();
+            document.getElementById(`category-${this.props.initialCategory}`).click();
+            this.setState({categoryFilter: this.props.initialCategory});
+          }
+        }
+      });
+    });
   }
-  // componentWillMount(){
-  //   this.props.getEvents();
-  //   this.props.getCategories(); 
-  // }
+  componentWillMount(){
+    this.props.getEvents();
+    this.props.getCategories(); 
+  }
   componentDidUpdate(prevProps){
     if(this.state.loading){
       this.filterEvents();
@@ -115,7 +123,7 @@ class BrowseEvents extends React.Component{
   }
   createCategoryMenu(){
     return this.props.categories.map( (category, key) => {
-      return <li key={key} className="filter-menu-options" data-category_id={category.id}>
+      return <li key={key} className="filter-menu-options" id={`category-${category.name}`}data-category_id={category.id}>
                   {category.name}
                 </li>
     });
@@ -365,7 +373,7 @@ class BrowseEvents extends React.Component{
             <li className="filter-menu-options">Next month</li>
           </ul>
           <ul id="category-menu" className="filter-menu" onClick={this.setFilter('categoryFilter')}>
-            <li className="filter-menu-options" data-category_id="Any">Any category</li>
+            <li className="filter-menu-options" id="category-Any" data-category_id="Any">Any category</li>
             {this.createCategoryMenu()}
           </ul>
           <ul id="price-menu" className="filter-menu" onClick={this.setFilter('priceFilter')}>
