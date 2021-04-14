@@ -8,14 +8,13 @@ class Splash extends React.Component{
       relevantEvents: this.props.events,
       popularIn: "Online Events"
     }
-    this.props.getEvents("location", "ONLINE")
-    .then( ()=>this.setState({relevantEvents: this.props.events})); 
+
     this.changeEventList = this.changeEventList.bind(this); 
   }
   componentDidMount(){
     this.props.getCategories(); 
-    this.props.getEvents("location", "ONLINE"); 
-    this.setState({})
+    this.props.getEvents("location", "ONLINE")
+    .then( ()=>this.setState({relevantEvents: this.props.events})); 
   }
   changeEventList(e){
     this.props.clearEvents(); 
@@ -63,17 +62,17 @@ class Splash extends React.Component{
                 <p>Browse through some of the best collections in Online Events hand picked by people who know the area best.</p>
               </span>
               <span id="right">
-                  <span></span>
+                  {/* <span></span> */}
                   <span id="buttons">
-
-                  <button id="left-arrow">←</button>
-                  <button id="right-arrow">→</button>
-                </span>
+                    <button className="endArrow"id="left-arrow">←</button>
+                    <button className="forwardArrow" id="right-arrow">→</button>
+                  </span>
               </span>
             </div>
             <div id="content">
+              <div id="content-background"></div>
               <div id="summary">
-                <h2>Educate Yourself: Online Racial Equity Workshops</h2>
+                <h2><img id="collections-icon" src="https://cdn.evbuc.com/images/100912392/438776807040/1/original.20200513-210241" alt="creator" width="48px" height="48px" />Educate Yourself: Online Racial Equity Workshops</h2>
                 <p>
                   Black History Month is a time for celebrating Black achievement. Black History Month is a time is celebrate and remember important people that are a part of this African diaspora. Come celebrate our brothers by learning and participating in one of many racial equity and history workshops. 
                 </p>
@@ -114,7 +113,7 @@ class Splash extends React.Component{
                 if(i<16){
                   let img=<i className="far fa-image"></i>;
                   if(event.imageUrl){
-                    img = <img src={event.imageUrl} alt="" />
+                    img = <img src={event.imageUrl} alt="event" />
                   }
                   let start = (new Date(this.convertDateToLocalAsJSON(new Date(event.start))).toLocaleTimeString("en-US", options)); 
                   return(
