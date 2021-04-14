@@ -1,11 +1,17 @@
 
 #feed-header{
   width: 100%;
-  
+  max-width: 100%;
   height: calc(11vw + 15vh);
   display: grid;
   grid-template-columns: 42.5% 52.5%;
   grid-template-rows: 12% 76% 12% ;
+  @media screen and (max-width: 800px) {
+    grid-template-rows: 12% 56% 12% ;
+  }
+  @media screen and (max-width: 600px) {
+    grid-template-rows: 12% 46% 12% ;
+  }
   align-self: center;  
   justify-content: center;
   
@@ -40,6 +46,7 @@
   .header.link{
     background-color: $submit-button-color;
     font-size:.8vw;
+    line-height: 1.25vw;
     color: white;
     border-radius:100px;
     padding: 12px 15px 12px 15px;
@@ -49,8 +56,6 @@
     height: 1.25vw;
     text-align: center;
     span{
-      position: relative;
-      top: 3px;
       @media screen and (max-width: 900px){ 
         display: none;
       }
@@ -78,9 +83,15 @@
   grid-column: 2;
   grid-row-start: 1;
   grid-row-end: 4;
+  display: flex;
+
   img{
-    object-fit: cover; 
+    object-fit: fill; 
+    object-position:left;
+    margin-top: auto;
+    margin-bottom: auto;
     max-height: 100%;
     height: 100%;
+    width: 100%;
   }
 }
