@@ -32,6 +32,16 @@ class BrowseEvents extends React.Component{
     this.priceMenu = document.getElementById('price-menu');
     this.props.getEvents().then( ()=>this.setState({events: this.props.events})); 
     this.props.getCategories().then( ()=>this.setState({categories: this.props.categories})); 
+    console.log("HELLO", this.props.initialCategory);
+    if(this.props.initialCategory){
+      console.log("Hi"); 
+      if(this.props.initialCategory === "Online events"){
+        this.setState({locationFilter: "ONLINE"});
+      }
+      else{
+        this.setState({categoryFilter: this.props.initialCategory});
+      }
+    }
   }
   // componentWillMount(){
   //   this.props.getEvents();

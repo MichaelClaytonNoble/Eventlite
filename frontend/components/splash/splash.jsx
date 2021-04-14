@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 
 class Splash extends React.Component{
   constructor(props){
@@ -129,10 +129,10 @@ class Splash extends React.Component{
             }
           </div>
         </div>
-        <button id="see-more-button">See more</button>
+        <button id="see-more-button" onClick={()=>this.props.history.push(`/events/browse/${this.state.popularIn}`)}>See more</button>
       </div>
     );
   }
 }
 
-export default Splash; 
+export default withRouter(Splash); 

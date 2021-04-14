@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom';
 import Splash from './splash';
 import {getEventsByType, clearEvents} from '../../actions/events';
 import {pullCategories} from '../../actions/categories'; 

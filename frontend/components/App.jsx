@@ -37,7 +37,8 @@ class App extends React.Component{
           <ProtectedRoute exact path="/events/:eventId/edit" component={CreateEventFormContainer} />
           <ProtectedRoute exact path ="/:myId/events" component={MyEventsContainer} />
 
-          <Route exact path="/events/browse" component={BrowseEventsContainer} />
+          <Route path="/events/browse/:category" component={BrowseEventsContainer} />
+          <Route path="/events/browse/" component={BrowseEventsContainer} />
 
           <Route exact path="/404" component={PageNotFound} />
           <Redirect to="/404" />
