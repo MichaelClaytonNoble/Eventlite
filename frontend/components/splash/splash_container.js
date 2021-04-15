@@ -8,7 +8,7 @@ import {pullCategories} from '../../actions/categories';
 
 const mSTP = state => {
   return({  
-    events: Object.values(state.entities.events).sort( (a, b)=> new Date(a.start) - new Date(b.start)),
+    events: Object.values(state.entities.events).sort( (b,a)=> new Date(a.start) - new Date(b.start)),
     categories: Object.values(state.entities.categories)
   })
 }

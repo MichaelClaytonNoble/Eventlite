@@ -47,12 +47,14 @@ class Splash extends React.Component{
     var options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', timeZoneName: 'short'};
 
     let categories, featured, featuredMessage = '';
+    let relevantEvents = this.state.relevantEvents;
     if(this.props.categories.length){
       categories = this.props.categories.map( (category,key) => {
         return <li key={key}>{category.name}</li>
       })
     }
     if(this.state.popularIn === 'Online Events'){
+      relevantEvents=relevantEvents.reverse();
       featuredMessage = <h1>Events in {this.state.popularIn}</h1>;
       featured =
           <div id="favorite-collections">
@@ -109,7 +111,8 @@ class Splash extends React.Component{
             {featuredMessage}
             <div id="event-grid">
             {
-              this.state.relevantEvents.reverse().map( (event, i)=>{
+
+              relevantEvents.map( (event, i)=>{
                 if(i<16){
                   let img=<i className="far fa-image"></i>;
                   if(event.imageUrl){

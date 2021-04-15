@@ -11,7 +11,10 @@ class HeaderNavBar extends React.Component {
   }
 
   signOut(e){
-    this.props.logout().then( ()=>this.props.history.push('/'));
+    this.props.logout().then( ()=>{
+      this.props.history.push('/');
+      window.location.reload();
+    });
   }
 
   render(){
