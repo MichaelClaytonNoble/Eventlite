@@ -46,8 +46,8 @@ description ='To city near you'
   end
   start = Date.today + rand(1...29)
   stopDate = start + rand(1...7)
-
-  Event.create!({id: i, 
+  creator = rand(1..2)
+  e = Event.create!({id: i, 
     title: title, 
     description: description, 
     category_id: rand(1..8), 
@@ -57,7 +57,12 @@ description ='To city near you'
     start: start, 
     end: stopDate, 
     timezone: 'PST', 
-    creator_id: rand(1..2)})
+    creator_id: creator})
+  if creator == 1 
+    e.image.attach(io: File.open('app/assets/images/red.png'), filename: 'red.png')
+  elsif creator==2
+    e.image.attach(io: File.open('app/assets/images/blue.png'), filename: 'blue.png')
+  end
 end
 
 
