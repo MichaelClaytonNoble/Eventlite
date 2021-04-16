@@ -2,7 +2,12 @@ class Api::EventsController < ApplicationController
   before_action :require_logged_in, only: [:create, :destroy]
 
   def index
-    @events = Event.where('start >= ?', DateTime.now)
+    if logged_in?
+      @events = Event.where('start >= ?', DateTime.now)
+      .where("creator_id != ?", current_user.id)
+    else
+      @events = Event.where('start >= ?', DateTime.now)
+    end
     render :event_list
   end
 
