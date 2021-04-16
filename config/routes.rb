@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do
     resources :users, only: [:create,  :index, :show, :update]
     get 'events/getByType', to: 'events#getByType'
+    get 'events/getMineByType', to: 'events#getMineByType'
     resources :events
     resources :categories, only: [:index]
     resource :session, only: [:create, :new, :destroy]

@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
- 
+ require 'faker'
 
 
 
@@ -22,7 +22,6 @@ User.create!({id: 4, email: "222@222.222", password: "123456", first_name: "222"
 # description: , 
 # category_id: , 
 # location: , 
-# address: , 
 # venue: , 
 # recurring: , 
 # start: , 
@@ -31,66 +30,34 @@ User.create!({id: 4, email: "222@222.222", password: "123456", first_name: "222"
 # creator_id: });
 
 Event.destroy_all; 
-
-title = 'comming soon...'
+locations = ['ONLINE', 'VENUE', 'TBA']
+address =['']
+-
+title = 'An Event Comming Soon'
 description ='To city near you'
-j = 0;
-(0...20).each do |i|
-  Event.create!({id: j+1, title: title, 
-  description: description, 
-  category_id: 1, 
-  location: "ONLINE", 
-  address: '', 
-  venue: '', 
-  recurring: false, 
-  start: Date.today + rand(1...10), 
-  end: Date.today + 11, 
-  timezone: 'PST', 
-  creator_id: 1})
-  j+=1
-end
-(0...20).each do |i|
-  Event.create!({id: j+1, title: title, 
-  description: description, 
-  category_id: 2, 
-  location: "TBA", 
-  address: '', 
-  venue: '', 
-  recurring: false, 
-  start: Date.today + rand(10...20), 
-  end: Date.today + 21, 
-  timezone: 'PST', 
-  creator_id: 1})
-  j+=1
-end
-(0...20).each do |i|
-  Event.create!({id: j+1, title: title, 
-  description: description, 
-  category_id: 3, 
-  location: "VENUE", 
-  address: '111 main st', 
-  venue: '', 
-  recurring: false, 
-  start: Date.today + rand(20...30), 
-  end: Date.today + 31, 
-  timezone: 'PST', 
-  creator_id: 1})
-  j+=1
-end
+
 
 (0...20).each do |i|
-  Event.create!({id: j+1, title: title, 
-  description: description, 
-  category_id: 4, 
-  location: "ONLINE", 
-  address: '111 main st', 
-  venue: '', 
-  recurring: false, 
-  start: Date.today + rand(30...40), 
-  end: Date.today + 41, 
-  timezone: 'PST', 
-  creator_id: 1})
-  j+=1
+
+  location = locations.sample
+  venue = ''
+  if location == 'VENUE'
+    venue = Faker::Address.full_address
+  end
+  start = Date.today + rand(1...29)
+  stopDate = start + rand(1...7)
+
+  Event.create!({id: i, 
+    title: title, 
+    description: description, 
+    category_id: rand(1..8), 
+    location: location, 
+    venue: venue, 
+    recurring: [false, true].sample, 
+    start: start, 
+    end: stopDate, 
+    timezone: 'PST', 
+    creator_id: rand(1..2)})
 end
 
 

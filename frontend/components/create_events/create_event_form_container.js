@@ -1,7 +1,7 @@
 
 import CreateEventForm from './create_event_form';
 import {connect} from 'react-redux'; 
-import {createEvent, clearErrors, getEventsByType, updateEvent} from '../../actions/events'; 
+import {createEvent, clearErrors, getMyEventsByType, updateEvent} from '../../actions/events'; 
 import { CREATE_EVENT_FORM_ERROR_LIST } from '../../reducers/selectors/error_selectors';
 import {pullCategories} from '../../actions/categories'; 
 import {TIMEZONES} from '../../constants/constants'; 
@@ -23,7 +23,7 @@ const mDTP = (dispatch, ownProps) =>{
     updateEvent: (formEvent)=>dispatch(updateEvent(formEvent)),
     clearErrors: ()=>dispatch(clearErrors()),
     getCategories: ()=>dispatch(pullCategories()),
-    getEvent: ()=> dispatch(getEventsByType('id', ownProps.match.params.eventId))
+    getEvent: ()=> dispatch(getMyEventsByType('id', ownProps.match.params.eventId))
   })
 }
 

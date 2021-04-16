@@ -45,3 +45,10 @@ export const pullEventsByType = (column, value) =>{
     data: {column, value}
   });
 }
+export const pullMyEventsByType = (column, value) =>{
+  return $.ajax({
+    method: "GET",
+    url: '/api/events/getMineByType',
+    data: {column, value}
+  });
+}

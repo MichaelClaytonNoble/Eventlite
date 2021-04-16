@@ -28,6 +28,7 @@ gem 'jquery-rails'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 gem 'aws-sdk-s3'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

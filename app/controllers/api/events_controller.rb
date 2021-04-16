@@ -66,6 +66,29 @@ class Api::EventsController < ApplicationController
       render json: ["No Events Found"], status: 422
     end
   end
+
+  def getMineByType
+    col = params[:column]
+    val = params[:value]
+    if(col == 'creator_id')
+      @creator_id = val
+      @events = Event.where("#{col} = ?", val) if whitelist(col.downcase)
+    else
+      if current_user
+        @events = Event.where("#{col} = ?", val)
+        .where('start >= ?', DateTime.now)
+        .where("creator_id = ?", current_user.id) if whitelist(col.downcase)
+      else
+        @events = Event.where("#{col} = ?", val)
+        .where('start >= ?', DateTime.now) if whitelist(col.downcase)
+      end
+    end
+    if @events
+      render :event_list
+    else
+      render json: ["No Events Found"], status: 422
+    end
+  end
   
   def event_params_basic_info
     params.require(:event).permit(:id, :title, :venue, :recurring, :category_id, :location, :start, :end, :timezone)
