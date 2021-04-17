@@ -28,7 +28,7 @@ function determineStatus(event){
   if(event.about && event.description){
     eventWithStatus['status'] = "Complete";
   }
-  console.log("end", event.end, "now", new Date())
+
   if(new Date(event.end) < new Date()){
     eventWithStatus['status'] = 'Past';
   }

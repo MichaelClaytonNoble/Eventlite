@@ -94,6 +94,7 @@ class CreateEventForm extends React.Component{
         if(new Date(event.end) < new Date()){
           this.props.history.goBack();
         }
+        
         event.start = event.start.slice(0,this.state.start.length-8);
         event.end = event.end.slice(0,this.state.end.length-8);
         let disabled = true; 

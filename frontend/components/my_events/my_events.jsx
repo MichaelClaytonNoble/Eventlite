@@ -101,7 +101,7 @@ class MyEvents extends React.Component{
           kebab.push(<li key={2}onClick={()=>{this.props.history.push(`/events/${event.id}/edit`)}}>Edit</li>);
         }
         var options = { hour: '2-digit', minute: '2-digit', timeZoneName: 'short', hour12: true};
-        let start = (new Date(this.convertDateToLocalAsJSON(new Date(event.start))).toLocaleTimeString("en-US", options)); 
+        let start = new Date(event.start).toLocaleTimeString("en-US", options); 
 
 
         return(
