@@ -8,6 +8,7 @@ export const RECEIVE_EVENTS_BY_USER = "RECEIVE_EVENTS_BY_USER";
 export const CLEAR_ERRORS ="CLEAR_ERRORS"; 
 export const CLEAR_EVENTS ="CLEAR_EVENTS"; 
 export const CLEAR_USER_EVENTS = "CLEAR_USER_EVENTS"; 
+export const CLEAR_MY_EVENTS = "CLEAR_MY_EVENTS"
 export const REMOVE_EVENT = "REMOVE_EVENT"; 
 
 const receiveNewEvent = event =>({
@@ -37,6 +38,10 @@ const receiveEventsByUser = events => ({
 
 export const clearEvents = () => ({
   type: CLEAR_EVENTS
+})
+export const clearMyEvents = (id) => ({
+  id: id,
+  type: CLEAR_MY_EVENTS
 })
 export const clearUserEvents = () => ({
   type: CLEAR_USER_EVENTS

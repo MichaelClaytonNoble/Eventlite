@@ -320,5 +320,6 @@
   #location{
     color: $nav-bar-font-color;
     padding-top: 4px;
+    text-overflow: ellipsis;
   }
 }

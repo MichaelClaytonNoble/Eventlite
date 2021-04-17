@@ -13,6 +13,7 @@ class Splash extends React.Component{
   }
   componentDidMount(){
     this.props.getCategories(); 
+    if(this.props.myId){this.props.clearMyEvents(this.props.myId)};
     this.props.getEvents("location", "ONLINE")
     .then( ()=>this.setState({relevantEvents: this.props.events})); 
   }

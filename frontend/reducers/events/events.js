@@ -1,5 +1,5 @@
 import {RECEIVE_CURRENT_EVENT, RECEIVE_EVENTS, CLEAR_EVENTS,
-REMOVE_EVENT} from '../../actions/events';
+  CLEAR_MY_EVENTS, REMOVE_EVENT} from '../../actions/events';
 
 const eventsReducer = (state = {}, action) =>{
 
@@ -15,6 +15,10 @@ const eventsReducer = (state = {}, action) =>{
     case REMOVE_EVENT: 
       delete nextState[action.eventId];
       return nextState;
+    case CLEAR_MY_EVENTS:
+      return Object.values(nextState).filter(event=>{
+        return event.creator_id === action.id;
+      });
     case CLEAR_EVENTS:
       return {};
     default: 

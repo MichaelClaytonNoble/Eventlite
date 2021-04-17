@@ -212,6 +212,12 @@
   #location, #time{
     font-size: 12px;
     color: $nav-bar-font-color;
+    text-overflow: ellipsis;
+        overflow: hidden;
+    overflow-wrap: unset;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+    display: block;
   }
 }
 

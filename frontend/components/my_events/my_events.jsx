@@ -68,6 +68,14 @@ class MyEvents extends React.Component{
 
     this.setState({myEvents: relevantEvents, organizers: this.props.organizers});
   }
+
+    convertDateToLocalAsJSON(date){
+    return (date.toJSON(), new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toJSON()).slice(0,16);
+  }
+
+  getCurrentDateTime(){
+    return this.convertDateToLocalAsJSON(new Date()).slice(0,16);
+  }
   createEventList(){
     let myEvents;
     let location;
@@ -92,6 +100,10 @@ class MyEvents extends React.Component{
         if(event.status !== 'Past'){
           kebab.push(<li key={2}onClick={()=>{this.props.history.push(`/events/${event.id}/edit`)}}>Edit</li>);
         }
+        var options = { hour: '2-digit', minute: '2-digit', timeZoneName: 'short', hour12: true};
+        let start = (new Date(this.convertDateToLocalAsJSON(new Date(event.start))).toLocaleTimeString("en-US", options)); 
+
+
         return(
           <li id="event-list-item" key={key}>
             <div id="left">
@@ -104,7 +116,7 @@ class MyEvents extends React.Component{
                 <div id="title">{event.title}</div>
                 <div>
                   <div id="location">{location}</div>
-                  <div id="time">{event.start}</div>
+                  <div id="time">{start}</div>
                 </div>
               </div>
             </div>
