@@ -81,7 +81,6 @@ class Api::EventsController < ApplicationController
     else
       if current_user
         @events = Event.where("#{col} = ?", val)
-        .where('start >= ?', DateTime.now)
         .where("creator_id = ?", current_user.id) if whitelist(col.downcase)
       else
         @events = Event.where("#{col} = ?", val)
