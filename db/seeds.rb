@@ -127,43 +127,56 @@ def science_and_tech
   return {'title'=> title, 'about'=>about, 'description'=>description}
 end
 
+category_path = {
+    1=> "food_drinks",
+    2=> "health",
+    3=> "community",
+    4=> "film_media",
+    5=> "travel_outdoor",
+    6=> "music",
+    7=> "performing_visual_arts",
+    8=> "science_technology"
+}
 
 Event.destroy_all; 
 locations = ['ONLINE', 'VENUE', 'TBA']
 address =['']
 
-(0...60).each do |i|
+idx = 0
+(1..8).each do |category|
+  (0...15).each do |i|
 
-  location = locations.sample
-  venue = ''
-  if location == 'VENUE'
-    venue = Faker::Address.full_address
-  end
-  start = Date.today + rand(1...29)
-  stopDate = start + rand(1...7)
-  creator = rand(1..2)
-  category = rand(1..8)
-  detail = details(category)
+    location = locations.sample
+    venue = ''
+    if location == 'VENUE'
+      venue = Faker::Address.full_address
+    end
+    start = Date.today + rand(1...29)
+    stopDate = start + rand(1...7)
+    creator = rand(1..2)
+    
+    detail = details(category)
 
-  e = Event.create!({id: i, 
-    title: detail['title'], 
-    description: detail['description'], 
-    about: detail['about'],
-    category_id: category, 
-    location: location, 
-    venue: venue, 
-    recurring: [false, true].sample, 
-    start: start, 
-    end: stopDate, 
-    timezone: 'PST', 
-    creator_id: creator})
-  if creator == 1 
-    e.image.attach(io: File.open('app/assets/images/red.png'), filename: 'red.png')
-  elsif creator==2
-    e.image.attach(io: File.open('app/assets/images/blue.png'), filename: 'blue.png')
+    e = Event.create!({id: idx, 
+      title: detail['title'], 
+      description: detail['description'], 
+      about: detail['about'],
+      category_id: category, 
+      location: location, 
+      venue: venue, 
+      recurring: [false, true].sample, 
+      start: start, 
+      end: stopDate, 
+      timezone: 'PST', 
+      creator_id: creator})
+
+      j = i+1
+      path = 'app/assets/images/' + category_path[category] + '/' + j.to_s + ".jpeg"
+      filename = j.to_s + '.jpeg'
+      e.image.attach(io: File.open(path), filename: filename)
+      idx+=1
   end
 end
-
 
 
 Category.destroy_all; 
