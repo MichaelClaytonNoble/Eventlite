@@ -140,7 +140,7 @@ category_path = {
 
 Event.destroy_all; 
 locations = ['ONLINE', 'VENUE', 'TBA']
-address =['']
+
 
 idx = 0
 (1..8).each do |category|

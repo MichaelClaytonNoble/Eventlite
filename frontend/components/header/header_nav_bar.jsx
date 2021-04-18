@@ -18,12 +18,14 @@ class HeaderNavBar extends React.Component {
   }
 
   render(){
-    let signinLink, menuDropdown = '';
+    let signinLink, menuDropdown, likesLink, ticketsLink, aboutLink, createLink = '';
 
     if(!this.props.loggedIn){
       signinLink = <span id="signin-link">
         <Link to="/signin">Sign In</Link>
       </span>
+      aboutLink = <span id="help-dropdown" onClick={()=>this.props.history.push('/about')}>About</span>
+      createLink = <span id="host-event-dropdown" onClick={()=>this.props.history.push('/events/create')}>Host an event</span>
     }
     else{
       menuDropdown = (
@@ -38,12 +40,26 @@ class HeaderNavBar extends React.Component {
             >Manage my events</li>
           <li className="menu-dropdown-li">Following</li>
           <li className="menu-dropdown-li">Tickets</li>
+          <li className="menu-dropdown-li" onClick={()=>this.props.history.push('/about')}>About</li>
           <li className="menu-dropdown-li"
             onClick={this.signOut}
             >Sign Out</li>
         </ul>
         </span>
-      )
+      );
+
+      createLink = <span className="nav-icon-link" id="create-icon-link" onClick={()=>this.props.history.push('/events/create')}>
+        <img src="https://img.icons8.com/android/24/3d64ff/plus.png"/>
+        <p>Create Event</p>
+        </span>
+      likesLink = <span className="nav-icon-link" onClick={()=>this.props.history.push('/events/create')}>
+        <img src="https://img.icons8.com/metro/26/39364f/like.png"/>
+        <p>Likes</p>
+        </span>
+      ticketsLink = <span className="nav-icon-link" onClick={()=>this.props.history.push('/events/create')}>
+        <img src="https://img.icons8.com/carbon-copy/50/39364f/ticket.png"/>
+        <p>Tickets</p>
+        </span>
     }
     return(
       <div id="header-nav-bar">
@@ -55,8 +71,10 @@ class HeaderNavBar extends React.Component {
             </span>
         </span>
         <span id="header-nav-bar-right">
-          <span id="help-dropdown" onClick={()=>this.props.history.push('/about')}>About</span>
-          <span id="host-event-dropdown" onClick={()=>this.props.history.push('/events/create')}>Host an event</span>
+          {aboutLink}
+          {createLink}
+          {likesLink}
+          {ticketsLink}
           {menuDropdown}
           {signinLink}
         </span>
