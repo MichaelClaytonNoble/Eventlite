@@ -217,6 +217,7 @@
   width: 90%;
   // margin: 0 auto; 
 
+  margin-left: 10px;
   #events-list{
     #border{
       padding: 0 16px;
@@ -237,7 +238,11 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 16px; 
+    padding: 13px 16px 16px 16px; 
+    &:hover{
+      box-shadow: 0 6px 16px -2px rgba(46,55,77,.20);
+      animation: addShadow .3s
+    }
 
   }
 
@@ -257,12 +262,12 @@
     position: relative;
     justify-content: space-between;
     #event-img{
-      margin-top: 7px;
+      // margin-top: 7px;
       position: relative;
       top: 0px;
       width: 220px;
-      @media screen and (max-width: 1050px) {
-        width: 150px;
+      @media screen and (max-width: 950px) {
+        width: 200px;
       }
       height: 110px;
       text-align: right;
@@ -271,12 +276,13 @@
     img{
       object-fit:scale-down;
       max-width: 220px;
-      @media screen and (max-width: 1050px) {
-        max-width: 150px;
+      height: 100%;
+      @media screen and (max-width: 950px) {
+        max-width: 200px;
       }
       &:hover{
-      cursor: pointer;
-    }
+        cursor: pointer;
+      }
     }
     #like-button{
       color: red; 
@@ -287,7 +293,7 @@
 #events-list-wrap #events-left{
   #title-wrap{
     color: #39364f;
-    font-size: 1.225rem;
+    font-size: 1.1rem;
     line-height: 1.5rem;
     max-height: 48px;
 
@@ -309,7 +315,7 @@
     }
   }
   #start, #location{
-    font-size: .975rem;
+    font-size: .875rem;
     line-height: 1.25rem;
   }
   #start{
