@@ -358,10 +358,15 @@ class BrowseEvents extends React.Component{
   }
   
   render(){
+    let eventsList = this.createEventsList();
+    if(!eventsList.length && !this.state.loading){
+      eventsList = <p id="no-events-message">Please select another filter</p>
+    };
+    
     return (
       <div id="browse-events">
         <div id="filters">
-          <div id="title">Filters</div>
+          <div id="title"><span>Filt</span><span>ers</span></div>
           <ul id="date-menu" className="filter-menu" onClick={this.setFilter('dateFilter')}>
             <li className="filter-menu-options">Any day</li>
             <li className="filter-menu-options">Pick a date...</li>
@@ -410,7 +415,7 @@ class BrowseEvents extends React.Component{
               </form>
           <ul id="events-list">
             <div id="border"><hr /></div>
-            {this.createEventsList()}
+            {eventsList}
           </ul>
         </div>
       </div>
