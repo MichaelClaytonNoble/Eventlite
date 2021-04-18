@@ -3,10 +3,10 @@
   max-width: 100%;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px;
+  // margin-bottom: 10px;
   height: 72px;
   align-items: center; 
-  border-bottom: 1px solid #EEFFFF;
+  // border-bottom: 1px solid #EEFFFF;
   width: 100%;
   color: $header-nav-bar-font-color;
 }
@@ -14,8 +14,11 @@
 #logo-link{
   color: $eventbrite-orange;
   font-family: "roboto", helvetica, arial, sans-serif;
-  padding: 20px 10px 20px 10px;
-  @media screen and (max-width: 450px){font-size: calc(.2vw + 1vh);}
+    font-weight: bold;
+    padding: 20px 10px 20px 10px;
+    @media screen and (max-width: 450px){font-size: calc(.2vw + 1vh);}
+    letter-spacing:-.5px;
+    span{letter-spacing:-1.5px;}
 }
 #logo-link:hover{
   cursor: pointer;

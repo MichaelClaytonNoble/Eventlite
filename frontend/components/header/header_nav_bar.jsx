@@ -48,15 +48,15 @@ class HeaderNavBar extends React.Component {
     return(
       <div id="header-nav-bar">
         <span id="header-nav-bar-left">
-          <Link to="/" id="logo-link">Eventlite</Link>
+          <Link to="/" id="logo-link"><span>even</span>tlite</Link>
           <span id="search-bar-input-span">
             <i className="fas fa-search"></i>
             <input id="search-bar-input" placeholder="Search for events"/>
             </span>
         </span>
         <span id="header-nav-bar-right">
-          <span id="help-dropdown"><Link to="/about">About</Link></span>
-          <span id="host-event-dropdown"><Link to="/events/create">Host an event</Link></span>
+          <span id="help-dropdown" onClick={()=>this.props.history.push('/about')}>About</span>
+          <span id="host-event-dropdown" onClick={()=>this.props.history.push('/events/create')}>Host an event</span>
           {menuDropdown}
           {signinLink}
         </span>
