@@ -147,7 +147,7 @@ class Splash extends React.Component{
             </div>
           </div>
             <div id="feed-image">
-              <img src={window.feedImage}/>
+              <img src={window.blackHM}/>
             </div>
           </div>
           <div id="popular-events">
