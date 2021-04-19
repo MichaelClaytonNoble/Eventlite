@@ -134,6 +134,7 @@ class Splash extends React.Component{
               </span>
             </div>
             {this.createFeaturedCollection()}
+
           </div>
     }
     return(
@@ -147,7 +148,7 @@ class Splash extends React.Component{
             </div>
           </div>
             <div id="feed-image">
-              <img src={window.blackHM}/>
+              <img src={window.feedImage}/>
             </div>
           </div>
           <div id="popular-events">
