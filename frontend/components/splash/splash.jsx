@@ -39,7 +39,7 @@ class Splash extends React.Component{
       name = category.name;
     }
     this.props.getEvents(col, val)
-    .then( ()=>this.setState({relevantEvents: this.props.events.reverse(), popularIn: name}));
+    .then( ()=>this.setState({relevantEvents: this.props.events, popularIn: name}));
   }
 
   changeFeaturedCollections(direction){
@@ -72,7 +72,7 @@ class Splash extends React.Component{
       document.getElementById('left-arrow').classList.remove('endArrow');
       
     }
-    if(currentCollection+1 >= this.state.featuredCollections.length-1){
+    if(currentCollection+1 >= this.state.featuredCollections.length){
       document.getElementById('right-arrow').classList.add('endArrow');
       document.getElementById('right-arrow').classList.remove('forwardArrow');
     }
@@ -117,7 +117,7 @@ class Splash extends React.Component{
       })
     }
     if(this.state.popularIn === 'Online Events'){
-      relevantEvents=relevantEvents.reverse();
+      relevantEvents=relevantEvents.sort((a,b)=>new Date(a.start) - new Date(b.start));
       featuredMessage = <h1>Events in {this.state.popularIn}</h1>;
       featured =
           <div id="favorite-collections">
