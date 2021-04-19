@@ -44,16 +44,41 @@ class Splash extends React.Component{
 
   changeFeaturedCollections(direction){
     return (e)=>{
+  
+      let currentCollection = this.state.currentCollection;
       if(direction === "forward"){
-        if(this.state.currentCollection < this.state.featuredCollections.length){
-          this.setState({currentCollection: currentCollection+=1});
+        if(this.state.currentCollection < this.state.featuredCollections.length-1){
+          currentCollection+=1;
+          this.updateArrows(currentCollection);
+          this.setState({currentCollection: currentCollection});
         }
       }
       if(direction === "backward"){
         if(this.state.currentCollection > 0){
-          this.setState({currentCollection: currentCollection-=1});
+          currentCollection-=1;
+          this.updateArrows(currentCollection);
+          this.setState({currentCollection: currentCollection});
         }
       }
+    }
+  }
+  updateArrows(currentCollection){
+    if(currentCollection-1 < 0){
+      document.getElementById('left-arrow').classList.add('endArrow');
+      document.getElementById('left-arrow').classList.remove('forwardArrow');
+    }
+    else{
+      document.getElementById('left-arrow').classList.add('forwardArrow');
+      document.getElementById('left-arrow').classList.remove('endArrow');
+      
+    }
+    if(currentCollection+1 >= this.state.featuredCollections.length-1){
+      document.getElementById('right-arrow').classList.add('endArrow');
+      document.getElementById('right-arrow').classList.remove('forwardArrow');
+    }
+    else{
+      document.getElementById('right-arrow').classList.add('forwardArrow');
+      document.getElementById('right-arrow').classList.remove('endArrow');
     }
   }
   createFeaturedCollection(){
@@ -68,7 +93,6 @@ class Splash extends React.Component{
         <div id="summary">
           <h2><img id="collections-icon" src="https://cdn.evbuc.com/images/100912392/438776807040/1/original.20200513-210241" alt="creator" />{collection.title}</h2>
           <p>{collection.description}</p>
-          <button>View Upcoming Events</button>
         </div>
           <img src={collection.imageUrl}/>
       </div>
@@ -105,8 +129,8 @@ class Splash extends React.Component{
               <span id="right">
                   {/* <span></span> */}
                   <span id="buttons">
-                    <button className="endArrow"id="left-arrow">←</button>
-                    <button className="forwardArrow" id="right-arrow">→</button>
+                    <button className="endArrow"id="left-arrow" onClick={this.changeFeaturedCollections("backward")}>←</button>
+                    <button className="forwardArrow" id="right-arrow" onClick={this.changeFeaturedCollections("forward")}>→</button>
                   </span>
               </span>
             </div>

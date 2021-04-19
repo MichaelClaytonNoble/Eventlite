@@ -27,7 +27,7 @@ User.create!({id: 4, email: "222@222.222", password: "123456", first_name: "222"
 # start: , 
 # end: , 
 # timezone: , 
-# creator_id: });
+# creator_id: })
 
 def details(n)
   case n
@@ -138,7 +138,7 @@ category_path = {
     8=> "science_technology"
 }
 
-Event.destroy_all; 
+Event.destroy_all
 locations = ['ONLINE', 'VENUE', 'TBA']
 
 
@@ -179,13 +179,41 @@ idx = 0
 end
 
 
-Category.destroy_all; 
+Category.destroy_all
 
 Category.create!({id: 1, name: "Food & Drink"})
 Category.create!({id: 2, name: "Health"})
-Category.create!({id: 3, name: "Community"}); 
-Category.create!({id: 4, name: "Film & Media"}); 
-Category.create!({id: 5, name: "Travel & Outdoor"}); 
-Category.create!({id: 6, name: "Music"}); 
-Category.create!({id: 7, name: "Performing & Visual Arts"}); 
-Category.create!({id: 8, name: "Science & Tech"}); 
+Category.create!({id: 3, name: "Community"})
+Category.create!({id: 4, name: "Film & Media"})
+Category.create!({id: 5, name: "Travel & Outdoor"})
+Category.create!({id: 6, name: "Music"})
+Category.create!({id: 7, name: "Performing & Visual Arts"})
+Category.create!({id: 8, name: "Science & Tech"})
+
+
+
+FeaturedCollection.destroy_all
+
+FeaturedCollection.create!({id: 1,
+title: "Educate Yourself: Online Racial Equity Workshops",
+description: "Black History Month is a time for celebrating Black achievement. Black History Month is a time is celebrate and remember important people that are a part of this African diaspora. Come celebrate our brothers by learning and participating in one of many racial equity and history workshops.",
+collection_name: "Black History Month"})
+FeaturedCollection.last.image.attach(io: File.open('app/assets/images/featured_collections/black_history_month.jpeg'), filename: 'black_history_month.jpeg')
+
+FeaturedCollection.create!({id: 2,
+title: "The Music Never Stops: Virtual Concerts &  DJ Sets",
+description: "Live music lives mostly online these days, but if you're in need of a musical fix, there's still plenty of streaming concerts, virtual dance parties, vocal competitions, history lessons, and music-making classes to keep you dancing in your home.",
+collection_name: "Live Music"})
+FeaturedCollection.last.image.attach(io: File.open('app/assets/images/featured_collections/live_music.jpeg'), filename: 'live_music.jpeg')
+
+FeaturedCollection.create!({id: 3,
+title: "Learn to Cook: Online cooking classes & More",
+description: "Struggling to entertain yourself while trying to work from home? Eventlite offers a plethora of online classes and fun activities to help keep yourself busy. There's a virtual world of culinary courses and more.",
+collection_name: "Learn to make"})
+FeaturedCollection.last.image.attach(io: File.open('app/assets/images/featured_collections/learn_to_cook.jpeg'), filename: 'learn_to_cook.jpeg')
+
+FeaturedCollection.create!({id: 4,
+title: "Tour the world: Online museum exhibits & more",
+description:"Even the most active sightseer and museum goer needs a break sometime. Enjoy the wonders of the world without leaving your couch. Go to Egypts amazing pyramid or attend the grand opening of your local museum all with a click of your mouse. Let this curated collection serve as your one-stop shop for all things virtual.",
+collection_name: "Culture"})
+FeaturedCollection.last.image.attach(io: File.open('app/assets/images/featured_collections/culture.jpeg'), filename: 'culture.jpeg')
