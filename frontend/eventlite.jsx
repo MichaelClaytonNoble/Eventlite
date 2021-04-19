@@ -5,10 +5,12 @@ import {logout, login, findUserByEmailForSession} from './actions/session'
 import {signup} from './actions/users';
 import configureStore from './store/store';
 import Root from './components/root';
+import ReactGA, {pageview} from 'react-ga'; 
 
 import { createEvent, updateEvent, getEventsByType } from './actions/events';
 
 document.addEventListener('DOMContentLoaded', ()=>{
+  initializeGA();
   let store;
   if (window.currentUser) {
     const { currentUser } = window;
@@ -44,4 +46,9 @@ const windowStuff = (store)=>{
   window.getState = store.getState;
   window.createEvent = createEvent;
   window.getEventsByType = getEventsByType;
+}
+
+function initializeGA(){
+	ReactGA.initialize('UA-194947891-1');
+	pageview(location.pathname+location.hash);
 }
