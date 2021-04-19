@@ -6,14 +6,20 @@ class Splash extends React.Component{
     super(props);
     this.state = {
       relevantEvents: this.props.events,
-      popularIn: "Online Events"
+      popularIn: "Online Events",
+      featuredCollections: this.props.featuredCollections,
+      currentCollection: 0
     }
 
     this.changeEventList = this.changeEventList.bind(this); 
+    this.changeFeaturedCollections = this.changeFeaturedCollections.bind(this);
+    this.createFeaturedCollection = this.createFeaturedCollection.bind(this); 
   }
   componentDidMount(){
     this.props.getCategories(); 
     if(this.props.myId){this.props.clearMyEvents(this.props.myId)};
+    this.props.getFeaturedCollections()
+    .then( ()=>this.setState({featuredCollections: this.props.featuredCollections})); 
     this.props.getEvents("location", "ONLINE")
     .then( ()=>this.setState({relevantEvents: this.props.events})); 
   }
@@ -36,7 +42,39 @@ class Splash extends React.Component{
     .then( ()=>this.setState({relevantEvents: this.props.events.reverse(), popularIn: name}));
   }
 
-    convertDateToLocalAsJSON(date){
+  changeFeaturedCollections(direction){
+    return (e)=>{
+      if(direction === "forward"){
+        if(this.state.currentCollection < this.state.featuredCollections.length){
+          this.setState({currentCollection: currentCollection+=1});
+        }
+      }
+      if(direction === "backward"){
+        if(this.state.currentCollection > 0){
+          this.setState({currentCollection: currentCollection-=1});
+        }
+      }
+    }
+  }
+  createFeaturedCollection(){
+    if(this.state.featuredCollections.length===0){
+      return (<div></div>);
+    }
+    console.log(this.state.featuredCollections)
+    let collection = this.state.featuredCollections[this.state.currentCollection];
+    return (
+      <div id="content">
+        <div id="content-background"></div>
+        <div id="summary">
+          <h2><img id="collections-icon" src="https://cdn.evbuc.com/images/100912392/438776807040/1/original.20200513-210241" alt="creator" />{collection.title}</h2>
+          <p>{collection.description}</p>
+          <button>View Upcoming Events</button>
+        </div>
+          <img src={collection.imageUrl}/>
+      </div>
+    )
+  }
+  convertDateToLocalAsJSON(date){
     return (date.toJSON(), new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toJSON()).slice(0,16);
   }
 
@@ -72,7 +110,8 @@ class Splash extends React.Component{
                   </span>
               </span>
             </div>
-            <div id="content">
+            {this.createFeaturedCollection()}
+            {/* <div id="content">
               <div id="content-background"></div>
               <div id="summary">
                 <h2><img id="collections-icon" src="https://cdn.evbuc.com/images/100912392/438776807040/1/original.20200513-210241" alt="creator" width="48px" height="48px" />Educate Yourself: Online Racial Equity Workshops</h2>
@@ -82,7 +121,7 @@ class Splash extends React.Component{
                 <button>View Upcoming Events</button>
               </div>
                 <img src={window.blackHM}/>
-            </div>
+            </div> */}
           </div>
     }
     return(

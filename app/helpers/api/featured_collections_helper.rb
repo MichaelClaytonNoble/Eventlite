@@ -1,0 +1,2 @@
+module Api::FeaturedCollectionsHelper
+end

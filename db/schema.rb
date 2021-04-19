@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_18_205323) do
+ActiveRecord::Schema.define(version: 2021_04_19_014203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,16 @@ ActiveRecord::Schema.define(version: 2021_04_18_205323) do
     t.index ["creator_id"], name: "index_events_on_creator_id"
     t.index ["location"], name: "index_events_on_location"
     t.index ["title"], name: "index_events_on_title"
+  end
+
+  create_table "featured_collections", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "description", null: false
+    t.string "collection_name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["collection_name"], name: "index_featured_collections_on_collection_name"
+    t.index ["title"], name: "index_featured_collections_on_title"
   end
 
   create_table "users", force: :cascade do |t|
