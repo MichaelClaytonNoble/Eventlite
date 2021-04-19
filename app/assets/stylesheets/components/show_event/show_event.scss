@@ -1,0 +1,39 @@
+
+
+#event-show-overlay{
+  position: absolute;
+  height: 650px;
+  width: 100%;
+  background-color: rgba(128, 128, 128, 0.125);
+  left:0;
+  top: auto;
+  z-index: -1;
+}
+
+#event-show-wrap{
+  width: 90%;
+  margin: 0 auto;
+}
+
+#event-show{
+  background-color: white;
+  transform: translateY(40px);
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.15);
+  border-radius: 4px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+#event-show #head{
+  display: grid;
+  grid-template-columns: 66% 33%;
+  grid-template-rows: 360px; 
+  img{
+    object-fit: cover;
+    object-position: top;
+    max-height: 100%;
+    width: 100%;
+    margin: auto;
+  }
+}

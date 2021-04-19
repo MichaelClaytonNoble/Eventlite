@@ -19,6 +19,7 @@ import MyEventsContainer from './my_events/my_events_container';
 
 import PageNotFound from './error/error_page';
 import BrowseEventsContainer from './browse_events/browse_events_container';
+import ShowEventContainer from './show_event/show_event_container.js';
 
 class App extends React.Component{
   render(){
@@ -40,6 +41,7 @@ class App extends React.Component{
           <Route path="/events/browse/:category" component={BrowseEventsContainer} />
           <Route path="/events/browse/" component={BrowseEventsContainer} />
 
+          <Route path="/show" component={ShowEventContainer} />
           <Route exact path="/404" component={PageNotFound} />
           <Redirect to="/404" />
 
