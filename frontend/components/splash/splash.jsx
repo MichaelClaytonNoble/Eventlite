@@ -85,7 +85,6 @@ class Splash extends React.Component{
     if(this.state.featuredCollections.length===0){
       return (<div></div>);
     }
-    console.log(this.state.featuredCollections)
     let collection = this.state.featuredCollections[this.state.currentCollection];
     return (
       <div id="content">
@@ -135,17 +134,6 @@ class Splash extends React.Component{
               </span>
             </div>
             {this.createFeaturedCollection()}
-            {/* <div id="content">
-              <div id="content-background"></div>
-              <div id="summary">
-                <h2><img id="collections-icon" src="https://cdn.evbuc.com/images/100912392/438776807040/1/original.20200513-210241" alt="creator" width="48px" height="48px" />Educate Yourself: Online Racial Equity Workshops</h2>
-                <p>
-                  Black History Month is a time for celebrating Black achievement. Black History Month is a time is celebrate and remember important people that are a part of this African diaspora. Come celebrate our brothers by learning and participating in one of many racial equity and history workshops. 
-                </p>
-                <button>View Upcoming Events</button>
-              </div>
-                <img src={window.blackHM}/>
-            </div> */}
           </div>
     }
     return(

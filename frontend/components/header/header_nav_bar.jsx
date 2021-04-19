@@ -33,7 +33,7 @@ class HeaderNavBar extends React.Component {
           {this.props.self.email}<br />
         <ul id="menu-dropdown">
           <li className="menu-dropdown-li"
-            onClick={()=>{this.props.history.push(`/events/browse`)}}
+            onClick={()=>{if(this.props.history.location.pathname === '/events/browse'){window.location.reload();} this.props.history.push(`/events/browse`)}}
             >Browse events</li>
           <li className="menu-dropdown-li"
             onClick={()=>{this.props.history.push(`/${this.props.myId}/events`)}}
