@@ -23,16 +23,17 @@ import ShowEventContainer from './show_event/show_event_container.js';
 
 import {useLocation} from 'react-router-dom'; 
 
-function usePageViews(){
-  let location = useLocation();
-  React.useEffect( ()=>{
-    ReactGA.pageview(location.pathname); 
 
-  }, [location]);
-}
+// usePageViews(){
+//   React.useEffect( ()=>{
+//     let location = useLocation();
+//     ReactGA.pageview(location.pathname); 
+
+//   }, [location]);
+// }
 class App extends React.Component{
+
   render(){
-    usePageViews();
     return (
       <div id="App" >
         <HeaderNavBarContainer /> 

@@ -9,6 +9,8 @@
   // border-bottom: 1px solid #EEFFFF;
   width: 100%;
   color: $header-nav-bar-font-color;
+  z-index: 10;
+  background-color: #fff;
 }
 
 #logo-link{

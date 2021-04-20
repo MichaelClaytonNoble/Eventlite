@@ -5,35 +5,219 @@
   height: 650px;
   width: 100%;
   background-color: rgba(128, 128, 128, 0.125);
-  left:0;
+  left: 0px;
   top: auto;
   z-index: -1;
+  img{
+
+    width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    object-position: top;
+    filter: blur(38px);
+    overflow: hidden;
+  }
+  overflow: hidden; 
+}
+
+#event-show-overlay-overlay{
+  background-color: #f8f7fa;
+  background-color: transparent;
+  z-index: -2;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  position: fixed; 
+  top: 0px;
 }
 
 #event-show-wrap{
   width: 90%;
   margin: 0 auto;
+  letter-spacing: .5px;
 }
 
 #event-show{
-  background-color: white;
+  // background-color: white;
   transform: translateY(40px);
   box-shadow: 0 1px 2px 0 rgba(0,0,0,.15);
   border-radius: 4px;
-
+  
   display: flex;
   flex-direction: column;
 }
 
 #event-show #head{
   display: grid;
-  grid-template-columns: 66% 33%;
+  grid-template-columns: 66.5% 33.5%;
   grid-template-rows: 360px; 
+  border-radius: 4px;
   img{
     object-fit: cover;
     object-position: top;
     max-height: 100%;
     width: 100%;
     margin: auto;
+    border-radius: 4px 0 0 0;
   }
+  #head-description{
+    border-radius: 0 4px 0 0;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 30px 20px 30px; 
+    position: relative;
+    height: 360px;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: rgba(255,255,255,0.9);
+  }
+}
+
+#event-show #head #head-description{
+  #date{
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    width: min-content;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top: 30px;
+    left: 30px;
+    #month, #day{
+      margin: 0 auto;
+    }
+    #day{
+      font-size: 17px;
+      line-height: 1.25rem;
+      letter-spacing: 1px;
+    }
+  }
+  #title-wrap{
+    padding-top: 64px;
+    height: 172px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  #title{
+    font-size: 20px;
+    letter-spacing: .5px;
+    word-break: break-word;
+    line-height: 21px;
+    text-overflow: ellipsis;
+    margin: 0 auto;
+    width: 100%;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+
+    color: #1E0A3C;
+    display: block;
+  }
+  #organizer, #ticket-price{
+    margin-bottom: 5px;
+    margin-right: 5px;
+    display: inline-block;
+    font-size: .94rem;
+    line-height: 1.25rem;
+    font-weight: lighter;
+  }
+  #organizer{
+    color: #6F7287;
+    margin-bottom: 12px;
+  }
+  #ticket-price{
+    color: #1E0A3C;
+    position: absolute;
+    bottom: 0px;
+  }
+}
+
+#event-show #ticket{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 44px;
+  padding: 10px 0;
+  align-items: center;
+  width: 100%;
+  z-index: 100;
+  border-top: 1px solid #DBDAE3;
+  border-bottom: 1px solid #DBDAE3;
+  background-color: #ffffff;
+  position: sticky;
+  top: -40px;
+  span{
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    align-items: center;
+    justify-content: space-between;
+  }
+  #buy-ticket-button{
+    background-color: #0D8547;
+    color: #ffffff;
+    width: 29.5%;
+    width: 62.5%;
+    height: 44px;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 26px;
+    border-radius: 4px;
+    font-size: 15px;
+    border: 2px solid transparent;
+    margin-right: 2%;
+  }
+}
+
+#event-show #event-description{
+  display: grid;
+  grid-template-columns: 66.5% 33.5%;
+  grid-template-rows: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  padding-top: 50px;
+}
+
+#event-show #event-description #left{
+  width: 75%;
+  margin: 0 auto;
+  font-size: 16px;
+  color: #6f7287;
+  line-height: 1.5rem;
+  overflow: auto;
+
+  #about-title{
+    margin-bottom: 40px;
+    font-size: 19px;
+  }
+  #description{
+    margin-bottom: 40px;
+  }
+}
+#event-show #event-description #right{
+  padding: 0 30px 30px 30px;
+  color: #1E0A3C; 
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .right-title{
+    line-height: 1.4rem;
+    font-weight: lighter;
+    font-size: 1rem;
+  }
+  #date, #time, #location, #refund{
+    color: #39364f;
+    line-height: 1.25rem;
+    font-weight: lighter;
+    font-size: .9rem;
+  }
+}
+
+#event-show #ticket #ticket-price-sticky{
+    color: #39364f;
+    line-height: 1.25rem;
+    font-weight: lighter;
+    font-size: .9rem;
 }
