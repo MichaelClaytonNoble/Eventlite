@@ -51,8 +51,8 @@ class App extends React.Component{
 
           <Route path="/events/browse/:category" component={BrowseEventsContainer} />
           <Route path="/events/browse/" component={BrowseEventsContainer} />
+          <Route path="/events/:eventId" component={ShowEventContainer} />
 
-          <Route path="/show" component={ShowEventContainer} />
           <Route exact path="/404" component={PageNotFound} />
           <Redirect to="/404" />
 

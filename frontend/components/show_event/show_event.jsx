@@ -3,24 +3,60 @@ import React from 'react';
 import Link from 'react-router-dom'; 
 
 class ShowEvent extends React.Component{
-
-  componentDidMount(){
-
+  constructor(props){
+    super(props);
+    this.state={
+      event: this.props.event
+    }
   }
+  componentDidMount(){
+    this.props.getEvent()
+      .then( ()=> this.setState({event: this.props.event}));
+  }
+
+   convertDateToLocalAsJSON(date){
+    return (date.toJSON(), new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toJSON());
+  }
+
+  getCurrentDateTime(){
+    return this.convertDateToLocalAsJSON(new Date()).slice(0,16);
+  }
+
   render(){
+    var dateOptions = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric'};
+    var timeOptions = {hour: 'numeric', minute: 'numeric', hour12: true }
+    let img, month, day, title, organizer, description = '';
+    let startDate, endDate, startTime, endTime = '';
+    let event = this.state.event;
+    let date = new Date();
+    if(this.state.event){
+      img = <img src={event.imageUrl} alt='blurred'></img>
+      startDate = (new Date(this.convertDateToLocalAsJSON(new Date(event.start))).toLocaleTimeString("default", dateOptions)); 
+      endDate = (new Date(this.convertDateToLocalAsJSON(new Date(event.end))).toLocaleTimeString("default", dateOptions)); 
+      startTime = (new Date(this.convertDateToLocalAsJSON(new Date(event.start))).toLocaleTimeString("default", timeOptions)); 
+      endTime = (new Date(this.convertDateToLocalAsJSON(new Date(event.end))).toLocaleTimeString("default", timeOptions)); 
+      month = new Date(this.convertDateToLocalAsJSON(new Date(event.start))).toLocaleDateString('en-EN', {month: 'short'});
+      day = new Date(this.convertDateToLocalAsJSON(new Date(event.start))).toLocaleDateString('en-EN', {day: 'numeric'});
+      title = event.title;
+      if (event.organizer){
+        organizer = 'by '+event.organizer;
+      }
+      description = event.description;
+    }
+    
     return (
       <div id="event-show-wrap">
 
         <div id="event-show-overlay-overlay"></div>
-        <div id="event-show-overlay"><img src={window.blackHM} alt='blurred'></img></div>
+        <div id="event-show-overlay">{img}</div>
         <div id="event-show">
           <div id="head">
-            <div id="head-image"><img src={window.blackHM} /></div>
+            <div id="head-image">{img}</div>
             <div id="head-description">
-              <div id="date"><div id="month">APR</div><div id="day">24</div></div>
+              <div id="date"><div id="month">{month}</div><div id="day">{day}</div></div>
               <div id="title-wrap">
-                <div id="title">The 2nd Annual National Antiracist Book Book Book Book Book Book Festival</div>
-                <div id="organizer">by BU CENTER FOR antiracisc research</div>
+                <div id="title">{title}</div>
+                <div id="organizer">{organizer}</div>
               </div>
               <div id="ticket-price">$10 - $250</div>
             </div>
@@ -36,58 +72,20 @@ class ShowEvent extends React.Component{
             <div id="left">
               <div id="title"></div>
               <div id="about-title">About this Event</div>
-              <div id="description">
-                On Saturday, April 24, 2021, Boston University’s Center for Antiracist Research will host the 2nd Annual National Antiracist Book Festival. This event will be held virtually to protect the safety of our community.
-
-The #AntiracistBookfest is the first and only book festival that brings together, showcases, and celebrates the nation’s leading antiracist writers and helps to prepare the writers of tomorrow. Panels are topically organized with two authors and a moderator. There will also be workshops for writers facilitated by leading book editors and literary agents. The National Antiracist Book Festival is a ticketed event. All proceeds from ticket sales will go towards the work of the BU Center for Antiracist Research.
-
-The 2nd Annual National Antiracist Book Festival was originally scheduled for April 25, 2020, and postponed due to the COVID-19 pandemic to Saturday, April 24, 2021.
-The 2nd Annual National Antiracist Book Festival was originally scheduled for April 25, 2020, and postponed due to the COVID-19 pandemic to Saturday, April 24, 2021.
-The 2nd Annual National Antiracist Book Festival was originally scheduled for April 25, 2020, and postponed due to the COVID-19 pandemic to Saturday, April 24, 2021.
-The 2nd Annual National Antiracist Book Festival was originally scheduled for April 25, 2020, and postponed due to the COVID-19 pandemic to Saturday, April 24, 2021.
-The 2nd Annual National Antiracist Book Festival was originally scheduled for April 25, 2020, and postponed due to the COVID-19 pandemic to Saturday, April 24, 2021.
-The 2nd Annual National Antiracist Book Festival was originally scheduled for April 25, 2020, and postponed due to the COVID-19 pandemic to Saturday, April 24, 2021.
-The 2nd Annual National Antiracist Book Festival was originally scheduled for April 25, 2020, and postponed due to the COVID-19 pandemic to Saturday, April 24, 2021.
-The 2nd Annual National Antiracist Book Festival was originally scheduled for April 25, 2020, and postponed due to the COVID-19 pandemic to Saturday, April 24, 2021.
-The 2nd Annual National Antiracist Book Festival was originally scheduled for April 25, 2020, and postponed due to the COVID-19 pandemic to Saturday, April 24, 2021.
-The 2nd Annual National Antiracist Book Festival was originally scheduled for April 25, 2020, and postponed due to the COVID-19 pandemic to Saturday, April 24, 2021.
-The 2nd Annual National Antiracist Book Festival was originally scheduled for April 25, 2020, and postponed due to the COVID-19 pandemic to Saturday, April 24, 2021.
-The 2nd Annual National Antiracist Book Festival was originally scheduled for April 25, 2020, and postponed due to the COVID-19 pandemic to Saturday, April 24, 2021.
-The 2nd Annual National Antiracist Book Festival was originally scheduled for April 25, 2020, and postponed due to the COVID-19 pandemic to Saturday, April 24, 2021.
-The 2nd Annual National Antiracist Book Festival was originally scheduled for April 25, 2020, and postponed due to the COVID-19 pandemic to Saturday, April 24, 2021.
-The 2nd Annual National Antiracist Book Festival was originally scheduled for April 25, 2020, and postponed due to the COVID-19 pandemic to Saturday, April 24, 2021.
-The 2nd Annual National Antiracist Book Festival was originally scheduled for April 25, 2020, and postponed due to the COVID-19 pandemic to Saturday, April 24, 2021.
-The 2nd Annual National Antiracist Book Festival was originally scheduled for April 25, 2020, and postponed due to the COVID-19 pandemic to Saturday, April 24, 2021.
-The 2nd Annual National Antiracist Book Festival was originally scheduled for April 25, 2020, and postponed due to the COVID-19 pandemic to Saturday, April 24, 2021.
-The 2nd Annual National Antiracist Book Festival was originally scheduled for April 25, 2020, and postponed due to the COVID-19 pandemic to Saturday, April 24, 2021.
-The 2nd Annual National Antiracist Book Festival was originally scheduled for April 25, 2020, and postponed due to the COVID-19 pandemic to Saturday, April 24, 2021.
-The 2nd Annual National Antiracist Book Festival was originally scheduled for April 25, 2020, and postponed due to the COVID-19 pandemic to Saturday, April 24, 2021.
-The 2nd Annual National Antiracist Book Festival was originally scheduled for April 25, 2020, and postponed due to the COVID-19 pandemic to Saturday, April 24, 2021.
-The 2nd Annual National Antiracist Book Festival was originally scheduled for April 25, 2020, and postponed due to the COVID-19 pandemic to Saturday, April 24, 2021.
-The 2nd Annual National Antiracist Book Festival was originally scheduled for April 25, 2020, and postponed due to the COVID-19 pandemic to Saturday, April 24, 2021.
-The 2nd Annual National Antiracist Book Festival was originally scheduled for April 25, 2020, and postponed due to the COVID-19 pandemic to Saturday, April 24, 2021.
-The 2nd Annual National Antiracist Book Festival was originally scheduled for April 25, 2020, and postponed due to the COVID-19 pandemic to Saturday, April 24, 2021.
-The 2nd Annual National Antiracist Book Festival was originally scheduled for April 25, 2020, and postponed due to the COVID-19 pandemic to Saturday, April 24, 2021.
-The 2nd Annual National Antiracist Book Festival was originally scheduled for April 25, 2020, and postponed due to the COVID-19 pandemic to Saturday, April 24, 2021.
-The 2nd Annual National Antiracist Book Festival was originally scheduled for April 25, 2020, and postponed due to the COVID-19 pandemic to Saturday, April 24, 2021.
-The 2nd Annual National Antiracist Book Festival was originally scheduled for April 25, 2020, and postponed due to the COVID-19 pandemic to Saturday, April 24, 2021.
-The 2nd Annual National Antiracist Book Festival was originally scheduled for April 25, 2020, and postponed due to the COVID-19 pandemic to Saturday, April 24, 2021.
-The 2nd Annual National Antiracist Book Festival was originally scheduled for April 25, 2020, and postponed due to the COVID-19 pandemic to Saturday, April 24, 2021.
-The 2nd Annual National Antiracist Book Festival was originally scheduled for April 25, 2020, and postponed due to the COVID-19 pandemic to Saturday, April 24, 2021.
-The 2nd Annual National Antiracist Book Festival was originally scheduled for April 25, 2020, and postponed due to the COVID-19 pandemic to Saturday, April 24, 2021.
-The 2nd Annual National Antiracist Book Festival was originally scheduled for April 25, 2020, and postponed due to the COVID-19 pandemic to Saturday, April 24, 2021.
-The 2nd Annual National Antiracist Book Festival was originally scheduled for April 25, 2020, and postponed due to the COVID-19 pandemic to Saturday, April 24, 2021.
-
-
-              </div>
+              <div id="description">{description}</div>
               <div id="ticket-message">Tickets are now on sale</div>
             </div>
 
             <div id="right">
               <div id="top">
                 <div id="date-title" className="right-title">Date And Time</div>
-                <div id="date">Sat, April 24, 2021</div>
-                <div id="time">6:00 AM - 3:00PM PDT</div>
+                <div id="date">{startDate}</div>
+                <div id="time">{startTime}</div>
+                <br />
+                <div id="date-title" className="right-title">until</div>
+                <br />
+                <div id="date">{endDate}</div>
+                <div id="time">{endTime}</div>
               </div>
               <div id="middle">
                 <div id="location-title" className="right-title">Location</div>

@@ -51,13 +51,14 @@
 #event-show #head{
   display: grid;
   grid-template-columns: 66.5% 33.5%;
-  grid-template-rows: 360px; 
+  grid-template-rows: auto; 
   border-radius: 4px;
   img{
     object-fit: cover;
     object-position: top;
     max-height: 100%;
     width: 100%;
+    height: 100%;
     margin: auto;
     border-radius: 4px 0 0 0;
     animation: fadeIn .4s;
@@ -68,7 +69,7 @@
     flex-direction: column;
     padding: 30px 30px 20px 30px; 
     position: relative;
-    height: 360px;
+    // height: 360px;
     box-sizing: border-box;
     width: 100%;
     background-color: rgba(255,255,255,0.9);
@@ -203,7 +204,7 @@
 #event-show #event-description #right{
   padding: 0 30px 30px 30px;
   color: #1E0A3C; 
-  height: 320px;
+  height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
