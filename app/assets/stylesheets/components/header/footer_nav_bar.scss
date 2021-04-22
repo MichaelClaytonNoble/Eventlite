@@ -2,16 +2,17 @@
 #footer-nav-bar{
   display: flex;
   flex-direction: row; 
-  padding-left: 24px;
-  padding-right: 24px; 
   background-color: $footer-background-color;
   color: $footer-font-color;
-  justify-self: flex-end;
+  // justify-self: flex-end;
   font-weight: 100; 
   font-size: 13px;
   justify-content: space-between; 
-  height: 44px;
   align-items: center; 
+  height: 44px;
+  width: 100%;
+  position: relative;
+  bottom: 0px;
 }
 
 

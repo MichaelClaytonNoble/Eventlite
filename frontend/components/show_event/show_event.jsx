@@ -12,10 +12,14 @@ class ShowEvent extends React.Component{
       relevantEvents: this.props.relevantEvents,
       loading: true
     }
+         window.scrollTo(0, 0);
+
   }
   componentDidUpdate(prevProps){
     if(this.props.event){
       if(this.state.event !== this.props.event && this.state.loading){
+             window.scrollTo(0, 0);
+
         this.props.getRelevantEvents(this.props.event.creator_id).then( (e)=>{
           console.log('ehou',e);
           this.setState({event: this.props.event, relevantEvents: this.props.relevantEvents, loading: false});

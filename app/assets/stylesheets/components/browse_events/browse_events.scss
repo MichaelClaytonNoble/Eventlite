@@ -36,7 +36,7 @@
     min-width: 220px;
     max-width: 220px;
   }
-  height: 100%;
+  min-height: 100%;
     -webkit-box-shadow: inset 0px 0px 10px 2px $box-shadow-color; 
   box-shadow: inset 0px 0px 10px 2px $box-shadow-color;
 }

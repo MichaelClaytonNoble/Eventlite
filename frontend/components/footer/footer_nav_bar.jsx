@@ -1,9 +1,12 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 
 class FooterNavBar extends React.Component{
 
   render(){
+    if(this.props.location.pathname.includes('/events/browse')){
+      return null;
+    }
     return(
       <div id="footer-nav-bar">
 
@@ -21,4 +24,4 @@ class FooterNavBar extends React.Component{
   }
 }
 
-export default FooterNavBar; 
+export default withRouter(FooterNavBar); 
