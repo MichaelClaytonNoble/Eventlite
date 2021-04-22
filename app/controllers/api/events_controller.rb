@@ -64,6 +64,9 @@ class Api::EventsController < ApplicationController
         @events = Event.where("#{col} = ?", val)
         .where('start >= ?', DateTime.now)
         .where("creator_id != ?", current_user.id) if whitelist(col.downcase)
+     # elsif col == 'relevant_creator'
+       # @events = Event.where("creator_id", val).
+        #  .where(' start >= ? ', DateTime.now).sample(5);
       else
         @events = Event.where("#{col} = ?", val)
         .where('start >= ?', DateTime.now) if whitelist(col.downcase)

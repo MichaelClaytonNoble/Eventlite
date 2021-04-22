@@ -2,19 +2,39 @@
 import React from 'react';
 import Link from 'react-router-dom'; 
 
+
+
 class ShowEvent extends React.Component{
   constructor(props){
     super(props);
     this.state={
-      event: this.props.event
+      event: this.props.event,
+      relevantEvents: this.props.relevantEvents,
+      loading: true
     }
   }
-  componentDidMount(){
+  componentDidUpdate(prevProps){
+    if(this.props.event){
+      if(this.state.event !== this.props.event && this.state.loading){
+        this.props.getRelevantEvents(this.props.event.creator_id).then( (e)=>{
+          console.log('ehou',e);
+          this.setState({event: this.props.event, relevantEvents: this.props.relevantEvents, loading: false});
+        })
+      }
+  }
   }
 
   componentWillMount(){
+    this.props.clearEvents()
+
     this.props.getEvent()
-      .then( ()=> this.setState({event: this.props.event}));
+      .then( ()=> {
+        this.props.getRelevantEvents(this.props.event.category_id)
+        .then( ()=>{
+          this.setState({event: this.props.event, relevantEvents: this.props.relevantEvents})
+        })
+    });
+
   }
 
    convertDateToLocalAsJSON(date){
@@ -23,6 +43,53 @@ class ShowEvent extends React.Component{
 
   getCurrentDateTime(){
     return this.convertDateToLocalAsJSON(new Date()).slice(0,16);
+  }
+
+  createCarousel(){
+
+    return this.state.relevantEvents.map( (event,key) => {
+      let online = '';
+      if(event.location ==='ONLINE'){
+        online = <div className="online-sticker">Online</div>
+      }
+      return (
+      <div  key={key}className="carousel-cell" onClick={()=>{this.setState({loading: true});this.props.history.push(`/events/${event.id}`)}}>
+        <img src={event.imageUrl} alt="carousel" />
+        <div className="info">
+          <div className="date-time">
+            {event.start}
+          </div>
+          <div className ="title">
+            {event.title}
+          </div>
+          {online}
+        </div>
+
+      </div>)
+    });
+  }
+  moveCarousel(direction){
+    this.props.history.location.pathname;
+    return (e)=>{
+      let element = document.getElementById('carousel-child');
+
+      let left = window.getComputedStyle(element,null).getPropertyValue('left').replace(/[^-\d\.]/g, '');
+      let width = window.getComputedStyle(element,null).getPropertyValue('width').replace(/[^-\d\.]/g, '');
+      left = parseInt(left);
+      let cellWidth = (parseInt(width)*.3 + parseInt(width)*.01);
+      width = (cellWidth*this.state.relevantEvents.length-parseInt(width))*-1;
+      if(direction ==='left'){
+        left += cellWidth;
+        if(left > 0){left = 0;}
+      }
+      if(direction ==='right'){
+        left -= cellWidth;
+        if(left < width){
+          left=width;
+        }
+      }
+      element.style.left = left.toString()+'px';
+    }
   }
 
   render(){
@@ -105,14 +172,9 @@ class ShowEvent extends React.Component{
         <div id="carousel-wrap">
           <div id="title">Other Events You May Like</div>
           <div id="carousel">
-            <div className="carousel-cell"></div>
-            <div className="carousel-cell"></div>
-            <div className="carousel-cell"></div>
-            <div className="carousel-cell"></div>
-            <div className="carousel-cell"></div>
-            <div className="carousel-cell"></div>
-            <div className="carousel-cell"></div>
-            <div className="carousel-cell"></div>
+            <div id="chevron-right" onMouseDown={this.moveCarousel('right')}><img className="chevron" src="https://img.icons8.com/ios-glyphs/30/000000/chevron-right.png"/></div>
+            <div id="chevron-left" onMouseDown={this.moveCarousel('left')}><img className="chevron" src="https://img.icons8.com/ios-glyphs/30/000000/chevron-left.png"/></div>
+            <div id="carousel-child">{this.createCarousel()}</div>
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import MyEvents from './my_events'; 
 import {connect} from 'react-redux'; 
 import {withRouter} from 'react-router-dom'; 
-import {getEventsByType, clearEvents} from '../../actions/events';
+import {getEventsByType} from '../../actions/events';
 import {analyzeEvents} from '../../reducers/selectors/events_selectors';
 import { openModal } from '../../actions/modal';
 

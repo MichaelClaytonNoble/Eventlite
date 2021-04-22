@@ -173,7 +173,7 @@ class Splash extends React.Component{
                   }
                   let start = (new Date(this.convertDateToLocalAsJSON(new Date(event.start))).toLocaleTimeString("en-US", options)); 
                   return(
-                    <div id={i}key={i}>
+                    <div id={i}key={i} onClick={()=>this.props.history.push(`/events/${event.id}`)}>
                       <span id="image">{img}</span>
                       <span id="title"><p>{event.title}</p></span>
                       <span id="start">{start}</span>

@@ -8,6 +8,7 @@
     right: 0px;
   }
   li{
+    z-index: 101;
     padding: 25px 0px 25px 10px;
     &:hover{
       cursor: pointer;
@@ -24,7 +25,7 @@
     -webkit-box-shadow: 0 1px 17px 0 rgba(40,44,53,.10), 0 2px 4px 0 rgba(40,44,53,.1);
     box-shadow:  0 1px 17px 0 rgba(40,44,53,.10), 0 2px 4px 0 rgba(40,44,53,.1);
 
-    z-index: 100;
+    z-index: 101;
     text-align: left;
     min-width: 230px;
     animation: fadeIn .5s;

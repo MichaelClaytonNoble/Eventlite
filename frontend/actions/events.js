@@ -72,6 +72,7 @@ export const getAllEvents = () => dispatch => {
 }
               
 export const getEventsByType = (col,val) => dispatch =>{
+
   if(col==='creator_id'){
     return (pullEventsByType(col,val)
     .then(events => dispatch(receiveEventsByUser(events)), err => dispatch(receiveEventErrors(err.responseJSON))));
