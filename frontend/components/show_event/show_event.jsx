@@ -10,6 +10,9 @@ class ShowEvent extends React.Component{
     }
   }
   componentDidMount(){
+  }
+
+  componentWillMount(){
     this.props.getEvent()
       .then( ()=> this.setState({event: this.props.event}));
   }
@@ -96,6 +99,20 @@ class ShowEvent extends React.Component{
                 <div id="refund">Contact the organizer to request a refund. Eventlite's fee is nonrefundable</div>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div id="carousel-wrap">
+          <div id="title">Other Events You May Like</div>
+          <div id="carousel">
+            <div className="carousel-cell"></div>
+            <div className="carousel-cell"></div>
+            <div className="carousel-cell"></div>
+            <div className="carousel-cell"></div>
+            <div className="carousel-cell"></div>
+            <div className="carousel-cell"></div>
+            <div className="carousel-cell"></div>
+            <div className="carousel-cell"></div>
           </div>
         </div>
       </div>

@@ -11,6 +11,7 @@ class Api::EventsController < ApplicationController
     render :event_list
   end
 
+ 
   def create
     @event = Event.new(event_params)
     @event.creator_id = current_user.id
@@ -52,7 +53,10 @@ class Api::EventsController < ApplicationController
   def getByType
     col = params[:column]
     val = params[:value]
-    if(col == 'creator_id')
+    if col == 'any_id'
+      @events = Event.where('id = ?', val)
+      
+    elsif(col == 'creator_id')
       @creator_id = val
       @events = Event.where("#{col} = ?", val) if whitelist(col.downcase)
     else

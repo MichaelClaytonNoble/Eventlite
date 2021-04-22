@@ -124,11 +124,11 @@ class DetailsEventForm extends React.Component{
             <p id="create-event-description">Add more details to your event like your schedule, sponsors, or featured guests.</p>
 
             <label className='larger-input-label'><p>Summary</p>
-              <textarea className="larger-input" onChange={this.handleInputChange('description')} value={this.state.description} />
+              <textarea className="larger-input" onChange={this.handleInputChange('about')} value={this.state.about} />
             </label>
             {summaryErr}
             <label className='larger-input-label-2'><p>About</p>
-              <textarea className="larger-input" onChange={this.handleInputChange('about')} value={this.state.about} />
+              <textarea className="larger-input" onChange={this.handleInputChange('description')} value={this.state.description} />
             </label>
             {aboutErr}{eventExistErr}
           </section>

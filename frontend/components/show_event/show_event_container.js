@@ -10,9 +10,8 @@ const mSTP = (state, ownProps) => ({
 });
 
 const mDTP = (dispatch, ownProps) => {
-  console.log(ownProps.match.params.eventId)
   return{
-  getEvent: ()=>dispatch(getEventsByType('id', ownProps.match.params.eventId))
+  getEvent: ()=>dispatch(getEventsByType('any_id', ownProps.match.params.eventId))
   }
 };
 
