@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :categories, only: [:index]
     resource :session, only: [:create, :new, :destroy]
     post "/sessions/find", to: "sessions#find"
-
+    resources :follows, only: [:index, :create, :destroy]
     resources :featured_collections, only: [:index]
   end 
 
