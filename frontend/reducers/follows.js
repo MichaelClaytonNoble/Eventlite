@@ -10,12 +10,12 @@ const followsReducer = (state=[], action=[]) => {
       return action.follows;
 
     case RECEIVE_FOLLOW:
-      return Object.values(nextState).concat(action.follow);
+      return Object.values(nextState).push(action.follow);
     case CLEAR_FOLLOWS:
       return [];
 
     case REMOVE_FOLLOW:
-      return Object.values(nextState).filter( follow => follow !== action.follow.pop());
+      return Object.values(nextState).filter( follow => follow !== action.follow);
 
     default: 
       return state;

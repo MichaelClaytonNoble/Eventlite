@@ -16,9 +16,9 @@ class Api::FollowsController < ApplicationController
     else
       @follow = Follow.create(event_id: params[:event_id], user_id: current_user.id);
       if @follow.save
-        render json: [@follow.event_id]
+        render json: @follow.event_id.to_i
       else
-        render json: @follow.full_messages, status: 422
+        render json: @follow.errors.full_messages, status: 422
       end
     end
   end
@@ -27,14 +27,14 @@ class Api::FollowsController < ApplicationController
     if !logged_in?
       render json: []
     else
-      @follow = Follow.where('event_id = ? and user_id = ?', 0, 0)
-        # .where('user_id = ?', current_user.id)
-        debugger
+      @follow= Follow.where("event_id = ?", params[:id])
+        .where('user_id = ?', current_user.id)
+        event_id = params[:id]
       if @follow
-        @follow.destroy
-        render json: [@follow.event_id]
+        Follow.destroy(@follow.pluck('id').pop)
+        render json: event_id.to_i
       else
-        render json: @follow.full_messages, status: 422
+        render json: ["no follow found"], status: 422
       end
     end
   end
