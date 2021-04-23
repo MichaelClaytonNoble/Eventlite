@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Link from 'react-router-dom';
 
 class BrowseEvents extends React.Component{
 
@@ -345,12 +345,12 @@ class BrowseEvents extends React.Component{
 
       return <li key={key}>
         <div id="events-left">
-          <div id="title-wrap"><div id="title">{event.title}</div></div>
+          <div id="title-wrap" onClick={()=>this.props.history.push(`/events/${event.id}`)}><div id="title">{event.title}</div></div>
           <div id="start">{start}</div>
           <div id="location">{location}</div>
         </div>
         <div id="events-right">
-          <div id="event-img"><img src={img} alt="event-img" /></div>
+          <div id="event-img" onClick={()=>this.props.history.push(`/events/${event.id}`)}><img src={img} alt="event-img" /></div>
           <div id="like-button">♡</div>
         </div>
       </li>

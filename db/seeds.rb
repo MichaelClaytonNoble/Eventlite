@@ -140,7 +140,7 @@ def seedEvents
 
   Event.destroy_all
   locations = ['ONLINE', 'VENUE', 'TBA']
-
+  organizers = ["San Francisco Party Coalition", "Historical Society", "NASA", "SF Ping Pong Group", "Government"]
 
   idx = 0
   (1..8).each do |category|
@@ -166,7 +166,8 @@ def seedEvents
       
       e = Event.create!({id: idx, 
         title: detail['title'], 
-        description: description_with_lorem, 
+        description: description_with_lorem,
+        organizer: organizers.sample 
         about: detail['about'],
         category_id: category, 
         location: location, 
