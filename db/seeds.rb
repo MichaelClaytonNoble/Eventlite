@@ -167,7 +167,7 @@ def seedEvents
       e = Event.create!({id: idx, 
         title: detail['title'], 
         description: description_with_lorem,
-        organizer: organizers.sample 
+        organizer: organizers.sample,
         about: detail['about'],
         category_id: category, 
         location: location, 
@@ -203,7 +203,7 @@ def seedCategory
 end
 
 
-def seedFeaturedCollection
+def seedFeaturedCollections
   FeaturedCollection.destroy_all
 
   FeaturedCollection.create!({id: 1,
@@ -244,3 +244,7 @@ def addDescriptionToEvents
   end
 end
 
+seedUser
+seedCategory
+seedEvents
+seedFeaturedCollections
