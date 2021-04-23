@@ -11,10 +11,18 @@ class User < ApplicationRecord
     foreign_key: :creator_id,
     class_name: :Event
 
+  has_many :follows,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: :Follow
+
+  has_many :followed_events,
+    through: :follows,
+    source: :events
+  
   #has_many tickets 
-  #has_many follows
   #has_many attended_events through tickets
-  #has_many followed_events through follows
+
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)

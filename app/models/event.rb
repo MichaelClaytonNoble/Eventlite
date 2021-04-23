@@ -13,7 +13,17 @@ class Event < ApplicationRecord
     primary_key: :id,
     foreign_key: :category_id, 
     class_name: :Category
-    
+  
+  has_many :follows,
+    primary_key: :id,
+    foreign_key: :event_id,
+    class_name: :Follow
+
+  has_many :followers,
+    through: :follows
+    source: :users
+
+  
   has_one_attached :image
 
   private
@@ -24,9 +34,8 @@ class Event < ApplicationRecord
     end
   end
 
-  #belongs_to categories
   #has many tickets
   #has many attendees through tickets
-  #has many followers through follows
+
 
 end
