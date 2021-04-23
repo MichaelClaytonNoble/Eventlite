@@ -20,7 +20,7 @@ class Event < ApplicationRecord
     class_name: :Follow
 
   has_many :followers,
-    through: :follows
+    through: :follows,
     source: :users
 
   
