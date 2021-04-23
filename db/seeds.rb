@@ -125,19 +125,21 @@ def science_and_tech
   return {'title'=> title, 'about'=>about, 'description'=>description}
 end
 
-category_path = {
-    1=> "food_drinks",
-    2=> "health",
-    3=> "community",
-    4=> "film_media",
-    5=> "travel_outdoor",
-    6=> "music",
-    7=> "performing_visual_arts",
-    8=> "science_technology"
-}
+
 
 def seedEvents 
 
+  category_path = {
+      1=> "food_drinks",
+      2=> "health",
+      3=> "community",
+      4=> "film_media",
+      5=> "travel_outdoor",
+      6=> "music",
+      7=> "performing_visual_arts",
+      8=> "science_technology"
+  }
+  
   Event.destroy_all
   locations = ['ONLINE', 'VENUE', 'TBA']
   organizers = ["San Francisco Party Coalition", "Historical Society", "NASA", "SF Ping Pong Group", "Government"]
