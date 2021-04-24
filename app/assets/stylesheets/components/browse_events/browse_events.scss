@@ -19,12 +19,11 @@
   @media screen and (max-width: 900px){
     grid-template-columns: 220px 65%;
   }
-
-
   position: absolute;
   left: 0;
   width: 100%;
   min-height: 90%;
+  height:fit-content;
   -webkit-box-shadow: inset 0px 0px 10px 2px $box-shadow-color; 
   box-shadow: inset 0px 0px 10px 2px $box-shadow-color;
 }
@@ -291,7 +290,6 @@
       }
     }
     #like-button{
-      color: #dbdae3; 
       display:flex;
       width: fit-content;
       align-self: flex-end;
@@ -310,10 +308,10 @@
     }
   }
 }
-.click{
+.follow{
   color: red;
 }
-.unclick{
+.unfollow{
   color: #dbdae3;
 
 }

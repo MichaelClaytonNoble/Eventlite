@@ -21,7 +21,6 @@ class ShowEvent extends React.Component{
              window.scrollTo(0, 0);
 
         this.props.getRelevantEvents(this.props.event.creator_id).then( (e)=>{
-          console.log('ehou',e);
           this.setState({event: this.props.event, relevantEvents: this.props.relevantEvents, loading: false});
         })
       }

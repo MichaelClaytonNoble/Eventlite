@@ -14,7 +14,9 @@ class BrowseEvents extends React.Component{
       searchFilter: "",
       events: this.props.events,
       categories: this.props.categories,
-      loading: true
+      loading: true,
+      updateFollows: true,
+      follows: this.props.follows
     }
 
     this.createCategoryMenu = this.createCategoryMenu.bind(this); 
@@ -30,7 +32,9 @@ class BrowseEvents extends React.Component{
      window.scrollTo(0, 0);
     this.categoryMenu = document.getElementById('category-menu');
     this.dateMenu = document.getElementById('date-menu');
-    this.priceMenu = document.getElementById('price-menu');
+    this.priceMenu = document.getElementById('price-menu'); 
+
+    this.props.getFollows().then( ()=> {this.setState({follows: this.props.follows})});
     this.props.getCategories().then( ()=>{
       
       this.setState({categories: this.props.categories, loading:false});
@@ -38,7 +42,6 @@ class BrowseEvents extends React.Component{
         this.setState({events: this.props.events})
 
         if(this.props.initialCategory){
-          console.log(this.props.initialCategory); 
           if(this.props.initialCategory === "Online Events"){
             document.getElementById('location-select').value = "ONLINE";
             this.setState({locationFilter: "ONLINE"});
@@ -56,12 +59,14 @@ class BrowseEvents extends React.Component{
     this.props.getEvents();
     this.props.getCategories(); 
   }
+
   componentDidUpdate(prevProps){
     if(this.state.loading){
       this.filterEvents();
       this.setState({loading: false});
     }
-    if(prevProps.events !== this.props.events){
+
+    if(prevProps.events !== this.props.events && prevProps.follows === this.props.follows){
       this.setState({events: this.props.myEvents});
     }
   }
@@ -326,7 +331,21 @@ class BrowseEvents extends React.Component{
     return this.convertDateToLocalAsJSON(new Date()).slice(0,16);
   }
 
- 
+  toggleFollow(eventId){
+    return (e)=>{
+      if(this.state.follows.includes(eventId)){
+        delete this.state.follows[this.state.follows.indexOf(eventId)];
+        this.props.unfollow(eventId).then( ()=> this.state.follows = this.props.follows);
+        e.currentTarget.classList.remove('follow');
+        e.currentTarget.classList.add('unfollow');
+      }
+      else{
+        this.props.follow(eventId).then( ()=>this.state.follows = this.props.follows);
+        e.currentTarget.classList.remove('unfollow');
+        e.currentTarget.classList.add('follow'); 
+      }
+    }
+  }
   createEventsList(){
     var options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', timeZoneName: 'short'};
 
@@ -335,6 +354,12 @@ class BrowseEvents extends React.Component{
       let start = (new Date(this.convertDateToLocalAsJSON(new Date(event.start))).toLocaleTimeString("en-US", options)); 
       let img = window.placeholder
       let location = "Online"
+      let followStatus = "unfollow";
+      if(this.state.follows.includes(event.id)){
+        followStatus = "follow";
+      }
+      let toggleFollow = <div id="like-button" className={followStatus}
+                            onClick={this.toggleFollow(event.id)}>♥</div>
       if(event.imageUrl){img = event.imageUrl}
       if(event.location === "VENUE"){
         location = event.venue;
@@ -351,8 +376,7 @@ class BrowseEvents extends React.Component{
         </div>
         <div id="events-right">
           <div id="event-img" onClick={()=>this.props.history.push(`/events/${event.id}`)}><img src={img} alt="event-img" /></div>
-          <div id="like-button">♥
-          </div>
+          {toggleFollow}
         </div>
       </li>
     });
@@ -363,7 +387,6 @@ class BrowseEvents extends React.Component{
     if(!eventsList.length && !this.state.loading){
       eventsList = <p id="no-events-message">Please select another filter</p>
     };
-    
     return (
       <div id="browse-events">
         <div id="filters">

@@ -3,14 +3,15 @@ import { CLEAR_FOLLOWS, RECEIVE_FOLLOW, RECEIVE_FOLLOWS, REMOVE_FOLLOW } from ".
 const followsReducer = (state=[], action=[]) => {
 
   Object.freeze(state); 
-  let nextState = Object.assign({}, state);
-
+  let nextState = Object.assign([], state);
   switch(action.type){
     case RECEIVE_FOLLOWS:
       return action.follows;
 
     case RECEIVE_FOLLOW:
-      return Object.values(nextState).push(action.follow);
+      let nextStateArray = Object.values(nextState); 
+      nextStateArray.push(action.follow);
+      return nextStateArray
     case CLEAR_FOLLOWS:
       return [];
 
