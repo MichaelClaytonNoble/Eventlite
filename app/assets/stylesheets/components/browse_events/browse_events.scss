@@ -291,9 +291,31 @@
       }
     }
     #like-button{
-      color: red; 
+      color: #dbdae3; 
+      display:flex;
+      width: fit-content;
+      align-self: flex-end;
+      border: 1px solid #dbdae3;
+      border-radius: 50%;
+      margin-bottom: 10px;
+      height: 29px; 
+      width: 29px;
+      justify-content: center;
+      align-items: center; 
+      font-size: 24px;
+      &:hover{
+        cursor: pointer;
+        background-color: $hover-background-color;
+      }
     }
   }
+}
+.click{
+  color: red;
+}
+.unclick{
+  color: #dbdae3;
+
 }
 
 #events-list-wrap #events-left{

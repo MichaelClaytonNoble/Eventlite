@@ -351,7 +351,8 @@ class BrowseEvents extends React.Component{
         </div>
         <div id="events-right">
           <div id="event-img" onClick={()=>this.props.history.push(`/events/${event.id}`)}><img src={img} alt="event-img" /></div>
-          <div id="like-button">♡</div>
+          <div id="like-button">♥
+          </div>
         </div>
       </li>
     });
