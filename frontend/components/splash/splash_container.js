@@ -12,7 +12,8 @@ const mSTP = state => {
     events: Object.values(state.entities.events).sort( (a,b)=> new Date(a.start) - new Date(b.start)),
     categories: Object.values(state.entities.categories),
     myId: state.session.currentUser.id,
-    featuredCollections: Object.values(state.entities.featuredCollections)
+    featuredCollections: Object.values(state.entities.featuredCollections),
+    follows: state.entities.following
   })
 }
     

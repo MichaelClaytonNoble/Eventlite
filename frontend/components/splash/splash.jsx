@@ -8,7 +8,8 @@ class Splash extends React.Component{
       relevantEvents: this.props.events,
       popularIn: "Online Events",
       featuredCollections: this.props.featuredCollections,
-      currentCollection: 0
+      currentCollection: 0,
+      follows: this.props.follows
     }
 
     this.changeEventList = this.changeEventList.bind(this); 
@@ -18,6 +19,7 @@ class Splash extends React.Component{
   componentDidMount(){
     this.props.getFollows();
     this.props.getCategories(); 
+    this.props.getFollows();
     if(this.props.myId){this.props.clearMyEvents(this.props.myId)};
     this.props.getFeaturedCollections()
     .then( ()=>this.setState({featuredCollections: this.props.featuredCollections})); 
@@ -106,10 +108,26 @@ class Splash extends React.Component{
     return this.convertDateToLocalAsJSON(new Date()).slice(0,16);
   }
 
+  toggleFollow(eventId){
+    return (e)=>{
+      if(this.state.follows.includes(eventId)){
+        delete this.state.follows[this.state.follows.indexOf(eventId)];
+        this.props.unfollow(eventId).then( ()=> this.state.follows = this.props.follows);
+        e.currentTarget.classList.remove('follow');
+        e.currentTarget.classList.add('unfollow');
+      }
+      else{
+        this.props.follow(eventId).then( ()=>this.state.follows = this.props.follows);
+        e.currentTarget.classList.remove('unfollow');
+        e.currentTarget.classList.add('follow'); 
+      }
+    }
+  }
+
   render(){
     var options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', timeZoneName: 'short'};
 
-    let categories, featured, featuredMessage = '';
+    let categories, featured, featuredMessage, followStatus = '';
     let relevantEvents = this.state.relevantEvents;
     if(this.props.categories.length){
       categories = this.props.categories.map( (category,key) => {
@@ -167,6 +185,11 @@ class Splash extends React.Component{
             {
 
               relevantEvents.map( (event, i)=>{
+                  if(this.state.follows.includes(event.id)){
+                    followStatus = "follow";
+                  }
+                  let toggleFollow = <div id="like-button" className={followStatus}
+                            onClick={this.toggleFollow(event.id)}>♥</div>
                 if(i<16){
                   let img=<i className="far fa-image"></i>;
                   if(event.imageUrl){
@@ -178,6 +201,7 @@ class Splash extends React.Component{
                       <span id="image">{img}</span>
                       <span id="title"><p>{event.title}</p></span>
                       <span id="start">{start}</span>
+                      {toggleFollow}
                     </div>
                   )
                 }
