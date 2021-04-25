@@ -9,15 +9,26 @@ class EventList extends React.Component{
     super(props);
     
   }
-
+  convertDateToLocalAsJSON(date){
+    return (date.toJSON(), new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toJSON()).slice(0,16);
+  }
   createEventsList(){
     if(!this.props.events){return [];}
     return this.props.events.map( (event, key) => {
-      return <EventListItem event={event} key={key} convertDateToLocalAsJSON={this.props.convertDateToLocalAsJSON}/>
+      return <EventListItem card={this.props.card} event={event} key={key} convertDateToLocalAsJSON={this.convertDateToLocalAsJSON}/>
     })
   }
   render(){
     const eventsList = this.createEventsList();
+    if(this.props.card){
+      return (
+        <div id="event-grid">
+          {eventsList}
+        </div>
+      )
+    }
+
+    
     if(!eventsList.length){
       return <p id="no-events-message">Please select another filter</p>
     };

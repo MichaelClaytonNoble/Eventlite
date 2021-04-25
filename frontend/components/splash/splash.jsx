@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link, withRouter} from 'react-router-dom';
+import EventList from '../display_events/event_list';
 import LikeButtonContainer from '../like_button/like_button_container';
 
 class Splash extends React.Component{
@@ -184,28 +185,8 @@ class Splash extends React.Component{
         
           <div id="relevant-events">
             {featuredMessage}
-            <div id="event-grid">
-            {
-
-              relevantEvents.map( (event, i)=>{
-                if(i<16){
-                  let img=<i className="far fa-image"></i>;
-                  if(event.imageUrl){
-                    img = <img src={event.imageUrl} alt="event" />
-                  }
-                  let start = (new Date(this.convertDateToLocalAsJSON(new Date(event.start))).toLocaleTimeString("en-US", options)); 
-                  return(
-                    <div id={i}key={i} className="event-cell" onClick={()=>this.props.history.push(`/events/${event.id}`)}>
-                      <span id="image">{img}</span>
-                      <span id="title"><p>{event.title}</p></span>
-                      <span id="start">{start}</span>
-                      <LikeButtonContainer eventId={event.id} />
-                    </div>
-                  )
-                }
-              })
-            }
-          </div>
+            <EventList events={relevantEvents.slice(0,17)} card={true} />
+   
         </div>
         <button id="see-more-button" onClick={()=>this.props.history.push(`/events/browse/${this.state.popularIn}`)}>See more</button>
       </div>

@@ -377,7 +377,7 @@ class BrowseEvents extends React.Component{
               <button>Search</button>
             </div>
           </form>
-          <EventList events={this.state.events} convertDateToLocalAsJSON={this.convertDateToLocalAsJSON}/>
+          <EventList events={this.state.events} />
         </div>
       </div>
     )
