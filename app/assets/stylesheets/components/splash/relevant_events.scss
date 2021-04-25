@@ -32,7 +32,7 @@
     @media screen and (max-width: 400px) {grid-template-columns: repeat(1, .55fr); grid-auto-rows: calc(12vw + 16vh);}
     // @media screen and (max-width: 300px) {grid-template-columns: repeat(1, .85fr); grid-auto-rows: calc(12vw + 16vh);}
     row-gap: 20px; 
-    div{
+    .event-cell{
       display:flex;
       flex-direction: column;
       // justify-content: center;
@@ -106,6 +106,14 @@
       object-position:center;
     }
   }
+
+  #like-button{
+    position: relative;
+    bottom: -8%;
+    right: 5%;
+    z-index: 100;
+  }
+  
 }
 
 #see-more-button{

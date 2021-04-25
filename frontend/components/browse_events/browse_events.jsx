@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'react-router-dom';
+import EventList from '../display_events/event_list';
 
 class BrowseEvents extends React.Component{
 
@@ -334,7 +335,10 @@ class BrowseEvents extends React.Component{
   toggleFollow(eventId){
     return (e)=>{
       if(this.state.follows.includes(eventId)){
+        // const newState = Object.assign([], this.state.follows);
+        // console.log(newState); 
         delete this.state.follows[this.state.follows.indexOf(eventId)];
+
         this.props.unfollow(eventId).then( ()=> this.state.follows = this.props.follows);
         e.currentTarget.classList.remove('follow');
         e.currentTarget.classList.add('unfollow');

@@ -17,14 +17,15 @@ class Splash extends React.Component{
     this.createFeaturedCollection = this.createFeaturedCollection.bind(this); 
   }
   componentDidMount(){
-    this.props.getFollows();
     this.props.getCategories(); 
-    this.props.getFollows();
     if(this.props.myId){this.props.clearMyEvents(this.props.myId)};
     this.props.getFeaturedCollections()
     .then( ()=>this.setState({featuredCollections: this.props.featuredCollections})); 
     this.props.getEvents("location", "ONLINE")
     .then( ()=>this.setState({relevantEvents: this.props.events})); 
+  }
+  componentWillMount(){
+    this.props.getFollows().then( ()=>this.setState({follows: this.props.follows}));
   }
   changeEventList(e){
     this.props.clearEvents(); 
@@ -110,6 +111,7 @@ class Splash extends React.Component{
 
   toggleFollow(eventId){
     return (e)=>{
+      e.stopPropagation();
       if(this.state.follows.includes(eventId)){
         delete this.state.follows[this.state.follows.indexOf(eventId)];
         this.props.unfollow(eventId).then( ()=> this.state.follows = this.props.follows);
@@ -188,6 +190,9 @@ class Splash extends React.Component{
                   if(this.state.follows.includes(event.id)){
                     followStatus = "follow";
                   }
+                  else{
+                    followStatus = "unfollow";
+                  }
                   let toggleFollow = <div id="like-button" className={followStatus}
                             onClick={this.toggleFollow(event.id)}>♥</div>
                 if(i<16){
@@ -197,7 +202,7 @@ class Splash extends React.Component{
                   }
                   let start = (new Date(this.convertDateToLocalAsJSON(new Date(event.start))).toLocaleTimeString("en-US", options)); 
                   return(
-                    <div id={i}key={i} onClick={()=>this.props.history.push(`/events/${event.id}`)}>
+                    <div id={i}key={i} className="event-cell" onClick={()=>this.props.history.push(`/events/${event.id}`)}>
                       <span id="image">{img}</span>
                       <span id="title"><p>{event.title}</p></span>
                       <span id="start">{start}</span>
