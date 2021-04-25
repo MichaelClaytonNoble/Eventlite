@@ -15,11 +15,17 @@ class EventList extends React.Component{
   createEventsList(){
     if(!this.props.events){return [];}
     return this.props.events.map( (event, key) => {
-      return <EventListItem card={this.props.card} event={event} key={key} convertDateToLocalAsJSON={this.convertDateToLocalAsJSON}/>
+      return <EventListItem card={this.props.card} 
+            event={event} key={key} carousel={this.props.carousel}
+            convertDateToLocalAsJSON={this.convertDateToLocalAsJSON}/>
     })
   }
   render(){
     const eventsList = this.createEventsList();
+
+    if(this.props.carousel){
+      return eventsList
+    }
     if(this.props.card){
       return (
         <div id="event-grid">

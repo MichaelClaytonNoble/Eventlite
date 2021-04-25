@@ -2,8 +2,7 @@ import React from 'react';
 import {withRouter} from 'react-router-dom'; 
 import LikeButtonContainer from '../like_button/like_button_container';
 
-const EventListItem = ({event, convertDateToLocalAsJSON, history, card, key}) => {
-
+const EventListItem = ({event, convertDateToLocalAsJSON, history, card, key, carousel, carouselMethod}) => {
   var options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', timeZoneName: 'short'};
   let start = (new Date(convertDateToLocalAsJSON(new Date(event.start))).toLocaleTimeString("en-US", options)); 
   let location = "Online"
@@ -19,6 +18,30 @@ const EventListItem = ({event, convertDateToLocalAsJSON, history, card, key}) =>
   if(event.location === "TBA"){
     location = "To be announced"; 
   }
+
+    if(carousel){
+    let online = '';
+      if(event.location ==='ONLINE'){
+        online = <div className="online-sticker">Online</div>
+    }
+
+    return (
+      <div  key={key}className="carousel-cell" onClick={()=>{history.push(`/events/${event.id}`)}}>
+        <img src={event.imageUrl} alt="carousel" />
+        <div className="info">
+          <div className="date-time">
+            {event.start}
+          </div>
+          <div className ="title">
+            {event.title}
+          </div>
+          {online}
+          <LikeButtonContainer eventId={event.id} />
+        </div>
+      </div>)
+
+  }
+
   if(card){
     if(event.imageUrl){
       img = <img src={event.imageUrl} alt="event" />
@@ -30,6 +53,7 @@ const EventListItem = ({event, convertDateToLocalAsJSON, history, card, key}) =>
             <LikeButtonContainer eventId={event.id} />
     </div>)
   }
+
 
 
   return (
