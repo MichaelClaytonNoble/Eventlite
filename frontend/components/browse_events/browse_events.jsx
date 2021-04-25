@@ -16,13 +16,10 @@ class BrowseEvents extends React.Component{
       events: this.props.events,
       categories: this.props.categories,
       loading: true,
-      updateFollows: true,
-      follows: this.props.follows
     }
 
     this.createCategoryMenu = this.createCategoryMenu.bind(this); 
     this.showFilterMenu = this.showFilterMenu.bind(this);
-    this.createEventsList = this.createEventsList.bind(this); 
     this.filterEvents=this.filterEvents.bind(this); 
     this.filter = this.filter.bind(this);
     this.filterEventsByDate = this.filterEventsByDate.bind(this);
@@ -35,7 +32,6 @@ class BrowseEvents extends React.Component{
     this.dateMenu = document.getElementById('date-menu');
     this.priceMenu = document.getElementById('price-menu'); 
 
-    this.props.getFollows().then( ()=> {this.setState({follows: this.props.follows})});
     this.props.getCategories().then( ()=>{
       
       this.setState({categories: this.props.categories, loading:false});
@@ -57,8 +53,7 @@ class BrowseEvents extends React.Component{
     });
   }
   componentWillMount(){
-    this.props.getEvents();
-    this.props.getCategories(); 
+    this.props.getFollows();
   }
 
   componentDidUpdate(prevProps){
@@ -67,13 +62,12 @@ class BrowseEvents extends React.Component{
       this.setState({loading: false});
     }
 
-    if(prevProps.events !== this.props.events && prevProps.follows === this.props.follows){
-      this.setState({events: this.props.myEvents});
-    }
+    // if(prevProps.events !== this.props.events){
+    //   this.setState({events: this.props.events});
+    // }
   }
 
   //display filter menu 
-
   showMainMenu(e, val){
     e.style.display = "none"; 
     let filter = val;
@@ -332,65 +326,7 @@ class BrowseEvents extends React.Component{
     return this.convertDateToLocalAsJSON(new Date()).slice(0,16);
   }
 
-  toggleFollow(eventId){
-    return (e)=>{
-      if(this.state.follows.includes(eventId)){
-        // const newState = Object.assign([], this.state.follows);
-        // console.log(newState); 
-        delete this.state.follows[this.state.follows.indexOf(eventId)];
-
-        this.props.unfollow(eventId).then( ()=> this.state.follows = this.props.follows);
-        e.currentTarget.classList.remove('follow');
-        e.currentTarget.classList.add('unfollow');
-      }
-      else{
-        this.props.follow(eventId).then( ()=>this.state.follows = this.props.follows);
-        e.currentTarget.classList.remove('unfollow');
-        e.currentTarget.classList.add('follow'); 
-      }
-    }
-  }
-  createEventsList(){
-    var options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', timeZoneName: 'short'};
-
-    if(!this.state.events){return []}
-    return this.state.events.map( (event, key) => {
-      let start = (new Date(this.convertDateToLocalAsJSON(new Date(event.start))).toLocaleTimeString("en-US", options)); 
-      let img = window.placeholder
-      let location = "Online"
-      let followStatus = "unfollow";
-      if(this.state.follows.includes(event.id)){
-        followStatus = "follow";
-      }
-      let toggleFollow = <div id="like-button" className={followStatus}
-                            onClick={this.toggleFollow(event.id)}>♥</div>
-      if(event.imageUrl){img = event.imageUrl}
-      if(event.location === "VENUE"){
-        location = event.venue;
-      }
-      if(event.location === "TBA"){
-        location = "To be announced"; 
-      }
-
-      return <li key={key}>
-        <div id="events-left">
-          <div id="title-wrap" onClick={()=>this.props.history.push(`/events/${event.id}`)}><div id="title">{event.title}</div></div>
-          <div id="start">{start}</div>
-          <div id="location">{location}</div>
-        </div>
-        <div id="events-right">
-          <div id="event-img" onClick={()=>this.props.history.push(`/events/${event.id}`)}><img src={img} alt="event-img" /></div>
-          {toggleFollow}
-        </div>
-      </li>
-    });
-  }
-  
   render(){
-    let eventsList = this.createEventsList();
-    if(!eventsList.length && !this.state.loading){
-      eventsList = <p id="no-events-message">Please select another filter</p>
-    };
     return (
       <div id="browse-events">
         <div id="filters">
@@ -420,31 +356,28 @@ class BrowseEvents extends React.Component{
           <div id="price-filter" className="filter" onClick={this.showFilterMenu}><span id="price-filter-value">Price<img className="chevron" src="https://img.icons8.com/metro/52/000000/chevron-right.png"/></span></div>
         </div>
         <div id="events-list-wrap">
-              <form onSubmit={this.filter('loading')}>
-          <div id="location-filter-wrap">
-            <div id="location-filter">
-                <div id="search-icon">
-                  <i className="fas fa-search"></i>
-                  <input type="text" id="location-input"placeholder="Search events" value={this.state.searchFilter} onChange={this.filter('searchFilter')}/>
-                </div>
-                <div id="search-icon">
-                  <i className="fas fa-map-marker-alt"></i>
-                  {/* <input list="location-select" name="locations" id="locations" onChange={this.filter('locationFilter')} value={this.state.location}/> */}
-                  <select id="location-select" onChange={this.filter('locationFilter')} value={this.state.locationFilter}>
-                    <option value="Any">Any</option>
-                    <option value="ONLINE">Online</option>
-                    <option value="TBA">To be announced</option>
-                    <option value="VENUE">Venue</option>
-                  </select>
-                </div>
+          <form onSubmit={this.filter('loading')}>
+            <div id="location-filter-wrap">
+              <div id="location-filter">
+                  <div id="search-icon">
+                    <i className="fas fa-search"></i>
+                    <input type="text" id="location-input"placeholder="Search events" value={this.state.searchFilter} onChange={this.filter('searchFilter')}/>
+                  </div>
+                  <div id="search-icon">
+                    <i className="fas fa-map-marker-alt"></i>
+                    {/* <input list="location-select" name="locations" id="locations" onChange={this.filter('locationFilter')} value={this.state.location}/> */}
+                    <select id="location-select" onChange={this.filter('locationFilter')} value={this.state.locationFilter}>
+                      <option value="Any">Any</option>
+                      <option value="ONLINE">Online</option>
+                      <option value="TBA">To be announced</option>
+                      <option value="VENUE">Venue</option>
+                    </select>
+                  </div>
+              </div>
+              <button>Search</button>
             </div>
-            <button>Search</button>
-          </div>
-              </form>
-          <ul id="events-list">
-            <div id="border"><hr /></div>
-            {eventsList}
-          </ul>
+          </form>
+          <EventList events={this.state.events} convertDateToLocalAsJSON={this.convertDateToLocalAsJSON}/>
         </div>
       </div>
     )

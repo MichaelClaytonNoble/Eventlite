@@ -1,7 +1,7 @@
 
 
 import { isLength } from 'lodash';
-import {connect} from 'redux';
+import {connect} from 'react-redux';
 import ShowLikes from './show_likes';
 
 const mSTP = state =>({

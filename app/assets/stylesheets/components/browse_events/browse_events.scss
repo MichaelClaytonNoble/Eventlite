@@ -253,44 +253,6 @@
 
 }
 
-#events-list-wrap{
-  #events-left{
-    display: flex; 
-    flex-direction: column;
-    width: 50%;
-  }
-  #events-right{
-    display: flex;
-    flex-direction: column; 
-    width: 50%;
-    text-align: right;
-    position: relative;
-    justify-content: space-between;
-    #event-img{
-      // margin-top: 7px;
-      position: relative;
-      top: 0px;
-      width: 220px;
-      @media screen and (max-width: 950px) {
-        width: 200px;
-      }
-      height: 110px;
-      text-align: right;
-      align-self: flex-end;
-    }
-    img{
-      object-fit:scale-down;
-      max-width: 220px;
-      height: 100%;
-      @media screen and (max-width: 950px) {
-        max-width: 200px;
-      }
-      &:hover{
-        cursor: pointer;
-      }
-    }
-  }
-}
 #like-button{
   display:flex;
   width: fit-content;
@@ -314,50 +276,4 @@
 .unfollow{
   color: #dbdae3;
 
-}
-
-#events-list-wrap #events-left{
-  #title-wrap{
-    color: #39364f;
-    font-size: .92rem;
-    line-height: 1.5rem;
-    max-height: 48px;
-
-    #title{
-      max-height: 48px;
-      word-wrap: break-word;
-      text-overflow: ellipsis;
-      
-      overflow: hidden;
-      display: -webkit-box;
-      display: -moz-box;
-      -moz-box-orient: vertical;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 2;
-      -moz-line-clamp: 2;
-    }
-    #title:hover{
-      cursor: pointer;
-    }
-  }
-  #start, #location{
-    font-size: .835rem;
-    line-height: 1.25rem;
-  }
-  #start{
-    color: $eventbrite-orange;
-    padding-top: 8px;
-  }
-
-  #location{
-    color: $nav-bar-font-color;
-    padding-top: 4px;
-    text-overflow: ellipsis;
-  }
-}
-
-#no-events-message{
-  padding: 16px;
-  color: #39364f;
-  font-size: calc(.3vw + 1.2vh);
 }
