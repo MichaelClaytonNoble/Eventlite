@@ -127,20 +127,9 @@ class ShowEvent extends React.Component{
             </div>
           </div>
         </div>
-
         <Carousel events={this.state.relevantEvents}/>
-              {/* <EventList events={this.state.relevantEvents} carousel={true} /> */}
-        {/* <div id="carousel-wrap">
-          <div id="title">Other Events You May Like</div>
-          <div id="carousel">
-            <div id="chevron-right" onMouseDown={this.moveCarousel('right')}><img className="chevron" src="https://img.icons8.com/ios-glyphs/30/000000/chevron-right.png"/></div>
-            <div id="chevron-left" onMouseDown={this.moveCarousel('left')}><img className="chevron" src="https://img.icons8.com/ios-glyphs/30/000000/chevron-left.png"/></div>
-            <div id="carousel-child">
-              {/* {this.createCarousel()} */}
-              {/* </div> */}
-          {/* </div> */}
-        </div>
-      // </div>
+      </div>
+
     )
   }
 }

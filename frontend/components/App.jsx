@@ -22,6 +22,7 @@ import BrowseEventsContainer from './browse_events/browse_events_container';
 import ShowEventContainer from './show_event/show_event_container.js';
 
 import {useLocation} from 'react-router-dom'; 
+import ShowLikesContainer from './profile/show_likes_container.js';
 
 
 // usePageViews(){
@@ -48,6 +49,7 @@ class App extends React.Component{
           <ProtectedRoute exact path ="/events/:eventId/details" component={DetailsEventFormContainer} />
           <ProtectedRoute exact path="/events/:eventId/edit" component={CreateEventFormContainer} />
           <ProtectedRoute exact path ="/:myId/events" component={MyEventsContainer} />
+          <ProtectedRoute exact path ="/:myId/likes/events" component={ShowLikesContainer}/>
 
           <Route path="/events/browse/:category" component={BrowseEventsContainer} />
           <Route path="/events/browse/" component={BrowseEventsContainer} />

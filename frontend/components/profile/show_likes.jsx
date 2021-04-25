@@ -1,9 +1,10 @@
 import React from 'react';
+import EventList from '../display_events/event_list';
 
 
 class ShowLikes extends React.Component{
 
-  constructor(){
+  constructor(props){
     super(props);
 
   }

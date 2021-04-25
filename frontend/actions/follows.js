@@ -30,6 +30,10 @@ export const fetchFollows = () => dispatch => {
   return getFollows()
     .then( follows => dispatch(receiveFollows(follows)), err=>console.log(err.responseText));
 };
+export const fetchFollows = () => dispatch => {
+  return getFollows()
+    .then( follows => dispatch(receiveFollows(follows)), err=>console.log(err.responseText));
+};
 
 export const createFollow = event_id => dispatch => {
   return postFollow(event_id)

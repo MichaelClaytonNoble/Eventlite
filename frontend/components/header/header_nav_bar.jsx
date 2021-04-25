@@ -28,6 +28,7 @@ class HeaderNavBar extends React.Component {
       createLink = <span id="host-event-dropdown" onClick={()=>this.props.history.push('/events/create')}>Host an event</span>
     }
     else{
+
       menuDropdown = (
         <span id="menu-dropdown">
           {this.props.self.email}<br />
@@ -39,6 +40,10 @@ class HeaderNavBar extends React.Component {
             onClick={()=>{this.props.history.push(`/${this.props.myId}/events`)}}
             >Manage my events</li>
           <li className="menu-dropdown-li">Following</li>
+          <li className="menu-dropdown-li" 
+            onClick={()=>this.props.history.push(`/${this.props.myId}/likes/events`)}
+            >Likes</li>
+
           <li className="menu-dropdown-li">Tickets</li>
           <li className="menu-dropdown-li" onClick={()=>this.props.history.push('/about')}>About</li>
           <li className="menu-dropdown-li"
