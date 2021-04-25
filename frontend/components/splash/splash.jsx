@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link, withRouter} from 'react-router-dom';
+import LikeButtonContainer from '../like_button/like_button_container';
 
 class Splash extends React.Component{
   constructor(props){
@@ -187,14 +188,6 @@ class Splash extends React.Component{
             {
 
               relevantEvents.map( (event, i)=>{
-                  if(this.state.follows.includes(event.id)){
-                    followStatus = "follow";
-                  }
-                  else{
-                    followStatus = "unfollow";
-                  }
-                  let toggleFollow = <div id="like-button" className={followStatus}
-                            onClick={this.toggleFollow(event.id)}>♥</div>
                 if(i<16){
                   let img=<i className="far fa-image"></i>;
                   if(event.imageUrl){
@@ -206,7 +199,7 @@ class Splash extends React.Component{
                       <span id="image">{img}</span>
                       <span id="title"><p>{event.title}</p></span>
                       <span id="start">{start}</span>
-                      {toggleFollow}
+                      <LikeButtonContainer eventId={event.id} />
                     </div>
                   )
                 }

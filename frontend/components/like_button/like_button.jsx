@@ -8,6 +8,7 @@ class LikeButton extends React.Component{
   }
 
   toggleFollow(e){
+    e.stopPropagation();
     const chart = {
       "unfollow": "follow",
       "follow": "unfollow"

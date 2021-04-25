@@ -248,32 +248,6 @@
       box-shadow: 0 6px 16px -2px rgba(46,55,77,.20);
       animation: addShadow .3s
     }
-
-  }
-
-}
-
-#like-button{
-  display:flex;
-  width: fit-content;
-  align-self: flex-end;
-  border: 1px solid #dbdae3;
-  border-radius: 50%;
-  margin-bottom: 10px;
-  height: 29px; 
-  width: 29px;
-  justify-content: center;
-  align-items: center; 
-  font-size: 24px;
-  &:hover{
-    cursor: pointer;
-    background-color: $hover-background-color;
   }
 }
-.follow{
-  color: red;
-}
-.unfollow{
-  color: #dbdae3;
 
-}
