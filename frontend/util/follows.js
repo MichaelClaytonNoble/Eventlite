@@ -1,6 +1,5 @@
 
 export const postFollow = (event_id) => {
-
   return $.ajax({
     method: "POST",
     url: "/api/follows",
@@ -14,6 +13,7 @@ export const getFollows = () => {
     url: "/api/follows",
   });
 }
+
 
 export const destroyFollow = id => {
   return $.ajax({

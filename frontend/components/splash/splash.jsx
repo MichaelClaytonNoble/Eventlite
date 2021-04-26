@@ -1,5 +1,7 @@
 import React from 'react';
 import {Link, withRouter} from 'react-router-dom';
+import EventList from '../display_events/event_list';
+import LikeButtonContainer from '../like_button/like_button_container';
 
 class Splash extends React.Component{
   constructor(props){
@@ -8,7 +10,8 @@ class Splash extends React.Component{
       relevantEvents: this.props.events,
       popularIn: "Online Events",
       featuredCollections: this.props.featuredCollections,
-      currentCollection: 0
+      currentCollection: 0,
+      follows: this.props.follows
     }
 
     this.changeEventList = this.changeEventList.bind(this); 
@@ -16,13 +19,15 @@ class Splash extends React.Component{
     this.createFeaturedCollection = this.createFeaturedCollection.bind(this); 
   }
   componentDidMount(){
-    this.props.getFollows();
     this.props.getCategories(); 
     if(this.props.myId){this.props.clearMyEvents(this.props.myId)};
     this.props.getFeaturedCollections()
     .then( ()=>this.setState({featuredCollections: this.props.featuredCollections})); 
     this.props.getEvents("location", "ONLINE")
     .then( ()=>this.setState({relevantEvents: this.props.events})); 
+  }
+  componentWillMount(){
+    this.props.getFollows().then( ()=>this.setState({follows: this.props.follows}));
   }
   changeEventList(e){
     this.props.clearEvents(); 
@@ -106,10 +111,27 @@ class Splash extends React.Component{
     return this.convertDateToLocalAsJSON(new Date()).slice(0,16);
   }
 
+  toggleFollow(eventId){
+    return (e)=>{
+      e.stopPropagation();
+      if(this.state.follows.includes(eventId)){
+        delete this.state.follows[this.state.follows.indexOf(eventId)];
+        this.props.unfollow(eventId).then( ()=> this.state.follows = this.props.follows);
+        e.currentTarget.classList.remove('follow');
+        e.currentTarget.classList.add('unfollow');
+      }
+      else{
+        this.props.follow(eventId).then( ()=>this.state.follows = this.props.follows);
+        e.currentTarget.classList.remove('unfollow');
+        e.currentTarget.classList.add('follow'); 
+      }
+    }
+  }
+
   render(){
     var options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', timeZoneName: 'short'};
 
-    let categories, featured, featuredMessage = '';
+    let categories, featured, featuredMessage, followStatus = '';
     let relevantEvents = this.state.relevantEvents;
     if(this.props.categories.length){
       categories = this.props.categories.map( (category,key) => {
@@ -163,27 +185,8 @@ class Splash extends React.Component{
         
           <div id="relevant-events">
             {featuredMessage}
-            <div id="event-grid">
-            {
-
-              relevantEvents.map( (event, i)=>{
-                if(i<16){
-                  let img=<i className="far fa-image"></i>;
-                  if(event.imageUrl){
-                    img = <img src={event.imageUrl} alt="event" />
-                  }
-                  let start = (new Date(this.convertDateToLocalAsJSON(new Date(event.start))).toLocaleTimeString("en-US", options)); 
-                  return(
-                    <div id={i}key={i} onClick={()=>this.props.history.push(`/events/${event.id}`)}>
-                      <span id="image">{img}</span>
-                      <span id="title"><p>{event.title}</p></span>
-                      <span id="start">{start}</span>
-                    </div>
-                  )
-                }
-              })
-            }
-          </div>
+            <EventList events={relevantEvents.slice(0,17)} card={true} />
+   
         </div>
         <button id="see-more-button" onClick={()=>this.props.history.push(`/events/browse/${this.state.popularIn}`)}>See more</button>
       </div>
