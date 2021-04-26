@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_26_003055) do
+ActiveRecord::Schema.define(version: 2021_04_26_215039) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,17 +84,22 @@ ActiveRecord::Schema.define(version: 2021_04_26_003055) do
     t.index ["user_id"], name: "index_follows_on_user_id"
   end
 
+  create_table "registrations", force: :cascade do |t|
+    t.integer "quantity_purchased", null: false
+    t.integer "user_id", null: false
+    t.integer "ticket_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tickets", force: :cascade do |t|
     t.integer "max_quantity", null: false
-    t.integer "quantity_purchased", null: false
-    t.integer "price", null: false
+    t.decimal "price", null: false
     t.string "name", null: false
     t.integer "event_id", null: false
-    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_tickets_on_event_id"
-    t.index ["user_id"], name: "index_tickets_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

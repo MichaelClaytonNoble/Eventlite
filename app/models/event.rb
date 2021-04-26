@@ -28,6 +28,10 @@ class Event < ApplicationRecord
     foreign_key: :event_id,
     class_name: :Ticket
 
+  has_many :registrations,
+    through: :tickets,
+    source: :registrations
+
   has_many :attendees,
     through: :tickets,
     source: :users
