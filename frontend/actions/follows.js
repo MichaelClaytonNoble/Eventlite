@@ -6,7 +6,6 @@ export const RECEIVE_FOLLOWS = "RECEIVE_FOLLOWS";
 export const REMOVE_FOLLOW = "REMOVE_FOLLOW";
 export const CLEAR_FOLLOWS = "CLEAR_FOLLOWS";
 
-
 const receiveFollow = follow => ({
   type: RECEIVE_FOLLOW,
   follow
@@ -16,6 +15,7 @@ const receiveFollows = follows => ({
   type: RECEIVE_FOLLOWS,
   follows
 });
+
 
 const removeFollow = follow => ({
   type: REMOVE_FOLLOW,
@@ -30,10 +30,7 @@ export const fetchFollows = () => dispatch => {
   return getFollows()
     .then( follows => dispatch(receiveFollows(follows)), err=>console.log(err.responseText));
 };
-export const fetchFollows = () => dispatch => {
-  return getFollows()
-    .then( follows => dispatch(receiveFollows(follows)), err=>console.log(err.responseText));
-};
+
 
 export const createFollow = event_id => dispatch => {
   return postFollow(event_id)

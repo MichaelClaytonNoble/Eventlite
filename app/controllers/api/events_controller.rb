@@ -82,6 +82,10 @@ class Api::EventsController < ApplicationController
   def getMineByType
     col = params[:column]
     val = params[:value]
+
+    if(col == 'followed_events')
+      @events = getFollows
+    end
     if(col == 'creator_id')
       @creator_id = val
       @events = Event.where("#{col} = ?", val) if whitelist(col.downcase)
@@ -98,6 +102,18 @@ class Api::EventsController < ApplicationController
       render :event_list
     else
       render json: ["No Events Found"], status: 422
+    end
+  end
+
+  private
+  def getFollows
+    if logged_in?
+      @user = User.find_by(id: current_user.id);
+      @followed_events = @user.followed_events
+
+      return @followed_events
+    else
+      return []
     end
   end
   

@@ -9,16 +9,24 @@ class ShowLikes extends React.Component{
 
   }
 
+  componentDidMount(){
+    this.props.getFollowedEvents();
+  }
   componentWillMount(){
-
+    this.props.getFollows();
+    this.props.clearEvents();
   }
 
   
   render(){
     return (
-      <div>
-
+      <div id="show-likes">
+        <div id="header-title">Likes</div>
+        <div id="events-list-wrap">
+          <EventList events={this.props.followedEvents} />
+        </div>
       </div>
+      
     )
   }
 }

@@ -57,7 +57,7 @@ class HeaderNavBar extends React.Component {
         <img src="https://img.icons8.com/android/24/3d64ff/plus.png"/>
         <p>Create Event</p>
         </span>
-      likesLink = <span className="nav-icon-link" onClick={()=>this.props.history.push('/events/create')}>
+      likesLink = <span className="nav-icon-link" onClick={()=>this.props.history.push(`/${this.props.myId}/likes/events`)}>
         <img src="https://img.icons8.com/metro/26/39364f/like.png"/>
         <p>Likes</p>
         </span>

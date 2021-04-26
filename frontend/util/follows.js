@@ -13,12 +13,7 @@ export const getFollows = () => {
     url: "/api/follows",
   });
 }
-// export const getFollowsAsEvents = () => {
-//   return $.ajax({
-//     method: "GET",
-//     url: "/api/follows",
-//   });
-// }
+
 
 export const destroyFollow = id => {
   return $.ajax({

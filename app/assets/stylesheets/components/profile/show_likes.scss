@@ -1,0 +1,25 @@
+#show-likes{
+  width: 80%;
+  #header-title{
+    padding: 104px 0px 32px 16px;
+    font-size: 3.25rem;
+    line-height: 4rem;
+    font-weight: bolder;
+    letter-spacing: -3px;
+    color: #1e0a3c;
+  }
+  #title-wrap #title{
+    font-size: 1.125rem;
+    line-height: 1.5rem; 
+    font-weight: bold;
+  }
+  #start, #location{
+    transform: scale(1,1.05);
+    line-height: 1.25rem;
+    font-weight: bolder;
+    letter-spacing: 1px;
+  }
+  #border{
+    display: none;
+  }
+}
