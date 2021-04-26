@@ -23,6 +23,7 @@ import ShowEventContainer from './show_event/show_event_container.js';
 
 import {useLocation} from 'react-router-dom'; 
 import ShowLikesContainer from './profile/show_likes_container.js';
+import CreateTicketFormContainer from './create_tickets/create_ticket_form_container.js';
 
 
 // usePageViews(){
@@ -47,6 +48,8 @@ class App extends React.Component{
           <Route exact path="/" component={SplashContainer}/>
           <ProtectedRoute exact path="/events/create" component={CreateEventFormContainer} />
           <ProtectedRoute exact path ="/events/:eventId/details" component={DetailsEventFormContainer} />
+          <ProtectedRoute exact path ="/events/:eventId/tickets/create" component={CreateTicketFormContainer} />
+          
           <ProtectedRoute exact path="/events/:eventId/edit" component={CreateEventFormContainer} />
           <ProtectedRoute exact path ="/:myId/events" component={MyEventsContainer} />
           <ProtectedRoute exact path ="/:myId/likes/events" component={ShowLikesContainer}/>

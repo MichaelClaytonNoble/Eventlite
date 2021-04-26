@@ -101,12 +101,12 @@ class DetailsEventForm extends React.Component{
       imgDropzone = preview;
     }
     return(
-      <div id="details-event-form">
+      <div id="details-event-form" className="create-form">
         <form id="details-event-info-form" onSubmit={this.handleSubmit}>
 
           <section className="info-section">
-            <h1 id="create-event-header"><i className="far fa-images create-event-form-icons"></i>Main Event Image</h1>
-            <p id="create-event-description">This is the first image attendees will see at the top of your listing. Use a high quality image: 2160x1080px (2:1 ratio).</p>
+            <h1 className="create-header"><i className="far fa-images create-event-form-icons"></i>Main Event Image</h1>
+            <p className="create-description">This is the first image attendees will see at the top of your listing. Use a high quality image: 2160x1080px (2:1 ratio).</p>
             <Dropzone multiple={false} accept="image/*" onDrop={this.handleFile}>
               {({getRootProps, getInputProps}) => (
                 <section id="add-event-images">
@@ -120,14 +120,14 @@ class DetailsEventForm extends React.Component{
           </section>
           <hr />
           <section className="info-section">
-            <h1 id="create-event-header"><i className="far fa-edit create-event-form-icons"></i>Description</h1>
-            <p id="create-event-description">Add more details to your event like your schedule, sponsors, or featured guests.</p>
+            <h1 className="create-header"><i className="far fa-edit create-event-form-icons"></i>Description</h1>
+            <p className="create-description">Add more details to your event like your schedule, sponsors, or featured guests.</p>
 
-            <label className='larger-input-label'><p>Summary</p>
+            <label id='larger-input-label' className="larger-input-label"><p>Summary</p>
               <textarea className="larger-input" onChange={this.handleInputChange('about')} value={this.state.about} />
             </label>
             {summaryErr}
-            <label className='larger-input-label-2'><p>About</p>
+            <label id='larger-input-label-2' className="larger-input-label"><p>About</p>
               <textarea className="larger-input" onChange={this.handleInputChange('description')} value={this.state.description} />
             </label>
             {aboutErr}{eventExistErr}

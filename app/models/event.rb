@@ -23,6 +23,15 @@ class Event < ApplicationRecord
     through: :follows,
     source: :users
 
+  has_many :tickets,
+    primary_key: :id,
+    foreign_key: :event_id,
+    class_name: :Ticket
+
+  has_many :attendees,
+    through: :tickets,
+    source: :users
+
   
   has_one_attached :image
 
@@ -33,9 +42,6 @@ class Event < ApplicationRecord
       errors.add(:end, "date must be after start date")
     end
   end
-
-  #has many tickets
-  #has many attendees through tickets
 
 
 end

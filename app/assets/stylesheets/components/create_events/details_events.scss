@@ -1,19 +1,4 @@
 
-#details-event-form{
-  display: flex; 
-  flex-direction: column;
-  max-width: 660px; 
-  margin-left: auto;
-  margin-right: auto;
-
-  
-}
-#details-event-info-form .info-section{
-  max-width: 620px;
-  display: flex;
-  flex-direction: column;
-}
-
 #details-event-info-form .larger-input{
   width: 97%; 
   max-width: 97%;
@@ -32,7 +17,7 @@
 }
 
 
-#details-event-info-form .larger-input-label-2{
+#details-event-info-form #larger-input-label-2{
   width: 100%; 
   border: 1px solid $input-border-color;
   margin-bottom: 35px;
@@ -45,7 +30,7 @@
     height: 169px;
   }
 }
-#details-event-info-form .larger-input-label{
+#details-event-info-form #larger-input-label{
   width: 100%; 
   border: 1px solid $input-border-color;
   margin-bottom: 35px;
@@ -55,7 +40,7 @@
   justify-content: flex-start;
   height: 70px; 
 }
-#details-event-info-form .larger-input-label p, .larger-input-label-2 p{
+  #details-event-info-form .larger-input-label p{
   margin-top: 10px; 
   margin-left: 10px;
   margin-bottom: -5px; 
@@ -64,9 +49,13 @@
   font-weight: lighter; 
 }
 
-#details-event-info-form .larger-input-label:hover, .larger-input-label:focus{
-  border-color: $input-border-hover-color;
-  cursor: text; 
+#details-event-info-form {
+  #larger-input-label-2, #larger-input-label{
+    &:hover, &:focus{
+      border-color: $input-border-hover-color;
+      cursor: text;
+    }
+  }
 }
 
 #add-event-images{

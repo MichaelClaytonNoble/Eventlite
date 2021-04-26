@@ -163,13 +163,13 @@ class CreateEventForm extends React.Component{
     }
     return(
 
-      <div id="create-event-form">
+      <div id="create-event-form" className="create-form">
 
-        <form id="create-event-info-form" onSubmit={this.handleSubmit}>
+        <form id="create-event-info-form" className="create-info-form" onSubmit={this.handleSubmit}>
 
         <section className="info-section">
-            <h1 id="create-event-header"><i className="far fa-edit create-event-form-icons"></i>Basic Info</h1>
-        <p id="create-event-description">Name your event and tell event-goers why they should come. Add details that highlight what makes it unique</p>
+            <h1 className="create-header"><i className="far fa-edit create-event-form-icons"></i>Basic Info</h1>
+        <p className="create-description">Name your event and tell event-goers why they should come. Add details that highlight what makes it unique</p>
 
             <label className='large-input-label'><p>Event title</p>
               <input className="large-input" onChange={this.handleInputChange('title')} value={this.state.title}/>
@@ -179,7 +179,7 @@ class CreateEventForm extends React.Component{
             <input className="large-input"  onChange={this.handleInputChange('organizer')} value={this.state.organizer}/>
             </label>
             {organizerErr}
-            <select name="categories" id="categories" onChange={this.handleInputChange('category_id')}
+            <select name="categories" id="categories" className="info-selection" onChange={this.handleInputChange('category_id')}
                 value={this.state.category_id}>
               <option value="" >Category</option>
               {categories}
@@ -189,10 +189,10 @@ class CreateEventForm extends React.Component{
         <hr />
         <section className="info-section">
 
-          <h1 id="create-event-header"><i className="far fa-map create-event-form-icons"></i>Location</h1>
-          <p id="create-event-description">Help people in the area discover your event and let attendees know where to show up.</p>
+          <h1 className="create-header"><i className="far fa-map create-event-form-icons"></i>Location</h1>
+          <p className="create-description">Help people in the area discover your event and let attendees know where to show up.</p>
           
-        <div id="create-event-radio-buttons">
+        <div id="create-event-radio-buttons" className="radio-buttons">
 
           <input type="radio" id="VENUE" name="location" value="VENUE"  checked={this.state.location === 'VENUE'} 
                   onChange={this.handleRadioChange('location')}/>
@@ -214,10 +214,10 @@ class CreateEventForm extends React.Component{
         <hr /> 
         <section className="info-section">
 
-          <h1 id="create-event-header"><i className="far fa-calendar-alt create-event-form-icons"></i>Date and time</h1>
-          <p id="create-event-description">Tell event-goers when your event starts and ends so they can make plans to attend.</p>
+          <h1 className="create-header"><i className="far fa-calendar-alt create-event-form-icons"></i>Date and time</h1>
+          <p className="create-description">Tell event-goers when your event starts and ends so they can make plans to attend.</p>
 
-          <div id="create-event-radio-buttons">
+          <div id="create-event-radio-buttons" className="radio-buttons">
             <input type="radio" id="single" name="recurring" value='false' checked={this.state.recurring === 'false'}
                   onChange={this.handleRadioChange('recurring')} />
             <label htmlFor="single">Single Event</label>
@@ -249,7 +249,7 @@ class CreateEventForm extends React.Component{
             <span className="date-err">{endErr}</span>
           </div>
 
-        <label id="timezone-label"><p>TimeZone</p>
+        <label id="timezone-label" className=""><p>TimeZone</p>
           <select name="timezones" id="timezones" value={this.state.timezone} 
             onChange={this.handleInputChange('timezone')}>
           {

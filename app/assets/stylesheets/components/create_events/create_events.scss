@@ -1,18 +1,18 @@
 
-#create-event-form{
+.create-form{
   display: flex; 
   flex-direction: column;
   max-width: 660px; 
   margin-left: auto;
   margin-right: auto; 
 }
-#create-event-info-form .info-section{
+.create-form .info-section{
   max-width: 620px;
   display: flex;
   flex-direction: column;
 }
 
-#create-event-info-form .large-input{
+.create-info-form .large-input{
   height: 20px; 
   width: 100%; 
   min-height: 22px;
@@ -23,7 +23,7 @@
 }
 
 
-#create-event-info-form .large-input-label{
+.create-info-form .large-input-label{
   width: 100%; 
   border: 1px solid $input-border-color;
   margin-bottom: 35px;
@@ -33,7 +33,7 @@
   justify-content: space-between;
   height: 50px; 
 }
-#create-event-info-form .large-input-label p{
+.create-info-form .large-input-label p{
   margin-top: 10px; 
   margin-left: 10px;
   margin-bottom: -5px; 
@@ -42,27 +42,29 @@
   font-weight: lighter; 
 }
 
-#create-event-info-form .large-input-label:hover{
-  border-color: $input-border-hover-color;
-  cursor: text; 
+.create-info-form {
+  .large-input-label:hover{
+    border-color: $input-border-hover-color;
+    cursor: text; 
+  }
 }
-#create-event-info-form .large-input:last-child{
+.create-info-form .large-input:last-child{
   margin-bottom: 0px; 
 }
 
-#create-event-form hr, #details-event-info-form hr{
+.create-form hr{
   $color: $icon-color;
   min-width: 860px;
   transform: translateX(-120px);
   opacity: 20%;
 }
-#create-event-header{
+.create-header{
   font-size: 30px;
   font-weight: bolder; 
   margin-bottom: 10px;
   margin-top: 40px; 
 }
-#create-event-description{
+.create-description{
   font-size: 14px; 
   margin-bottom: 15px; 
   line-height: 1.65;
@@ -70,27 +72,27 @@
 }
 
 //LOCATION SECTION 
-#create-event-info-form #categories{
+.info-section .info-selection{
   height: 50px; 
   width: 260px;
   font-size: 16px;
   border: 1px solid $input-border-color;
   margin-bottom: 30px; 
 }
-#create-event-info-form #categories:hover{
+.info-section .info-selection:hover{
   border-color: $input-border-hover-color;
   cursor: pointer;
 }
-#create-event-info-form #categories:focus{
+.info-section .info-selection:focus{
   border-color: $radio-button-checked-color
 }
-#create-event-radio-buttons{
+.radio-buttons{
   margin-left: -23px; 
 }
-#create-event-radio-buttons input[type="radio"]{
+.radio-buttons input[type="radio"]{
   opacity: 0;
 }
-#create-event-radio-buttons label{
+.radio-buttons label{
   border: 1px solid $input-border-color;
   font-size: 16px;
   padding: 13px 20px;
@@ -99,11 +101,12 @@
   margin-bottom: 30px;
   border-radius: 4px;
 }
-#create-event-radio-buttons label:hover{
+.radio-buttons label:hover{
+  border-color: $input-border-hover-color;
   cursor: pointer;
 }
 
-#create-event-radio-buttons input[type="radio"]:checked + label{
+.radio-buttons input[type="radio"]:checked + label{
   border: 1px solid $radio-button-checked-color; 
   background-color: $radio-button-checked-background-color;
   color: $radio-button-checked-color;
@@ -111,7 +114,7 @@
 
 
 //Date Time
-#create-event-info-form #event-time{
+.create-info-form #event-time{
   border: 1px solid $input-border-color; 
 }
 
@@ -122,6 +125,9 @@
   display: flex; 
   flex-direction: column;
   border: 1px solid $input-border-color;
+  &:hover{
+    border-color: $input-border-hover-color;
+  }
 }
 .event-time:focus-within{
   border-color: $radio-button-checked-color; 
@@ -165,6 +171,7 @@
   margin-left: 10px; 
   font-size: 12px; 
   font-weight: lighter;
+  color: $label-text-color;
 }
 #create-event-info-form select#timezones{
   width: 100%; 
@@ -176,13 +183,17 @@
 
 #create-event-info-form #timezone-label:hover{
   cursor: pointer;
+  border-color: $input-border-hover-color;
   select:hover{
     cursor:pointer;
   }
 }
 #create-event-info-form #timezone-label:focus-within{
     border-color: $radio-button-checked-color; 
-    color: $radio-button-checked-color;
+    p{
+
+      color: $radio-button-checked-color;
+    }
 }
 
 .form-submit-button{
