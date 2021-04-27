@@ -3,7 +3,6 @@
 import {connect} from 'react-redux';
 import { getEventsByType, clearEvents } from '../../actions/events';
 import ShowEvent from './show_event';
-import {withRouter} from 'react-router-dom';
 import {fetchFollows} from '../../actions/follows';
 import {fetchTickets} from '../../actions/tickets';
 
@@ -28,4 +27,4 @@ const mDTP = (dispatch, ownProps) => ({
 
 
 const ShowEventContainer = connect(mSTP, mDTP)(ShowEvent);
-export default withRouter(ShowEventContainer);
+export default (ShowEventContainer);

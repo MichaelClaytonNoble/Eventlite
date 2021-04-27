@@ -9,7 +9,8 @@ const mSTP = state => ({
 });
 
 const mDTP = (dispatch, ownProps) => ({
-    createTicket: ticket=>dispatch(createTicket(Object.assign(ticket, {event_id: ownProps.match.params.eventId})))
+    createTicket: ticket=>dispatch(createTicket(Object.assign(ticket, {event_id: ownProps.match.params.eventId}))),
+    nextPage: ()=> {console.log(ownProps.history); ownProps.history.push(`/events/${ownProps.match.params.eventId}/`)}
 });
 
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import {withRouter} from 'react-router-dom';
 
 class CreateTicketForm extends React.Component{
 
@@ -6,11 +7,11 @@ class CreateTicketForm extends React.Component{
     super(props);
 
     this.state={
-      paid: true,
+      paid: '',
       max_quantity: '',
       name:'',
       price: '',
-      disabled: false
+      disabled: false,
     }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -22,21 +23,24 @@ class CreateTicketForm extends React.Component{
   }
   handleRadioChange(field){
     return (e)=>{
-      if(field === 'payment'){
-        this.setState({disabled:true}); 
-        if(e.currentTarget.value === "FREE"){
-          this.state.price = '';
-          this.setState({disabled:true});
+      if(field === 'paid'){
+        if(e.currentTarget.value ==='false'){
+          this.setState({price: '0.00', disabled:true, paid: 'false'});
+        }
+        else{
+          this.setState({price: '', disabled: false, paid: 'true'})
         }
       }
-      this.setState({[field]: e.currentTarget.value});
     };
   }
 
   handleSubmit(e){
     e.preventDefault();
+    console.log(this.state);
 
-    this.props.createTicket(this.state);
+    this.props.createTicket(this.state)
+      .then( ()=> this.props.nextPage());
+    
   }
 
   render(){
@@ -69,11 +73,11 @@ class CreateTicketForm extends React.Component{
           <label className='large-input-label'><p>Name</p>
             <input className="large-input" onChange={this.handleInputChange('name')} value={this.state.name}/>
           </label>  
-          {/* {nameErr} */}
+          {nameErr}
           <label className='large-input-label'><p>Quantity</p>
           <input className="large-input" onChange={this.handleInputChange('max_quantity')} value={this.state.maxQuantity}/>
           </label>
-          {/* {quantityErr} */}
+          {quantityErr}
           <div id="create-event-radio-buttons" className="radio-buttons">
             <input type="radio" id="paid" name="paid" value='true' checked={this.state.paid === 'true'}
                   onChange={this.handleRadioChange('paid')} />
@@ -82,14 +86,14 @@ class CreateTicketForm extends React.Component{
                   onChange={this.handleRadioChange('paid')} />
             <label htmlFor="free">Free</label>
           </div>
-
+          {paidErr}
           <label className='large-input-label'><p>Price</p>
           <input className="large-input"  onChange={this.handleInputChange('price')} 
               value={this.state.price} disabled={'false' === this.state.paid}
                 placeholder='$ 0.00'
-                pattern="^\$?\d+(,\d{3})*(\.\d{2})?$"/>
+                pattern="^\d+(,\d{3})*(\.\d{2})?$"/>
           </label>
-          {/* {priceErr} */}
+          {priceErr}
         </section>
         <div id="form-buttons">
           <button className="form-discard-button" type="reset">Discard</button>

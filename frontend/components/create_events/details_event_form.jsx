@@ -64,8 +64,7 @@ class DetailsEventForm extends React.Component{
       }
       this.props.updateEvent(formData)
       .then( ()=>{
-        alert("Event Fully Created"); 
-        this.props.history.push('/'); 
+        this.props.history.push(`/events/${this.state.id}/tickets/create`); 
       });
     }
   }

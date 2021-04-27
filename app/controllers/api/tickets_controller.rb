@@ -67,7 +67,7 @@ class Api::TicketsController < ApplicationController
   end
 
   def ticket_params
-    params.require(:ticket).permit(:id, :name, :price, :max_quantity, :event_id)
+    params.require(:ticket).permit(:id, :name, :price, :max_quantity, :event_id, :paid)
   end
 
 

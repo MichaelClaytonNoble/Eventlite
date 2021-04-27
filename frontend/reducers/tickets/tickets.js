@@ -7,7 +7,7 @@ const ticketsReducer = (state={}, action) => {
 
   switch(action.type){
     case ACTIONS.RECEIVE_TICKET:
-      nextState[action.ticket.id] = ticket;
+      nextState[action.ticket.id] = action.ticket;
       return nextState;
     case ACTIONS.RECEIVE_TICKETS:
       nextState = Object.assign(nextState, action.tickets);

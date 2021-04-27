@@ -1,6 +1,5 @@
 import MyEvents from './my_events'; 
 import {connect} from 'react-redux'; 
-import {withRouter} from 'react-router-dom'; 
 import {getEventsByType} from '../../actions/events';
 import {analyzeEvents} from '../../reducers/selectors/events_selectors';
 import { openModal } from '../../actions/modal';
@@ -27,4 +26,4 @@ const mDTP = (dispatch, ownProps) => {
 }
 
 const MyEventsContainer = connect(mSTP, mDTP)(MyEvents); 
-export default withRouter(MyEventsContainer);
+export default (MyEventsContainer);

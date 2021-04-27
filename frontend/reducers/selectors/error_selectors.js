@@ -19,8 +19,12 @@ export const EVENT_DETAILS_FORM_ERROR_LIST={
 export const CREATE_TICKET_FORM_ERROR_LIST ={
   "Name can't be blank": "ticketName",
   "Price can't be blank": "ticketPrice",
+  "Price is not a number": "ticketPrice",
+  "Price must be greater than or equal to 0": "ticketPrice",
   "Max quantity can't be blank": "ticketQuantity",
-  "Select one": "ticketPaid"
+  "Max quantity is not a number": "ticketQuantity",
+  "Max quantity must be greater than or equal to 1": "ticketQuantity",
+  "Paid or free must be selected": "ticketPaid"
 };
 
 

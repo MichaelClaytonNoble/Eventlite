@@ -34,32 +34,32 @@ export const receiveTicketErrors = (errors) => ({
 
 export const createTicket = ticket => dispatch=> {
   return TicketUTIL.postTicket(ticket)
-    .then( ticket => dispatch(receiveTicket(ticket)), err => dispatch(receiveTicketErrors(err.responseText)))
+    .then( ticket => dispatch(receiveTicket(ticket)), err => dispatch(receiveTicketErrors(err.responseJSON)))
 }
 
 export const fetchTicket = ticketId => dispatch => {
   return TicketUTIL.pullTicket(ticketId)
-    .then( ticket => dispatch(receiveTicket(ticket)), err => dispatch(receiveTicketErrors(err.responseText)))
+    .then( ticket => dispatch(receiveTicket(ticket)), err => dispatch(receiveTicketErrors(err.responseJSON)))
 };
 
 export const fetchTickets = eventId => dispatch => {
   return TicketUTIL.pullTickets(eventId)
-    .then( tickets => dispatch(receiveTickets(tickets)), err => dispatch(receiveTicketErrors(err.responseText)))
+    .then( tickets => dispatch(receiveTickets(tickets)), err => dispatch(receiveTicketErrors(err.responseJSON)))
 };
 
 export const fetchMyTickets = () => dispatch => {
   return TicketUTIL.pullMyTickets()
-    .then( tickets => dispatch(receiveTickets(tickets)), err => dispatch(receiveTicketErrors(err.responseText)))
+    .then( tickets => dispatch(receiveTickets(tickets)), err => dispatch(receiveTicketErrors(err.responseJSON)))
 };
 
 
 export const deleteTicket = ticketId => dispatch => {
   return TicketUTIL.destroyTicket(ticketId)
-    .then( ticket => dispatch(removeTicket(ticket)), err => dispatch(receiveTicketErrors(err.responseText)))
+    .then( ticket => dispatch(removeTicket(ticket)), err => dispatch(receiveTicketErrors(err.responseJSON)))
 };
 
 export const updateTicket = ticket => dispatch => {
   return TicketUTIL.patchTicket(ticket)
-    .then( ticket => dispatch(receiveTicket(ticket)), err => dispatch(receiveTicketErrors(err.responseText)))
+    .then( ticket => dispatch(receiveTicket(ticket)), err => dispatch(receiveTicketErrors(err.responseJSON)))
 };
 
