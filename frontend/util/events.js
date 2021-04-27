@@ -5,7 +5,7 @@ export const postEvent = event =>{
     url: "/api/events",
     data: {event}
   }); 
-}
+};
 
 export const patchEvent = event =>{
   if(event instanceof FormData){
@@ -22,21 +22,21 @@ export const patchEvent = event =>{
     url: `/api/events/${event.id}`,
     data: {event}
   });
-}
+};
 
 export const destroyEvent = eventId => {
   return $.ajax({
     method: "DELETE",
     url: `/api/events/${eventId}`
   });
-}
+};
 
 export const pullAllEvents = () => {
   return $.ajax({
     method: "GET", 
     url: '/api/events'
   });
-}
+};
 
 export const pullEventsByType = (column, value) =>{
   return $.ajax({
@@ -44,11 +44,11 @@ export const pullEventsByType = (column, value) =>{
     url: '/api/events/getByType',
     data: {column, value}
   });
-}
+};
 export const pullMyEventsByType = (column, value) =>{
   return $.ajax({
     method: "GET",
     url: '/api/events/getMineByType',
     data: {column, value}
   });
-}
+};

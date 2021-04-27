@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux';
-import usersReducer from './users'; 
+import usersReducer from './users/users'; 
 import eventsReducer from './events/events';
 import userEventsReducer from './events/user_events';
-import categoriesReducer from './categories'; 
+import categoriesReducer from './categories/categories'; 
 import featuredCollectionsReducer from './featured_collections';
 import followsReducer from './follows';
+import ticketsReducer from './tickets/tickets';
 
 const entitiesReducer = combineReducers({
   users: usersReducer,
@@ -12,7 +13,8 @@ const entitiesReducer = combineReducers({
   events: eventsReducer,
   categories: categoriesReducer,
   featuredCollections: featuredCollectionsReducer,
-  following: followsReducer
+  following: followsReducer,
+  tickets: ticketsReducer
 });
 
 export default entitiesReducer;

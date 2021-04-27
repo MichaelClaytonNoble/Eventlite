@@ -31,7 +31,6 @@ class CreateEventForm extends React.Component{
     return this.convertDateToLocalAsJSON(new Date()).slice(0,16);
   }
   getMin(){
-
     if(this.props.edit && ( new Date(this.state.start) < new Date())) {
         this.setState({min: this.convertDateToLocalAsJSON(new Date(this.state.start)).slice(0,16)})
     }

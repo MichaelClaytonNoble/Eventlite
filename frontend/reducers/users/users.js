@@ -1,5 +1,5 @@
-import {RECEIVE_CURRENT_USER} from '../actions/users';
-import {LOGOUT_CURRENT_USER} from '../actions/session';
+import {RECEIVE_CURRENT_USER} from '../../actions/users';
+import {LOGOUT_CURRENT_USER} from '../../actions/session';
 
 const usersReducer = (state={}, action) =>{
 

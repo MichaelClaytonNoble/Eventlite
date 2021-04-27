@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     post "/sessions/find", to: "sessions#find"
     resources :follows, only: [:index, :create, :destroy]
     resources :featured_collections, only: [:index]
+    resources :tickets, only: [:index, :show, :create, :update, :destroy]
+    get '/tickets/myIndex', to: 'tickets#myIndex'
   end 
 
 end

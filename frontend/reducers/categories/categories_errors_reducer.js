@@ -1,5 +1,5 @@
-import {RECEIVE_CATEGORIES_ERRORS} from '../actions/categories'; 
-import {CLEAR_ERRORS} from '../actions/events'
+import {RECEIVE_CATEGORIES_ERRORS} from '../../actions/categories'; 
+import {CLEAR_ERRORS} from '../../actions/events'
 const categoriesErrorsReducer = (state=[], action) => {
 
   switch(action.type){

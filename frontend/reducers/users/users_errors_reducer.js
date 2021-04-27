@@ -1,6 +1,6 @@
 
-import { CLEAR_ERRORS } from '../actions/session';
-import {RECEIVE_USERS_ERRORS} from '../actions/users';
+import { CLEAR_ERRORS } from '../../actions/session';
+import {RECEIVE_USERS_ERRORS} from '../../actions/users';
 
 const usersErrorsReducer = (state=[], action) => {
 

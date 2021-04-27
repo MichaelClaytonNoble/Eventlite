@@ -3,7 +3,7 @@ import {
   RECEIVE_CURRENT_USER,
   LOGOUT_CURRENT_USER,
   RECEIVE_EMAIL_FOR_SESSION
-} from '../actions/session';
+} from '../../actions/session';
 
 
 let _nullSession = {

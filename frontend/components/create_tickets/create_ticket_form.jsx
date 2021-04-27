@@ -32,16 +32,31 @@ class CreateTicketForm extends React.Component{
     };
   }
 
-  handleSubmit(){
-
+  handleSubmit(e){
+    e.preventDefault();
   }
 
   render(){
+    let nameErr, quantityErr, priceErr = '';
 
+    this.props.errors.forEach( (error)=>{
+      let err = this.props.errorList[error]; 
+      let message = <p className='form-error-message'>{error}</p>
+      switch(err){
+        case "ticketName":
+          return nameErr = message;
+        case "ticketQuantity":
+          return quantityErr = message;
+        case "ticketPrice":
+          return priceErr = message;
+        default:
+          return;
+      }
+    });
     return(
       <div id="create-ticket-form" className="create-form">
         <form id="create-event-info-form" className="create-info-form" onSubmit={this.handleSubmit}>
-        
+
         <section className="info-section">
             <h1 className="create-header"><i className="far fa-edit create-event-form-icons"></i>Add tickets</h1>
             <p className="create-description">Create a ticket for your event. Users will be able to purchase tickets until the event ends.</p>
@@ -49,10 +64,11 @@ class CreateTicketForm extends React.Component{
           <label className='large-input-label'><p>Name</p>
             <input className="large-input" onChange={this.handleInputChange('name')} value={this.state.name}/>
           </label>  
-          {/* {titleErr} */}
+          {/* {nameErr} */}
           <label className='large-input-label'><p>Quantity</p>
           <input className="large-input" type="number" min='0' max='10000' onChange={this.handleInputChange('maxQuantity')} value={this.state.maxQuantity}/>
           </label>
+          {/* {quantityErr} */}
           <div id="create-event-radio-buttons" className="radio-buttons">
             <input type="radio" id="paid" name="paid" value='true' checked={this.state.paid === 'true'}
                   onChange={this.handleRadioChange('paid')} />
@@ -67,10 +83,8 @@ class CreateTicketForm extends React.Component{
                 placeholder='$ 0.00'
                 pattern="^\$?\d+(,\d{3})*(\.\d{2})?$"/>
           </label>
-          {/* {organizerErr} */}
+          {/* {priceErr} */}
         </section>
-
-        
         <div id="form-buttons">
           <button className="form-discard-button" type="reset">Discard</button>
           <button className="form-submit-button">Save & Continue</button>
