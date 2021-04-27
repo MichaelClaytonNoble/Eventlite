@@ -7,11 +7,12 @@ class CreateTicketForm extends React.Component{
 
     this.state={
       paid: true,
-      maxQuantity: '',
+      max_quantity: '',
       name:'',
       price: '',
       disabled: false
     }
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleInputChange(field){
@@ -34,10 +35,12 @@ class CreateTicketForm extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
+
+    this.props.createTicket(this.state);
   }
 
   render(){
-    let nameErr, quantityErr, priceErr = '';
+    let nameErr, quantityErr, priceErr, paidErr = '';
 
     this.props.errors.forEach( (error)=>{
       let err = this.props.errorList[error]; 
@@ -49,6 +52,8 @@ class CreateTicketForm extends React.Component{
           return quantityErr = message;
         case "ticketPrice":
           return priceErr = message;
+        case "ticketPaid":
+          return paidErr = message;
         default:
           return;
       }
@@ -66,7 +71,7 @@ class CreateTicketForm extends React.Component{
           </label>  
           {/* {nameErr} */}
           <label className='large-input-label'><p>Quantity</p>
-          <input className="large-input" type="number" min='0' max='10000' onChange={this.handleInputChange('maxQuantity')} value={this.state.maxQuantity}/>
+          <input className="large-input" onChange={this.handleInputChange('max_quantity')} value={this.state.maxQuantity}/>
           </label>
           {/* {quantityErr} */}
           <div id="create-event-radio-buttons" className="radio-buttons">
@@ -77,6 +82,7 @@ class CreateTicketForm extends React.Component{
                   onChange={this.handleRadioChange('paid')} />
             <label htmlFor="free">Free</label>
           </div>
+
           <label className='large-input-label'><p>Price</p>
           <input className="large-input"  onChange={this.handleInputChange('price')} 
               value={this.state.price} disabled={'false' === this.state.paid}

@@ -5,6 +5,8 @@ import { getEventsByType, clearEvents } from '../../actions/events';
 import ShowEvent from './show_event';
 import {withRouter} from 'react-router-dom';
 import {fetchFollows} from '../../actions/follows';
+import {fetchTickets} from '../../actions/tickets';
+
 
 
 const mSTP = (state, ownProps) => ({
@@ -19,7 +21,8 @@ const mDTP = (dispatch, ownProps) => ({
   clearEvents: ()=>dispatch(clearEvents()),
   getEvent: ()=>dispatch(getEventsByType('any_id', ownProps.match.params.eventId)),
   getRelevantEvents: (category_id)=>dispatch(getEventsByType('category_id', category_id)),
-  getFollows: ()=>dispatch(fetchFollows())
+  getFollows: ()=>dispatch(fetchFollows()),
+  getTickets: ()=>dispatch(fetchTickets(ownProps.match.params.eventId))
 
 });
 

@@ -30,6 +30,7 @@ class ShowEvent extends React.Component{
   }
 
   componentWillMount(){
+    this.props.getTickets();
     this.props.clearEvents();
     this.props.getFollows();
     this.props.getEvent()

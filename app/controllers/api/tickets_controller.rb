@@ -2,8 +2,8 @@ class Api::TicketsController < ApplicationController
   before_action :require_logged_in, only:[:myIndex, :create, :update, :destroy]
 
   def index
-    @event = Event.find_by(event_id: params[:event_id])
-    if @event 
+    @event = Event.find_by(id: params[:event_id])
+    if @event
       @tickets = @event.tickets
       render :ticket_list
     else
