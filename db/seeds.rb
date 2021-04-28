@@ -246,7 +246,17 @@ def addDescriptionToEvents
   end
 end
 
-seedUser
-seedCategory
-seedEvents
-seedFeaturedCollections
+def seedTickets
+  Ticket.destroy_all
+  Event.all.each do |event|
+    Ticket.create({max_quantity: 1200, price: 10.00, name: 'General Admission', event_id: event.id, paid: true})
+    Ticket.create({max_quantity: 500, price: 0.00, name: 'Day Pass', event_id: event.id, paid: false})
+    Ticket.create({max_quantity: 100, price: 45.00, name: "V.I.P. Wknd Pass", event_id: event.id, paid: true})
+  end
+end
+
+#seedUser
+#seedCategory
+#seedEvents
+#seedFeaturedCollections
+seedTickets

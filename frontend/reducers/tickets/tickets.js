@@ -13,7 +13,7 @@ const ticketsReducer = (state={}, action) => {
       nextState = Object.assign(nextState, action.tickets);
       return nextState;
     case ACTIONS.REMOVE_TICKET:
-      delete nextState[action.ticketId];
+      delete nextState[action.ticket.id];
       return nextState;
     case ACTIONS.CLEAR_TICKETS:
       return {};

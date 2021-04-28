@@ -1,0 +1,1 @@
+json.partial! "registration_info", registration: @registration

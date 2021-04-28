@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :featured_collections, only: [:index]
     resources :tickets, only: [:index, :show, :create, :update, :destroy]
     get '/tickets/myIndex', to: 'tickets#myIndex'
+    resources :registrations
   end 
 
 end

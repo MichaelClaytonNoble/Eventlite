@@ -68,4 +68,8 @@
   position: absolute;
   bottom: 0px;
   background-color: white; 
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
 }

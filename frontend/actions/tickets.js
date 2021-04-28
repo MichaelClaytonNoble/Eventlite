@@ -7,17 +7,17 @@ export const REMOVE_TICKET = 'REMOVE_TICKET';
 export const CLEAR_TICKETS = 'CLEAR_TICKETS';
 export const RECEIVE_TICKET_ERRORS = 'RECEIVE_TICKET_ERRORS';
 
-export const receiveTicket = ticket => ({
+const receiveTicket = ticket => ({
   type: RECEIVE_TICKET,
   ticket
 });
 
-export const receiveTickets = tickets => ({
+const receiveTickets = tickets => ({
   type: RECEIVE_TICKETS,
   tickets
 });
 
-export const removeTicket = ticketId => ({
+const removeTicket = ticketId => ({
   type: REMOVE_TICKET,
   ticketId
 }); 
@@ -26,7 +26,7 @@ export const clearTickets = () => ({
   type: CLEAR_TICKETS
 }); 
 
-export const receiveTicketErrors = (errors) => ({
+const receiveTicketErrors = (errors) => ({
   type: RECEIVE_TICKET_ERRORS,
   errors
 });

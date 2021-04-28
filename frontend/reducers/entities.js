@@ -6,6 +6,7 @@ import categoriesReducer from './categories/categories';
 import featuredCollectionsReducer from './featured_collections';
 import followsReducer from './follows';
 import ticketsReducer from './tickets/tickets';
+import registrationsReducer from './registrations';
 
 const entitiesReducer = combineReducers({
   users: usersReducer,
@@ -14,7 +15,8 @@ const entitiesReducer = combineReducers({
   categories: categoriesReducer,
   featuredCollections: featuredCollectionsReducer,
   following: followsReducer,
-  tickets: ticketsReducer
+  tickets: ticketsReducer,
+  registrations: registrationsReducer
 });
 
 export default entitiesReducer;

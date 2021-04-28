@@ -20,6 +20,8 @@ class ShowEvent extends React.Component{
       if(this.path !== this.props.history.location.pathname){
         window.scrollTo(0, 0);
         this.path = this.props.history.location.pathname;
+        this.props.clearTickets();
+        this.props.getTickets();
         this.props.getRelevantEvents(this.props.event.creator_id).then( (e)=>{
           this.setState({event: this.props.event, relevantEvents: this.props.relevantEvents});
         })
@@ -28,6 +30,7 @@ class ShowEvent extends React.Component{
   }
 
   componentWillMount(){
+    this.props.clearTickets();
     this.props.getTickets();
     this.props.clearEvents();
     this.props.getFollows();
@@ -49,15 +52,10 @@ class ShowEvent extends React.Component{
     return this.convertDateToLocalAsJSON(new Date()).slice(0,16);
   }
 
-  hello(e){
-        console.log("current target", e.currentTarget);
-    console.log("target", e.target.value); 
-  }
-
   render(){
     let modal = '';
     if(this.props.modal){
-      modal = <TicketModalContainer tickets={this.props.tickets}/>
+      modal = <TicketModalContainer event={this.props.event}tickets={this.props.tickets}/>
     }
     var dateOptions = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric'};
     var timeOptions = {hour: 'numeric', minute: 'numeric', hour12: true }
