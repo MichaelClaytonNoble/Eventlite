@@ -1,0 +1,36 @@
+
+
+
+#tickets-list{
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+
+  #ticket-list-item{
+    margin: 0 5%;
+    min-height: 70px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    justify-content: center;
+    border-bottom: 1px solid $border-color;
+    text-align: center;
+    color: #39364f;
+    #name, .header{
+      font-size: 1rem;
+      line-height: 1.5rem;
+      width: 30%;
+    }
+    #name{text-align: left;}
+    #paid,#max,input, #quantity{
+      font-size: .9rem;
+      line-height: 1.5rem;
+      width: 18%;
+    }
+    .header{
+      color: #1e0a3c;
+    }
+   
+  }
+}

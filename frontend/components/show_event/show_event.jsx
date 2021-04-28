@@ -1,9 +1,7 @@
 
 import React from 'react';
-import Link from 'react-router-dom'; 
-import EventList from '../display_events/event_list';
 import Carousel from '../display_events/carousel';
-
+import TicketModalContainer from '../modals/ticket_modal_container'; 
 
 class ShowEvent extends React.Component{
   constructor(props){
@@ -51,8 +49,16 @@ class ShowEvent extends React.Component{
     return this.convertDateToLocalAsJSON(new Date()).slice(0,16);
   }
 
+  hello(e){
+        console.log("current target", e.currentTarget);
+    console.log("target", e.target.value); 
+  }
 
   render(){
+    let modal = '';
+    if(this.props.modal){
+      modal = <TicketModalContainer tickets={this.props.tickets}/>
+    }
     var dateOptions = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric'};
     var timeOptions = {hour: 'numeric', minute: 'numeric', hour12: true }
     let img, month, day, title, organizer, description = '';
@@ -76,6 +82,7 @@ class ShowEvent extends React.Component{
     
     return (
       <div id="event-show-wrap">
+        {modal}
 
         <div id="event-show-overlay-overlay"></div>
         <div id="event-show-overlay">{img}</div>
@@ -95,7 +102,7 @@ class ShowEvent extends React.Component{
             <div id="like">♡</div>
             <span>
               <div id='ticket-price-sticky'>$10 - $250</div>
-              <button id="buy-ticket-button">Tickets</button>
+              <button onClick={this.props.openTicketModal} id="buy-ticket-button">Tickets</button>
             </span>
           </div>
           <div id="event-description">

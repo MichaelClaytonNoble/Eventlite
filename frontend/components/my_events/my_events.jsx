@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import ModalContainer from '../modals/modal_container';
-import modal_container from '../modals/modal_container';
+
 class MyEvents extends React.Component{
 
   constructor(props){

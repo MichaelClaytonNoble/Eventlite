@@ -1,0 +1,71 @@
+#modal-background{
+  z-index: 10000000;
+  position: fixed;
+}
+
+#ticket-modal{
+  max-width: 1080px;
+  max-height: 720px;
+
+  width: 95%;
+  height: 95%;
+
+  background-color: white;
+
+  display: flex;
+  flex-direction: row;
+}
+
+#ticket-list-wrap {
+  display: flex;
+  flex-direction: column;
+  width: 66.5%;
+  height: 100%;
+  border-right: 1px solid $border-color;
+  position: relative;
+  #ticket-title{
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid $border-color;
+    padding: 10px 0;
+    #title{
+      color: #39364f;
+      font-size: 1.125rem;
+      line-height: 1.5rem;
+    }
+    #start{
+      color: #6f7287;
+      font-size: .75rem;
+      line-height: 1rem;
+    }
+  }
+  
+  #ticket-list{
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+  }
+}
+
+#ticket-cart{
+  width: 33.5%;
+  height: 100%;
+  #event-img{
+    height: 33%;
+    img{
+      object-fit: cover;
+      height: 100%;
+      max-width: 100%;
+      object-position: center;
+    }
+  }
+}
+
+#checkout-button-wrap{
+  border-top: 1px solid $border-color;
+  width: 100%;
+  height: 75px;
+  position: absolute;
+  bottom: 0px;
+  background-color: white; 
+}
