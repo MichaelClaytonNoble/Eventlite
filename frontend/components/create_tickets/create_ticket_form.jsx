@@ -36,7 +36,6 @@ class CreateTicketForm extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
-    console.log(this.state);
 
     this.props.createTicket(this.state)
       .then( ()=> this.props.nextPage());

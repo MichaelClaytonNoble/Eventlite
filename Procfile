@@ -1,0 +1,1 @@
+start: bundle exec rails server
