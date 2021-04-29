@@ -131,7 +131,7 @@ class CreateEventForm extends React.Component{
           recurringErr, categoryErr, timezoneErr, categories='';
     if(this.props.errors){
 
-    
+    debugger
     this.props.errors.forEach( (error)=>{
       let err = this.props.errorList[error]; 
       let message = <p className='form-error-message'>{error}</p>
