@@ -129,6 +129,9 @@ class CreateEventForm extends React.Component{
 
     let userLoginErr, titleErr, organizerErr, locationErr, startErr, endErr, 
           recurringErr, categoryErr, timezoneErr, categories='';
+    if(this.props.errors){
+
+    
     this.props.errors.forEach( (error)=>{
       let err = this.props.errorList[error]; 
       let message = <p className='form-error-message'>{error}</p>
@@ -154,6 +157,7 @@ class CreateEventForm extends React.Component{
         default:
           return;
       }
+    }
     });
     if(this.props.categories.length){
       categories = this.props.categories.map( (category,key) => {

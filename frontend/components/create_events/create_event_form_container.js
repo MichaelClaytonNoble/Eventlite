@@ -10,6 +10,7 @@ const mSTP = (state, ownProps) =>{
   let err = [];
   if (state.errors.events){
     err = state.errors.events;
+    console.log(err);
   }
   return ({
     errors: err,
