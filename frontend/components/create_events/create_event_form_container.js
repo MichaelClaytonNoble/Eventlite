@@ -7,8 +7,12 @@ import {pullCategories} from '../../actions/categories';
 import {TIMEZONES} from '../../constants/constants'; 
 
 const mSTP = (state, ownProps) =>{
+  let err = [];
+  if (state.errors.events){
+    err = state.errors.events;
+  }
   return ({
-    errors: state.errors.events,
+    errors: err,
     errorList: CREATE_EVENT_FORM_ERROR_LIST,
     timezones: TIMEZONES,
     categories: Object.values(state.entities.categories),
