@@ -157,8 +157,8 @@ class CreateEventForm extends React.Component{
         default:
           return;
       }
-    }
     });
+  }
     if(this.props.categories.length){
       categories = this.props.categories.map( (category,key) => {
         return <option value={category.id} key={key}>{category.name}</option>
