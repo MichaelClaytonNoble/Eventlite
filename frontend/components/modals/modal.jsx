@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {withRouter} from 'react-router-dom';
 class Modal extends React.Component{
   constructor(props){
     super(props);
@@ -26,6 +26,14 @@ class Modal extends React.Component{
           </div>
         )
         break;
+      case 'logIn':
+        buttonList = [{name: "Log in", action: ()=> {this.props.history.push('/signin'); this.props.closeModal()}}, {name: "Cancel", action: this.props.closeModal}];
+        return (
+          <div id="modal-main">
+            {this.modalMessage("Log in to follow this event")}
+            {this.buttonWrap(buttonList)}
+          </div>
+        )
     }
   }
   buttonWrap(buttonList){
@@ -54,4 +62,4 @@ class Modal extends React.Component{
   }
 }
 
-export default Modal;
+export default withRouter(Modal);

@@ -9,19 +9,24 @@ class LikeButton extends React.Component{
 
   toggleFollow(e){
     e.stopPropagation();
-    const chart = {
-      "unfollow": "follow",
-      "follow": "unfollow"
-    };
-    const chartAction = {
-      "unfollow": this.props.follow,
-      "follow": this.props.unfollow
-    };
-    let {followStatus, eventId} = this.props;
-    e.currentTarget.classList.remove(followStatus);
-    e.currentTarget.classList.add(chart[followStatus]);
+    if(!this.props.loggedIn){
+      this.props.openModal('logIn');
+    }
+    else{
+      const chart = {
+        "unfollow": "follow",
+        "follow": "unfollow"
+      };
+      const chartAction = {
+        "unfollow": this.props.follow,
+        "follow": this.props.unfollow
+      };
+      let {followStatus, eventId} = this.props;
+      e.currentTarget.classList.remove(followStatus);
+      e.currentTarget.classList.add(chart[followStatus]);
 
-    chartAction[followStatus](eventId);
+      chartAction[followStatus](eventId);
+    }
   }
   render(){
     const {followStatus, eventId} = this.props;

@@ -2,6 +2,7 @@
 import React from 'react';
 import Carousel from '../display_events/carousel';
 import TicketModalContainer from '../modals/ticket_modal_container'; 
+import ModalContainer from '../modals/modal_container';
 
 class ShowEvent extends React.Component{
   constructor(props){
@@ -55,6 +56,9 @@ class ShowEvent extends React.Component{
   render(){
     let modal = '';
     if(this.props.modal){
+      modal = <ModalContainer eventId={this.eventId} />
+    }
+    if(this.props.modal === 'ticketMenu'){
       modal = <TicketModalContainer event={this.props.event}tickets={this.props.tickets}/>
     }
     var dateOptions = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric'};

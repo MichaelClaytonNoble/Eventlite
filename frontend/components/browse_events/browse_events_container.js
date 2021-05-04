@@ -10,6 +10,7 @@ const mSTP = (state, ownProps) => ({
   events: Object.values(state.entities.events).sort( (a, b)=> new Date(a.start) - new Date(b.start)),
   categories: Object.values(state.entities.categories),
   initialCategory: ownProps.match.params.category,
+  modal: state.ui.modal
 })
 
 const mDTP = dispatch => ({

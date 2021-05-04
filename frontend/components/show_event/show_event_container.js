@@ -26,7 +26,6 @@ const mDTP = (dispatch, ownProps) => ({
   openTicketModal: ()=>dispatch(openModal('ticketMenu')),
   clearTickets: ()=> dispatch(clearTickets())
 
-
 });
 
 

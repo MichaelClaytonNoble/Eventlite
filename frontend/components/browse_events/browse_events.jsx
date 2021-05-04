@@ -1,6 +1,6 @@
 import React from 'react';
-import Link from 'react-router-dom';
 import EventList from '../display_events/event_list';
+import ModalContainer from '../modals/modal_container';
 
 class BrowseEvents extends React.Component{
 
@@ -327,8 +327,13 @@ class BrowseEvents extends React.Component{
   }
 
   render(){
+    let modal = '';
+    if(this.props.modal){
+      modal = <ModalContainer eventId={this.eventId} />
+    }
     return (
       <div id="browse-events">
+        {modal}
         <div id="filters">
           <div id="title"><span>Filt</span><span>ers</span></div>
           <ul id="date-menu" className="filter-menu" onClick={this.setFilter('dateFilter')}>

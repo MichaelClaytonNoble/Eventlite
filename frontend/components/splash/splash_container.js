@@ -12,7 +12,9 @@ const mSTP = state => {
     categories: Object.values(state.entities.categories),
     myId: state.session.currentUser.id,
     featuredCollections: Object.values(state.entities.featuredCollections),
-  })
+    modal: state.ui.modal
+
+  });
 }
     
 const mDTP = dispatch => {
@@ -23,7 +25,7 @@ const mDTP = dispatch => {
     clearMyEvents: id=>dispatch(clearMyEvents(id)),
     getFeaturedCollections: ()=>dispatch(getFeaturedCollections()),
     getFollows: ()=>dispatch(fetchFollows()),
-  })
+  });
 }
 
 const SplashContainer = connect(mSTP, mDTP)(Splash);

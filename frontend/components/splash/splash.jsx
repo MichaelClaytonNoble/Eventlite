@@ -1,7 +1,8 @@
 import React from 'react';
 import {Link, withRouter} from 'react-router-dom';
 import EventList from '../display_events/event_list';
-import LikeButtonContainer from '../like_button/like_button_container';
+import ModalContainer from '../modals/modal_container';
+
 
 class Splash extends React.Component{
   constructor(props){
@@ -129,6 +130,10 @@ class Splash extends React.Component{
   }
 
   render(){
+    let modal = '';
+    if(this.props.modal){
+      modal = <ModalContainer eventId={this.eventId} />
+    }
     var options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', timeZoneName: 'short'};
 
     let categories, featured, featuredMessage, followStatus = '';
@@ -162,6 +167,7 @@ class Splash extends React.Component{
     }
     return(
       <div id="splash">
+        {modal}
         <div id="feed-header">
           <div id="grey-box">
             <div id="feed">
