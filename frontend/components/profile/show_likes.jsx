@@ -23,7 +23,7 @@ class ShowLikes extends React.Component{
       <div id="show-likes">
         <div id="header-title">Likes</div>
         <div id="events-list-wrap">
-          <EventList events={this.props.followedEvents} />
+          <EventList events={this.props.followedEvents} likes={true}/>
         </div>
       </div>
       

@@ -36,6 +36,9 @@ class EventList extends React.Component{
 
     
     if(!eventsList.length){
+      if(this.props.likes){
+        return <p id="no-events-message">Like some events to see them here.</p>
+      }
       return <p id="no-events-message">Please select another filter</p>
     };
     return (
