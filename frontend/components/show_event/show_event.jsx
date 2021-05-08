@@ -3,6 +3,7 @@ import React from 'react';
 import Carousel from '../display_events/carousel';
 import TicketModalContainer from '../modals/ticket_modal_container'; 
 import ModalContainer from '../modals/modal_container';
+import LikeButtonContainer from '../like_button/like_button_container';
 
 class ShowEvent extends React.Component{
   constructor(props){
@@ -56,7 +57,7 @@ class ShowEvent extends React.Component{
   render(){
     let modal = '';
     if(this.props.modal){
-      modal = <ModalContainer eventId={this.eventId} />
+      modal = <ModalContainer />
     }
     if(this.props.modal === 'ticketMenu'){
       modal = <TicketModalContainer event={this.props.event}tickets={this.props.tickets}/>
@@ -66,8 +67,10 @@ class ShowEvent extends React.Component{
     let img, month, day, title, organizer, description = '';
     let startDate, endDate, startTime, endTime = '';
     let event = this.state.event;
+    let eventId = '';
     let date = new Date();
     if(this.state.event){
+      eventId = event.id;
       img = <img src={event.imageUrl} alt='blurred'></img>
       startDate = (new Date(this.convertDateToLocalAsJSON(new Date(event.start))).toLocaleTimeString("default", dateOptions)); 
       endDate = (new Date(this.convertDateToLocalAsJSON(new Date(event.end))).toLocaleTimeString("default", dateOptions)); 
@@ -101,7 +104,7 @@ class ShowEvent extends React.Component{
             </div>
           </div>
           <div id="ticket">
-            <div id="like">♡</div>
+            <div id="like"><LikeButtonContainer eventId={eventId}/></div>
             <span>
               <div id='ticket-price-sticky'>$10 - $250</div>
               <button onClick={this.props.openTicketModal} id="buy-ticket-button">Tickets</button>
