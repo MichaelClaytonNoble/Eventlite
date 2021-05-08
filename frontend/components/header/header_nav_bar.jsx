@@ -39,7 +39,6 @@ class HeaderNavBar extends React.Component {
           <li className="menu-dropdown-li"
             onClick={()=>{this.props.history.push(`/${this.props.myId}/events`)}}
             >Manage my events</li>
-          <li className="menu-dropdown-li">Following</li>
           <li className="menu-dropdown-li" 
             onClick={()=>this.props.history.push(`/${this.props.myId}/likes/events`)}
             >Likes</li>
