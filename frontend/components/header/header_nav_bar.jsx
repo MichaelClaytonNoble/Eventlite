@@ -69,10 +69,10 @@ class HeaderNavBar extends React.Component {
       <div id="header-nav-bar">
         <span id="header-nav-bar-left">
           <Link to="/" id="logo-link"><span>even</span>tlite</Link>
-          <span id="search-bar-input-span">
+          {/* <span id="search-bar-input-span">
             <i className="fas fa-search"></i>
             <input id="search-bar-input" placeholder="Search for events"/>
-            </span>
+            </span> */}
         </span>
         <span id="header-nav-bar-right">
           {aboutLink}
