@@ -14,7 +14,7 @@ class Api::FollowsController < ApplicationController
     if !logged_in?
       render json: []
     else
-      @follow = Follow.create(event_id: params[:event_id], user_id: current_user.id);
+      @follow = Follow.create(event_id: params[:event_id], user_id: current_user.id)
       if @follow.save
         render json: @follow.event_id.to_i
       else

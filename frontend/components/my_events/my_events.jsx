@@ -103,6 +103,13 @@ class MyEvents extends React.Component{
         var options = { hour: '2-digit', minute: '2-digit', timeZoneName: 'short', hour12: true};
         let start = new Date(event.start).toLocaleTimeString("en-US", options); 
 
+        let ticketInfo = '';
+        if(event.paid === 'Free'){
+          ticketInfo = 'Free'
+        }
+        else{
+          ticketInfo = event.tickets_sold.toString() + '/' + event.max_tickets.toString();
+        }
 
         return(
           <li id="event-list-item" key={key}>
@@ -121,7 +128,7 @@ class MyEvents extends React.Component{
               </div>
             </div>
             <div id="right">
-              <div id="stats">0/44
+              <div id="stats">{ticketInfo}
                 <div id="progress"></div>
               </div>
               <div id="stats">${event.gross}</div>

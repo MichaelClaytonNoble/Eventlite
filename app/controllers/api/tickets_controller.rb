@@ -12,7 +12,7 @@ class Api::TicketsController < ApplicationController
   end
 
   def myIndex
-    @user = User.find_by(id: current_user.id);
+    @user = User.find_by(id: current_user.id)
     if @user
       @tickets = @user.tickets
       render :ticket_list

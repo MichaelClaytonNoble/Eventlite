@@ -66,7 +66,7 @@ class Api::EventsController < ApplicationController
         .where("creator_id != ?", current_user.id) if whitelist(col.downcase)
      # elsif col == 'relevant_creator'
        # @events = Event.where("creator_id", val).
-        #  .where(' start >= ? ', DateTime.now).sample(5);
+        #  .where(' start >= ? ', DateTime.now).sample(5)
       else
         @events = Event.where("#{col} = ?", val)
         .where('start >= ?', DateTime.now) if whitelist(col.downcase)
@@ -92,25 +92,39 @@ class Api::EventsController < ApplicationController
       @events.each do |event|
 
         registrations = event.registrations
-        gross = 0;
-        registrations.each do |reg|
-          ticket = reg.ticket
-          price = ticket.price
-          gross += price * reg.quantity_purchased
+        gross = 0
+    
+        # gross = Ticket.joins(:registrations)
+        # .where('tickets.event_id = ?', event.id)
+        # .sum('quantity_purchased * tickets.price')
+        # .sum('quantity_purchased')
+        # gross = Ticket.joins(:registrations)
+        # .where('tickets.event_id = ?', event.id)
+        # .where(registrations: {id: registrations})
+        # .sum('quantity_purchased * tickets.price')
+        ticketInfo = Ticket.joins(:registrations)
+        .select('sum(quantity_purchased * tickets.price) AS "gross", sum(quantity_purchased) AS "tickets_sold", sum(max_quantity) as "max_tickets"')
+        .where('tickets.event_id = ?', event.id)
+
+        if !gross 
+
+          debugger
         end
 
-
-
-
+        gross = ticketInfo[0].gross || 0
+    
         event.paid = "Free"
-        event.gross = 0
+        event.gross = 0;
         event.status = 'Incomplete'
+        event.max_tickets = ticketInfo[0].max_tickets
+        event.tickets_sold = ticketInfo[0].tickets_sold
         if event.tickets.any?
           event.status = 'Complete'
           event.gross = gross
         end
         if gross > 0
           event.paid = "Paid"
+          event.gross = gross
         end
         if (event.end < DateTime.now)
           event.status = 'Past'
@@ -137,7 +151,7 @@ class Api::EventsController < ApplicationController
   private
   def getFollows
     if logged_in?
-      @user = User.find_by(id: current_user.id);
+      @user = User.find_by(id: current_user.id)
       @followed_events = @user.followed_events
 
       return @followed_events
