@@ -124,7 +124,7 @@ class MyEvents extends React.Component{
               <div id="stats">0/44
                 <div id="progress"></div>
               </div>
-              <div id="stats">$0.00</div>
+              <div id="stats">${event.gross}</div>
               <div id="stats">{event.status}</div>
               <div id="stats"></div>
 

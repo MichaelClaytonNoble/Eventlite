@@ -23,11 +23,7 @@ export function analyzeEvents(events){
 function determineStatus(event){
   let eventWithStatus = event;
   
-  eventWithStatus['status'] = "Incomplete"; 
 
-  if(event.about && event.description){
-    eventWithStatus['status'] = "Complete";
-  }
 
   if(new Date(event.end) < new Date()){
     eventWithStatus['status'] = 'Past';

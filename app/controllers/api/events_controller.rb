@@ -89,6 +89,33 @@ class Api::EventsController < ApplicationController
     if(col == 'creator_id')
       @creator_id = val
       @events = Event.where("#{col} = ?", val) if whitelist(col.downcase)
+
+      @events.each do |event|
+
+        registrations = event.registrations
+        gross = 0;
+        registrations.each do |reg|
+          ticket = reg.ticket
+          price = ticket.price
+          gross += price * reg.quantity_purchased
+       
+        end
+        event.paid = "Free"
+        event.gross = 0
+        event.status = 'Incomplete'
+        if event.tickets.any?
+          event.status = 'Complete'
+          event.gross = gross
+        end
+        if gross > 0
+          event.paid = "Paid"
+        end
+        if (event.end < DateTime.now)
+          event.status = 'Past'
+        end
+        event.update(event.as_json)
+      end
+
     else
       if current_user
         @events = Event.where("#{col} = ?", val)

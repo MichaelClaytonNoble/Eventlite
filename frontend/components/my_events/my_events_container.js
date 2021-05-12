@@ -1,6 +1,6 @@
 import MyEvents from './my_events'; 
 import {connect} from 'react-redux'; 
-import {getEventsByType} from '../../actions/events';
+import {getMyEventsByType} from '../../actions/events';
 import {analyzeEvents} from '../../reducers/selectors/events_selectors';
 import { openModal } from '../../actions/modal';
 
@@ -11,7 +11,7 @@ const mSTP = state => {
     myEvents = Object.values(state.entities.userEvents[state.session.currentUser.id]).sort( (a, b)=> new Date(a.start) - new Date(b.start));
   }
   return ({
-    myEvents: analyzeEvents(myEvents),
+    myEvents: myEvents,
     organizers: Array.from(new Set(myEvents.map( (event)=> event.organizer).filter( (organizer)=> organizer))),
     modal: state.ui.modal
   });
@@ -20,7 +20,7 @@ const mSTP = state => {
 
 const mDTP = (dispatch, ownProps) => {
   return ({
-    getMyEvents: ()=>dispatch(getEventsByType('creator_id',ownProps.match.params.myId)),
+    getMyEvents: ()=>dispatch(getMyEventsByType('creator_id',ownProps.match.params.myId)),
     openModal: (type)=>dispatch(openModal(type))
   })
 }
