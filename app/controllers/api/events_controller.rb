@@ -88,8 +88,7 @@ class Api::EventsController < ApplicationController
     end
     if(col == 'creator_id')
       @creator_id = val
-      @events = Event.where("#{col} = ?", val) if whitelist(col.downcase)
-
+      @events = Event.includes(:registrations, :tickets).where("#{col} = ?", val) if whitelist(col.downcase)
       @events.each do |event|
 
         registrations = event.registrations
@@ -98,8 +97,11 @@ class Api::EventsController < ApplicationController
           ticket = reg.ticket
           price = ticket.price
           gross += price * reg.quantity_purchased
-       
         end
+
+
+
+
         event.paid = "Free"
         event.gross = 0
         event.status = 'Incomplete'
