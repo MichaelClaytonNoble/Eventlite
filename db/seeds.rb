@@ -257,8 +257,8 @@ def seedTickets
   end
 end
 
-# seedUser
-# seedCategory
-# seedEvents
-# seedFeaturedCollections
+seedUser
+seedCategory
+seedEvents
+seedFeaturedCollections
 seedTickets
