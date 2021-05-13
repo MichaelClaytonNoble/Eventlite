@@ -248,18 +248,17 @@ end
 
 def seedTickets
   Ticket.destroy_all
-  Event.all.each do |event, i|
-    # if i % 11 == 0 #make sure there are some incomplete events.
-    #   next
-    # end
-    Ticket.create({max_quantity: 1200, price: 10.00, name: 'General Admission', event_id: event.id, paid: true})
-    Ticket.create({max_quantity: 500, price: 0.00, name: 'Day Pass', event_id: event.id, paid: false})
-    Ticket.create({max_quantity: 100, price: 45.00, name: "V.I.P. Wknd Pass", event_id: event.id, paid: true})
+  Event.all.each do |event|
+    if event.id%9 != 0 #make sure there are some incomplete events.
+      Ticket.create({max_quantity: 1200, price: 10.00, name: 'General Admission', event_id: event.id, paid: true})
+      Ticket.create({max_quantity: 500, price: 0.00, name: 'Day Pass', event_id: event.id, paid: false})
+      Ticket.create({max_quantity: 100, price: 45.00, name: "V.I.P. Wknd Pass", event_id: event.id, paid: true})
+    end
   end
 end
 
-seedUser
-seedCategory
-seedEvents
-seedFeaturedCollections
+# seedUser
+# seedCategory
+# seedEvents
+# seedFeaturedCollections
 seedTickets

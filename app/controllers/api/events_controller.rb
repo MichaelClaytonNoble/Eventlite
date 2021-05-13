@@ -103,21 +103,23 @@ class Api::EventsController < ApplicationController
         # .where(registrations: {id: registrations})
         # .sum('quantity_purchased * tickets.price')
         ticketInfo = Ticket.joins(:registrations)
-        .select('sum(quantity_purchased * tickets.price) AS "gross", sum(quantity_purchased) AS "tickets_sold", sum(max_quantity) as "max_tickets"')
-        .where('tickets.event_id = ?', event.id)
+        .select('sum(quantity_purchased * tickets.price) AS "gross", sum(quantity_purchased) AS "tickets_sold"')
+        .where('tickets.event_id = ?', event.id)[0]
 
-        if !gross 
+        
 
-          debugger
-        end
+        gross = ticketInfo.gross || 0
+        
+        ticketInfo2 = event.tickets.select('sum(price) AS "cost", sum(max_quantity) AS "max_tickets"')[0]
+        cost = ticketInfo2.cost || 0
 
-        gross = ticketInfo[0].gross || 0
-    
+
+
         event.paid = "Free"
         event.gross = 0;
         event.status = 'Incomplete'
-        event.max_tickets = ticketInfo[0].max_tickets
-        event.tickets_sold = ticketInfo[0].tickets_sold
+        event.max_tickets = ticketInfo2.max_tickets || 0
+        event.tickets_sold = ticketInfo.tickets_sold || 0
         if event.tickets.any?
           event.status = 'Complete'
           event.gross = gross
@@ -125,6 +127,9 @@ class Api::EventsController < ApplicationController
         if gross > 0
           event.paid = "Paid"
           event.gross = gross
+        end
+        if cost > 0
+          event.paid = "Paid"
         end
         if (event.end < DateTime.now)
           event.status = 'Past'
