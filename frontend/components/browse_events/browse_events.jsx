@@ -176,9 +176,9 @@ class BrowseEvents extends React.Component{
         return event.title.toLowerCase().includes(this.state.searchFilter.trim().toLowerCase())
       })
     }
-    // if(this.state.filterPrice !== "All"){
-    //   relevantEvents = relevantEvents.filter( event=> event.price === this.state.filterStatus);
-    // }
+    if(this.state.priceFilter !== "Any"){
+      relevantEvents = relevantEvents.filter( event=> event.paid === this.state.priceFilter);
+    }
     if(this.state.dateFilter !== "Any" && !this.state.dateFilter.includes("Pick")){
       relevantEvents = this.filterEventsByDate(relevantEvents);
     }
@@ -338,7 +338,7 @@ class BrowseEvents extends React.Component{
           <div id="title"><span>Filt</span><span>ers</span></div>
           <ul id="date-menu" className="filter-menu" onClick={this.setFilter('dateFilter')}>
             <li className="filter-menu-options">Any day</li>
-            <li className="filter-menu-options">Pick a date...</li>
+            {/* <li className="filter-menu-options">Pick a date...</li> */}
             <li className="filter-menu-options">Today</li>
             <li className="filter-menu-options">Tomorrow</li>
             <li className="filter-menu-options">This weekend</li>
