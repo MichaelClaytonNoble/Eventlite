@@ -14,6 +14,7 @@ class CreateTicketForm extends React.Component{
       disabled: false,
     }
     this.handleSubmit = this.handleSubmit.bind(this);
+    window.scrollTo(0, 0);
   }
 
   handleInputChange(field){

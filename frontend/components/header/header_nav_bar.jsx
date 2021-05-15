@@ -8,6 +8,7 @@ class HeaderNavBar extends React.Component {
     super(props);
     this.state={};
     this.signOut = this.signOut.bind(this); 
+
   }
 
   signOut(e){

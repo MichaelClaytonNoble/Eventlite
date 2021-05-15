@@ -19,6 +19,7 @@ class DetailsEventForm extends React.Component{
   }
 
   componentDidMount(){
+    window.scrollTo(0, 0);
     this.props.getEvent().then( ()=>this.setState({
       description: this.props.event.description,
       about: this.props.event.about,

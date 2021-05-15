@@ -21,6 +21,7 @@ class MyEvents extends React.Component{
   }
 
   componentWillMount(){
+    window.scrollTo(0, 0);
     this.props.getMyEvents();
   }
   componentDidUpdate(prevProps){

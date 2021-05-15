@@ -74,6 +74,7 @@ class CreateEventForm extends React.Component{
     }
   }
   componentDidMount(){
+    window.scrollTo(0, 0);
     this.props.getCategories(); 
     if(this.props.edit){
       this.props.getEvent().then( (e)=>{
