@@ -20,6 +20,8 @@ class Splash extends React.Component{
     this.createFeaturedCollection = this.createFeaturedCollection.bind(this); 
   }
   componentDidMount(){
+        window.scrollTo(0, 0);
+
     this.props.getCategories(); 
     if(this.props.myId){this.props.clearMyEvents(this.props.myId)};
     this.props.getFeaturedCollections()
