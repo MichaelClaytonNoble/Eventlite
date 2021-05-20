@@ -100,7 +100,9 @@ class MyEvents extends React.Component{
         kebab = [<li key={1} onClick={()=>this.props.history.push(`/events/${event.id}`)}>View</li>]
         if(event.status !== 'Past'){
           kebab.push(<li key={2}onClick={()=>{this.props.history.push(`/events/${event.id}/edit`)}}>Edit</li>);
+          kebab.push(<li key={3}onClick={()=>{this.props.history.push(`/events/${event.id}/tickets/create`)}}>Add tickets</li>);
         }
+
         var options = { hour: '2-digit', minute: '2-digit', timeZoneName: 'short', hour12: true};
         let start = new Date(event.start).toLocaleTimeString("en-US", options); 
 
@@ -140,7 +142,7 @@ class MyEvents extends React.Component{
                 <i className="fas fa-ellipsis-v kebab" id="kebab"></i>
                 <ul className="kebab" id={"my-events-menu" + key}>
                   {kebab}
-                  <li key={3} onClick={()=>{this.eventId = event.id; this.props.openModal('deleteEvent')}}>Delete</li>
+                  <li key={4} onClick={()=>{this.eventId = event.id; this.props.openModal('deleteEvent')}}>Delete</li>
                 </ul>
               </div>
             </div>

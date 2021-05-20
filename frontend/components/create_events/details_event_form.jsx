@@ -21,11 +21,16 @@ class DetailsEventForm extends React.Component{
 
   componentDidMount(){
     window.scrollTo(0, 0);
-    this.props.getEvent().then( ()=>this.setState({
-      description: this.props.event.description,
-      about: this.props.event.about,
-      imageUrl: this.props.event.imageUrl
-    }));
+    this.props.getEvent().then( ()=>{
+        if(new Date(this.props.event.end) < new Date()){
+          this.props.history.goBack();
+        }
+        this.setState({
+        description: this.props.event.description,
+        about: this.props.event.about,
+        imageUrl: this.props.event.imageUrl
+      })
+    });
   }
   handleFile(files) {
 
