@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import { EVENT_DETAILS_FORM_ERROR_LIST } from '../../reducers/selectors/error_selectors';
 import DetailsEventForm from './details_event_form';
-import { clearErrors, updateEvent, uploadImage } from '../../actions/events';
+import { clearErrors, updateEvent, uploadImage, getMyEventsByType } from '../../actions/events';
 const mSTP = (state, ownProps) => {
   return({
     errors: state.errors.events,
@@ -14,7 +14,7 @@ const mDTP = (dispatch, ownProps) => {
   return({
     updateEvent: event=>dispatch(updateEvent(event)),
     clearErrors: ()=>dispatch(clearErrors()),
-    getEvent: ()=> dispatch(getEventsByType('id', ownProps.match.params.eventId))
+    getEvent: ()=> dispatch(getMyEventsByType('id', ownProps.match.params.eventId))
   })
 }
 
