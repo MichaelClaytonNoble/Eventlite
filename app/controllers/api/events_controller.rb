@@ -67,10 +67,14 @@ class Api::EventsController < ApplicationController
   def update
     @event = Event.find_by(id: params[:event][:id])
     if @event
-      if @event.update(event_params)
-        render :event_all_info
+      if (event.end >= DateTime.now)
+        if @event.update(event_params)
+          render :event_all_info
+        else
+          render json: @event.errors.full_messages, status: 422
+        end
       else
-        render json: @event.errors.full_messages, status: 422
+        render json: ["Cannot edit past events"], status: 422
       end
     else
       render json: ["This event does not exist"], status: 422
