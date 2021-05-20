@@ -27,4 +27,12 @@ export const CREATE_TICKET_FORM_ERROR_LIST ={
   "Paid or free must be selected": "ticketPaid"
 };
 
-
+export const SESSION_SIGNUP_FORM_ERROR_LIST ={
+  "Password is too short (minimum is 6 characters)": "sessionPassword",
+  "Email can't be blank": "sessionEmail",
+  "Email is invalid": "sessionEmail",
+  "First name can't be blank": "sessionFirst",
+  "Last name can't be blank": "sessionLast",
+  "Emails must match": "sessionConfirmEmail",
+  "Email has already been taken": "sessionConfirmEmail"
+};

@@ -66,3 +66,14 @@
   line-height: 1.5;
 }
 
+#session-signup-form .form-error-message{
+  transform: translate(10px, -15px);
+}
+#session-signup-info-form-name-error{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  span{
+    width: 50%;
+  }
+}

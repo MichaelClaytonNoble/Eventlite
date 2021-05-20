@@ -3,8 +3,12 @@ class User < ApplicationRecord
   validates :email, :first_name, :last_name, :password_digest, :session_token, presence: true
   validates :email, :session_token, uniqueness: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP } 
+  validate :do_emails_match?
+
+  ApplicationController.helpers
 
   attr_reader :password
+  attr_accessor :emails
   after_initialize :ensure_session_token!
 
   has_many :events,
@@ -40,9 +44,6 @@ class User < ApplicationRecord
 
 
 
-
-
-
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
     return nil unless user
@@ -61,6 +62,7 @@ class User < ApplicationRecord
 
   def reset_session_token!
     self.session_token = SecureRandom.urlsafe_base64
+    self.emails = self.email
     self.save!
     self.session_token
   end
@@ -70,4 +72,9 @@ class User < ApplicationRecord
     self.session_token ||= SecureRandom.urlsafe_base64
   end
 
+  def do_emails_match?
+    if self.email != self.emails
+      errors.add(:emails, "must match")
+    end
+  end
 end
