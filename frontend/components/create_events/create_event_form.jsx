@@ -5,7 +5,7 @@ import React from 'react';
 class CreateEventForm extends React.Component{
   constructor(props){
     super(props);
-    let findTimezone = this.props.timezones.filter( timezone => {
+    this.findTimezone = this.props.timezones.filter( timezone => {
       return timezone.locale === Intl.DateTimeFormat().resolvedOptions().timeZone;
     }); 
 
@@ -13,7 +13,7 @@ class CreateEventForm extends React.Component{
       title: '', organizer: '', venue: '', recurring: 'false', category_id: '', location: 'VENUE',
       start: '',
       end: '',
-      timezone: findTimezone[0].zone,
+      timezone: this.findTimezone[0].zone,
       min: this.getCurrentDateTime(),
       disabled: false
     }
@@ -21,6 +21,7 @@ class CreateEventForm extends React.Component{
     this.getCurrentDateTime = this.getCurrentDateTime.bind(this); 
     this.handleSubmit = this.handleSubmit.bind(this); 
     this.getMin = this.getMin.bind(this); 
+    this.discard = this.discard.bind(this); 
   }
 
   convertDateToLocalAsJSON(date){
@@ -126,6 +127,17 @@ class CreateEventForm extends React.Component{
     };
   }
 
+  discard(){
+    this.setState({
+      title: '', organizer: '', venue: '', recurring: 'false', category_id: '', location: 'VENUE',
+      start: '',
+      end: '',
+      timezone: this.findTimezone[0].zone,
+      min: this.getCurrentDateTime(),
+      disabled: false
+    });
+    this.props.history.goBack();
+  }
   render(){
 
     let userLoginErr, titleErr, organizerErr, locationErr, startErr, endErr, 
@@ -268,7 +280,7 @@ class CreateEventForm extends React.Component{
         </section>
         {userLoginErr}
         <div id="form-buttons">
-          <button className="form-discard-button" type="reset">Discard</button>
+          <button className="form-discard-button" type="reset" onClick={this.discard}>Discard</button>
           <button className="form-submit-button">Save & Continue</button>
         </div>
         </form>

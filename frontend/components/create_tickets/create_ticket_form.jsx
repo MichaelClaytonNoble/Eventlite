@@ -14,6 +14,9 @@ class CreateTicketForm extends React.Component{
       disabled: false,
     }
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.discard = this.discard.bind(this); 
+  }
+  componentDidMount(){
     window.scrollTo(0, 0);
   }
 
@@ -43,6 +46,16 @@ class CreateTicketForm extends React.Component{
     
   }
 
+  discard(){
+    this.setState({
+      paid: '',
+      max_quantity: '',
+      name:'',
+      price: '',
+      disabled: false,
+    });
+    this.props.history.goBack();
+  }
   render(){
     let nameErr, quantityErr, priceErr, paidErr = '';
 
@@ -96,7 +109,7 @@ class CreateTicketForm extends React.Component{
           {priceErr}
         </section>
         <div id="form-buttons">
-          <button className="form-discard-button" type="reset">Discard</button>
+          <button className="form-discard-button" type="reset" onClick={this.discard}>Discard</button>
           <button className="form-submit-button">Save & Continue</button>
         </div>
         </form>

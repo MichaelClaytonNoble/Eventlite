@@ -78,6 +78,7 @@ class Api::EventsController < ApplicationController
   end
 
   def destroy
+    
     @event = Event.find_by(id: params[:id])
     if @event
       if @event.destroy

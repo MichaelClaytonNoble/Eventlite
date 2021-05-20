@@ -16,6 +16,7 @@ class DetailsEventForm extends React.Component{
     this.props.clearErrors();
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleFile = this.handleFile.bind(this); 
+    this.discard = this.discard.bind(this); 
   }
 
   componentDidMount(){
@@ -74,6 +75,16 @@ class DetailsEventForm extends React.Component{
     return (e) => {
       this.setState({ [field]: e.target.value });
     };
+  }
+    discard(){
+    this.setState({
+      id: this.props.match.params.eventId,
+      description: '',
+      imageFile: '',
+      imageUrl: '',
+      about: ''
+    });
+    this.props.history.goBack();
   }
   render(){
     const preview = this.state.imageUrl ? <img alt="signup-form" id="add-image-preview" src={this.state.imageUrl} /> : null;
@@ -136,7 +147,7 @@ class DetailsEventForm extends React.Component{
           <hr />
         
           <div id="form-buttons">
-            <button className="form-discard-button" type="reset">Discard</button>
+            <button className="form-discard-button" type="reset" onClick={this.discard}>Discard</button>
             <button className="form-submit-button">Save & Continue</button>
           </div>
         </form>
