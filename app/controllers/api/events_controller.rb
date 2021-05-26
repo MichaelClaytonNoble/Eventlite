@@ -147,8 +147,6 @@ class Api::EventsController < ApplicationController
         ticketInfo2 = event.tickets.select('sum(price) AS "cost", sum(max_quantity) AS "max_tickets"')[0]
         cost = ticketInfo2.cost || 0
 
-
-
         event.paid = "Free"
         event.gross = 0;
         event.status = 'Incomplete'
@@ -186,6 +184,25 @@ class Api::EventsController < ApplicationController
       render json: ["No Events Found"], status: 422
     end
   end
+
+
+  def browse
+    
+    @events = Events.where("category_id = ?", params[:category_id])
+    .where('start >= ?', DateTime.now)
+    if logged_in?
+      @events = @events.where("creator_id != ?", current_user.id)
+    end
+
+    @events.paginate(:page => params[:page], :per_page => 10)
+
+    if @events
+      render :event_list
+    else
+      render json: ["No Events Found"], status: 422
+    end
+  end
+
 
   private
   def getFollows
