@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create,  :index, :show, :update]
     get 'events/getByType', to: 'events#getByType'
     get 'events/getMineByType', to: 'events#getMineByType'
+    get 'events/browse', to: 'events#browse'
     resources :events
     resources :categories, only: [:index]
     resource :session, only: [:create, :new, :destroy]

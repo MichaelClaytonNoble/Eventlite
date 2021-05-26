@@ -92,3 +92,5 @@ export const getMyEventsByType = (col,val) => dispatch =>{
     .then(events => dispatch(receiveEvents(events)), err => dispatch(receiveEventErrors(err.responseJSON) ) ) );
   }
 }
+
+

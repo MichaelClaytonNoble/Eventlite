@@ -187,14 +187,29 @@ class Api::EventsController < ApplicationController
 
 
   def browse
-    
-    @events = Events.where("category_id = ?", params[:category_id])
-    .where('start >= ?', DateTime.now)
+    debugger
+    options = params[:options]
+
     if logged_in?
-      @events = @events.where("creator_id != ?", current_user.id)
+      options[:logged_in] = true
+    else
+      options[:logged_in] = nil
     end
 
-    @events.paginate(:page => params[:page], :per_page => 10)
+    @events = Event.all
+    search = {
+      :category_id => @events.where("category_id = ?", options[:category_id]),
+      :logged_in => @events.where("creator_id != ?", current_user.id),
+      :future => @events.where("start >= ?", DateTime.now),
+      :page => @events.paginate(:page => options[:page], :per_page => 10)
+    }
+
+    options.each do |key, value|
+      if value
+        @events = search[key]
+      end
+    end
+
 
     if @events
       render :event_list

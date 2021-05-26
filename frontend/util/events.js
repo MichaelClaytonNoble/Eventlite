@@ -52,3 +52,13 @@ export const pullMyEventsByType = (column, value) =>{
     data: {column, value}
   });
 };
+
+export const browseEvents = (options) => {
+
+  return $.ajax({
+    method: "GET",
+    url: '/api/events/browse',
+    data: {options}
+    
+  })
+}

@@ -9,6 +9,9 @@ import ReactGA, {pageview} from 'react-ga';
 
 import { createEvent, updateEvent, getEventsByType } from './actions/events';
 
+
+import {browseEvents} from './util/events';
+
 document.addEventListener('DOMContentLoaded', ()=>{
   initializeGA();
   let store;
@@ -37,6 +40,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 })
 
 const windowStuff = (store)=>{
+  window.browseEvents = browseEvents;
   window.signup = signup;
   window.logout = logout;
   window.login = login;
