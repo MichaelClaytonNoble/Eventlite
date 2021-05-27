@@ -187,29 +187,34 @@ class Api::EventsController < ApplicationController
 
 
   def browse
-    debugger
     options = params[:options]
 
+
     if logged_in?
+      @creator_id = current_user.id
       options[:logged_in] = true
     else
       options[:logged_in] = nil
     end
 
-    @events = Event.all
-    search = {
-      :category_id => @events.where("category_id = ?", options[:category_id]),
-      :logged_in => @events.where("creator_id != ?", current_user.id),
-      :future => @events.where("start >= ?", DateTime.now),
-      :page => @events.paginate(:page => options[:page], :per_page => 10)
-    }
-
-    options.each do |key, value|
-      if value
-        @events = search[key]
-      end
+    if !options[:per_page]
+      options[:per_page] = 10
     end
+    # if options[:column] == "creator_id"
+    #   options[:value] = current_user.id
+    # end
+    @events = Event
 
+    @events = @events = Event.where("#{options[:column]} = ?", options[:value]) if options[:by_column] && whitelist(options[:column].downcase)
+    @events = @events.where("creator_id = ?", current_user.id) if options[:creator_id]
+    # @events = @events.where("category_id = ?", options[:category_id]) if options["category_id"]
+    @events = @events.where("creator_id != ?", current_user.id) if options["logged_in"] && !options["creator_id"]
+    @events = @events.where("start >= ?", DateTime.now) if options["future"]
+    @events = @events.paginate(:page => options[:page], :per_page => options[:per_page]) if options["page"]
+
+    if options[:creator_id]
+      updateEventData(@events)
+    end
 
     if @events
       render :event_list
@@ -220,6 +225,48 @@ class Api::EventsController < ApplicationController
 
 
   private
+
+
+  def updateEventData(events)
+
+      events.each do |event|
+
+        registrations = event.registrations
+        gross = 0
+    
+        ticketInfo = Ticket.joins(:registrations)
+        .select('sum(quantity_purchased * tickets.price) AS "gross", sum(quantity_purchased) AS "tickets_sold"')
+        .where('tickets.event_id = ?', event.id)[0]
+
+        gross = ticketInfo.gross || 0
+        
+        ticketInfo2 = event.tickets.select('sum(price) AS "cost", sum(max_quantity) AS "max_tickets"')[0]
+        cost = ticketInfo2.cost || 0
+
+        event.paid = "Free"
+        event.gross = 0;
+        event.status = 'Incomplete'
+        event.max_tickets = ticketInfo2.max_tickets || 0
+        event.tickets_sold = ticketInfo.tickets_sold || 0
+
+        if event.tickets.any?
+          event.status = 'Complete'
+          event.gross = gross
+        end
+        if gross > 0
+          event.paid = "Paid"
+          event.gross = gross
+        end
+        if cost > 0
+          event.paid = "Paid"
+        end
+        if (event.end < DateTime.now)
+          event.status = 'Past'
+        end
+        event.update(event.as_json)
+      end
+    end
+
   def getFollows
     if logged_in?
       @user = User.find_by(id: current_user.id)

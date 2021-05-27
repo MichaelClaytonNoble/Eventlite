@@ -1,6 +1,6 @@
 import MyEvents from './my_events'; 
 import {connect} from 'react-redux'; 
-import {getMyEventsByType} from '../../actions/events';
+import {getMyEventsByType, searchEvents} from '../../actions/events';
 import {analyzeEvents} from '../../reducers/selectors/events_selectors';
 import { openModal } from '../../actions/modal';
 
@@ -19,7 +19,18 @@ const mSTP = state => {
 
 
 const mDTP = (dispatch, ownProps) => {
+  let defaultSearch = {
+    page: 1,
+    creator_id: true,
+    per_page: 15,
+  }
   return ({
+    searchEvents: (options)=> {
+      options["page"] = options["page"] || defaultSearch["page"];
+      options["creator_id"] = options["creator_id"] || defaultSearch["creator_id"];
+      options["per_page"] = options["per_page"] || defaultSearch["per_page"];
+      return dispatch(searchEvents(options));
+    },
     getMyEvents: ()=>dispatch(getMyEventsByType('creator_id',ownProps.match.params.myId)),
     openModal: (type)=>dispatch(openModal(type))
   })

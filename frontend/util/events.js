@@ -58,7 +58,6 @@ export const browseEvents = (options) => {
   return $.ajax({
     method: "GET",
     url: '/api/events/browse',
-    data: {options}
-    
-  })
-}
+    data: {options} 
+  });
+};

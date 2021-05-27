@@ -1,5 +1,5 @@
 import { patchEvent, postEvent, pullEventsByType, 
-  pullMyEventsByType, postImage, destroyEvent, pullAllEvents } from '../util/events';
+  pullMyEventsByType, postImage, destroyEvent, pullAllEvents, browseEvents } from '../util/events';
   
 export const RECEIVE_CURRENT_EVENT="RECEIVE_CURRENT_EVENT";
 export const RECEIVE_EVENT_ERRORS ="RECEIVE_EVENT_ERRORS"; 
@@ -93,4 +93,14 @@ export const getMyEventsByType = (col,val) => dispatch =>{
   }
 }
 
+export const searchEvents = (options) => dispatch => {
 
+  if( options["creator_id"] ){
+    return ( browseEvents(options)
+    .then( events => dispatch( receiveEventsByUser(events) ), err => dispatch( receiveEventErrors(err.responseJSON) ) ));
+  }
+  else{
+    return ( browseEvents(options)
+    .then( events => dispatch(receiveEvents(events) ), err => dispatch(receiveEventErrors(err.responseJSON))));
+  }
+}

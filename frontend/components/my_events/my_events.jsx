@@ -22,7 +22,8 @@ class MyEvents extends React.Component{
 
   componentWillMount(){
     window.scrollTo(0, 0);
-    this.props.getMyEvents();
+    // this.props.getMyEvents();
+    this.props.searchEvents({page: 2, creator_id: true});
   }
   componentDidUpdate(prevProps){
     if(this.state.loading){
