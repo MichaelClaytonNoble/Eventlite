@@ -12,18 +12,20 @@ class MyEvents extends React.Component{
       loading: true,
       filterOrganizer: "All",
       filterStatus: "All",
-      filterSearch: ""
+      filterSearch: "",
+      page: 1,
     }
     this.loadEvents = this.loadEvents.bind(this); 
     this.createEventList = this.createEventList.bind(this); 
     this.filter = this.filter.bind(this);
     this.showMenu = this.showMenu.bind(this);
+    this.changePage = this.changePage.bind(this);
   }
 
   componentWillMount(){
     window.scrollTo(0, 0);
     // this.props.getMyEvents();
-    this.props.searchEvents({page: 2, creator_id: true});
+    this.props.searchEvents({page: 1, creator_id: true});
   }
   componentDidUpdate(prevProps){
     if(this.state.loading){
@@ -154,6 +156,13 @@ class MyEvents extends React.Component{
     return [];
   }
 
+  changePage(cursor){
+
+    if( (this.state.page + cursor) > 0){
+      this.props.searchEvents({page: this.state.page+cursor})
+      this.setState({"page": this.state.page+cursor})
+    }
+  }
   render(){
     if(this.props.modal){
       return <ModalContainer eventId={this.eventId} />
@@ -217,6 +226,10 @@ class MyEvents extends React.Component{
             <ul id="events-list">
               {myEvents}
             </ul>
+            <div id="next-page-buttons">
+              <button id="prev-page" onClick={()=>this.changePage(-1)}>previous</button>
+              <button id="next-page" onClick={()=>this.changePage(1)}>next</button>
+            </div>
           </section>
         </div>
       )

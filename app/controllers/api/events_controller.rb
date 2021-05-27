@@ -210,7 +210,7 @@ class Api::EventsController < ApplicationController
     # @events = @events.where("category_id = ?", options[:category_id]) if options["category_id"]
     @events = @events.where("creator_id != ?", current_user.id) if options["logged_in"] && !options["creator_id"]
     @events = @events.where("start >= ?", DateTime.now) if options["future"]
-    @events = @events.paginate(:page => options[:page], :per_page => options[:per_page]) if options["page"]
+    @events = @events.paginate(:page => options[:page], :per_page => options[:per_page]).order("start ASC") if options["page"]
 
     if options[:creator_id]
       updateEventData(@events)

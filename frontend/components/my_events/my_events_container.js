@@ -17,7 +17,6 @@ const mSTP = state => {
   });
 }
 
-
 const mDTP = (dispatch, ownProps) => {
   let defaultSearch = {
     page: 1,
