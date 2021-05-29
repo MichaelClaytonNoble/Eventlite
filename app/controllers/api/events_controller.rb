@@ -171,7 +171,6 @@ class Api::EventsController < ApplicationController
     @events = @events.where("creator_id != ?", current_user.id) if options["logged_in"] && !options["creator_id"]
     
     @events = @events.where("start >= ?", DateTime.now) if options["future"]
-    
 
     @events = @events.where(Event.arel_table[:title].lower.matches("%#{options[:search]}%")) if options[:search] != "" && options[:search]
 
@@ -180,9 +179,10 @@ class Api::EventsController < ApplicationController
     end
     @events = @events.where("status = ?", options[:status]) if options[:status] != "All" && options[:status]
 
-
     @events = @events.paginate(:page => options[:page], :per_page => options[:per_page]).order("start ASC") if options["page"]
     
+    @events = @events.order(start: :asc)
+
     if @events
       render :event_list
     else

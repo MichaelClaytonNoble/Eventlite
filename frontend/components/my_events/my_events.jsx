@@ -43,7 +43,15 @@ class MyEvents extends React.Component{
     search['search'] = this.state.filterSearch;
     search['status'] = this.state.filterStatus;
     search['organizer'] = this.state.filterOrganizer;
-    this.props.searchEvents(search);
+    let that = this;
+    this.props.searchEvents(search)
+      .then( (events) => {
+        if(JSON.stringify(events) === '{}'){
+          debugger
+        }
+        if(that.props.myEvents === events){
+        }
+      });
   }
   showMenu(key){
     return (e)=>{

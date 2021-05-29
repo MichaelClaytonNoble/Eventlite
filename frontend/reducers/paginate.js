@@ -18,6 +18,9 @@ const paginateReducer = (state = nullState, action) =>{
       return nextState;
     case DECREMENT_CURRENT_PAGE:
       nextState['page']-=1;
+      if(nextState['page'] < 1) {
+        nextState['page'] = 1;
+      }
       return nextState;
     case SET_PER_PAGE:
       nextState['perPage'] = action.perPage;
