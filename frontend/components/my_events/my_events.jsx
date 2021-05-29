@@ -13,13 +13,13 @@ class MyEvents extends React.Component{
       filterOrganizer: "All",
       filterStatus: "All",
       filterSearch: "",
-      page: 1,
+
     }
     this.loadEvents = this.loadEvents.bind(this); 
     this.createEventList = this.createEventList.bind(this); 
     this.filter = this.filter.bind(this);
     this.showMenu = this.showMenu.bind(this);
-    this.changePage = this.changePage.bind(this);
+    this.search = this.search.bind(this); 
   }
 
   componentWillMount(){
@@ -35,6 +35,17 @@ class MyEvents extends React.Component{
     if(prevProps.myEvents !== this.props.myEvents){
       this.setState({myEvents: this.props.myEvents, organizers: this.props.organizers});
     }
+    if(prevProps.paginate !== this.props.paginate){
+      this.search();
+    }
+  }
+
+  search(){
+    let search = Object.assign({}, this.props.paginate);
+    search['search'] = this.state.filterSearch;
+    search['status'] = this.state.filterStatus;
+    search['organizer'] = this.state.filterOrganizer;
+    this.props.searchEvents(search);
   }
   showMenu(key){
     return (e)=>{
@@ -156,13 +167,6 @@ class MyEvents extends React.Component{
     return [];
   }
 
-  changePage(cursor){
-
-    if( (this.state.page + cursor) > 0){
-      this.props.searchEvents({page: this.state.page+cursor})
-      this.setState({"page": this.state.page+cursor})
-    }
-  }
   render(){
     if(this.props.modal){
       return <ModalContainer eventId={this.eventId} />
@@ -227,8 +231,8 @@ class MyEvents extends React.Component{
               {myEvents}
             </ul>
             <div id="next-page-buttons">
-              <button id="prev-page" onClick={()=>this.changePage(-1)}>previous</button>
-              <button id="next-page" onClick={()=>this.changePage(1)}>next</button>
+              <button id="prev-page" onClick={()=>this.props.changePage("prev")}>previous</button>
+              <button id="next-page" onClick={()=>this.props.changePage("next")}>next</button>
             </div>
           </section>
         </div>

@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {getMyEventsByType, searchEvents} from '../../actions/events';
 import {analyzeEvents} from '../../reducers/selectors/events_selectors';
 import { openModal } from '../../actions/modal';
+import { decrementPage, incrementPage } from '../../actions/paginate';
 
 const mSTP = state => {
   let myEvents = []; 
@@ -13,7 +14,8 @@ const mSTP = state => {
   return ({
     myEvents: myEvents,
     organizers: Array.from(new Set(myEvents.map( (event)=> event.organizer).filter( (organizer)=> organizer))),
-    modal: state.ui.modal
+    modal: state.ui.modal,
+    paginate: state.ui.paginate,
   });
 }
 
@@ -31,7 +33,10 @@ const mDTP = (dispatch, ownProps) => {
       return dispatch(searchEvents(options));
     },
     getMyEvents: ()=>dispatch(getMyEventsByType('creator_id',ownProps.match.params.myId)),
-    openModal: (type)=>dispatch(openModal(type))
+    openModal: (type)=>dispatch(openModal(type)),
+    nextPage: ()=> dispatch(incrementPage()),
+    prevPage: ()=> dispatch(decrementPage()),
+    changePage: (option) => option === "prev" ? dispatch(decrementPage()) : dispatch(incrementPage())
   })
 }
 

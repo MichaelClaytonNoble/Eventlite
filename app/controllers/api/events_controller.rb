@@ -144,6 +144,7 @@ class Api::EventsController < ApplicationController
 
 
   def browse
+    debugger
     options = params[:options]
 
     if logged_in?
