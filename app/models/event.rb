@@ -3,7 +3,7 @@ class Event < ApplicationRecord
   validates :location, inclusion: {in: ["TBA", "ONLINE", "VENUE"]}
   validates :recurring, inclusion: {in: [true, false]}
   validate :end_after_start 
-  attr_accessor :gross, :paid, :status 
+
   
   belongs_to :creator,
     primary_key: :id,

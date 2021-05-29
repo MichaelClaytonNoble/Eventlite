@@ -94,7 +94,6 @@ export const getMyEventsByType = (col,val) => dispatch =>{
 }
 
 export const searchEvents = (options) => dispatch => {
-  debugger
   if( options["creator_id"] ){
     return ( browseEvents(options)
     .then( events => dispatch( receiveEventsByUser(events) ), err => dispatch( receiveEventErrors(err.responseJSON) ) ));

@@ -36,3 +36,9 @@ export const resetPaginate = () => {
     type: RESET_PAGINATE
   }
 }
+
+export const resetPage = () => dispatch =>{
+  return new Promise( function(resolve,reject){
+    dispatch(resetPaginate())
+  });
+}

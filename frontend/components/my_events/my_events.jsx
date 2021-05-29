@@ -12,8 +12,7 @@ class MyEvents extends React.Component{
       loading: true,
       filterOrganizer: "All",
       filterStatus: "All",
-      filterSearch: "",
-
+      filterSearch: ""
     }
     this.loadEvents = this.loadEvents.bind(this); 
     this.createEventList = this.createEventList.bind(this); 
@@ -29,7 +28,6 @@ class MyEvents extends React.Component{
   }
   componentDidUpdate(prevProps){
     if(this.state.loading){
-      this.loadEvents();
       this.setState({loading: false});
     }
     if(prevProps.myEvents !== this.props.myEvents){
@@ -64,7 +62,11 @@ class MyEvents extends React.Component{
   }
   filter(field){
     return (e)=>{
-      this.setState({[field]: e.target.value, loading: true})
+      this.setState( {[field]: e.target.value, loading: true}, 
+        ()=> {
+          this.props.resetPage()
+            .then( this.search() )
+        })
     }
   }
   loadEvents(){
@@ -72,9 +74,9 @@ class MyEvents extends React.Component{
     if(this.state.filterOrganizer!=="All"){
       relevantEvents = relevantEvents.filter( (event)=> event.organizer === this.state.filterOrganizer);
     }
-    if(this.state.filterStatus !== "All"){
-      relevantEvents = relevantEvents.filter( event=> event.status === this.state.filterStatus);
-    }
+    // if(this.state.filterStatus !== "All"){
+    //   relevantEvents = relevantEvents.filter( event=> event.status === this.state.filterStatus);
+    // }
     if(this.state.filterSearch !== ""){
       relevantEvents = relevantEvents.filter( event => {
         return event.title.toLowerCase().includes(this.state.filterSearch.trim().toLowerCase())

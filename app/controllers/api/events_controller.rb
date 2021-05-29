@@ -124,7 +124,7 @@ class Api::EventsController < ApplicationController
     if(col == 'creator_id')
       @creator_id = val
       @events = Event.includes(:registrations, :tickets).where("#{col} = ?", val) if whitelist(col.downcase)
-     @events = updateEventData(@events)
+     updateEventData(@events)
 
     else
       if current_user
@@ -144,7 +144,7 @@ class Api::EventsController < ApplicationController
 
 
   def browse
-    debugger
+
     options = params[:options]
 
     if logged_in?
@@ -160,19 +160,29 @@ class Api::EventsController < ApplicationController
     # if options[:column] == "creator_id"
     #   options[:value] = current_user.id
     # end
+
+
+
     @events = Event
 
-    @events = @events = Event.where("#{options[:column]} = ?", options[:value]) if options[:by_column] && whitelist(options[:column].downcase)
+    @events = @events.where("#{options[:column]} = ?", options[:value]) if options[:by_column] && whitelist(options[:column].downcase)
+    
     @events = @events.where("creator_id = ?", current_user.id) if options[:creator_id]
-    # @events = @events.where("category_id = ?", options[:category_id]) if options["category_id"]
     @events = @events.where("creator_id != ?", current_user.id) if options["logged_in"] && !options["creator_id"]
+    
     @events = @events.where("start >= ?", DateTime.now) if options["future"]
-    @events = @events.paginate(:page => options[:page], :per_page => options[:per_page]).order("start ASC") if options["page"]
+    
+
+    @events = @events.where(Event.arel_table[:title].lower.matches("%#{options[:search]}%")) if options[:search] != "" && options[:search]
 
     if options[:creator_id]
       updateEventData(@events)
     end
+    @events = @events.where("status = ?", options[:status]) if options[:status] != "All" && options[:status]
 
+
+    @events = @events.paginate(:page => options[:page], :per_page => options[:per_page]).order("start ASC") if options["page"]
+    
     if @events
       render :event_list
     else

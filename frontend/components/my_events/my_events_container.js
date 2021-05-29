@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {getMyEventsByType, searchEvents} from '../../actions/events';
 import {analyzeEvents} from '../../reducers/selectors/events_selectors';
 import { openModal } from '../../actions/modal';
-import { decrementPage, incrementPage } from '../../actions/paginate';
+import { decrementPage, incrementPage, resetPage, resetPaginate } from '../../actions/paginate';
 
 const mSTP = state => {
   let myEvents = []; 
@@ -23,7 +23,7 @@ const mDTP = (dispatch, ownProps) => {
   let defaultSearch = {
     page: 1,
     creator_id: true,
-    per_page: 15,
+    per_page: 12,
   }
   return ({
     searchEvents: (options)=> {
@@ -34,9 +34,8 @@ const mDTP = (dispatch, ownProps) => {
     },
     getMyEvents: ()=>dispatch(getMyEventsByType('creator_id',ownProps.match.params.myId)),
     openModal: (type)=>dispatch(openModal(type)),
-    nextPage: ()=> dispatch(incrementPage()),
-    prevPage: ()=> dispatch(decrementPage()),
-    changePage: (option) => option === "prev" ? dispatch(decrementPage()) : dispatch(incrementPage())
+    changePage: (option) => option === "prev" ? dispatch(decrementPage()) : dispatch(incrementPage()),
+    resetPage: ()=> dispatch(resetPage())
   })
 }
 

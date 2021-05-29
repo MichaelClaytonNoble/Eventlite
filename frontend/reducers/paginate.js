@@ -4,7 +4,7 @@ RESET_PAGINATE} from '../actions/paginate';
 
 let nullState = {
   page: 1,
-  perPage: 10,
+  perPage: 12,
   pageNeighbor: 1
 }
 const paginateReducer = (state = nullState, action) =>{
@@ -27,8 +27,7 @@ const paginateReducer = (state = nullState, action) =>{
       return nextState;
     case RESET_PAGINATE:
       nextState['page'] = 1;
-      nextState['perPage'] = 10;
-      nextState['pageNeighbor'] = 1;
+      nextState['perPage'] = 12;
     default: 
       return state;
   };
