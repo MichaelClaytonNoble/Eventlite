@@ -3,6 +3,7 @@ export const DECREMENT_CURRENT_PAGE = "DECREMENT_CURRENT_PAGE";
 export const SET_PER_PAGE = "SET_PER_PAGE";
 export const SET_PAGE_NEIGHBOR = "SET_PAGE_NEIGHBOR";
 export const RESET_PAGINATE = "RESET_PAGINATE";
+export const SET_LAST_PAGE = "SET_LAST_PAGE"; 
 
 
 export const incrementPage = () => {
@@ -34,6 +35,12 @@ export const setPageNeighbor = pageNeighbor => {
 export const resetPaginate = () => {
   return{
     type: RESET_PAGINATE
+  }
+}
+
+export const setLastPage = () => {
+  return{
+    type: SET_LAST_PAGE
   }
 }
 

@@ -1,6 +1,8 @@
 import { patchEvent, postEvent, pullEventsByType, 
   pullMyEventsByType, postImage, destroyEvent, pullAllEvents, browseEvents } from '../util/events';
-  
+
+import {setLastPage, setPageLimit} from './paginate'; 
+
 export const RECEIVE_CURRENT_EVENT="RECEIVE_CURRENT_EVENT";
 export const RECEIVE_EVENT_ERRORS ="RECEIVE_EVENT_ERRORS"; 
 export const RECEIVE_EVENTS = "RECEIVE_EVENTS";
@@ -96,7 +98,12 @@ export const getMyEventsByType = (col,val) => dispatch =>{
 export const searchEvents = (options) => dispatch => {
   if( options["creator_id"] ){
     return ( browseEvents(options)
-    .then( events => dispatch( receiveEventsByUser(events) ), err => dispatch( receiveEventErrors(err.responseJSON) ) ));
+    .then( events => {
+      if( JSON.stringify(events) === '{}'){
+        return dispatch( setLastPage() );
+      }
+      return dispatch( receiveEventsByUser(events) );
+    }, err => dispatch( receiveEventErrors(err.responseJSON) ) ));
   }
   else{
     return ( browseEvents(options)

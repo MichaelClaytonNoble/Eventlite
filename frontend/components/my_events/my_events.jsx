@@ -33,7 +33,7 @@ class MyEvents extends React.Component{
     if(prevProps.myEvents !== this.props.myEvents){
       this.setState({myEvents: this.props.myEvents, organizers: this.props.organizers});
     }
-    if(prevProps.paginate !== this.props.paginate){
+    if(prevProps.paginate['page'] !== this.props.paginate['page']){
       this.search();
     }
   }
@@ -44,14 +44,7 @@ class MyEvents extends React.Component{
     search['status'] = this.state.filterStatus;
     search['organizer'] = this.state.filterOrganizer;
     let that = this;
-    this.props.searchEvents(search)
-      .then( (events) => {
-        if(JSON.stringify(events) === '{}'){
-          debugger
-        }
-        if(that.props.myEvents === events){
-        }
-      });
+    this.props.searchEvents(search);
   }
   showMenu(key){
     return (e)=>{
@@ -74,7 +67,7 @@ class MyEvents extends React.Component{
         ()=> {
           this.props.resetPage()
             .then( this.search() )
-        })
+        });
     }
   }
   loadEvents(){
@@ -88,7 +81,7 @@ class MyEvents extends React.Component{
     if(this.state.filterSearch !== ""){
       relevantEvents = relevantEvents.filter( event => {
         return event.title.toLowerCase().includes(this.state.filterSearch.trim().toLowerCase())
-      })
+      });
     }
 
     this.setState({myEvents: relevantEvents, organizers: this.props.organizers});
@@ -101,6 +94,7 @@ class MyEvents extends React.Component{
   getCurrentDateTime(){
     return this.convertDateToLocalAsJSON(new Date()).slice(0,16);
   }
+  
   createEventList(){
     let myEvents;
     let location;

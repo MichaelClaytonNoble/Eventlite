@@ -16,6 +16,7 @@ const mSTP = state => {
     organizers: Array.from(new Set(myEvents.map( (event)=> event.organizer).filter( (organizer)=> organizer))),
     modal: state.ui.modal,
     paginate: state.ui.paginate,
+    myEventsId: myEvents.map( event => event.id).sort()
   });
 }
 
