@@ -34,7 +34,7 @@ const paginateReducer = (state = nullState, action) =>{
       nextState['pageNeighbor'] = action.pageNeighbor;
       return nextState;
     case SET_LAST_PAGE:
-      nextState['page'] -= 1;
+      nextState['page'] > 1 ? nextState['page']-= 1 : null;
       nextState['lastPage'] = nextState['page'];
       return nextState;
     case RESET_PAGINATE:

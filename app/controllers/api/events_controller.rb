@@ -179,6 +179,7 @@ class Api::EventsController < ApplicationController
     end
     @events = @events.where("status = ?", options[:status]) if options[:status] != "All" && options[:status]
 
+
     @events = @events.paginate(:page => options[:page], :per_page => options[:per_page]).order("start ASC") if options["page"]
     
     @events = @events.order(start: :asc)
