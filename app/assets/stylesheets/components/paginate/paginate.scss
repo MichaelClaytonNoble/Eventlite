@@ -1,0 +1,16 @@
+#prev-page, #next-page{
+  font-size: 18px;
+  margin: 10px;
+  border: .5px solid grey;
+  padding: 10px;
+  width: 140px;
+  text-align: center;
+}
+
+#next-page-buttons{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #f8f7fa;
+}
