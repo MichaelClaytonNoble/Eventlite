@@ -18,7 +18,8 @@ class Event < ApplicationRecord
   has_many :follows,
     primary_key: :id,
     foreign_key: :event_id,
-    class_name: :Follow
+    class_name: :Follow,
+    dependent: :destroy
 
   has_many :followers,
     through: :follows,
@@ -27,7 +28,8 @@ class Event < ApplicationRecord
   has_many :tickets,
     primary_key: :id,
     foreign_key: :event_id,
-    class_name: :Ticket
+    class_name: :Ticket,
+    dependent: :destroy
 
   has_many :registrations,
     through: :tickets,

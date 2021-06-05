@@ -12,10 +12,10 @@
 def seedUser
   User.destroy_all
 
-  User.create!({id: 1, email: "Example.Account@demo.com", password: "123456", first_name: "Demo", last_name: "Login"})
-  User.create!({id: 2, email: "000@000.000", password: "123456", first_name: "000", last_name: "000"})
-  User.create!({id: 3, email: "111@111.111", password: "123456", first_name: "111", last_name: "111"}) 
-  User.create!({id: 4, email: "222@222.222", password: "123456", first_name: "222", last_name: "222"}) 
+  User.create!({id: 1, email: "Example.Account@demo.com", emails: "Example.Account@demo.com", password: "123456", first_name: "Demo", last_name: "Login"})
+  User.create!({id: 2, email: "000@000.000", emails: "000@000.000", password: "123456", first_name: "000", last_name: "000"})
+  User.create!({id: 3, email: "111@111.111", emails: "111@111.111", password: "123456", first_name: "111", last_name: "111"}) 
+  User.create!({id: 4, email: "222@222.222", emails: "222@222.222", password: "123456", first_name: "222", last_name: "222"}) 
 end
 
 # Event.create!({id: , title: , 

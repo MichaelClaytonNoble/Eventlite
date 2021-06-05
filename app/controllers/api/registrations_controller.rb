@@ -1,5 +1,5 @@
 class Api::RegistrationsController < ApplicationController
-
+  include Api::EventsHelper
   before_action :require_logged_in
 
   def index
@@ -12,7 +12,11 @@ class Api::RegistrationsController < ApplicationController
   def create
     @registration = Registration.new(registration_params)
     @registration.user_id = current_user.id
+
+    @event = Event.where(id: params[:registration][:event_id])
+    
     if @registration.save
+      updateEventData(@event)
       render :registration_info
     else
       render json: @registration.errors.full_messages

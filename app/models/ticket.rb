@@ -12,7 +12,8 @@ class Ticket < ApplicationRecord
   has_many :registrations,
     primary_key: :id,
     foreign_key: :ticket_id,
-    class_name: :Registration
+    class_name: :Registration,
+    dependent: :destroy
 
   has_many :users,
     through: :registrations,

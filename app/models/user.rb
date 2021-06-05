@@ -14,7 +14,8 @@ class User < ApplicationRecord
   has_many :events,
     primary_key: :id,
     foreign_key: :creator_id,
-    class_name: :Event
+    class_name: :Event,
+    dependent: :destroy
 
   has_many :event_tickets,
     through: :events,
@@ -23,7 +24,8 @@ class User < ApplicationRecord
   has_many :follows,
     primary_key: :id,
     foreign_key: :user_id,
-    class_name: :Follow
+    class_name: :Follow,
+    dependent: :destroy
 
   has_many :followed_events,
     through: :follows,
@@ -32,7 +34,8 @@ class User < ApplicationRecord
   has_many :registrations,
     primary_key: :id,
     foreign_key: :user_id,
-    class_name: :Registration
+    class_name: :Registration,
+    dependent: :destroy
 
   has_many :tickets,
     through: :registrations,
