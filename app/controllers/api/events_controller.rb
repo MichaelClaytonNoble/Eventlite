@@ -170,6 +170,10 @@ class Api::EventsController < ApplicationController
 
     @events = @events.where("#{options[:column]} = ?", options[:value]) if options[:by_column] && whitelist(options[:column].downcase)
     
+    # @events = findEventByDate(options[:date]) if options[:date]
+    # @events = @events.where(paid: options[:paid]) if options[:paid]
+    # @events = @events.where(location: options[:location]) if options[:location]
+
     @events = @events.where("creator_id = ?", current_user.id) if options[:creator_id]
     @events = @events.where("creator_id != ?", current_user.id) if options["logged_in"] && !options["creator_id"]
     
