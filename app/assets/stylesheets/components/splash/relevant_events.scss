@@ -111,6 +111,8 @@
     position: relative;
     bottom: -5%;
     @media screen and (max-width: 1600px) {bottom: -8%;}
+    @media screen and (max-width: 1400px) {bottom: -4%;}
+    @media screen and (max-width: 1200px) {bottom: -8%;}
     right: 5%;
     z-index: 100;
   }
