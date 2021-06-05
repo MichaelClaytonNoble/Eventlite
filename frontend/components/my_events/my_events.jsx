@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import ModalContainer from '../modals/modal_container';
+import {debounce} from '../../helpers/helper';
 
 class MyEvents extends React.Component{
 
@@ -14,7 +15,7 @@ class MyEvents extends React.Component{
       filterStatus: "All",
       filterSearch: ""
     }
-    this.loadEvents = this.loadEvents.bind(this); 
+
     this.createEventList = this.createEventList.bind(this); 
     this.filter = this.filter.bind(this);
     this.showMenu = this.showMenu.bind(this);
@@ -23,7 +24,6 @@ class MyEvents extends React.Component{
 
   componentWillMount(){
     window.scrollTo(0, 0);
-    // this.props.getMyEvents();
     this.props.searchEvents({page: 1, creator_id: true});
   }
   componentDidUpdate(prevProps){
@@ -66,28 +66,12 @@ class MyEvents extends React.Component{
       this.setState( {[field]: e.target.value, loading: true}, 
         ()=> {
           this.props.resetPage()
-            .then( this.search() )
+            .then( field === "filterSearch" ? debounce(this.search, 1200)() : this.search() );
         });
     }
   }
-  loadEvents(){
-    let relevantEvents = this.props.myEvents;
-    if(this.state.filterOrganizer!=="All"){
-      relevantEvents = relevantEvents.filter( (event)=> event.organizer === this.state.filterOrganizer);
-    }
-    // if(this.state.filterStatus !== "All"){
-    //   relevantEvents = relevantEvents.filter( event=> event.status === this.state.filterStatus);
-    // }
-    if(this.state.filterSearch !== ""){
-      relevantEvents = relevantEvents.filter( event => {
-        return event.title.toLowerCase().includes(this.state.filterSearch.trim().toLowerCase())
-      });
-    }
 
-    this.setState({myEvents: relevantEvents, organizers: this.props.organizers});
-  }
-
-    convertDateToLocalAsJSON(date){
+  convertDateToLocalAsJSON(date){
     return (date.toJSON(), new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toJSON()).slice(0,16);
   }
 
