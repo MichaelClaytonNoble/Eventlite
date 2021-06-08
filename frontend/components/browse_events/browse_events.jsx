@@ -24,6 +24,7 @@ class BrowseEvents extends React.Component{
     this.filter = this.filter.bind(this);
     this.filterEventsByDate = this.filterEventsByDate.bind(this);
     this.getCurrentDateTime = this.getCurrentDateTime.bind(this); 
+    this.search = this.search.bind(this); 
   }
 
    componentDidMount(){
@@ -65,6 +66,20 @@ class BrowseEvents extends React.Component{
     // if(prevProps.events !== this.props.events){
     //   this.setState({events: this.props.events});
     // }
+    if(prevProps.paginate['page'] !== this.props.paginate['page']){
+      this.search();
+    }
+  }
+
+  search(){
+    let search = Object.assign({}, this.props.paginate);
+    search['search'] = this.state.searchFilter;
+    search['category'] = this.state.categoryFilter;
+    search['location'] = this.state.locationFilter;
+    search['price'] = this.state.priceFilter; 
+    search['date'] = this.state.dateFilter;
+
+    this.props.searchEvents(search);
   }
 
   //display filter menu 
@@ -152,6 +167,7 @@ class BrowseEvents extends React.Component{
     }
   }
   filter(field){
+    this.props.resetPage();
     if(field === 'loading'){
       return (e)=>{
         e.preventDefault(); 
@@ -383,6 +399,10 @@ class BrowseEvents extends React.Component{
             </div>
           </form>
           <EventList events={this.state.events} />
+            <div id="next-page-buttons">
+              <button id="prev-page" onClick={()=>this.props.changePage("prev")}>previous</button>
+              <button id="next-page" onClick={()=>this.props.changePage("next")}>next</button>
+            </div>
         </div>
       </div>
     )
