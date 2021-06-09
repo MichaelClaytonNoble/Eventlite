@@ -297,9 +297,9 @@ def updateEventData(events)
     end
   end
 
-updateEventData(Event.all)
 seedUser
 seedCategory
 seedEvents
 seedFeaturedCollections
 seedTickets
+updateEventData(Event.all)

@@ -34,7 +34,7 @@ class Api::TicketsController < ApplicationController
     @ticket = Ticket.new(ticket_params)
     
     if @ticket.save
-      updateEventData( @ticket.events)
+      updateEventData( [@ticket.events])
       render :ticket_info
     else
       render json: @ticket.errors.full_messages, status: 422
