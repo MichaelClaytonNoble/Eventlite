@@ -53,7 +53,7 @@ class Api::EventsController < ApplicationController
     @event.creator_id = current_user.id
     
     if @event.save
-      updateEventData(@event)
+      updateEventData([@event])
       render :event_basic_info
     else
       render json: @event.errors.full_messages, status: 422
@@ -64,7 +64,7 @@ class Api::EventsController < ApplicationController
     @event = Event.find_by(id: params[:event][:id])
     if @event
         if @event.update(event_params)
-          updateEventData(@events)
+          updateEventData([@event])
           render :event_all_info
         else
           render json: @event.errors.full_messages, status: 422

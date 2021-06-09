@@ -1,6 +1,6 @@
 class Api::TicketsController < ApplicationController
   before_action :require_logged_in, only:[:myIndex, :create, :update, :destroy]
-
+  include Api::EventsHelper
   def index
     @event = Event.find_by(id: params[:event_id])
     if @event
@@ -34,6 +34,7 @@ class Api::TicketsController < ApplicationController
     @ticket = Ticket.new(ticket_params)
     
     if @ticket.save
+      updateEventData( @ticket.events)
       render :ticket_info
     else
       render json: @ticket.errors.full_messages, status: 422
