@@ -166,7 +166,7 @@ def seedEvents
       description_with_lorem += '\n'
       description_with_lorem += Faker::Lorem.paragraph_by_chars(number: 256, supplemental: false)
       
-      e = Event.create!({id: idx, 
+      e = Event.create!({ 
         title: detail['title'], 
         description: description_with_lorem,
         organizer: organizers.sample,
