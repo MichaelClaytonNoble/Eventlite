@@ -298,8 +298,14 @@ def updateEventData(events)
   end
 
 seedUser
+
 seedCategory
+
 seedEvents
+
+
 seedFeaturedCollections
+
 seedTickets
+
 updateEventData(Event.all)
