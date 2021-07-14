@@ -273,8 +273,8 @@ def updateEventData(events)
       ticketInfo2 = event.tickets.select('sum(price) AS "cost", sum(max_quantity) AS "max_tickets"')[0]
       cost = ticketInfo2.cost || 0
 
-      event.paid = "Free"
-      event.gross = 0;
+      event.paid = false
+      event.gross = 0
       event.status = 'Incomplete'
       event.max_tickets = ticketInfo2.max_tickets || 0
       event.tickets_sold = ticketInfo.tickets_sold || 0
@@ -284,11 +284,11 @@ def updateEventData(events)
         event.gross = gross
       end
       if gross > 0
-        event.paid = "Paid"
+        event.paid = true
         event.gross = gross
       end
       if cost > 0
-        event.paid = "Paid"
+        event.paid = true
       end
       if (event.end < DateTime.now)
         event.status = 'Past'

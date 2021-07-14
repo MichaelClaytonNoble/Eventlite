@@ -10,41 +10,43 @@ class Api::EventsController < ApplicationController
       @events = Event.where('start >= ?', DateTime.now)
     end
 
-    @events.each do |event|
-        registrations = event.registrations
-        gross = 0
-        ticketInfo = Ticket.joins(:registrations)
-        .select('sum(quantity_purchased * tickets.price) AS "gross", sum(quantity_purchased) AS "tickets_sold"')
-        .where('tickets.event_id = ?', event.id)[0]
+    # @events.each do |event|
+    #     registrations = event.registrations
+    #     gross = 0
+    #     ticketInfo = Ticket.joins(:registrations)
+    #     .select('sum(quantity_purchased * tickets.price) AS "gross", sum(quantity_purchased) AS "tickets_sold"')
+    #     .where('tickets.event_id = ?', event.id)[0]
 
-        gross = ticketInfo.gross || 0
+    #     gross = ticketInfo.gross || 0
         
-        ticketInfo2 = event.tickets.select('sum(price) AS "cost", sum(max_quantity) AS "max_tickets"')[0]
-        cost = ticketInfo2.cost || 0
+    #     ticketInfo2 = event.tickets.select('sum(price) AS "cost", sum(max_quantity) AS "max_tickets"')[0]
+    #     cost = ticketInfo2.cost || 0
 
-        event.paid = "Free"
-        event.gross = 0;
-        event.status = 'Incomplete'
-        event.max_tickets = ticketInfo2.max_tickets || 0
-        event.tickets_sold = ticketInfo.tickets_sold || 0
-        if event.tickets.any?
-          event.status = 'Complete'
-          event.gross = gross
-        end
-        if gross > 0
-          event.paid = "Paid"
-          event.gross = gross
-        end
-        if cost > 0
-          event.paid = "Paid"
-        end
-        if (event.end < DateTime.now)
-          event.status = 'Past'
-        end
+    #     event.paid = "Free"
+    #     event.gross = 0;
+    #     event.status = 'Incomplete'
+    #     event.max_tickets = ticketInfo2.max_tickets || 0
+    #     event.tickets_sold = ticketInfo.tickets_sold || 0
+    #     if event.tickets.any?
+    #       event.status = 'Complete'
+    #       event.gross = gross
+    #     end
+    #     if gross > 0
+    #       event.paid = "Paid"
+    #       event.gross = gross
+    #     end
+    #     if cost > 0
+    #       event.paid = "Paid"
+    #     end
+    #     if (event.end < DateTime.now)
+    #       event.status = 'Past'
+    #     end
         # event.update(event.as_json)
-      end
+      # end
 
-    render :event_list
+    
+    
+      render :event_list
   end
 
  
@@ -163,23 +165,33 @@ class Api::EventsController < ApplicationController
     # if options[:column] == "creator_id"
     #   options[:value] = current_user.id
     # end
+    if options[:price] == "Paid"
+      options[:paid] = true
+    elsif options[:price] == "Free"
+      options[:paid] = false
+    end
 
 
 
     @events = Event
 
     @events = @events.where("#{options[:column]} = ?", options[:value]) if options[:by_column] && whitelist(options[:column].downcase)
-    
+
     # @events = findEventByDate(options[:date]) if options[:date]
-    # @events = @events.where(paid: options[:paid]) if options[:paid]
-    # @events = @events.where(location: options[:location]) if options[:location]
+
+    category = Category.where(name: options[:category]) if options[:category] != "Any"
+    @events = @events.where(category: category) if options[:category] != "Any"
+
+    @events = @events.where(paid: options[:paid]) if options[:price] != "Any"
+    @events = @events.where(location: options[:location]) if options[:location] != "Any"
 
     @events = @events.where("creator_id = ?", current_user.id) if options[:creator_id] && options["logged_in"]
     @events = @events.where("creator_id != ?", current_user.id) if options["logged_in"] && !options["creator_id"] && logged_in?
     
-    @events = @events.where("start >= ?", DateTime.now) if options["future"]
+    @events = @events.where("start > ?", DateTime.now) if options["future"]
 
     @events = @events.where(Event.arel_table[:title].lower.matches("%#{options[:search]}%")) if options[:search] != "" && options[:search]
+
 
     if options[:creator_id]
       # updateEventData(@events)

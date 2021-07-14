@@ -16,40 +16,86 @@ class BrowseEvents extends React.Component{
       events: this.props.events,
       categories: this.props.categories,
       loading: true,
+      updateFilter:false
     }
 
-    this.createCategoryMenu = this.createCategoryMenu.bind(this); 
+    this.createCategoryMenu = this.createCategoryMenu.bind(this);
     this.showFilterMenu = this.showFilterMenu.bind(this);
-    this.filter = this.filter.bind(this);
-    this.search = this.search.bind(this); 
+    this.search = this.search.bind(this);
   }
 
-   componentDidMount(){
-     
+  componentDidMount(){
+    window.scrollTo(0, 0);
+    this.categoryMenu = document.getElementById('category-menu');
+    this.dateMenu = document.getElementById('date-menu');
+    this.priceMenu = document.getElementById('price-menu');
+
+    this.props.getCategories().then( ()=>{
+
+      this.setState({categories: this.props.categories});
+
+        if(this.props.initialCategory){
+          if(this.props.initialCategory === "Online Events"){
+            document.getElementById('location-select').value = "ONLINE";
+            this.setState({locationFilter: "ONLINE"});
+          }
+          else{
+            document.getElementById('category-filter-value').click();
+            document.getElementById(`category-${this.props.initialCategory}`).click();
+            this.setState({categoryFilter: this.props.initialCategory});
+          }
+        }
+        this.search();
+    });
   }
   componentWillMount(){
-
+    this.props.getFollows();
   }
 
   componentDidUpdate(prevProps){
-
+    if(this.state.updateFilter){
+      this.props.resetPage();
+      this.search();
+      this.setState({updateFilter: false});
+    }
+    if(prevProps.paginate['page'] !== this.props.paginate['page']){
+      console.log("componentDidUpdate: ", "this.state.paginate"); 
+      this.search();
+    }
   }
 
   search(){
     console.log("search");
+    this.props.clear
     let search = Object.assign({}, this.props.paginate);
     search['search'] = this.state.searchFilter;
     search['category'] = this.state.categoryFilter;
     search['location'] = this.state.locationFilter;
-    search['price'] = this.state.priceFilter; 
+    search['price'] = this.state.priceFilter;
     search['date'] = this.state.dateFilter;
 
-    this.props.searchEvents(search);
+    console.log(search); 
+    this.props.clearEvents(); 
+    this.props.searchEvents(search).then( ()=> {
+      this.setState({events: this.props.events});
+    });
   }
 
-  //display filter menu 
+  //display filter menu
   showMainMenu(e, val){
-
+   console.log("showMainMenu");
+    e.style.display = "none";
+    let filter = val;
+    let id = e.id;
+      if(filter !== "Any"){
+        this.currentMenuEvent.classList.add('filter-selected');
+        this.currentMenuEvent.innerHTML = `${filter}`;
+        this.currentMenuEvent.innerHTML += `<img id=\"${id+'x'}\" class=\"x\" onClick="{e => e.stopPropagation()}" src=\"https://img.icons8.com/metro/26/3d64ff/delete-sign.png\"/>`;
+      }
+      else{
+        console.log("showMainMenu ---> resetMenu")
+        this.resetMenu.bind(this)();
+      }
   }
 
   //GOOD
@@ -59,18 +105,15 @@ class BrowseEvents extends React.Component{
 
     if(this.currentMenuEvent.id.toLowerCase().includes("category")){
       this.currentMenuEvent.innerHTML = "Category<img class=\"chevron\" src=\"https://img.icons8.com/metro/52/000000/chevron-right.png\"/>";
-      // this.setState({categoryFilter: "Any", categoryIdFilter: "Any", loading: true}); 
-      this.setState({categoryFilter: "Any", categoryIdFilter: "Any"}); 
+      this.setState({categoryFilter: "Any", categoryIdFilter: "Any", updateFilter: true});
     }
     if(this.currentMenuEvent.id.toLowerCase().includes("date")){
       this.currentMenuEvent.innerHTML = "Date<img class=\"chevron\" src=\"https://img.icons8.com/metro/52/000000/chevron-right.png\"/>";
-      // this.setState({dateFilter: "Any", loading: true});
-      this.setState({dateFilter: "Any"});
+      this.setState({dateFilter: "Any", updateFilter: true});
     }
     if(this.currentMenuEvent.id.toLowerCase().includes("price")){
       this.currentMenuEvent.innerHTML = "Price<img class=\"chevron\" src=\"https://img.icons8.com/metro/52/000000/chevron-right.png\"/>";
-      // this.setState({priceFilter: "Any", loading: true});
-      this.setState({priceFilter: "Any"});
+      this.setState({priceFilter: "Any", updateFilter: true});
     }
   }
   showFilterMenu(e){
@@ -90,12 +133,12 @@ class BrowseEvents extends React.Component{
           break;
         case 'category-filter-value':
           this.categoryMenu.style.display="unset";
-          break; 
+          break;
         case 'price-filter-value':
           this.priceMenu.style.display="unset";
           break;
-        default: 
-          break; 
+        default:
+          break;
       }
     }
   }
@@ -111,12 +154,29 @@ class BrowseEvents extends React.Component{
   //filter the events
 
   setFilter(filterType){
-    return ()=>{}; 
+    return (e)=> {
+      console.log("setFilter(",filterType,")");
+      let val = e.target.innerText;
+      if(val.includes('Any')){
+        val = 'Any'
+      }
+      else{
+        if(filterType === 'categoryFilter'){
+          let categoryId = parseInt(e.target.dataset.category_id);
+          this.setState({[filterType]: val, updateFilter: true, categoryIdFilter: categoryId});
+        }
+        else{
+
+          this.setState({[filterType]: val, updateFilter: true});
+        }
+      }
+
+      console.log("setFilter ---> showMainMenu");
+      this.showMainMenu(e.currentTarget, val);
+    }
+
   }
-  filter(field){
-    return ()=>{};
-  }
- 
+
   render(){
     let modal = '';
     if(this.props.modal){
@@ -152,17 +212,17 @@ class BrowseEvents extends React.Component{
           <div id="price-filter" className="filter" onClick={this.showFilterMenu}><span id="price-filter-value">Price<img className="chevron" src="https://img.icons8.com/metro/52/000000/chevron-right.png"/></span></div>
         </div>
         <div id="events-list-wrap">
-          <form onSubmit={this.filter('loading')}>
+          <form onSubmit={()=>{}}>
             <div id="location-filter-wrap">
               <div id="location-filter">
                   <div id="search-icon">
                     <i className="fas fa-search"></i>
-                    <input type="text" id="location-input"placeholder="Search events" value={this.state.searchFilter} onChange={this.filter('searchFilter')}/>
+                    <input type="text" id="location-input"placeholder="Search events" value={this.state.searchFilter} onChange={()=>{}}/>
                   </div>
                   <div id="search-icon">
                     <i className="fas fa-map-marker-alt"></i>
                     {/* <input list="location-select" name="locations" id="locations" onChange={this.filter('locationFilter')} value={this.state.location}/> */}
-                    <select id="location-select" onChange={this.filter('locationFilter')} value={this.state.locationFilter}>
+                    <select id="location-select" onChange={()=>{}} value={this.state.locationFilter}>
                       <option value="Any">Any</option>
                       <option value="ONLINE">Online</option>
                       <option value="TBA">To be announced</option>

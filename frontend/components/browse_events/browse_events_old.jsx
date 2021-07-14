@@ -159,8 +159,8 @@ class BrowseEvents extends React.Component{
   //filter the events
 
   setFilter(filterType){
-    console.log("setFilter(",filterType,")");
     return (e)=> {
+      console.log("setFilter(",filterType,")");
       let val = e.target.innerText;
       if(val.includes('Any')){
         val = 'Any'

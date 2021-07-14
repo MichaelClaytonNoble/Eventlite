@@ -2,7 +2,7 @@
 
 import {connect} from 'react-redux';
 import { pullCategories } from '../../actions/categories';
-import { getAllEvents, searchEvents } from '../../actions/events';
+import { getAllEvents, searchEvents, clearEvents } from '../../actions/events';
 
 import BrowseEvents from './browse_events';
 import {createFollow, deleteFollow, fetchFollows} from '../../actions/follows';
@@ -21,19 +21,21 @@ const mDTP = dispatch => {
   let defaultSearch = {
     page: 1,
     per_page: 12,
+    future: true
   }
   return ({
     // getEvents: ()=>dispatch(getAllEvents()),
-    getEvents: ()=>{},
     getCategories: ()=>dispatch(pullCategories()),
     getFollows: ()=>dispatch(fetchFollows()),
     searchEvents: (options)=> {
         options["page"] = options["page"] || defaultSearch["page"];
         options["per_page"] = options["per_page"] || defaultSearch["per_page"];
+        options["future"] = true;
         return dispatch(searchEvents(options));
     },
     changePage: (option) => option === "prev" ? dispatch(decrementPage()) : dispatch(incrementPage()),
-    resetPage: ()=> dispatch(resetPage())
+    resetPage: ()=> dispatch(resetPage()),
+    clearEvents: ()=> dispatch(clearEvents())
   });
 };
 
