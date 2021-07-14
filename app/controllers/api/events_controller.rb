@@ -174,8 +174,8 @@ class Api::EventsController < ApplicationController
     # @events = @events.where(paid: options[:paid]) if options[:paid]
     # @events = @events.where(location: options[:location]) if options[:location]
 
-    @events = @events.where("creator_id = ?", current_user.id) if options[:creator_id]
-    @events = @events.where("creator_id != ?", current_user.id) if options["logged_in"] && !options["creator_id"]
+    @events = @events.where("creator_id = ?", current_user.id) if options[:creator_id] && options["logged_in"]
+    @events = @events.where("creator_id != ?", current_user.id) if options["logged_in"] && !options["creator_id"] && logged_in?
     
     @events = @events.where("start >= ?", DateTime.now) if options["future"]
 
@@ -232,3 +232,149 @@ class Api::EventsController < ApplicationController
     Event.columns.map(&name).to_set.include?(column)
   end
 end
+
+
+
+# filterEventsByDate(relevantEvents){
+
+#     //day of the week => days away from the weekend 
+#     const weekendOffset = {
+#       0: -2, 1:4, 2:3, 3:2, 4:1, 5:0, 6:-1
+#     }
+#     switch(this.state.dateFilter){
+#       case 'Pick a date...':
+#         break;
+#       case 'Today':
+#         relevantEvents = relevantEvents.filter( event => {
+#           let today = JSON.stringify(this.getCurrentDateTime());
+#           let start = JSON.stringify(new Date(this.convertDateToLocalAsJSON(new Date(event.start))));
+
+#           start = new Date(JSON.parse(start));
+#           today = new Date(JSON.parse(today)); 
+#           if(start.getMonth() === today.getMonth() && start.getYear() === today.getYear() && start.getDate() === today.getDate()){
+#             if(start >= today){return true;}
+#           }
+#         });
+#         break;
+#       case 'Tomorrow':
+#         relevantEvents = relevantEvents.filter( event => {
+#           let today = JSON.stringify(this.getCurrentDateTime());
+#           let start = JSON.stringify(new Date(this.convertDateToLocalAsJSON(new Date(event.start))));
+
+#           start = new Date(JSON.parse(start));
+#           today = new Date(JSON.parse(today)); 
+#           if(start.getMonth() === today.getMonth() && start.getYear() === today.getYear() && start.getDate() === today.getDate()+1){
+#             return true;
+#           }
+#         });
+#         break;
+#       case 'This weekend':
+#         relevantEvents = relevantEvents.filter( event => {
+#           let today = JSON.stringify(this.getCurrentDateTime());
+#           let start = JSON.stringify(new Date(this.convertDateToLocalAsJSON(new Date(event.start))));
+
+#           start = new Date(JSON.parse(start));
+#           today = new Date(JSON.parse(today)); 
+
+#           let friday = new Date(today.toJSON());
+#           let sunday = new Date(today.toJSON());
+#           friday.setDate(today.getDate()+weekendOffset[today.getDay()]);
+#           sunday.setDate(today.getDate()+weekendOffset[today.getDay()]+2);
+#           sunday.setHours(23,59,59);
+
+#           if(today > friday){
+#             friday = today;
+#           }
+#           if(start <= sunday && start >= friday){
+#             return true;
+#           }
+#         });
+#         break;
+#       case 'This week':
+#         relevantEvents = relevantEvents.filter( event => {
+#           let today = JSON.stringify(this.getCurrentDateTime());
+#           let start = JSON.stringify(new Date(this.convertDateToLocalAsJSON(new Date(event.start))));
+
+#           start = new Date(JSON.parse(start));
+#           today = new Date(JSON.parse(today));  
+
+#           let monday = new Date(today.toJSON());
+#           let sunday = new Date(today.toJSON());
+
+#           monday.setDate(today.getDate()-today.getDay()+1);
+#           monday.setHours(0,0,0);
+#           sunday.setDate(monday.getDate()+6);
+#           sunday.setHours(23,59,59);
+#           if(today > monday){
+#             monday = today;
+#           }
+#           if(start <= sunday && start >= monday){
+#             return true;
+#           }
+#         });
+#         break;
+#       case 'Next week':
+#         relevantEvents = relevantEvents.filter( event => {
+#           let today = JSON.stringify(this.getCurrentDateTime());
+#           let start = JSON.stringify(new Date(this.convertDateToLocalAsJSON(new Date(event.start))));
+
+#           start = new Date(JSON.parse(start));
+#           today = new Date(JSON.parse(today));  
+
+#           let monday = new Date(today.toJSON());
+#           let sunday = new Date(today.toJSON());
+
+#           monday.setDate(today.getDate()-today.getDay()+1+7);
+#           monday.setHours(0,0,0);
+
+#           sunday.setDate(monday.getDate()+6);
+#           sunday.setHours(23,59,59);
+
+#           if(today > monday){
+#             monday = today;
+#           }
+#           if(start <= sunday && start >= monday){
+#             return true;
+#           }
+#         });
+#         break;
+#       case 'This month':
+#         relevantEvents = relevantEvents.filter( event => {
+#           let today = JSON.stringify(this.getCurrentDateTime());
+#           let start = JSON.stringify(new Date(this.convertDateToLocalAsJSON(new Date(event.start))));
+
+#           start = new Date(JSON.parse(start));
+#           today = new Date(JSON.parse(today));  
+
+#           if(start >= today && start.getMonth()=== today.getMonth()){
+#             return true;
+#           }
+#         });
+#         break;
+#       case 'Next month':
+#         relevantEvents = relevantEvents.filter( event => {
+#           let today = JSON.stringify(this.getCurrentDateTime());
+#           let start = JSON.stringify(new Date(this.convertDateToLocalAsJSON(new Date(event.start))));
+
+#           start = new Date(JSON.parse(start));
+#           today = new Date(JSON.parse(today));  
+
+#           if(start >= today && start.getMonth()=== today.getMonth()+1){
+#             return true;
+#           }
+#         });
+#         break;
+#       default:
+#         break;
+#     }
+#     return relevantEvents;
+#   }
+
+#  
+  # convertDateToLocalAsJSON(date){
+  #   return (date.toJSON(), new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toJSON()).slice(0,16);
+  # }
+
+  # getCurrentDateTime(){
+  #   return this.convertDateToLocalAsJSON(new Date()).slice(0,16);
+  # }

@@ -25,14 +25,50 @@ class BrowseEvents extends React.Component{
   }
 
    componentDidMount(){
-     
+     window.scrollTo(0, 0);
+    this.categoryMenu = document.getElementById('category-menu');
+    this.dateMenu = document.getElementById('date-menu');
+    this.priceMenu = document.getElementById('price-menu'); 
+
+    this.props.getCategories().then( ()=>{
+      
+      this.setState({categories: this.props.categories, loading:false});
+      
+        if(this.props.initialCategory){
+          if(this.props.initialCategory === "Online Events"){
+            document.getElementById('location-select').value = "ONLINE";
+            this.setState({locationFilter: "ONLINE"});
+          }
+          else{
+            document.getElementById('category-filter-value').click();
+            document.getElementById(`category-${this.props.initialCategory}`).click();
+            this.setState({categoryFilter: this.props.initialCategory});
+          }
+        }
+        this.search();
+    });
   }
   componentWillMount(){
-
+    console.log("componentWillMount"); 
+    this.props.getFollows();
+    window.scrollTo(0, 0);
   }
 
   componentDidUpdate(prevProps){
-
+    console.log("componentDidUpdate");
+    if(this.state.loading){
+      console.log("componentDidUpdate: ", "this.state.loading"); 
+      this.setState({events: this.props.events, loading: false});
+    }
+    
+    // if(prevProps.myEvents !== this.props.myEvents){
+      //   this.setState({events: this.props.events});
+      // }
+      
+    if(prevProps.paginate['page'] !== this.props.paginate['page']){
+      console.log("componentDidUpdate: ", "this.state.paginate"); 
+      this.search();
+    }
   }
 
   search(){
@@ -49,7 +85,19 @@ class BrowseEvents extends React.Component{
 
   //display filter menu 
   showMainMenu(e, val){
-
+    console.log("showMainMenu"); 
+    e.style.display = "none"; 
+    let filter = val;
+    let id = e.id; 
+      if(filter !== "Any"){
+        this.currentMenuEvent.classList.add('filter-selected');
+        this.currentMenuEvent.innerHTML = `${filter}`;
+        this.currentMenuEvent.innerHTML += `<img id=\"${id+'x'}\" class=\"x\" onClick="{e => e.stopPropagation()}" src=\"https://img.icons8.com/metro/26/3d64ff/delete-sign.png\"/>`;
+      }
+      else{
+        console.log("showMainMenu ---> resetMenu")
+        this.resetMenu.bind(this)();
+      }
   }
 
   //GOOD
@@ -111,10 +159,39 @@ class BrowseEvents extends React.Component{
   //filter the events
 
   setFilter(filterType){
-    return ()=>{}; 
+    console.log("setFilter(",filterType,")");
+    return (e)=> {
+      let val = e.target.innerText;
+      if(val.includes('Any')){
+        val = 'Any'
+      }
+      else{
+        if(filterType === 'categoryFilter'){
+          let categoryId = parseInt(e.target.dataset.category_id)
+          this.setState({[filterType]: val, loading: true, categoryIdFilter: categoryId})
+        }
+        else{
+
+          this.setState({[filterType]: val, loading: true})
+        }
+      }
+      this.showMainMenu(e.currentTarget, val);
+    }
   }
   filter(field){
-    return ()=>{};
+    console.log("filter(",field,")");
+
+    console.log("filter ---> resetPage"); 
+    this.props.resetPage();
+    if(field === 'loading'){
+      return (e)=>{
+        e.preventDefault(); 
+        this.setState({[field]: true})
+      }
+    }
+    return (e)=>{
+      this.setState({[field]: e.target.value})
+    }
   }
  
   render(){

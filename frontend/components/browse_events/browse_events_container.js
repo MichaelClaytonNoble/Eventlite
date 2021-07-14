@@ -2,7 +2,8 @@
 
 import {connect} from 'react-redux';
 import { pullCategories } from '../../actions/categories';
-import { getAllEvents } from '../../actions/events';
+import { getAllEvents, searchEvents } from '../../actions/events';
+
 import BrowseEvents from './browse_events';
 import {createFollow, deleteFollow, fetchFollows} from '../../actions/follows';
 import { resetPage, incrementPage, decrementPage } from '../../actions/paginate';
@@ -22,7 +23,8 @@ const mDTP = dispatch => {
     per_page: 12,
   }
   return ({
-    getEvents: ()=>dispatch(getAllEvents()),
+    // getEvents: ()=>dispatch(getAllEvents()),
+    getEvents: ()=>{},
     getCategories: ()=>dispatch(pullCategories()),
     getFollows: ()=>dispatch(fetchFollows()),
     searchEvents: (options)=> {
