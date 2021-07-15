@@ -177,7 +177,7 @@ class Api::EventsController < ApplicationController
 
     @events = @events.where("#{options[:column]} = ?", options[:value]) if options[:by_column] && whitelist(options[:column].downcase)
 
-    # @events = findEventByDate(options[:date]) if options[:date]
+    @events = findEventByDate(options[:date], @events) if options[:date] != "Any"
 
     category = Category.where(name: options[:category]) if options[:category] != "Any"
     @events = @events.where(category: category) if options[:category] != "Any"
@@ -185,22 +185,20 @@ class Api::EventsController < ApplicationController
     @events = @events.where(paid: options[:paid]) if options[:price] != "Any"
     @events = @events.where(location: options[:location]) if options[:location] != "Any"
 
-    @events = @events.where("creator_id = ?", current_user.id) if options[:creator_id] && options["logged_in"]
-    @events = @events.where("creator_id != ?", current_user.id) if options["logged_in"] && !options["creator_id"] && logged_in?
+
+    @events = @events.where("creator_id = ?", current_user.id) if options[:creator_id]
+    @events = @events.where("creator_id != ?", current_user.id) if options["logged_in"] && !options["creator_id"]
     
-    @events = @events.where("start > ?", DateTime.now) if options["future"]
+    #@events = @events.where("start > ?", DateTime.now) if options["future"]
 
     @events = @events.where(Event.arel_table[:title].lower.matches("%#{options[:search]}%")) if options[:search] != "" && options[:search]
 
-
-    if options[:creator_id]
-      # updateEventData(@events)
-    end
     @events = @events.where("status = ?", options[:status]) if options[:status] != "All" && options[:status]
 
     @events = @events.paginate(:page => options[:page], :per_page => options[:per_page]).order("start ASC") if options["page"]
 
     @events = @events.order(start: :asc)
+
 
     if @events
       render :event_list
@@ -209,6 +207,49 @@ class Api::EventsController < ApplicationController
     end
   end
 
+  def findEventByDate(dateFilter, events)
+    case dateFilter
+      when "Today"
+        return events.where(start: Date.today)
+      when "Tomorrow"
+        return events.where(start: Date.today+1)
+      when "This week"
+        wday_range = 6 - Date.today.wday
+        return events.where(start: Date.today..Date.today+wday_range)
+      when "This weekend"
+        wday_range_end = 7 - Date.today.wday
+        wday_range_start = 5 - Date.today.wday
+        if wday_range_start < 0
+          wday_range_start = 0
+        end
+        return events.where(start: Date.today+wday_range_start..Date.today+wday_range_end)
+      when "Next week"
+        wday_range = 7 - Date.today.wday
+        return events.where(start: Date.today+wday_range..Date.today+7+wday_range)
+      when "This month"
+        year = Date.today.year
+        month = Date.today.month
+        days_in_month = Date.new(year, month, -1).day
+        day_range = days_in_month - Date.today.day
+        return events.where(start: Date.today..Date.today+day_range)
+      when "Next month"
+        now_year = Date.today.year
+        now_month = Date.today.month
+
+        days_in_this_month = Date.new(now_year, now_month, -1).day
+
+        days_left_this_month = days_in_this_month - Date.today.day
+
+        next_month_date = Date.today + days_left_this_month + 1
+        next_month = next_month_date.month
+        next_year = next_month_date.year
+        days_in_next_month = Date.new(next_year, next_month, -1).day
+
+        return events.where(start: Date.today+days_left_this_month+1..Date.today+days_left_this_month+1+days_in_next_month)
+    else
+      return Event
+    end
+  end
 
   private
  
@@ -247,12 +288,24 @@ end
 
 
 
-# filterEventsByDate(relevantEvents){
 
-#     //day of the week => days away from the weekend 
+
+#  
+  # convertDateToLocalAsJSON(date){
+  #   return (date.toJSON(), new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toJSON()).slice(0,16);
+  # }
+
+  # getCurrentDateTime(){
+  #   return this.convertDateToLocalAsJSON(new Date()).slice(0,16);
+  # }
+
+
+  #     //day of the week => days away from the weekend 
 #     const weekendOffset = {
 #       0: -2, 1:4, 2:3, 3:2, 4:1, 5:0, 6:-1
 #     }
+
+    
 #     switch(this.state.dateFilter){
 #       case 'Pick a date...':
 #         break;
@@ -381,12 +434,3 @@ end
 #     }
 #     return relevantEvents;
 #   }
-
-#  
-  # convertDateToLocalAsJSON(date){
-  #   return (date.toJSON(), new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toJSON()).slice(0,16);
-  # }
-
-  # getCurrentDateTime(){
-  #   return this.convertDateToLocalAsJSON(new Date()).slice(0,16);
-  # }

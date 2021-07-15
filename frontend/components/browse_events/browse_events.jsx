@@ -97,7 +97,7 @@ class BrowseEvents extends React.Component{
         this.resetMenu.bind(this)();
       }
   }
-
+  
   //GOOD
   resetMenu(){
 
@@ -182,6 +182,7 @@ class BrowseEvents extends React.Component{
     if(this.props.modal){
       modal = <ModalContainer eventId={this.eventId} />
     }
+
     return (
       <div id="browse-events">
         {modal}
@@ -233,6 +234,7 @@ class BrowseEvents extends React.Component{
               <button>Search</button>
             </div>
           </form>
+
           <EventList events={this.state.events} />
             <div id="next-page-buttons">
               <button id="prev-page" onClick={()=>this.props.changePage("prev")}>previous</button>
