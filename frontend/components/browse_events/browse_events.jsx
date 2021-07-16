@@ -1,6 +1,7 @@
 import React from 'react';
 import EventList from '../display_events/event_list';
 import ModalContainer from '../modals/modal_container';
+import {debounce} from '../../helpers/helper';
 
 class BrowseEvents extends React.Component{
 
@@ -22,6 +23,7 @@ class BrowseEvents extends React.Component{
     this.createCategoryMenu = this.createCategoryMenu.bind(this);
     this.showFilterMenu = this.showFilterMenu.bind(this);
     this.search = this.search.bind(this);
+    this.setBasicFilters = this.setBasicFilters.bind(this); 
   }
 
   componentDidMount(){
@@ -152,7 +154,6 @@ class BrowseEvents extends React.Component{
 
 
   //filter the events
-
   setFilter(filterType){
     return (e)=> {
       console.log("setFilter(",filterType,")");
@@ -166,7 +167,6 @@ class BrowseEvents extends React.Component{
           this.setState({[filterType]: val, updateFilter: true, categoryIdFilter: categoryId});
         }
         else{
-
           this.setState({[filterType]: val, updateFilter: true});
         }
       }
@@ -174,7 +174,16 @@ class BrowseEvents extends React.Component{
       console.log("setFilter ---> showMainMenu");
       this.showMainMenu(e.currentTarget, val);
     }
+  }
 
+  setBasicFilters(filterType){
+    return (e)=>{
+      this.setState( {[filterType]: e.target.value}, 
+        ()=> {
+          this.props.resetPage()
+            .then(debounce(this.search, 1200)());
+        });
+    }
   }
 
   render(){
@@ -213,17 +222,17 @@ class BrowseEvents extends React.Component{
           <div id="price-filter" className="filter" onClick={this.showFilterMenu}><span id="price-filter-value">Price<img className="chevron" src="https://img.icons8.com/metro/52/000000/chevron-right.png"/></span></div>
         </div>
         <div id="events-list-wrap">
-          <form onSubmit={()=>{}}>
+          <form onSubmit={this.search}>
             <div id="location-filter-wrap">
               <div id="location-filter">
                   <div id="search-icon">
                     <i className="fas fa-search"></i>
-                    <input type="text" id="location-input"placeholder="Search events" value={this.state.searchFilter} onChange={()=>{}}/>
+                    <input type="text" id="location-input"placeholder="Search events" value={this.state.searchFilter} onChange={this.setBasicFilters('searchFilter')}/>
                   </div>
                   <div id="search-icon">
                     <i className="fas fa-map-marker-alt"></i>
                     {/* <input list="location-select" name="locations" id="locations" onChange={this.filter('locationFilter')} value={this.state.location}/> */}
-                    <select id="location-select" onChange={()=>{}} value={this.state.locationFilter}>
+                    <select id="location-select" onChange={this.setBasicFilters('locationFilter')} value={this.state.locationFilter}>
                       <option value="Any">Any</option>
                       <option value="ONLINE">Online</option>
                       <option value="TBA">To be announced</option>

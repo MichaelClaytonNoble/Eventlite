@@ -152,54 +152,49 @@ class Api::EventsController < ApplicationController
 
     options = params[:options]
 
-    if logged_in?
+    if logged_in? && options[:creator_id]
       @creator_id = current_user.id
       options[:logged_in] = true
     else
       options[:logged_in] = nil
     end
 
+
     if !options[:per_page]
       options[:per_page] = 10
     end
-    # if options[:column] == "creator_id"
-    #   options[:value] = current_user.id
-    # end
+
     if options[:price] == "Paid"
       options[:paid] = true
     elsif options[:price] == "Free"
       options[:paid] = false
     end
 
-
-
     @events = Event
 
-    @events = @events.where("#{options[:column]} = ?", options[:value]) if options[:by_column] && whitelist(options[:column].downcase)
+    #@events = @events.where("#{options[:column]} = ?", options[:value]) if options[:by_column] && whitelist(options[:column].downcase)
 
-    @events = findEventByDate(options[:date], @events) if options[:date] != "Any"
+    @events = findEventByDate(options[:date], @events) if options[:date] != "Any" && options[:date]
 
-    category = Category.where(name: options[:category]) if options[:category] != "Any"
-    @events = @events.where(category: category) if options[:category] != "Any"
+    category = Category.where(name: options[:category]) if options[:category] != "Any" && options[:category]
 
-    @events = @events.where(paid: options[:paid]) if options[:price] != "Any"
-    @events = @events.where(location: options[:location]) if options[:location] != "Any"
+    @events = @events.where(category: category) if options[:category] != "Any" && options[:category]
+
+    @events = @events.where(paid: options[:paid]) if options[:price] != "Any" && options[:price]
+    @events = @events.where(location: options[:location]) if options[:location] != "Any" && options[:location]
 
 
     @events = @events.where("creator_id = ?", current_user.id) if options[:creator_id]
     @events = @events.where("creator_id != ?", current_user.id) if options["logged_in"] && !options["creator_id"]
     
-    #@events = @events.where("start > ?", DateTime.now) if options["future"]
+    @events = @events.where("start > ?", DateTime.now) if options["future"]
 
     @events = @events.where(Event.arel_table[:title].lower.matches("%#{options[:search]}%")) if options[:search] != "" && options[:search]
 
     @events = @events.where("status = ?", options[:status]) if options[:status] != "All" && options[:status]
-
     @events = @events.paginate(:page => options[:page], :per_page => options[:per_page]).order("start ASC") if options["page"]
-
     @events = @events.order(start: :asc)
-
-
+    
     if @events
       render :event_list
     else
@@ -239,7 +234,6 @@ class Api::EventsController < ApplicationController
         days_in_this_month = Date.new(now_year, now_month, -1).day
 
         days_left_this_month = days_in_this_month - Date.today.day
-
         next_month_date = Date.today + days_left_this_month + 1
         next_month = next_month_date.month
         next_year = next_month_date.year
