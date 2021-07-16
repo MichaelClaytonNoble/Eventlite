@@ -107,6 +107,11 @@ export const searchEvents = (options) => dispatch => {
   }
   else{
     return ( browseEvents(options)
-    .then( events => dispatch(receiveEvents(events) ), err => dispatch(receiveEventErrors(err.responseJSON))));
+    .then( events => {
+      if( JSON.stringify(events) === '{}'){
+        return dispatch( setLastPage() );
+      }
+      return dispatch(receiveEvents(events) )
+    }, err => dispatch(receiveEventErrors(err.responseJSON))));
   }
 }

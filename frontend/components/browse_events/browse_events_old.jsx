@@ -1,7 +1,6 @@
 import React from 'react';
 import EventList from '../display_events/event_list';
 import ModalContainer from '../modals/modal_container';
-import {debounce} from '../../helpers/helper';
 
 class BrowseEvents extends React.Component{
 
@@ -17,25 +16,24 @@ class BrowseEvents extends React.Component{
       events: this.props.events,
       categories: this.props.categories,
       loading: true,
-      updateFilter:false
     }
 
-    this.createCategoryMenu = this.createCategoryMenu.bind(this);
+    this.createCategoryMenu = this.createCategoryMenu.bind(this); 
     this.showFilterMenu = this.showFilterMenu.bind(this);
-    this.search = this.search.bind(this);
-    this.setBasicFilters = this.setBasicFilters.bind(this); 
+    this.filter = this.filter.bind(this);
+    this.search = this.search.bind(this); 
   }
 
-  componentDidMount(){
-    window.scrollTo(0, 0);
+   componentDidMount(){
+     window.scrollTo(0, 0);
     this.categoryMenu = document.getElementById('category-menu');
     this.dateMenu = document.getElementById('date-menu');
-    this.priceMenu = document.getElementById('price-menu');
+    this.priceMenu = document.getElementById('price-menu'); 
 
     this.props.getCategories().then( ()=>{
-
-      this.setState({categories: this.props.categories});
-
+      
+      this.setState({categories: this.props.categories, loading:false});
+      
         if(this.props.initialCategory){
           if(this.props.initialCategory === "Online Events"){
             document.getElementById('location-select').value = "ONLINE";
@@ -51,15 +49,22 @@ class BrowseEvents extends React.Component{
     });
   }
   componentWillMount(){
+    console.log("componentWillMount"); 
     this.props.getFollows();
+    window.scrollTo(0, 0);
   }
 
   componentDidUpdate(prevProps){
-    if(this.state.updateFilter){
-      this.props.resetPage();
-      this.search();
-      this.setState({updateFilter: false});
+    console.log("componentDidUpdate");
+    if(this.state.loading){
+      console.log("componentDidUpdate: ", "this.state.loading"); 
+      this.setState({events: this.props.events, loading: false});
     }
+    
+    // if(prevProps.myEvents !== this.props.myEvents){
+      //   this.setState({events: this.props.events});
+      // }
+      
     if(prevProps.paginate['page'] !== this.props.paginate['page']){
       console.log("componentDidUpdate: ", "this.state.paginate"); 
       this.search();
@@ -68,27 +73,22 @@ class BrowseEvents extends React.Component{
 
   search(){
     console.log("search");
-    this.props.clear
     let search = Object.assign({}, this.props.paginate);
     search['search'] = this.state.searchFilter;
     search['category'] = this.state.categoryFilter;
     search['location'] = this.state.locationFilter;
-    search['price'] = this.state.priceFilter;
+    search['price'] = this.state.priceFilter; 
     search['date'] = this.state.dateFilter;
 
-    console.log(search); 
-    this.props.clearEvents(); 
-    this.props.searchEvents(search).then( ()=> {
-      this.setState({events: this.props.events});
-    });
+    this.props.searchEvents(search);
   }
 
-  //display filter menu
+  //display filter menu 
   showMainMenu(e, val){
-   console.log("showMainMenu");
-    e.style.display = "none";
+    console.log("showMainMenu"); 
+    e.style.display = "none"; 
     let filter = val;
-    let id = e.id;
+    let id = e.id; 
       if(filter !== "Any"){
         this.currentMenuEvent.classList.add('filter-selected');
         this.currentMenuEvent.innerHTML = `${filter}`;
@@ -99,7 +99,7 @@ class BrowseEvents extends React.Component{
         this.resetMenu.bind(this)();
       }
   }
-  
+
   //GOOD
   resetMenu(){
 
@@ -107,15 +107,18 @@ class BrowseEvents extends React.Component{
 
     if(this.currentMenuEvent.id.toLowerCase().includes("category")){
       this.currentMenuEvent.innerHTML = "Category<img class=\"chevron\" src=\"https://img.icons8.com/metro/52/000000/chevron-right.png\"/>";
-      this.setState({categoryFilter: "Any", categoryIdFilter: "Any", updateFilter: true});
+      // this.setState({categoryFilter: "Any", categoryIdFilter: "Any", loading: true}); 
+      this.setState({categoryFilter: "Any", categoryIdFilter: "Any"}); 
     }
     if(this.currentMenuEvent.id.toLowerCase().includes("date")){
       this.currentMenuEvent.innerHTML = "Date<img class=\"chevron\" src=\"https://img.icons8.com/metro/52/000000/chevron-right.png\"/>";
-      this.setState({dateFilter: "Any", updateFilter: true});
+      // this.setState({dateFilter: "Any", loading: true});
+      this.setState({dateFilter: "Any"});
     }
     if(this.currentMenuEvent.id.toLowerCase().includes("price")){
       this.currentMenuEvent.innerHTML = "Price<img class=\"chevron\" src=\"https://img.icons8.com/metro/52/000000/chevron-right.png\"/>";
-      this.setState({priceFilter: "Any", updateFilter: true});
+      // this.setState({priceFilter: "Any", loading: true});
+      this.setState({priceFilter: "Any"});
     }
   }
   showFilterMenu(e){
@@ -135,12 +138,12 @@ class BrowseEvents extends React.Component{
           break;
         case 'category-filter-value':
           this.categoryMenu.style.display="unset";
-          break;
+          break; 
         case 'price-filter-value':
           this.priceMenu.style.display="unset";
           break;
-        default:
-          break;
+        default: 
+          break; 
       }
     }
   }
@@ -154,6 +157,7 @@ class BrowseEvents extends React.Component{
 
 
   //filter the events
+
   setFilter(filterType){
     return (e)=> {
       console.log("setFilter(",filterType,")");
@@ -163,35 +167,38 @@ class BrowseEvents extends React.Component{
       }
       else{
         if(filterType === 'categoryFilter'){
-          let categoryId = parseInt(e.target.dataset.category_id);
-          this.setState({[filterType]: val, updateFilter: true, categoryIdFilter: categoryId});
+          let categoryId = parseInt(e.target.dataset.category_id)
+          this.setState({[filterType]: val, loading: true, categoryIdFilter: categoryId})
         }
         else{
-          this.setState({[filterType]: val, updateFilter: true});
+
+          this.setState({[filterType]: val, loading: true})
         }
       }
-
-      console.log("setFilter ---> showMainMenu");
       this.showMainMenu(e.currentTarget, val);
     }
   }
+  filter(field){
+    console.log("filter(",field,")");
 
-  setBasicFilters(filterType){
+    console.log("filter ---> resetPage"); 
+    this.props.resetPage();
+    if(field === 'loading'){
+      return (e)=>{
+        e.preventDefault(); 
+        this.setState({[field]: true})
+      }
+    }
     return (e)=>{
-      this.setState( {[filterType]: e.target.value}, 
-        ()=> {
-          this.props.resetPage()
-            .then(debounce(this.search, 1200)());
-        });
+      this.setState({[field]: e.target.value})
     }
   }
-
+ 
   render(){
     let modal = '';
     if(this.props.modal){
       modal = <ModalContainer eventId={this.eventId} />
     }
-
     return (
       <div id="browse-events">
         {modal}
@@ -222,17 +229,17 @@ class BrowseEvents extends React.Component{
           <div id="price-filter" className="filter" onClick={this.showFilterMenu}><span id="price-filter-value">Price<img className="chevron" src="https://img.icons8.com/metro/52/000000/chevron-right.png"/></span></div>
         </div>
         <div id="events-list-wrap">
-          <form onSubmit={this.search}>
+          <form onSubmit={this.filter('loading')}>
             <div id="location-filter-wrap">
               <div id="location-filter">
                   <div id="search-icon">
                     <i className="fas fa-search"></i>
-                    <input type="text" id="location-input"placeholder="Search events" value={this.state.searchFilter} onChange={this.setBasicFilters('searchFilter')}/>
+                    <input type="text" id="location-input"placeholder="Search events" value={this.state.searchFilter} onChange={this.filter('searchFilter')}/>
                   </div>
                   <div id="search-icon">
                     <i className="fas fa-map-marker-alt"></i>
                     {/* <input list="location-select" name="locations" id="locations" onChange={this.filter('locationFilter')} value={this.state.location}/> */}
-                    <select id="location-select" onChange={this.setBasicFilters('locationFilter')} value={this.state.locationFilter}>
+                    <select id="location-select" onChange={this.filter('locationFilter')} value={this.state.locationFilter}>
                       <option value="Any">Any</option>
                       <option value="ONLINE">Online</option>
                       <option value="TBA">To be announced</option>
@@ -243,7 +250,6 @@ class BrowseEvents extends React.Component{
               <button>Search</button>
             </div>
           </form>
-
           <EventList events={this.state.events} />
             <div id="next-page-buttons">
               <button id="prev-page" onClick={()=>this.props.changePage("prev")}>previous</button>
