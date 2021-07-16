@@ -1,4 +1,4 @@
-import {RECEIVE_EVENTS_BY_USER, CLEAR_USER_EVENTS, REMOVE_EVENT} from '../../actions/events';
+import {RECEIVE_EVENTS_BY_USER, CLEAR_USER_EVENTS, REMOVE_EVENT, CLEAR_MY_EVENTS} from '../../actions/events';
 
 const userEventsReducer = (state = {}, action) =>{
 
@@ -13,6 +13,9 @@ const userEventsReducer = (state = {}, action) =>{
       return nextState;
     case REMOVE_EVENT:
       delete nextState[action.myId][action.event.id];
+    return nextState;
+    case CLEAR_MY_EVENTS:
+      delete nextState[action.id]; 
     return nextState;
     case CLEAR_USER_EVENTS:
       return {};

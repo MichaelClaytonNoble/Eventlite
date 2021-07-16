@@ -1,6 +1,6 @@
 import MyEvents from './my_events'; 
 import {connect} from 'react-redux'; 
-import {getMyEventsByType, searchEvents} from '../../actions/events';
+import {clearMyEvents, getMyEventsByType, searchEvents} from '../../actions/events';
 import {analyzeEvents} from '../../reducers/selectors/events_selectors';
 import { openModal } from '../../actions/modal';
 import { decrementPage, incrementPage, resetPage, resetPaginate } from '../../actions/paginate';
@@ -35,7 +35,8 @@ const mDTP = (dispatch, ownProps) => {
     getMyEvents: ()=>dispatch(getMyEventsByType('creator_id',ownProps.match.params.myId)),
     openModal: (type)=>dispatch(openModal(type)),
     changePage: (option) => option === "prev" ? dispatch(decrementPage()) : dispatch(incrementPage()),
-    resetPage: ()=> dispatch(resetPage())
+    resetPage: ()=> dispatch(resetPage()),
+    clearEvents: ()=> dispatch(clearMyEvents(ownProps.match.params.myId))
   })
 }
 

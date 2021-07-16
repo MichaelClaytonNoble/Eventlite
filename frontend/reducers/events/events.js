@@ -15,13 +15,6 @@ const eventsReducer = (state = {}, action) =>{
     case REMOVE_EVENT: 
       delete nextState[action.eventId];
       return nextState;
-    case CLEAR_MY_EVENTS:
-      Object.values(nextState).forEach( event =>{
-        if(event.creator_id === action.id){
-          delete nextState[event.id];
-        }
-      });
-      return nextState;
     case CLEAR_EVENTS:
       return {};
     default: 

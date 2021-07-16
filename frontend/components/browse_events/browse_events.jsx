@@ -62,6 +62,7 @@ class BrowseEvents extends React.Component{
     }
     if(prevProps.paginate['page'] !== this.props.paginate['page']){
       console.log("componentDidUpdate: ", "this.state.paginate"); 
+      window.scrollTo(0,0); 
       this.search();
     }
   }

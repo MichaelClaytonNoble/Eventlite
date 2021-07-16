@@ -44,6 +44,7 @@ class MyEvents extends React.Component{
     search['status'] = this.state.filterStatus;
     search['organizer'] = this.state.filterOrganizer;
     let that = this;
+    this.props.clearEvents(); 
     this.props.searchEvents(search);
   }
   showMenu(key){
