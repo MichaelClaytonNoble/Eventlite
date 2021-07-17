@@ -12,7 +12,7 @@ class SuggestionTree
     @children
   end
 
-  def add_Event(event)
+  def add_event(event)
     attributes = [["category",event.category], ["location",event.location], ["paid",event.paid]]
     dfs(@root,attributes)
   end
@@ -39,7 +39,12 @@ class SuggestionTree
     end
   end
 
-  def printTree( node = @root)
+
+  def generateSuggestions(event_table)
+    event_table.where(id: 1); 
+  end
+
+  def print_tree( node = @root)
     puts node.val
     if node.children.empty?
       return
@@ -47,7 +52,7 @@ class SuggestionTree
 
     while !node.children.empty?
       current = node.children.pop
-      self.printTree(current)
+      self.print_tree(current)
     end
   end
 end
@@ -76,7 +81,7 @@ class Node
 
 end
 
-class Event
+class Event_copy
   def initialize(category, paid, location)
     @category = category
     @paid = paid
@@ -93,24 +98,24 @@ class Event
     @location
   end
 end
-def main
-  events = [];
-  events[0] = Event.new("Music", "true", "ONLINE");
-  events[1] = Event.new("Health", "true", "ONLINE");
-  events[2] = Event.new("Food & Drink", "true", "ONLINE");
-  events[3] = Event.new("Music", "false", "ONLINE");
-  events[4] = Event.new("Health", "false", "ONLINE");
-  events[5] = Event.new("Food & Drink", "false", "ONLINE");
-  events[6] = Event.new("Science & Tech", "true", "VENUE");
-  events[7] = Event.new("Film & Media", "false", "VENUE");
-  events[8] = Event.new("Community", "true", "VENUE");
+# def main
+#   events = [];
+#   events[0] = Event_copy.new("Music", "true", "ONLINE");
+#   events[1] = Event_copy.new("Health", "true", "ONLINE");
+#   events[2] = Event_copy.new("Food & Drink", "true", "ONLINE");
+#   events[3] = Event_copy.new("Music", "false", "ONLINE");
+#   events[4] = Event_copy.new("Health", "false", "ONLINE");
+#   events[5] = Event_copy.new("Food & Drink", "false", "ONLINE");
+#   events[6] = Event_copy.new("Science & Tech", "true", "VENUE");
+#   events[7] = Event_copy.new("Film & Media", "false", "VENUE");
+#   events[8] = Event_copy.new("Community", "true", "VENUE");
 
-  tree = SuggestionTree.new(); 
-  events.each do |event|
-    tree.add_Event(event);
-  end
+#   tree = SuggestionTree.new(); 
+#   events.each do |event|
+#     tree.add_event(event);
+#   end
 
-  tree.printTree
-end
+#   tree.print_tree
+# end
 
-main
+# main

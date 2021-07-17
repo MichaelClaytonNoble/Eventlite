@@ -1,3 +1,4 @@
+require_relative "../../../lib/suggestions/Suggestion.rb"
 class Api::EventsController < ApplicationController
   include Api::EventsHelper
   before_action :require_logged_in, only: [:create, :destroy]
@@ -95,7 +96,16 @@ class Api::EventsController < ApplicationController
     val = params[:value]
     if col == 'any_id'
       @events = Event.where('id = ?', val)
+
+      if session[:suggestions] 
+
+      else
+        session[:suggestions] = {}
+      end
       
+      event_object = @events.all.to_a.first
+      session[:suggestions][event_object.id] = {"category" => event_object.category.name, "location" => event_object.location, "paid" => event_object.paid}
+
     elsif(col == 'creator_id')
       @creator_id = val
       @events = Event.where("#{col} = ?", val) if whitelist(col.downcase)

@@ -5,7 +5,7 @@ import { pullCategories } from '../../actions/categories';
 import { getAllEvents, searchEvents, clearEvents } from '../../actions/events';
 
 import BrowseEvents from './browse_events';
-import {createFollow, deleteFollow, fetchFollows} from '../../actions/follows';
+import {fetchFollows} from '../../actions/follows';
 import { resetPage, incrementPage, decrementPage } from '../../actions/paginate';
 
 const mSTP = (state, ownProps) => ({
