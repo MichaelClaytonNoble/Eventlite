@@ -1,13 +1,18 @@
 class SuggestionTree
   def initialize()
-    @root = Node.new(nil, nil)
+    @root = Node.new('', '')
     @children = []
+    @score = {}
+    @score.default = {}
+    @attributes= ["category", "location", "paid"]
   end
 
   def root
     @root
   end
-
+  def score
+    @score
+  end
   def children
     @children
   end
@@ -27,6 +32,7 @@ class SuggestionTree
     val = attribute[1]
 
     if node.catalog[val] != nil 
+      node.score[val] += 1
       index = node.catalog[val]
       self.dfs(node.children[index], attributes)
 
@@ -35,17 +41,39 @@ class SuggestionTree
       node.children.push(new_Node)
       index = node.children.length - 1
       node.catalog[val] = index
+      node.score['key'] = key
+      node.score[val] = 1
+
       self.dfs(new_Node, attributes)
     end
   end
 
+  def calculate_paths(node, paths, current_path, score)
+    if node.children.empty?
+      paths.push({"path" => current_path, "score" => score})
+      return
+    end
 
-  def generateSuggestions(event_table)
-    event_table.where(id: 1); 
+
+    while !node.children.empty?
+      current = node.children.pop
+      puts current.val
+      puts current.score
+   
+      calculate_paths(current, paths, current_path+[node.score['key']], score+node.score[current.val])
+
+    end
+    return paths
+  end
+
+
+  def generateSuggestions()
+
   end
 
   def print_tree( node = @root)
-    puts node.val
+    # puts node.val
+    puts node.score
     if node.children.empty?
       return
     end
@@ -64,6 +92,7 @@ class Node
     @type = type
     @val = val
     @catalog = {}
+    @score = {}
     @children = []
   end
   def val 
@@ -78,7 +107,9 @@ class Node
   def children
     @children
   end
-
+  def score
+    @score
+  end
 end
 
 class Event_copy
@@ -98,24 +129,29 @@ class Event_copy
     @location
   end
 end
-# def main
-#   events = [];
-#   events[0] = Event_copy.new("Music", "true", "ONLINE");
-#   events[1] = Event_copy.new("Health", "true", "ONLINE");
-#   events[2] = Event_copy.new("Food & Drink", "true", "ONLINE");
-#   events[3] = Event_copy.new("Music", "false", "ONLINE");
-#   events[4] = Event_copy.new("Health", "false", "ONLINE");
-#   events[5] = Event_copy.new("Food & Drink", "false", "ONLINE");
-#   events[6] = Event_copy.new("Science & Tech", "true", "VENUE");
-#   events[7] = Event_copy.new("Film & Media", "false", "VENUE");
-#   events[8] = Event_copy.new("Community", "true", "VENUE");
+def main
+  events = [];
+  events[0] = Event_copy.new("Music", "true", "ONLINE");
+  events[1] = Event_copy.new("Health", "true", "ONLINE");
+  events[2] = Event_copy.new("Food & Drink", "true", "ONLINE");
+  events[3] = Event_copy.new("Music", "false", "ONLINE");
+  events[4] = Event_copy.new("Health", "false", "ONLINE");
+  events[5] = Event_copy.new("Food & Drink", "false", "ONLINE");
+  events[6] = Event_copy.new("Science & Tech", "true", "VENUE");
+  events[7] = Event_copy.new("Film & Media", "false", "VENUE");
+  events[8] = Event_copy.new("Community", "true", "VENUE");
+  events[9] = Event_copy.new("Music", "true", "ONLINE");
+  events[10] = Event_copy.new("Music", "true", "ONLINE");
+  events[11] = Event_copy.new("Food & Drink", "false", "ONLINE");
+  events[12] = Event_copy.new("Film & Media", "false", "VENUE");
+  
+  tree = SuggestionTree.new(); 
+  events.each do |event|
+    tree.add_event(event);
+  end
 
-#   tree = SuggestionTree.new(); 
-#   events.each do |event|
-#     tree.add_event(event);
-#   end
+  # tree.print_tree
+  print tree.calculate_paths(tree.root, [], [], 0)
+end
 
-#   tree.print_tree
-# end
-
-# main
+main

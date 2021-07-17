@@ -101,10 +101,11 @@ class Api::EventsController < ApplicationController
 
       else
         session[:suggestions] = {}
+        session[:suggestionCount] = 0
       end
-      
       event_object = @events.all.to_a.first
-      session[:suggestions][event_object.id] = {"category" => event_object.category.name, "location" => event_object.location, "paid" => event_object.paid}
+      session[:suggestions][session[:suggestionCount]] = {"category" => event_object.category.name, "location" => event_object.location, "paid" => event_object.paid}
+      session[:suggestionCount] +=1
 
     elsif(col == 'creator_id')
       @creator_id = val
