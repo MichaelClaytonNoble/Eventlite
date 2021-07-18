@@ -45,7 +45,8 @@ The landing page welcomes users and shows the most relevant events based on rece
 ![Sign up](https://user-images.githubusercontent.com/31423958/116792773-9e623b00-aa77-11eb-8c57-d427c31f846c.gif)
 
 ## Suggestions
-Events are suggested to the user based upon the events viewed during the session.
+Events are suggested to the user based upon the events viewed during the session. Specific data about the event pages the user has visited is save as a k-ary tree as a part of the session cookie. Each branch of this tree is weighted based on how many times that attribute was sought out during the users session. The tree is traversed to determine which attributes are most relevant to the user. 
+![final_60f3e275c2a2f20103c4dc79_994743](https://user-images.githubusercontent.com/31423958/126060480-ba5b47d5-be97-4c0c-bfe3-9f706da841f5.gif)
 
 ## Browse
 Users and visitors can browse through events. The browse page provides the following filters: multiple date options, categories, event title, event location, and price.
