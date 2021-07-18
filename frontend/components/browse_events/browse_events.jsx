@@ -69,7 +69,7 @@ class BrowseEvents extends React.Component{
 
   search(){
     console.log("search");
-    this.props.clear
+    // this.props.clear
     let search = Object.assign({}, this.props.paginate);
     search['search'] = this.state.searchFilter;
     search['category'] = this.state.categoryFilter;

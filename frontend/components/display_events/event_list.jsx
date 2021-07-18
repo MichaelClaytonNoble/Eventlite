@@ -36,6 +36,10 @@ class EventList extends React.Component{
 
     
     if(!eventsList.length){
+      if(this.props.suggestion){
+        
+        return <p id="no-events-message">Browse for events to generate suggestions.</p>
+      }
       if(this.props.likes){
         return <p id="no-events-message">Like some events to see them here.</p>
       }

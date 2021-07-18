@@ -1,11 +1,14 @@
 
 #events-list-wrap{
+  animation: fadeIn .5s;
   #events-left{
     display: flex; 
     flex-direction: column;
     width: 50%;
+    animation: fadeIn .5s;
   }
   #events-right{
+    animation: fadeIn .5s;
     display: flex;
     flex-direction: column; 
     width: 50%;

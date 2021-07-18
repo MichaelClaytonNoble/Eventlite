@@ -1,0 +1,17 @@
+#show-suggestions{
+  #next-page-buttons-suggestions{
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  button{
+    font-size: 15px; 
+    border-bottom: 1px solid grey;
+  }
+  #header-title-page-num{
+    margin-bottom: -25px; 
+    font-size: 15px; 
+  }
+}

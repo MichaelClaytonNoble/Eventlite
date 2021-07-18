@@ -158,10 +158,26 @@ class Api::EventsController < ApplicationController
     end
   end
 
+  # def suggestions
+  #   debugger
+  # end
 
   def browse
 
     options = params[:options]
+
+    if options[:suggestionNumber]
+      visited_events = session[:suggestions]
+      visited_events = visited_events.map{|k,v| v}
+      tree = SuggestionTree.new()
+
+      suggestion = tree.build(visited_events)[options[:suggestionNumber].to_i]
+
+      suggestion['path'].each_with_index do |k, i|
+
+        options[k]=suggestion['val'][i]
+      end
+    end
 
     if logged_in? && options[:creator_id]
       @creator_id = current_user.id

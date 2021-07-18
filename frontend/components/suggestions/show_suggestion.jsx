@@ -1,9 +1,54 @@
+import React, {useEffect, useState, Component} from 'react'
+import EventList from '../display_events/event_list'
 
+const ShowSuggestion = (props) => {
+  const [page, setPage] = useState(1);
+  const [events, setEvents] = useState([]);
+  const [category, setCategory] = useState('')
+  const [location, setLocation] = useState('')
+  const [price, setPrice] = useState('')
+  const [suggestionNumber, setSuggestionNumber] = useState('');
 
-import {connect} from 'react-redux';
-import { pullCategories } from '../../actions/categories';
-import { getAllEvents, searchEvents, clearEvents } from '../../actions/events';
+  useEffect(()=> {
+    props.getFollows();
+    props.clearEvents();
 
-import BrowseEvents from './browse_events';
-import {fetchFollows} from '../../actions/follows';
-import { resetPage, incrementPage, decrementPage } from '../../actions/paginate'
+    let searchData = {
+      suggestionNumber: props.suggestionNumber, page
+    }
+    props.searchEvents(searchData);
+  }, []);
+    
+  useEffect(()=> {
+    props.clearEvents();
+    setPage(props.paginate.page)
+    let searchData = {
+      suggestionNumber: props.suggestionNumber, page
+    }
+
+    props.searchEvents(searchData)
+  }, [props.paginate, props.suggestionNumber]);
+
+  useEffect(()=> {
+    setEvents(props.events);
+  }, [props.events]);
+
+  let changePage = '';
+  if( events.length >= 12 ){
+    changePage =<div id="next-page-buttons">
+          <button id="prev-page" onClick={()=>props.changePage("prev")}>previous</button>
+          <button id="next-page" onClick={()=>props.changePage("next")}>next</button>
+        </div>
+  }
+  return (
+      <div id="show-likes"><div id="header-title-page-num">Page {props.suggestionNumber + 1} of 4</div>
+        <div id="header-title">Events you may like {props.changeSuggestion}</div>
+        <div id="events-list-wrap">
+          <EventList events={events} suggestion={true}/>
+        </div>
+        {changePage}
+    </div> 
+  )
+}
+
+export default ShowSuggestion;
