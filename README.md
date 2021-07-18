@@ -3,12 +3,13 @@
 1. [Technologies](#Technologies)
 2. [Landing Page](#Landing-Page)
 3. [User Authentication](#User-Authentication)
-4. [Browse](#Browse)
-5. [Create Events](#Create-Events)
-6. [Managing Events](#Managing-Events)
-7. [View Events](#View-Events)
-8. [Like Events](#Like-Events)
-9. [Future Provisions](#Future-Provisions)
+4. [Suggestions](#Suggestions)
+5. [Browse](#Browse)
+6. [Create Events](#Create-Events)
+7. [Managing Events](#Managing-Events)
+8. [View Events](#View-Events)
+9. [Like Events](#Like-Events)
+10. [Future Provisions](#Future-Provisions)
 
 
 ## Introduction
@@ -42,6 +43,9 @@ The landing page welcomes users and shows the most relevant events based on rece
  * A demo account is available to try login and test all the Eventlite features
  * Error messages will be displayed if there is an error signing up or in. 
 ![Sign up](https://user-images.githubusercontent.com/31423958/116792773-9e623b00-aa77-11eb-8c57-d427c31f846c.gif)
+
+## Suggestions
+Events are suggested to the user based upon the events viewed during the session.
 
 ## Browse
 Users and visitors can browse through events. The browse page provides the following filters: multiple date options, categories, event title, event location, and price.
