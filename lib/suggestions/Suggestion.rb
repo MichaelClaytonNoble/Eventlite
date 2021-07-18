@@ -48,27 +48,27 @@ class SuggestionTree
     end
   end
 
-  def calculate_paths(node, paths, current_path, score)
-    if node.children.empty?
-      paths.push({"path" => current_path, "score" => score})
+  def calculate_paths(node, paths, current_path, current_value, score, max_depth=2)
+    if node.children.empty? || max_depth == 0
+      paths.push({"path" => current_path, "val"=>current_value,"score" => score})
       return
     end
 
 
     while !node.children.empty?
       current = node.children.pop
-      puts current.val
-      puts current.score
-   
-      calculate_paths(current, paths, current_path+[node.score['key']], score+node.score[current.val])
+
+      calculate_paths(current, paths, current_path+[node.score['key']], current_value+[current.val], score+node.score[current.val], max_depth-1)
 
     end
     return paths
   end
 
 
-  def generateSuggestions()
-
+  def generate_suggestions()
+    paths_3 = calculate_paths(self.root, [], [], [], 0, 3) 
+    paths_3 = paths_3.sort{ |path1, path2| path2['score']<=>path1['score']}[0..3]
+    puts paths_3
   end
 
   def print_tree( node = @root)
@@ -130,28 +130,28 @@ class Event_copy
   end
 end
 def main
-  events = [];
-  events[0] = Event_copy.new("Music", "true", "ONLINE");
-  events[1] = Event_copy.new("Health", "true", "ONLINE");
-  events[2] = Event_copy.new("Food & Drink", "true", "ONLINE");
-  events[3] = Event_copy.new("Music", "false", "ONLINE");
-  events[4] = Event_copy.new("Health", "false", "ONLINE");
-  events[5] = Event_copy.new("Food & Drink", "false", "ONLINE");
-  events[6] = Event_copy.new("Science & Tech", "true", "VENUE");
-  events[7] = Event_copy.new("Film & Media", "false", "VENUE");
-  events[8] = Event_copy.new("Community", "true", "VENUE");
-  events[9] = Event_copy.new("Music", "true", "ONLINE");
-  events[10] = Event_copy.new("Music", "true", "ONLINE");
-  events[11] = Event_copy.new("Food & Drink", "false", "ONLINE");
-  events[12] = Event_copy.new("Film & Media", "false", "VENUE");
+  events = [] 
+  events[0] = Event_copy.new("Music", "true", "ONLINE") 
+  events[1] = Event_copy.new("Health", "true", "ONLINE") 
+  events[2] = Event_copy.new("Food & Drink", "true", "ONLINE") 
+  events[3] = Event_copy.new("Music", "false", "ONLINE") 
+  events[4] = Event_copy.new("Health", "false", "ONLINE") 
+  events[5] = Event_copy.new("Food & Drink", "false", "ONLINE") 
+  events[6] = Event_copy.new("Science & Tech", "true", "VENUE") 
+  events[7] = Event_copy.new("Film & Media", "false", "VENUE") 
+  events[8] = Event_copy.new("Community", "true", "VENUE") 
+  events[9] = Event_copy.new("Music", "true", "ONLINE") 
+  events[10] = Event_copy.new("Music", "true", "ONLINE") 
+  events[11] = Event_copy.new("Food & Drink", "false", "ONLINE") 
+  events[12] = Event_copy.new("Film & Media", "false", "VENUE") 
   
-  tree = SuggestionTree.new(); 
+  tree = SuggestionTree.new()
   events.each do |event|
-    tree.add_event(event);
+    tree.add_event(event)
   end
 
   # tree.print_tree
-  print tree.calculate_paths(tree.root, [], [], 0)
+  tree.generate_suggestions
 end
 
 main

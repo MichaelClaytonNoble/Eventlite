@@ -19,7 +19,7 @@ class HeaderNavBar extends React.Component {
   }
 
   render(){
-    let signinLink, menuDropdown, likesLink, ticketsLink, aboutLink, createLink = '';
+    let signinLink, menuDropdown, likesLink, ticketsLink, aboutLink, createLink, suggestionsLink = '';
 
     if(!this.props.loggedIn){
       signinLink = <span id="signin-link">
@@ -53,6 +53,10 @@ class HeaderNavBar extends React.Component {
         </span>
       );
 
+      suggestionsLink = <span className="nav-icon-link" id="create-icon-link" onClick={()=>this.props.history.push('/suggestions')}>
+        <img src="https://img.icons8.com/carbon-copy/100/39364f/idea.png"/>
+        <p>Suggestions</p>
+        </span>
       createLink = <span className="nav-icon-link" id="create-icon-link" onClick={()=>this.props.history.push('/events/create')}>
         <img src="https://img.icons8.com/android/24/3d64ff/plus.png"/>
         <p>Create Event</p>
@@ -80,6 +84,7 @@ class HeaderNavBar extends React.Component {
           {createLink}
           {likesLink}
           {ticketsLink}
+          {suggestionsLink}
           {menuDropdown}
           {signinLink}
         </span>
