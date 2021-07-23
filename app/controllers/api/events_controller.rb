@@ -166,13 +166,15 @@ class Api::EventsController < ApplicationController
 
     options = params[:options]
 
+    #add comments because this is confusing
+    # or write a semantically named helper function 
+    #make it read like english ideally we don't need comments
     if options[:suggestionNumber]
       visited_events = session[:suggestions]
       visited_events = visited_events.map{|k,v| v}
       tree = SuggestionTree.new()
 
       suggestion = tree.build(visited_events)[options[:suggestionNumber].to_i]
-
       suggestion['path'].each_with_index do |k, i|
 
         options[k]=suggestion['val'][i]
@@ -197,6 +199,7 @@ class Api::EventsController < ApplicationController
       options[:paid] = false
     end
 
+    #create helper function thats named well functions should do 1 thing
     @events = Event
 
     #@events = @events.where("#{options[:column]} = ?", options[:value]) if options[:by_column] && whitelist(options[:column].downcase)
@@ -209,7 +212,6 @@ class Api::EventsController < ApplicationController
 
     @events = @events.where(paid: options[:paid]) if options[:price] != "Any" && options[:price]
     @events = @events.where(location: options[:location]) if options[:location] != "Any" && options[:location]
-
 
     @events = @events.where("creator_id = ?", current_user.id) if options[:creator_id]
     @events = @events.where("creator_id != ?", current_user.id) if options["logged_in"] && !options["creator_id"]
