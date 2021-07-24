@@ -28,7 +28,9 @@ class BrowseEvents extends React.Component {
     this.dateMenu = document.getElementById("date-menu");
     this.priceMenu = document.getElementById("price-menu");
 
+    if (!this.props.follows.length) this.props.getFollows();
     this.props.getCategories().then(() => {
+      //sets the initial state of the left side filter menu
       if (this.props.initialCategory) {
         if (this.props.initialCategory === "Online Events") {
           document.getElementById("location-select").value = "ONLINE";
@@ -43,9 +45,6 @@ class BrowseEvents extends React.Component {
       }
       this.search();
     });
-  }
-  componentWillMount() {
-    if (!this.props.follows.length) this.props.getFollows();
   }
 
   componentDidUpdate(prevProps) {
