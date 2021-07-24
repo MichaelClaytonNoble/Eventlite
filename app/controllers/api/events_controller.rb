@@ -177,7 +177,7 @@ class Api::EventsController < ApplicationController
     @events = @events.where(location: options[:location]) if options[:location] != "Any" && options[:location]
 
     @events = @events.where("creator_id = ?", current_user.id) if options[:creator_id]
-    @events = @events.where("creator_id != ?", current_user.id) if options["logged_in"] && !options["creator_id"]
+    @events = @events.where("creator_id != ?", current_user.id) if logged_in? && !options["creator_id"]
     @events = @events.where("start > ?", DateTime.now) if options["future"]
 
     @events = @events.where(Event.arel_table[:title].lower.matches("%#{options[:search]}%")) if options[:search] != "" && options[:search]
