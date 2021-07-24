@@ -10,43 +10,6 @@ class Api::EventsController < ApplicationController
     else
       @events = Event.where('start >= ?', DateTime.now)
     end
-
-    # @events.each do |event|
-    #     registrations = event.registrations
-    #     gross = 0
-    #     ticketInfo = Ticket.joins(:registrations)
-    #     .select('sum(quantity_purchased * tickets.price) AS "gross", sum(quantity_purchased) AS "tickets_sold"')
-    #     .where('tickets.event_id = ?', event.id)[0]
-
-    #     gross = ticketInfo.gross || 0
-        
-    #     ticketInfo2 = event.tickets.select('sum(price) AS "cost", sum(max_quantity) AS "max_tickets"')[0]
-    #     cost = ticketInfo2.cost || 0
-
-    #     event.paid = "Free"
-    #     event.gross = 0;
-    #     event.status = 'Incomplete'
-    #     event.max_tickets = ticketInfo2.max_tickets || 0
-    #     event.tickets_sold = ticketInfo.tickets_sold || 0
-    #     if event.tickets.any?
-    #       event.status = 'Complete'
-    #       event.gross = gross
-    #     end
-    #     if gross > 0
-    #       event.paid = "Paid"
-    #       event.gross = gross
-    #     end
-    #     if cost > 0
-    #       event.paid = "Paid"
-    #     end
-    #     if (event.end < DateTime.now)
-    #       event.status = 'Past'
-    #     end
-        # event.update(event.as_json)
-      # end
-
-    
-    
       render :event_list
   end
 
@@ -158,9 +121,14 @@ class Api::EventsController < ApplicationController
     end
   end
 
-  # def suggestions
-  #   debugger
-  # end
+  def create_suggestions_tree(suggestion_number)
+    visited_events = session[:suggestions]
+    visited_events = visited_events.map{|k,v| v}
+    tree = SuggestionTree.new()
+
+    suggestion = tree.build(visited_events)[suggestion_number.to_i]
+    return suggestion
+  end
 
   def browse
 
@@ -170,13 +138,8 @@ class Api::EventsController < ApplicationController
     # or write a semantically named helper function 
     #make it read like english ideally we don't need comments
     if options[:suggestionNumber]
-      visited_events = session[:suggestions]
-      visited_events = visited_events.map{|k,v| v}
-      tree = SuggestionTree.new()
-
-      suggestion = tree.build(visited_events)[options[:suggestionNumber].to_i]
+      suggestion = create_suggestions_tree(options[:suggestionNumber])
       suggestion['path'].each_with_index do |k, i|
-
         options[k]=suggestion['val'][i]
       end
     end
@@ -185,7 +148,7 @@ class Api::EventsController < ApplicationController
       @creator_id = current_user.id
       options[:logged_in] = true
     else
-      options[:logged_in] = nil
+      # options[:logged_in] = nil
     end
 
 
@@ -215,7 +178,6 @@ class Api::EventsController < ApplicationController
 
     @events = @events.where("creator_id = ?", current_user.id) if options[:creator_id]
     @events = @events.where("creator_id != ?", current_user.id) if options["logged_in"] && !options["creator_id"]
-    
     @events = @events.where("start > ?", DateTime.now) if options["future"]
 
     @events = @events.where(Event.arel_table[:title].lower.matches("%#{options[:search]}%")) if options[:search] != "" && options[:search]

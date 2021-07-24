@@ -4,6 +4,7 @@ import EventList from "../display_events/event_list";
 import ModalContainer from "../modals/modal_container";
 import FeedHeader from "./feed_header";
 import FeaturedCollections from "./featured_collections";
+
 const Splash = (props) => {
   let modal = "";
   if (props.modal) {
@@ -11,6 +12,7 @@ const Splash = (props) => {
   }
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (!props.follows) props.getFollows();
     if (!props.featuredCollections.length) props.getFeaturedCollections();
     if (!props.categories.length) props.getCategories();
@@ -23,6 +25,7 @@ const Splash = (props) => {
   const [featured, setFeatured] = useState(true);
 
   useEffect(() => {
+    let searchOptions = {};
     if (popularIn === "Online Events") {
       setFeatured(true);
     } else {
@@ -31,22 +34,16 @@ const Splash = (props) => {
     setFeaturedMessage(<h1>Popular in {popularIn}</h1>);
     props.clearEvents();
 
-    let col = "category_id";
-    let val,
-      name = "";
-
     if (popularIn === "Online Events") {
-      col = "location";
-      val = "ONLINE";
-      name = "Online Events";
+      searchOptions["location"] = "ONLINE";
     } else {
       let category = props.categories.find((cat) => {
         return cat.name === popularIn;
       });
-      val = category.id;
-      name = category.name;
+      searchOptions["category"] = category.name;
     }
-    props.getEvents(col, val);
+
+    props.searchEvents(searchOptions);
   }, [popularIn]);
   return (
     <div id="splash">

@@ -13,3 +13,11 @@ export function debounce( func , wait){
     timeout = setTimeout( after, wait ); 
   };
 }
+
+export function convertDateToLocalAsJSON(date){
+    return (date.toJSON(), new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toJSON());
+  }
+
+export function getCurrentDateTime(){
+    return convertDateToLocalAsJSON(new Date()).slice(0,16);
+  }

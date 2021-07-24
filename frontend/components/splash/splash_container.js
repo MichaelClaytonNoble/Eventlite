@@ -4,7 +4,8 @@ import Splash from "./splash";
 import {
   getEventsByType,
   clearEvents,
-  clearMyEvents
+  clearMyEvents,
+  searchEvents
 } from "../../actions/events";
 import { pullCategories } from "../../actions/categories";
 import { getFeaturedCollections } from "../../actions/featured_collections";
@@ -23,13 +24,25 @@ const mSTP = (state) => {
 };
 
 const mDTP = (dispatch) => {
+  let defaultSearch = {
+    page: 1,
+    per_page: 16,
+    future: true,
+  };
   return {
     getEvents: (col, val) => dispatch(getEventsByType(col, val)),
     getCategories: () => dispatch(pullCategories()),
     clearEvents: () => dispatch(clearEvents()),
     clearMyEvents: (id) => dispatch(clearMyEvents(id)),
     getFeaturedCollections: () => dispatch(getFeaturedCollections()),
-    getFollows: () => dispatch(fetchFollows())
+    getFollows: () => dispatch(fetchFollows()),
+    searchEvents: (options) => {
+      options["page"] = options["page"] || defaultSearch["page"];
+      options["per_page"] = options["per_page"] || defaultSearch["per_page"];
+      options["future"] = true;
+      options["logged_in"] = true;
+      return dispatch(searchEvents(options));
+    }
   };
 };
 
