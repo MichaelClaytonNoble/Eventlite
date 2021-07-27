@@ -37,7 +37,7 @@ const mDTP = (dispatch, ownProps) => {
     changePage: (option) => option === "prev" ? dispatch(decrementPage()) : dispatch(incrementPage()),
     resetPage: ()=> dispatch(resetPage()),
     clearEvents: ()=> dispatch(clearMyEvents(ownProps.match.params.myId))
-  })
+  });
 }
 
 const MyEventsContainer = connect(mSTP, mDTP)(MyEvents); 
