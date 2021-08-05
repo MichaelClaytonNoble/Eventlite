@@ -3,10 +3,10 @@ import ModalContainer from "../modals/modal_container";
 import TicketModalContainer from "../modals/ticket_modal_container";
 import LikeButtonContainer from "../like_button/like_button_container";
 import { convertDateToLocalAsJSON } from "../../helpers/helper";
-
+import Carousel from "../display_events/carousel"; 
 const ShowEvent = (props) => {
   let [modal, setModal] = useState("");
-
+  let [load, setLoad] = useState(''); 
   useEffect(() => {
     setModal(props.modal);
   }, [props.modal]);
@@ -20,10 +20,15 @@ const ShowEvent = (props) => {
     props.getTickets();
 
     if( !props.follows.length ) props.getFollows();
+    setLoad(true); 
   }, []);
 
-  if (!props.event) return null;
+  useEffect( ()=> {
+    if (props.event) props.getRelevantEvents(props.event.category_id);
+    
+  }, [load]);
 
+  if (!props.event) return null;
   let dateOptions = {
     weekday: "short",
     year: "numeric",
@@ -132,7 +137,7 @@ const ShowEvent = (props) => {
           </div>
         </div>
       </div>
-      {/* <Carousel events={state.relevantEvents} /> */}
+      {props.relevantEvents ? <Carousel events={props.relevantEvents}/> : ''}
     </div>
   );
 };
