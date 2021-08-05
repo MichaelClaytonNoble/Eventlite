@@ -24,7 +24,7 @@ import ShowEventContainer from "./show_event/show_event_container.js";
 import ShowLikesContainer from "./profile/show_likes_container.js";
 import CreateTicketFormContainer from "./create_tickets/create_ticket_form_container.js";
 import About from "./about/about.jsx";
-import Suggestions from "./suggestions/suggestions.jsx";
+import SuggestionsContainer from "./suggestions/suggestions_container";
 
 // usePageViews(){
 //   React.useEffect( ()=>{
@@ -97,7 +97,7 @@ class App extends React.Component {
             <Route path="/events/browse/" component={BrowseEventsContainer} />
             <Route path="/events/:eventId" component={ShowEventContainer} />
 
-            <Route path="/suggestions" component={Suggestions} />
+            <Route path="/suggestions" component={SuggestionsContainer} />
             <Route path="/about" component={About} />
             <Route exact path="/404" component={PageNotFound} />
             <Redirect to="/404" />
